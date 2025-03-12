@@ -1,0 +1,77 @@
+@use '../../styles/shared-mixins/reset-text-field';
+@use '../../styles/shared-mixins/typography';
+@use '../../styles/builders/form-field-modes-builder';
+
+.Input {
+  border-radius: var(--size-border-radius-semantic-border-radius-card);
+  padding-left: var(--spacing-size-xl);
+  padding-right: var(--spacing-size-xl);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+}
+
+// [State] Disabled
+.Input_disabled {
+  cursor: not-allowed;
+}
+
+// [Properties] Sizes
+.Input_compact {
+  height: 40px;
+}
+.Input:not(.Input_compact) {
+  height: 52px;
+}
+
+// [Properties] Modes
+.Input_mode_primary {
+  @include form-field-modes-builder.buildFormFieldPrimaryMode('Input');
+}
+.Input_mode_secondary {
+  @include form-field-modes-builder.buildFormFieldSecondaryMode('Input');
+}
+
+// [Parts] Body
+.Input__body {
+  flex-grow: 1;
+}
+
+// [Parts] Icon Before
+.Input__iconBefore {
+  color: var(--icon-primary);
+  margin-right: var(--spacing-size-xl);
+  display: flex;
+}
+
+// [Parts] Icon After
+.Input__iconAfter {
+  color: var(--icon-primary);
+  margin-left: var(--spacing-size-xl);
+  display: flex;
+}
+
+// [Parts] Clear button
+.Input__clearButton {
+  margin-left: var(--spacing-size-xl);
+  display: flex;
+}
+
+// [Parts] Input
+.Input__input {
+  @include reset-text-field.resetTextField;
+  @include typography.bodyLarge;
+  height: inherit;
+  flex-grow: 1;
+
+  .Input_disabled & {
+    color: var(--states-text-disabled-primary);
+  }
+}
+.Input__input::placeholder {
+  color: var(--text-secondary);
+
+  .Input_disabled & {
+    color: var(--states-text-disabled-primary);
+  }
+}

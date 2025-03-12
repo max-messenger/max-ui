@@ -1,0 +1,20 @@
+@use '../../../../styles/shared-mixins/typography';
+
+.TypographyHeadline {}
+
+// [Properties] Variants
+.TypographyHeadline_variant_large-strong {
+  @include typography.headlineLargeStrong;
+}
+.TypographyHeadline_variant_medium {
+  @include typography.headlineMedium;
+}
+.TypographyHeadline_variant_medium-strong {
+  @include typography.headlineMediumStrong;
+}
+.TypographyHeadline_variant_small {
+  @include typography.headlineSmall;
+}
+.TypographyHeadline_variant_small-strong {
+  @include typography.headlineSmallStrong;
+}

@@ -1,0 +1,15 @@
+.EllipsisText {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &_multiline {
+    display: -webkit-box;
+    -webkit-line-clamp: var(--MaxUi-EllipsisText_linesCount);
+    -webkit-box-orient: vertical;
+  }
+
+  &_singleLine {
+    white-space: nowrap;
+  }
+}

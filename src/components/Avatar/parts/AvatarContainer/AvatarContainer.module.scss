@@ -1,0 +1,55 @@
+@use '../../../../styles/shared-mixins/reset-clickable';
+
+$squircleMaskUrl: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NiIgaGVpZ2h0PSI1NiIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iIzAwMCIgZD0iTTI4IDBDNC45NDIgMCAwIDQuOTQyIDAgMjhjMCAyMy4wNDYgNC45MzcgMjcuOTk1IDI3Ljk2NSAyOGguMDdjMjMuMDE2LS4wMDUgMjcuOTYtNC45NDkgMjcuOTY1LTI3Ljk2NXYtLjA3QzU1Ljk5NSA0LjkzNyA1MS4wNDYgMCAyOCAwIi8+PHBhdGggZmlsbD0iIzAwMCIgZD0iTTAgMjhDMCA0Ljk0MiA0Ljk0MiAwIDI4IDBzMjggNC45NDIgMjggMjgtNC45NDIgMjgtMjggMjhTMCA1MS4wNTggMCAyOCIvPjwvc3ZnPg==';
+
+.AvatarContainer {
+  @include reset-clickable.resetClickable;
+
+  width: var(--MaxUi-AvatarContainer_size);
+  height: var(--MaxUi-AvatarContainer_size);
+  position: relative;
+  display: block;
+}
+
+// [Properties] Forms
+.AvatarContainer_form_circle .AvatarContainer__content {
+  --MaxUi-AvatarContainer__content_radius: 100%;
+
+  border-radius: var(--MaxUi-AvatarContainer__content_radius);
+}
+.AvatarContainer_form_squircle .AvatarContainer__content {
+  mask-image: url($squircleMaskUrl);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+// [Parts] Content
+.AvatarContainer__content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+// [Parts] Overlay
+.AvatarContainer__overlay {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+// [Parts] Right bottom node
+.AvatarContainer__rightBottomCorner {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+// [Parts] Right top node
+.AvatarContainer__rightTopCorner {
+  position: absolute;
+  right: 0;
+  top: 0;
+}

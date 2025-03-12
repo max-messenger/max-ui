@@ -1,0 +1,19 @@
+import { clsx } from 'clsx';
+import { type ComponentProps } from 'react';
+
+import styles from './{{properCase componentName}}.module.scss';
+
+export interface {{properCase componentName}}Props extends ComponentProps<'div'> {}
+
+export const {{properCase componentName}} = (props: {{properCase componentName}}Props): JSX.Element => {
+  const {
+    className,
+    ...rest
+  } = props;
+
+  return (
+    <div className={clsx(styles.{{properCase componentName}}, className)} {...rest} />
+  );
+};
+
+{{properCase componentName}}.displayName = '{{properCase componentName}}';

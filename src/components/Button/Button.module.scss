@@ -1,0 +1,239 @@
+@use '../../styles/shared-mixins/button-sizes';
+@use '../../styles/shared-mixins/button-appearances';
+@use '../../styles/shared-mixins/typography';
+@use '../../styles/shared-mixins/reset-clickable';
+
+.Button {
+  @include reset-clickable.resetClickable;
+
+  background-color: var(--MaxUi-Button_background);
+  color: var(--MaxUi-Button_foreground);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+// [State] Loading
+.Button_loading {
+
+  .Button__iconBefore, .Button__content, .Button__indicator, .Button__iconAfter {
+    visibility: hidden;
+  }
+}
+
+// [State] Disabled
+.Button_disabled {
+  cursor: not-allowed;
+}
+
+// [State] Stretched
+.Button_stretched {
+  width: 100%;
+}
+
+// [Property] Effect on :active
+.Button_activeMode {
+
+  &_ripple {
+    --Ripple_backgroundColor: var(--MaxUi-Button_background-active);
+  }
+
+  &_highlight {
+
+    &:active {
+      background-color: var(--MaxUi-Button_background-active);
+      color: var(--MaxUi-Button_foreground-active, var(--MaxUi-Button_foreground));
+    }
+  }
+}
+
+// [Properties] Modes
+.Button_mode_primary, .Button_mode_secondary, .Button_mode_tertiary {
+
+  &.Button_size_small {
+    padding: 0 var(--spacing-size-xl);
+  }
+
+  &.Button_size_medium {
+    padding: 0 var(--spacing-size2xl);
+  }
+
+  &.Button_size_large {
+    padding: 0 var(--spacing-size3xl);
+  }
+}
+
+// [Properties] Sizes
+.Button_size_small {
+  @include button-sizes.buttonSmallSize;
+}
+.Button_size_medium {
+  @include button-sizes.buttonMediumSize;
+}
+.Button_size_large {
+  @include button-sizes.buttonLargeSize;
+}
+
+// [Properties] Themed appearances
+.Button_mode_primary.Button_appearance_themed {
+  @include button-appearances.buttonPrimaryThemed('Button', true)
+}
+.Button_mode_secondary.Button_appearance_themed {
+  @include button-appearances.buttonSecondaryThemed('Button', true)
+}
+.Button_mode_tertiary.Button_appearance_themed {
+  @include button-appearances.buttonTertiaryThemed('Button', true);
+}
+.Button_mode_link.Button_appearance_themed {
+  @include button-appearances.buttonLinkThemed('Button', true);
+}
+
+// [Properties] Negative appearances
+.Button_mode_primary.Button_appearance_negative {
+  @include button-appearances.buttonPrimaryNegative('Button', true)
+}
+.Button_mode_secondary.Button_appearance_negative {
+  @include button-appearances.buttonSecondaryNegative('Button', true)
+}
+.Button_mode_tertiary.Button_appearance_negative {
+  @include button-appearances.buttonTertiaryNegative('Button', true);
+}
+.Button_mode_link.Button_appearance_negative {
+  @include button-appearances.buttonLinkNegative('Button', true);
+}
+
+// [Properties] Neutral appearances
+.Button_mode_primary.Button_appearance_neutral {
+  @include button-appearances.buttonPrimaryNeutral('Button', true)
+}
+.Button_mode_secondary.Button_appearance_neutral {
+  @include button-appearances.buttonSecondaryNeutral('Button', true)
+}
+.Button_mode_tertiary.Button_appearance_neutral {
+  @include button-appearances.buttonTertiaryNeutral('Button', true);
+}
+.Button_mode_link.Button_appearance_neutral {
+  @include button-appearances.buttonLinkNeutral('Button', true);
+}
+
+// [Properties] Neutral themed appearances
+.Button_mode_primary.Button_appearance_neutral-themed {
+  @include button-appearances.buttonPrimaryNeutralThemed('Button', true)
+}
+.Button_mode_secondary.Button_appearance_neutral-themed {
+  @include button-appearances.buttonSecondaryNeutralThemed('Button', true)
+}
+.Button_mode_tertiary.Button_appearance_neutral-themed {
+  @include button-appearances.buttonTertiaryNeutralThemed('Button', true);
+}
+.Button_mode_link.Button_appearance_neutral-themed {
+  @include button-appearances.buttonLinkNeutralThemed('Button', true);
+}
+
+// [Properties] Contrast static appearances
+.Button_mode_primary.Button_appearance_contrast-static {
+  @include button-appearances.buttonPrimaryContrastStatic('Button', true)
+}
+.Button_mode_secondary.Button_appearance_contrast-static {
+  @include button-appearances.buttonSecondaryContrastStatic('Button', true)
+}
+.Button_mode_tertiary.Button_appearance_contrast-static {
+  @include button-appearances.buttonTertiaryContrastStatic('Button', true);
+}
+.Button_mode_link.Button_appearance_contrast-static {
+  @include button-appearances.buttonLinkContrastStatic('Button', true);
+}
+
+// [Parts] Content
+.Button__content {
+  position: relative;
+  z-index: 1;
+
+  .Button_size_small & {
+    @include typography.actionSmall;
+  }
+
+  .Button_size_medium & {
+    @include typography.actionMedium;
+  }
+
+  .Button_size_large & {
+    @include typography.actionLarge;
+  }
+}
+
+// [Parts] Spinner container
+.Button__spinnerContainer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// [Parts] Icon before
+.Button__iconBefore {
+  position: relative;
+  z-index: 1;
+  display: flex;
+
+  .Button_size_small & {
+    margin-right: var(--spacing-size-xs);
+  }
+
+  .Button_size_medium & {
+    margin-right: var(--spacing-size-s);
+  }
+
+  .Button_size_large & {
+    margin-right: var(--spacing-size-s);
+  }
+}
+
+// [Parts] Icon after
+.Button__iconAfter {
+  position: relative;
+  z-index: 1;
+  display: flex;
+
+  .Button_size_small & {
+    margin-left: var(--spacing-size-xs);
+  }
+
+  .Button_size_medium & {
+    margin-left: var(--spacing-size-s);
+  }
+
+  .Button_size_large & {
+    margin-left: var(--spacing-size-s);
+  }
+}
+
+// [Parts] Indicator
+.Button__indicator {
+  position: relative;
+  z-index: 1;
+
+  .Button_size_small & {
+    margin-left: var(--spacing-size-xs);
+  }
+
+  .Button_size_medium & {
+    margin-left: var(--spacing-size-s);
+  }
+
+  .Button_size_large & {
+    margin-left: var(--spacing-size-s);
+  }
+}
+
+// [Parts] Ripple
+.Button__ripple {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}

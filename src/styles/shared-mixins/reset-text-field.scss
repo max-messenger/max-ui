@@ -1,0 +1,12 @@
+@mixin resetTextField {
+  font-family: var(--font);
+  appearance: none;
+  background: unset;
+  border: unset;
+  box-shadow: none;
+  margin: unset;
+  padding: unset;
+  outline: none;
+  resize: none;
+  color: inherit;
+}

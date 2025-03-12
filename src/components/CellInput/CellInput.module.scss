@@ -1,0 +1,60 @@
+@use '../../styles/shared-mixins/typography';
+@use '../../styles/shared-mixins/reset-text-field';
+
+.CellInput {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+// [State] Disabled
+.CellInput_disabled {
+  color: var(--states-text-disabled-primary);
+
+  .CellInput__input {
+
+    &::placeholder {
+      color: var(--states-text-disabled-primary);
+    }
+  }
+}
+
+// [Properties] Heights
+.CellInput_height_compact {
+  padding: var(--spacing-size-xs) var(--spacing-size-xl);
+  min-height: 48px;
+}
+.CellInput_height_normal {
+  padding: var(--spacing-size-m) var(--spacing-size-xl);
+  min-height: 56px;
+}
+
+// [Parts]
+.CellInput__before {
+  @include typography.titleLargeStrong;
+
+  margin-right: var(--spacing-size-xs);
+  width: 96px;
+}
+
+// [Parts] Body
+.CellInput__body {
+  flex-grow: 1;
+}
+
+// [Parts] Input
+.CellInput__input {
+  @include reset-text-field.resetTextField;
+  @include typography.bodyLarge;
+
+  flex-grow: 1;
+
+  &::placeholder {
+    color: var(--text-secondary);
+  }
+}
+
+// [Parts] Input Clear Button
+.CellInput__clearButton {
+  margin-left: var(--spacing-size-xl);
+}

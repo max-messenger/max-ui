@@ -1,0 +1,26 @@
+@use '../../../../styles/shared-mixins/typography';
+
+.TypographyLabel {}
+
+// [Properties] Variants
+.TypographyLabel_variant_large {
+  @include typography.labelLarge;
+}
+.TypographyLabel_variant_large-strong {
+  @include typography.labelLargeStrong;
+}
+.TypographyLabel_variant_large-caps {
+  @include typography.labelLargeCaps;
+}
+.TypographyLabel_variant_medium {
+  @include typography.labelMedium;
+}
+.TypographyLabel_variant_medium-strong {
+  @include typography.labelMediumStrong;
+}
+.TypographyLabel_variant_small-strong {
+  @include typography.labelSmallStrong;
+}
+.TypographyLabel_variant_small-caps {
+  @include typography.labelSmallCaps;
+}

@@ -1,0 +1,17 @@
+@use '../../../../styles/shared-mixins/typography';
+
+.TypographyTitle {}
+
+// [Properties] Variants
+.TypographyTitle_variant_large-strong {
+  @include typography.titleLargeStrong;
+}
+.TypographyTitle_variant_medium-strong {
+  @include typography.titleMediumStrong;
+}
+.TypographyTitle_variant_small {
+  @include typography.titleSmall;
+}
+.TypographyTitle_variant_small-strong {
+  @include typography.titleSmallStrong;
+}

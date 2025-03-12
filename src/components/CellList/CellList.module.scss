@@ -1,0 +1,30 @@
+.CellList {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+// [Property] Filled
+.CellList_filled {
+
+  .CellList__body {
+    background-color: var(--background-surface-card);
+  }
+}
+
+// [Properties] Modes
+.CellList_mode_full-width {}
+.CellList_mode_island {
+  padding-left: var(--spacing-size-xl);
+  padding-right: var(--spacing-size-xl);
+
+  .CellList__body {
+    overflow: hidden;
+    border-radius: var(--size-border-radius-semantic-border-radius-card);
+  }
+}
+
+// [Parts] Header
+.CellList__header {}
+
+// [Parts] Body
+.CellList__body {}

@@ -1,0 +1,67 @@
+@use '../../styles/shared-mixins/typography';
+
+.CellAction {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+// [Properties] Modes
+.CellAction_mode_primary {
+  color: var(--text-themed);
+
+  &.CellAction_disabled {
+    color: var(--states-text-disabled-themed);
+  }
+}
+.CellAction_mode_destructive {
+  color: var(--text-negative);
+
+  &.CellAction_disabled {
+    color: var(--states-text-disabled-negative);
+  }
+}
+.CellAction_mode_custom {
+  color: var(--MaxUi-CellAction_color, var(--text-themed));
+
+  &.CellAction_disabled {
+    color: var(--MaxUi-CellAction_color-disabled, var(--states-text-disabled-themed));
+  }
+}
+
+// [Properties] Sizes
+.CellAction_height_compact {
+  padding: var(--spacing-size-xs) var(--spacing-size-xl);
+  min-height: 48px;
+}
+.CellAction_height_normal {
+  padding: var(--spacing-size-m) var(--spacing-size-xl);
+  min-height: 56px;
+}
+
+// [Parts] Before
+.CellAction__before {
+  margin-right: var(--spacing-size-xl);
+  min-width: 40px;
+  min-height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// [Parts] Content
+.CellAction__content {
+  @include typography.titleLargeStrong;
+
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-width: 0
+}
+
+// [Parts] Chevron
+.CellAction__chevron {
+  color: var(--icon-quaternary);
+  flex-shrink: 0;
+}

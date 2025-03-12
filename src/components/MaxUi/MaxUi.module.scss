@@ -1,0 +1,37 @@
+@use '../../styles/variables/common';
+@use '../../styles/variables/sizes';
+@use '../../styles/variables/appearance';
+@use '../../styles/variables/typography';
+
+.MaxUi {
+  @include common.commonVariables;
+
+  font-family: var(--font);
+  background-color: var(--background-surface-primary);
+  color: var(--text-primary);
+  width: 100%;
+
+  &_platform {
+
+    &_ios {
+      @include sizes.iosSizes;
+      @include typography.iosTypography;
+    }
+
+    &_android {
+      @include sizes.androidSizes;
+      @include typography.androidTypography;
+    }
+  }
+
+  &_colorScheme {
+
+    &_light {
+      @include appearance.lightPalette;
+    }
+
+    &_dark {
+      @include appearance.darkPalette;
+    }
+  }
+}

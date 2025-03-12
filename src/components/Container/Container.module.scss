@@ -1,0 +1,11 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+// [Property] Not Full width
+.Container:not(.Container_fullWidth) {
+  padding-left: var(--spacing-size-xl);
+  padding-right: var(--spacing-size-xl);
+}

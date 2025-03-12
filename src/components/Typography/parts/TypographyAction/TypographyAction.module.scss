@@ -1,0 +1,17 @@
+@use '../../../../styles/shared-mixins/typography';
+
+.TypographyAction {}
+
+// [Properties] Variants
+.TypographyAction_variant_large {
+  @include typography.actionLarge;
+}
+.TypographyAction_variant_medium {
+  @include typography.actionMedium;
+}
+.TypographyAction_variant_small {
+  @include typography.actionSmall;
+}
+.TypographyAction_variant_label {
+  @include typography.actionLabel;
+}
