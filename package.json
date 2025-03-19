@@ -1,0 +1,32 @@
+{
+    "name": "max-web-app",
+    "version": "0.0.1",
+    "license": "MIT",
+    "type": "module",
+    "files": [
+        "dist"
+    ],
+    "main": "./dist/max-web-app.umd.js",
+    "module": "./dist/max-web-app.es.js",
+    "types": "./dist/src/index.d.ts",
+    "scripts": {
+        "clean": "rimraf dist",
+        "dev": "vite",
+        "build": "yarn clean && vite build && tsc --emitDeclarationOnly",
+        "prepare": "yarn build"
+    },
+    "devDependencies": {
+        "@types/node": "^22.7.5",
+        "@typescript-eslint/eslint-plugin": "^8.9.0",
+        "@typescript-eslint/parser": "^8.9.0",
+        "eslint": "8.57.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-import-resolver-typescript": "^3.6.3",
+        "eslint-plugin-import": "^2.31.0",
+        "eslint-plugin-promise": "^7.1.0",
+        "prettier": "^3.3.3",
+        "rimraf": "^6.0.1",
+        "typescript": "^5.6.2",
+        "vite": "^5.4.8"
+    }
+}

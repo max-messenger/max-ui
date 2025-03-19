@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "ESNext",
+        "lib": ["ESNext", "DOM"],
+        "declaration": true,
+        "outDir": "dist",
+        "strict": true,
+        "moduleResolution": "Node",
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "sourceMap": true,
+        "types": ["node"],
+        "isolatedModules": true,
+        "noEmit": false,
+        "baseUrl": "./"
+    },
+    "include": ["src/**/*", "vite.config.ts"],
+    "exclude": ["**/dist", "**/node_modules"]
+}

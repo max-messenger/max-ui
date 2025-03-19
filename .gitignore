@@ -1,0 +1,13 @@
+# misc
+.vscode
+.idea
+.DS_Store
+
+# builds
+dist/
+build.zip
+dist.zip
+*.tgz
+
+# dependencies
+/node_modules
