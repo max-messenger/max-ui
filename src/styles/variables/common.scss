@@ -1,0 +1,9 @@
+@mixin commonVariables {
+  --font: system-ui, -apple-system, BlinkMacSystemFont, "Roboto", "Apple Color Emoji", "Helvetica Neue", sans-serif;
+
+  --gradient-red: linear-gradient(153deg, #FF48B6 0.77%, #FF8A35 93.03%);
+  --gradient-orange: linear-gradient(155deg, #FFC93D 6.6%, #FF832A 84.12%);
+  --gradient-green: linear-gradient(158deg, #14E1D5 6.15%, #03C722 85.68%);
+  --gradient-blue: linear-gradient(157deg, #08D7F3 6.38%, #5398FF 85%);
+  --gradient-purple: linear-gradient(155deg, #BF97FF 6.6%, #526EFF 84.12%);
+}

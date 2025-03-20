@@ -1,0 +1,31 @@
+@use '../../styles/builders/form-field-modes-builder';
+@use '../../styles/shared-mixins/reset-text-field';
+@use '../../styles/shared-mixins/typography';
+
+.Textarea {
+  border-radius: var(--size-border-radius-semantic-border-radius-card);
+  color: var(--text-primary);
+}
+
+// [State] Disabled
+.Textarea_disabled {
+  cursor: not-allowed;
+}
+
+// [Properties] Modes
+.Textarea_mode_primary {
+  @include form-field-modes-builder.buildFormFieldPrimaryMode('Textarea');
+}
+.Textarea_mode_secondary {
+  @include form-field-modes-builder.buildFormFieldSecondaryMode('Textarea');
+}
+
+// [Parts] Textarea
+.Textarea__textarea {
+  @include reset-text-field.resetTextField;
+  @include typography.bodyLarge;
+
+  padding: var(--spacing-size-xl);
+  box-sizing: border-box;
+  width: 100%;
+}

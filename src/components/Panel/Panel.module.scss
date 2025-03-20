@@ -1,0 +1,21 @@
+.Panel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+// [Properties] Centered
+.Panel_centeredX {
+  align-items: center;
+}
+.Panel_centeredY {
+  justify-content: center;
+}
+
+// [Properties] Modes
+.Panel_mode_primary {
+  background-color: var(--background-surface-primary);
+}
+.Panel_mode_secondary {
+  background-color: var(--background-surface-ground);
+}

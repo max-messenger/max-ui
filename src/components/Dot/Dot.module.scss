@@ -1,0 +1,25 @@
+.Dot {
+  --MaxUi-Dot_size: 6px;
+
+  width: var(--MaxUi-Dot_size);
+  height: var(--MaxUi-Dot_size);
+  display: flex;
+  border-radius: 100%;
+}
+
+// [Properties] Appearances
+.Dot_appearance_themed {
+  background-color: var(--background-accent-themed);
+}
+.Dot_appearance_contrast-pinned {
+  background-color: var(--background-accent-contrast-static);
+}
+.Dot_appearance_neutral-fade {
+  background-color: var(--background-accent-neutral-fade);
+}
+.Dot_appearance_accent-red {
+  background-color: var(--background-accent-negative);
+}
+.Dot_appearance_inherit {
+  background-color: var(--MaxUi-external_background, var(--background-accent-themed));
+}

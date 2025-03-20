@@ -1,0 +1,20 @@
+@use '../../../../styles/shared-mixins/typography';
+
+.TypographyBody {}
+
+// [Properties] Variants
+.TypographyBody_variant_large {
+  @include typography.bodyLarge;
+}
+.TypographyBody_variant_medium {
+  @include typography.bodyMedium;
+}
+.TypographyBody_variant_small {
+  @include typography.bodySmall;
+}
+.TypographyBody_variant_small-strong {
+  @include typography.bodySmallStrong;
+}
+.TypographyBody_variant_small-caps {
+  @include typography.bodySmallCaps;
+}

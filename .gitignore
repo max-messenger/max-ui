@@ -1,0 +1,9 @@
+# Builds
+dist/
+storybook-static/
+
+# Dependency directory
+node_modules/
+
+# Chore
+.idea

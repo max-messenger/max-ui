@@ -1,0 +1,14 @@
+// Если компонент полиморфный (поддержан проп asChild), то он может быть отрендерен как <button /> или <a />,
+// которые могут изменить внешний вид компонента (в <a /> появиться text-decoration, в <button /> фон, бордер и тд)
+// Миксин обнуляет дефолтные стили
+// todo учесть дефолтные все стили от button, a, etc
+// todo учесть, что из-за миксина у класса может быть указано свойство дважды, например, сначала border:unset, а далее border по дизайн-системе
+@mixin resetClickable {
+  text-decoration: none;
+  border: unset;
+  color: inherit;
+  line-height: unset;
+  background: unset;
+  text-align: unset;
+  padding: unset;
+}

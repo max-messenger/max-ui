@@ -1,0 +1,151 @@
+@mixin buildButtonPrimaryModeAppearance(
+  $root,
+  $withInnerElementsDefs: false,
+
+  $background,
+  $background_disabled,
+  $background_hovered,
+  $background_pressed,
+  $foreground,
+  $foreground_disabled,
+
+  $innerElementsBackground,
+  $innerElementsBackground_disabled,
+  $innerElementsForeground,
+  $innerElementsForeground_disabled,
+) {
+  --MaxUi-#{$root}_background-active: #{$background_pressed};
+
+  --MaxUi-#{$root}_background: #{$background};
+  --MaxUi-#{$root}_foreground: #{$foreground};
+
+  &:hover {
+    --MaxUi-#{$root}_background: #{$background_hovered};
+  }
+
+  &.#{$root}_disabled {
+    --MaxUi-#{$root}_background: #{$background_disabled};
+    --MaxUi-#{$root}_foreground: #{$foreground_disabled};
+  }
+
+  @if $withInnerElementsDefs {
+    --MaxUi-external_background: #{$innerElementsBackground};
+    --MaxUi-external_foreground: #{$innerElementsForeground};
+
+    &.#{$root}_disabled {
+      --MaxUi-external_background: #{$innerElementsBackground_disabled};
+      --MaxUi-external_foreground: #{$innerElementsForeground_disabled};
+    }
+  }
+}
+
+@mixin buildButtonSecondaryModeAppearance(
+  $root,
+  $withInnerElementsDefs: false,
+
+  $foreground,
+  $foreground_disabled,
+
+  $innerElementsBackground,
+  $innerElementsBackground_disabled,
+  $innerElementsForeground,
+  $innerElementsForeground_disabled,
+) {
+  --MaxUi-#{$root}_background-active: var(--states-background-pressed-neutral-fade);
+
+  --MaxUi-#{$root}_background: var(--background-accent-neutral-fade);
+  --MaxUi-#{$root}_foreground: #{$foreground};
+
+  &:hover {
+    --MaxUi-#{$root}_background: var(--states-background-hovered-neutral-fade);
+  }
+
+  &.#{$root}_disabled {
+    --MaxUi-#{$root}_background: var(--states-background-disabled-neutral-fade);
+    --MaxUi-#{$root}_foreground: #{$foreground_disabled};
+  }
+
+  @if $withInnerElementsDefs {
+    --MaxUi-external_background: #{$innerElementsBackground};
+    --MaxUi-external_foreground: #{$innerElementsForeground};
+
+    &.#{$root}_disabled {
+      --MaxUi-external_background: #{$innerElementsBackground_disabled};
+      --MaxUi-external_foreground: #{$innerElementsForeground_disabled};
+    }
+  }
+}
+
+@mixin buildButtonTertiaryModeAppearance(
+  $root,
+  $withInnerElementsDefs: false,
+
+  $foreground,
+  $foreground_disabled,
+
+  $innerElementsBackground,
+  $innerElementsBackground_disabled,
+  $innerElementsForeground,
+  $innerElementsForeground_disabled,
+) {
+  --MaxUi-#{$root}_background-active: var(--states-background-pressed-transparent);
+
+  --MaxUi-#{$root}_background: transparent;
+  --MaxUi-#{$root}_foreground: #{$foreground};
+
+  &:hover {
+    --MaxUi-#{$root}_background: var(--states-background-hovered-transparent);
+  }
+
+  &.#{$root}_disabled {
+    --MaxUi-#{$root}_foreground: #{$foreground_disabled};
+  }
+
+  @if $withInnerElementsDefs {
+    --MaxUi-external_background: #{$innerElementsBackground};
+    --MaxUi-external_foreground: #{$innerElementsForeground};
+
+    &.#{$root}_disabled {
+      --MaxUi-external_background: #{$innerElementsBackground_disabled};
+      --MaxUi-external_foreground: #{$innerElementsForeground_disabled};
+    }
+  }
+}
+
+@mixin buildButtonLinkModeAppearance(
+  $root,
+  $withInnerElementsDefs: false,
+
+  $foreground,
+  $foreground_disabled,
+  $foreground_pressed,
+  $foreground_hovered,
+
+  $innerElementsBackground,
+  $innerElementsBackground_disabled,
+  $innerElementsForeground,
+  $innerElementsForeground_disabled,
+) {
+  --MaxUi-#{$root}_foreground-active: #{$foreground_pressed};
+
+  --MaxUi-#{$root}_background: transparent;
+  --MaxUi-#{$root}_foreground: #{$foreground};
+
+  &:hover {
+    --MaxUi-#{$root}_foreground: #{$foreground_hovered};
+  }
+
+  &.#{$root}_disabled {
+    --MaxUi-#{$root}_foreground: #{$foreground_disabled};
+  }
+
+  @if $withInnerElementsDefs {
+    --MaxUi-external_background: #{$innerElementsBackground};
+    --MaxUi-external_foreground: #{$innerElementsForeground};
+
+    &.#{$root}_disabled {
+      --MaxUi-external_background: #{$innerElementsBackground_disabled};
+      --MaxUi-external_foreground: #{$innerElementsForeground_disabled};
+    }
+  }
+}

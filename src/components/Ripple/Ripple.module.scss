@@ -1,0 +1,33 @@
+.Ripple {
+  position: absolute;
+}
+
+// [Properties] Active state
+.Ripple_active {
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  inline-size: 24px;
+  block-size: 24px;
+  margin-block: -12px 0;
+  margin-inline: 0 -12px;
+  opacity: 0;
+  border-radius: 50%;
+  background: var(--Ripple_backgroundColor, var(--states-background-hovered-transparent));
+  animation: animation-wave 0.3s;
+}
+
+@keyframes animation-wave {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(8);
+    opacity: 0;
+  }
+}

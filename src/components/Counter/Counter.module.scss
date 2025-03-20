@@ -1,0 +1,205 @@
+@use '../../styles/shared-mixins/typography';
+
+.Counter {
+  @include typography.titleSmallStrong;
+
+  min-width: var(--size-border-radius-semantic-border-radius-promo);
+  min-height: var(--size-border-radius-semantic-border-radius-promo);
+  padding: 1px var(--spacing-size-s);
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+// [Properties] Appearances and modes
+.Counter_appearance_themed {
+
+  &.Counter_mode_filled {
+
+    &.Counter_disabled {
+      color: var(--states-text-disabled-contrast-static);
+      background-color: var(--states-background-disabled-themed);
+    }
+
+    &.Counter_muted {
+      color: var(--text-secondary);
+      background-color: var(--background-accent-neutral-fade);
+    }
+
+    &:not(.Counter_muted):not(.Counter_disabled) {
+      color: var(--text-contrast-static);
+      background-color: var(--background-accent-themed);
+    }
+  }
+
+  &.Counter_mode_inverse {
+
+    &.Counter_disabled {
+      color: var(--states-text-disabled-themed);
+      background-color: var(--states-background-disabled-contrast-static);
+    }
+
+    &.Counter_muted {
+      color: var(--text-secondary);
+      background-color: var(--background-accent-neutral-fade);
+    }
+
+    &:not(.Counter_muted):not(.Counter_disabled) {
+      color: var(--text-themed);
+      background-color: var(--background-accent-contrast-static);
+    }
+  }
+}
+.Counter_appearance_neutral {
+
+  &.Counter_mode_filled {
+
+    &.Counter_disabled {
+      color: var(--states-text-disabled-contrast);
+      background-color: var(--states-background-disabled-neutral);
+    }
+
+    &.Counter_muted {
+      color: var(--text-secondary);
+      background-color: var(--background-accent-neutral-fade);
+    }
+
+    &:not(.Counter_muted):not(.Counter_disabled) {
+      color: var(--text-contrast);
+      background-color: var(--background-accent-neutral);
+    }
+  }
+
+  &.Counter_mode_inverse {
+
+    &.Counter_disabled {
+      color: var(--states-text-disabled-primary);
+      background-color: var(--states-background-disabled-contrast);
+    }
+
+    &.Counter_muted {
+      color: var(--text-secondary);
+      background-color: var(--background-accent-neutral-fade);
+    }
+
+    &:not(.Counter_muted):not(.Counter_disabled) {
+      color: var(--text-primary);
+      background-color: var(--background-accent-contrast);
+    }
+  }
+}
+.Counter_appearance_neutral-themed {
+
+  &.Counter_mode_filled {
+
+    &.Counter_disabled {
+      color: var(--states-text-disabled-contrast-static);
+      background-color: var(--states-background-disabled-neutral-themed);
+    }
+
+    &.Counter_muted {
+      color: var(--text-secondary);
+      background-color: var(--background-accent-neutral-fade);
+    }
+
+    &:not(.Counter_muted):not(.Counter_disabled) {
+      background-color: var(--background-accent-neutral-themed);
+      color: var(--text-contrast-static);
+    }
+  }
+
+  &.Counter_mode_inverse {
+
+    &.Counter_disabled {
+      color: var(--states-text-disabled-neutral-themed);
+      background-color: var(--states-background-disabled-contrast-static);
+    }
+
+    &.Counter_muted {
+      color: var(--text-secondary);
+      background-color: var(--background-accent-neutral-fade);
+    }
+
+    &:not(.Counter_muted):not(.Counter_disabled) {
+      color: var(--text-neutral-themed);
+      background-color: var(--background-accent-contrast-static);
+    }
+  }
+}
+.Counter_appearance_neutral-static {
+
+  &.Counter_mode_filled {
+
+    &.Counter_disabled {
+      color: var(--states-text-disabled-contrast-static);
+      background-color: var(--states-background-disabled-neutral-static);
+    }
+
+    &.Counter_muted {
+      color: var(--text-secondary);
+      background-color: var(--background-accent-neutral-fade);
+    }
+
+    &:not(.Counter_muted):not(.Counter_disabled) {
+      background-color: var(--background-accent-neutral-static);
+      color: var(--text-contrast-static);
+    }
+  }
+
+  &.Counter_mode_inverse {
+
+    &.Counter_disabled {
+      color: var(--states-text-disabled-primary-static);
+      background-color: var(--states-background-disabled-contrast-static);
+    }
+
+    &.Counter_muted {
+      color: var(--text-secondary);
+      background-color: var(--background-accent-neutral-fade);
+    }
+
+    &:not(.Counter_muted):not(.Counter_disabled) {
+      color: var(--text-primary-static);
+      background-color: var(--background-accent-contrast-static);
+    }
+  }
+}
+.Counter_appearance_negative {
+
+  &.Counter_mode_filled {
+
+    &.Counter_disabled {
+      color: var(--states-text-disabled-contrast-static);
+      background-color: var(--states-background-disabled-negative);
+    }
+
+    &.Counter_muted {
+      color: var(--text-secondary);
+      background-color: var(--background-accent-neutral-fade);
+    }
+
+    &:not(.Counter_muted):not(.Counter_disabled) {
+      background-color: var(--background-accent-negative);
+      color: var(--text-contrast-static);
+    }
+  }
+
+  &.Counter_mode_inverse {
+
+    &.Counter_disabled {
+      color: var(--states-text-disabled-negative);
+      background-color: var(--states-background-disabled-contrast-static);
+    }
+
+    &.Counter_muted {
+      color: var(--text-secondary);
+      background-color: var(--background-accent-neutral-fade);
+    }
+
+    &:not(.Counter_muted):not(.Counter_disabled) {
+      color: var(--text-negative);
+      background-color: var(--background-accent-contrast-static);
+    }
+  }
+}

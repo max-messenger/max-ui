@@ -1,0 +1,30 @@
+.AvatarText {
+  color: var(--text-contrast-static);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+// [Properties] Gradients
+.AvatarText_gradient_red {
+  background: var(--gradient-red);
+}
+.AvatarText_gradient_orange {
+  background: var(--gradient-orange);
+}
+.AvatarText_gradient_green {
+  background: var(--gradient-green);
+}
+.AvatarText_gradient_blue {
+  background: var(--gradient-blue);
+}
+.AvatarText_gradient_purple {
+  background: var(--gradient-purple);
+}
+
+// [Parts] Inner
+.AvatarText__in {
+  flex-grow: 1;
+}

@@ -1,0 +1,42 @@
+@use '../../styles/shared-mixins/typography';
+
+.CellHeader {
+  color: var(--text-secondary);
+  padding: var(--spacing-size-xs) calc(var(--spacing-size4xl) - var(--spacing-size-xl));
+  min-height: 28px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+// [Properties] Title styles
+.CellHeader_titleStyle_caps {
+
+  .CellHeader__content {
+    @include typography.labelLargeCaps;
+  }
+}
+.CellHeader_titleStyle_normal {
+
+  .CellHeader__content {
+    @include typography.labelLargeStrong;
+  }
+}
+
+// [Property] Fullwidth
+.CellHeader:not(.CellHeader_fullWidth) {
+  padding: var(--spacing-size-xs) var(--spacing-size-xl);
+}
+.CellHeader.CellHeader_fullWidth {
+  padding: var(--spacing-size-xs) var(--spacing-size-m);
+}
+
+// [Parts] Content
+.CellHeader__content {
+  flex-grow: 1;
+}
+
+// [Parts] After
+.CellHeader__after {
+  flex-shrink: 0;
+}
