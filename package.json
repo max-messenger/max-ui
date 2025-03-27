@@ -9,13 +9,13 @@
   "main": "dist/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/max-community/MaxUI.git"
+    "url": "git+https://github.com/max-messenger/max-ui.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/max-community/MaxUI/issues"
+    "url": "https://github.com/max-messenger/max-ui/issues"
   },
-  "homepage": "https://github.com/max-community/MaxUI#readme",
+  "homepage": "https://github.com/max-messenger/max-ui#readme",
   "scripts": {
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
