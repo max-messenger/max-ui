@@ -1,7 +1,9 @@
 import { clsx } from 'clsx';
 import { type ComponentProps, forwardRef } from 'react';
 
+import { useAvatarContainerContext } from '../AvatarContainer/AvatarContainerContext';
 import styles from './AvatarText.module.scss';
+import { getTextStyles } from './helpers';
 
 export type AvatarTextGradient = 'red' | 'orange' | 'green' | 'blue' | 'purple' | 'custom';
 
@@ -18,6 +20,8 @@ export const AvatarText = forwardRef<HTMLSpanElement, AvatarTextProps>((props, f
     ...rest
   } = props;
 
+  const { size: avatarContainerSize } = useAvatarContainerContext();
+
   const rootClassName = clsx(
     styles.AvatarText,
     {
@@ -32,7 +36,12 @@ export const AvatarText = forwardRef<HTMLSpanElement, AvatarTextProps>((props, f
       className={rootClassName}
       {...rest}
     >
-      <span className={styles.AvatarText__in}>{children}</span>
+      <span
+        className={styles.AvatarText__in}
+        style={getTextStyles(avatarContainerSize)}
+      >
+        {children}
+      </span>
     </span>
   );
 });
