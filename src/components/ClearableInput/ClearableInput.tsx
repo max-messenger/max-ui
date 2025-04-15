@@ -17,6 +17,7 @@ export type ClearableInputElementKey = 'input' | 'clearButton';
 
 export interface ClearableInputProps extends ComponentProps<'input'> {
   innerClassNames?: InnerClassNamesProp<ClearableInputElementKey>
+  withClearButton?: boolean
 }
 
 export const ClearableInput = forwardRef<HTMLInputElement, ClearableInputProps>((props, forwardedRef) => {
@@ -24,6 +25,7 @@ export const ClearableInput = forwardRef<HTMLInputElement, ClearableInputProps>(
     className,
     onChange,
     innerClassNames,
+    withClearButton = true,
     disabled,
     ...rest
   } = props;
@@ -51,9 +53,9 @@ export const ClearableInput = forwardRef<HTMLInputElement, ClearableInputProps>(
         {...rest}
       />
 
-      {!isEmpty && !disabled && (
+      {!isEmpty && !disabled && withClearButton && (
         <SvgButton
-          className={clsx(innerClassNames?.clearButton)}
+          className={clsx(styles.ClearableInput__button, innerClassNames?.clearButton)}
           onClick={clearValue}
           aria-label="Очистить"
         >

@@ -18,7 +18,8 @@ const meta = {
     iconAfter: false,
     iconBefore: true,
     disabled: false,
-    compact: false
+    compact: false,
+    withClearButton: true
   },
   decorators: [
     (Story) => (
