@@ -1,6 +1,6 @@
 {
   "name": "@maxhub/max-ui",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "author": "Vadim Tregubenko",
   "module": "dist/index.js",
   "typings": "dist/index.d.ts",

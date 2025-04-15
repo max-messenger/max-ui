@@ -19,6 +19,7 @@ export interface InputProps extends ComponentProps<'input'> {
   iconBefore?: ReactNode
   iconAfter?: ReactNode
   innerClassNames?: InnerClassNamesProp<InputElementKey>
+  withClearButton?: boolean
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>((props, forwardedRef) => {
@@ -27,6 +28,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, forwardedR
     iconBefore,
     iconAfter,
     innerClassNames,
+    withClearButton,
     compact = false,
     mode = 'primary',
     ...rest
@@ -53,6 +55,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, forwardedR
       <ClearableInput
         ref={forwardedRef}
         className={clsx(styles.Input__body, innerClassNames?.body)}
+        withClearButton={withClearButton}
         innerClassNames={{
           input: clsx(styles.Input__input, innerClassNames?.input),
           clearButton: clsx(styles.Input__clearButton, innerClassNames?.clearButton)

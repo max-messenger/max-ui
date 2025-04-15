@@ -1,11 +1,9 @@
 @use '../../styles/shared-mixins/button-sizes';
 @use '../../styles/shared-mixins/button-appearances';
 @use '../../styles/shared-mixins/typography';
-@use '../../styles/shared-mixins/reset-clickable';
 
 .Button {
-  @include reset-clickable.resetClickable;
-
+  font-family: var(--family-base);
   background-color: var(--MaxUi-Button_background);
   color: var(--MaxUi-Button_foreground);
   display: flex;
@@ -15,12 +13,15 @@
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
+  border: 0;
+  text-decoration: none;
 }
 
 // [State] Loading
 .Button_loading {
+  cursor: wait;
 
-  .Button__iconBefore, .Button__content, .Button__indicator, .Button__iconAfter {
+  :where(.Button__iconBefore, .Button__content, .Button__indicator, .Button__iconAfter) {
     visibility: hidden;
   }
 }
@@ -51,100 +52,99 @@
   }
 }
 
-// [Properties] Modes
-.Button_mode_primary, .Button_mode_secondary, .Button_mode_tertiary {
-
-  &.Button_size_small {
-    padding: 0 var(--spacing-size-xl);
-  }
-
-  &.Button_size_medium {
-    padding: 0 var(--spacing-size2xl);
-  }
-
-  &.Button_size_large {
-    padding: 0 var(--spacing-size3xl);
-  }
-}
-
-// [Properties] Sizes
+// [Properties] Sizes and spacings
 .Button_size_small {
   @include button-sizes.buttonSmallSize;
+
+  &:where(.Button_mode_primary, .Button_mode_secondary, .Button_mode_tertiary) {
+    padding: 0 var(--spacing-size-xl);
+  }
 }
 .Button_size_medium {
   @include button-sizes.buttonMediumSize;
+
+  &:where(.Button_mode_primary, .Button_mode_secondary, .Button_mode_tertiary) {
+    padding: 0 var(--spacing-size-xl);
+  }
 }
 .Button_size_large {
   @include button-sizes.buttonLargeSize;
+
+  &:where(.Button_mode_primary, .Button_mode_secondary, .Button_mode_tertiary) {
+    padding: 0 var(--spacing-size3xl);
+  }
+}
+.Button_mode_link {
+  padding: 0;
 }
 
 // [Properties] Themed appearances
-.Button_mode_primary.Button_appearance_themed {
+.Button_appearance_themed:where(.Button_mode_primary) {
   @include button-appearances.buttonPrimaryThemed('Button', true)
 }
-.Button_mode_secondary.Button_appearance_themed {
+.Button_appearance_themed:where(.Button_mode_secondary) {
   @include button-appearances.buttonSecondaryThemed('Button', true)
 }
-.Button_mode_tertiary.Button_appearance_themed {
+.Button_appearance_themed:where(.Button_mode_tertiary) {
   @include button-appearances.buttonTertiaryThemed('Button', true);
 }
-.Button_mode_link.Button_appearance_themed {
+.Button_appearance_themed:where(.Button_mode_link) {
   @include button-appearances.buttonLinkThemed('Button', true);
 }
 
 // [Properties] Negative appearances
-.Button_mode_primary.Button_appearance_negative {
+.Button_appearance_negative:where(.Button_mode_primary) {
   @include button-appearances.buttonPrimaryNegative('Button', true)
 }
-.Button_mode_secondary.Button_appearance_negative {
+.Button_appearance_negative:where(.Button_mode_secondary) {
   @include button-appearances.buttonSecondaryNegative('Button', true)
 }
-.Button_mode_tertiary.Button_appearance_negative {
+.Button_appearance_negative:where(.Button_mode_tertiary) {
   @include button-appearances.buttonTertiaryNegative('Button', true);
 }
-.Button_mode_link.Button_appearance_negative {
+.Button_appearance_negative:where(.Button_mode_link) {
   @include button-appearances.buttonLinkNegative('Button', true);
 }
 
 // [Properties] Neutral appearances
-.Button_mode_primary.Button_appearance_neutral {
+.Button_appearance_neutral:where(.Button_mode_primary) {
   @include button-appearances.buttonPrimaryNeutral('Button', true)
 }
-.Button_mode_secondary.Button_appearance_neutral {
+.Button_appearance_neutral:where(.Button_mode_secondary) {
   @include button-appearances.buttonSecondaryNeutral('Button', true)
 }
-.Button_mode_tertiary.Button_appearance_neutral {
+.Button_appearance_neutral:where(.Button_mode_tertiary) {
   @include button-appearances.buttonTertiaryNeutral('Button', true);
 }
-.Button_mode_link.Button_appearance_neutral {
+.Button_appearance_neutral:where(.Button_mode_link) {
   @include button-appearances.buttonLinkNeutral('Button', true);
 }
 
 // [Properties] Neutral themed appearances
-.Button_mode_primary.Button_appearance_neutral-themed {
+.Button_appearance_neutral-themed:where(.Button_mode_primary) {
   @include button-appearances.buttonPrimaryNeutralThemed('Button', true)
 }
-.Button_mode_secondary.Button_appearance_neutral-themed {
+.Button_appearance_neutral-themed:where(.Button_mode_secondary) {
   @include button-appearances.buttonSecondaryNeutralThemed('Button', true)
 }
-.Button_mode_tertiary.Button_appearance_neutral-themed {
+.Button_appearance_neutral-themed:where(.Button_mode_tertiary) {
   @include button-appearances.buttonTertiaryNeutralThemed('Button', true);
 }
-.Button_mode_link.Button_appearance_neutral-themed {
+.Button_appearance_neutral-themed:where(.Button_mode_link) {
   @include button-appearances.buttonLinkNeutralThemed('Button', true);
 }
 
 // [Properties] Contrast static appearances
-.Button_mode_primary.Button_appearance_contrast-static {
+.Button_appearance_contrast-static:where(.Button_mode_primary) {
   @include button-appearances.buttonPrimaryContrastStatic('Button', true)
 }
-.Button_mode_secondary.Button_appearance_contrast-static {
+.Button_appearance_contrast-static:where(.Button_mode_secondary) {
   @include button-appearances.buttonSecondaryContrastStatic('Button', true)
 }
-.Button_mode_tertiary.Button_appearance_contrast-static {
+.Button_appearance_contrast-static:where(.Button_mode_tertiary) {
   @include button-appearances.buttonTertiaryContrastStatic('Button', true);
 }
-.Button_mode_link.Button_appearance_contrast-static {
+.Button_appearance_contrast-static:where(.Button_mode_link) {
   @include button-appearances.buttonLinkContrastStatic('Button', true);
 }
 
@@ -153,15 +153,15 @@
   position: relative;
   z-index: 1;
 
-  .Button_size_small & {
+  :where(.Button_size_small) & {
     @include typography.actionSmall;
   }
 
-  .Button_size_medium & {
+  :where(.Button_size_medium) & {
     @include typography.actionMedium;
   }
 
-  .Button_size_large & {
+  :where(.Button_size_large) & {
     @include typography.actionLarge;
   }
 }
@@ -181,15 +181,15 @@
   z-index: 1;
   display: flex;
 
-  .Button_size_small & {
+  :where(.Button_size_small) & {
     margin-right: var(--spacing-size-xs);
   }
 
-  .Button_size_medium & {
+  :where(.Button_size_medium) & {
     margin-right: var(--spacing-size-s);
   }
 
-  .Button_size_large & {
+  :where(.Button_size_large) & {
     margin-right: var(--spacing-size-s);
   }
 }
@@ -200,15 +200,15 @@
   z-index: 1;
   display: flex;
 
-  .Button_size_small & {
+  :where(.Button_size_small) & {
     margin-left: var(--spacing-size-xs);
   }
 
-  .Button_size_medium & {
+  :where(.Button_size_medium) & {
     margin-left: var(--spacing-size-s);
   }
 
-  .Button_size_large & {
+  :where(.Button_size_large) & {
     margin-left: var(--spacing-size-s);
   }
 }
@@ -218,15 +218,15 @@
   position: relative;
   z-index: 1;
 
-  .Button_size_small & {
+  :where(.Button_size_small) & {
     margin-left: var(--spacing-size-xs);
   }
 
-  .Button_size_medium & {
+  :where(.Button_size_medium) & {
     margin-left: var(--spacing-size-s);
   }
 
-  .Button_size_large & {
+  :where(.Button_size_large) & {
     margin-left: var(--spacing-size-s);
   }
 }
