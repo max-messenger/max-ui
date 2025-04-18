@@ -18,7 +18,7 @@ const meta = {
       ],
       control: {
         type: 'select',
-        labels: ['None', 'Yesss']
+        labels: ['None', 'Yes']
       }
     }
   },

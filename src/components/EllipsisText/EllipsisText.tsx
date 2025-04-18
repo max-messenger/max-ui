@@ -9,7 +9,7 @@ export interface EllipsisTextProps extends ComponentProps<'div'>, AsChildProp {
   /**
    * Максимальное количество видимых строк
    *
-   * FIY: при `maxLines > 1` используется свойство line-clamp, которое поддерживается не всеми версиями браузеров
+   * FYI: при `maxLines > 1` используется свойство line-clamp, которое поддерживается не всеми версиями браузеров
    *
    * https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-line-clamp
    */
