@@ -20,17 +20,17 @@ pnpm add @maxhub/max-ui
 
 ```typescript jsx
 import '@maxhub/max-ui/dist/styles.css';
-import { MaxUi, Panel, Button } from "@maxhub/max-ui";
+import { MaxUI, Panel, Button } from "@maxhub/max-ui";
 
 const App = () => {
   return (
-    <MaxUi>
+    <MaxUI>
       <Panel centeredX centeredY>
         <Button>
           Hello world!
         </Button>
       </Panel>
-    </MaxUi>
+    </MaxUI>
   )
 }
 ```

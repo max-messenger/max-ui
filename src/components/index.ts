@@ -13,7 +13,7 @@ export * from './Flex';
 export * from './Grid';
 export * from './IconButton';
 export * from './Input';
-export * from './MaxUi';
+export * from './MaxUI';
 export * from './Panel';
 export * from './Ripple';
 export * from './SearchInput';

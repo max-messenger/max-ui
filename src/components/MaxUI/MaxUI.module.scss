@@ -3,7 +3,7 @@
 @use '../../styles/variables/appearance';
 @use '../../styles/variables/typography';
 
-.MaxUi {
+.MaxUI {
   @include common.commonVariables;
 
   font-family: var(--font);
