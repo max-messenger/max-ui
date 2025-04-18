@@ -41,7 +41,7 @@
 
     &:active {
       background-color: var(--MaxUi-IconButton_background-active);
-      color: var(--MaxUi-IconButton_foreground-active);
+      color: var(--MaxUi-IconButton_foreground-active, var(--MaxUi-IconButton_foreground));
     }
   }
 }
