@@ -22,7 +22,7 @@ type Story = StoryObj<GridProps>;
 export const Playground: Story = {
   render: ({ ...args }) => {
     return (
-      <Grid {...args}>
+      <Grid {...args} style={{ width: 600 }}>
         {[...Array(5)].map((_, index) => (
           <div
             key={index}

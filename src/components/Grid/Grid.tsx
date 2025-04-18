@@ -8,7 +8,7 @@ import styles from './Grid.module.scss';
 
 export type GridDisplay = 'grid' | 'inline-grid';
 export type GridAlign = 'start' | 'center' | 'end' | 'baseline' | 'stretch';
-export type GridJustify = 'start' | 'center' | 'end' | 'between';
+export type GridJustify = 'start' | 'center' | 'end' | 'space-between';
 
 export interface GridProps extends ComponentProps<'div'>, AsChildProp {
   display?: GridDisplay

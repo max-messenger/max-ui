@@ -20,7 +20,7 @@ type Story = StoryObj<FlexProps>;
 export const Playground: Story = {
   render: ({ ...args }) => {
     return (
-      <Flex {...args}>
+      <Flex {...args} style={{ width: 600 }}>
         {[...Array(5)].map((_, index) => (
           <div
             key={index}
