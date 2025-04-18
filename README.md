@@ -1,4 +1,5 @@
 [![npm latest package](https://img.shields.io/npm/v/@maxhub/max-ui/latest.svg)](https://www.npmjs.com/package/@maxhub/max-ui)
+[![storybook](https://img.shields.io/badge/storybook-available-brightgreen)](https://max-messenger.github.io/max-ui)
 
 # MaxUI
 
