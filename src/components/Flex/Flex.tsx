@@ -9,7 +9,7 @@ import styles from './Flex.module.scss';
 export type FlexDisplay = 'flex' | 'inline-flex';
 export type FlexDirection = 'row' | 'column' | 'row-reverse' | 'column-reverse';
 export type FlexAlign = 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch';
-export type FlexJustify = 'start' | 'center' | 'end' | 'between';
+export type FlexJustify = 'start' | 'center' | 'end' | 'space-between';
 export type FlexWrap = 'wrap' | 'nowrap' | 'wrap-reverse';
 
 export interface FlexProps extends ComponentProps<'div'>, AsChildProp {
