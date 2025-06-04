@@ -1,36 +1,51 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-import { noop } from '../helpers';
+import { isServer, noop } from '../helpers';
 
 type SystemColorScheme = 'light' | 'dark';
 
 interface Params {
+  scheme?: SystemColorScheme
   listenChanges?: boolean
 }
 
-export const useSystemColorScheme = ({ listenChanges }: Params = {}): SystemColorScheme => {
-  const [colorScheme, setColorScheme] = useState<SystemColorScheme>(
-    window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+export const useSystemColorScheme = ({
+  scheme = 'light',
+  listenChanges
+}: Params = {}): SystemColorScheme => {
+  const matchMediaRef = useRef<MediaQueryList | null>(
+    !isServer()
+      ? window.matchMedia('(prefers-color-scheme: dark)')
+      : null
   );
 
-  const handleSchemeChanged = (event: MediaQueryListEvent): void => {
-    setColorScheme(() => event.matches
-      ? 'dark'
-      : 'light'
-    );
-  };
+  const [colorScheme, setColorScheme] = useState<SystemColorScheme>(
+    matchMediaRef.current
+      ? matchMediaRef.current.matches
+        ? 'dark'
+        : 'light'
+      : scheme
+  );
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    setColorScheme(() => mediaQuery.matches
+    setColorScheme(() => matchMediaRef.current?.matches
       ? 'dark'
       : 'light'
     );
+
     if (!listenChanges) { return noop; }
 
-    mediaQuery.addEventListener('change', handleSchemeChanged);
+    const handleSchemeChanged = (event: MediaQueryListEvent): void => {
+      setColorScheme(() => event.matches
+        ? 'dark'
+        : 'light'
+      );
+    };
+
+    matchMediaRef.current?.addEventListener('change', handleSchemeChanged);
+
     return () => {
-      mediaQuery.removeEventListener('change', handleSchemeChanged);
+      matchMediaRef.current?.removeEventListener('change', handleSchemeChanged);
     };
   }, [listenChanges]);
 

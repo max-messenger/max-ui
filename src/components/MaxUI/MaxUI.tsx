@@ -21,6 +21,7 @@ export const MaxUI = forwardRef<HTMLDivElement, MaxUIProps>((props, ref) => {
   } = props;
 
   const systemColorScheme = useSystemColorScheme({
+    scheme: colorSchemeProp,
     listenChanges: !colorSchemeProp
   });
   const colorScheme = colorSchemeProp ?? systemColorScheme;
