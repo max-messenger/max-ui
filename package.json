@@ -38,7 +38,7 @@
     "@storybook/addon-onboarding": "^8.5.8",
     "@storybook/blocks": "^8.5.8",
     "@storybook/react": "^8.5.8",
-    "@storybook/react-vite": "^8.5.8",
+    "@storybook/react-vite": "^9.0.9",
     "@storybook/test": "^8.5.8",
     "@svgr/rollup": "^8.1.0",
     "@types/react": "^18.3.11",
