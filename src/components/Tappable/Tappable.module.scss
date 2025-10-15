@@ -8,8 +8,10 @@
 }
 
 // [States] Hovered
-.Tappable_interactive:not(.Tappable_disabled):hover {
-  background-color: var(--MaxUi-Tappable_background-hovered, var(--states-background-hovered-transparent));
+@media (hover: hover) and (pointer: fine) {
+  .Tappable_interactive:not(.Tappable_disabled):hover {
+    background-color: var(--MaxUi-Tappable_background-hovered, var(--states-background-hovered-transparent));
+  }
 }
 
 // [States] Pressed

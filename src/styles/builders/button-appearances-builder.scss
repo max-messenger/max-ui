@@ -19,8 +19,10 @@
   --MaxUi-#{$root}_background: #{$background};
   --MaxUi-#{$root}_foreground: #{$foreground};
 
-  &:hover {
-    --MaxUi-#{$root}_background: #{$background_hovered};
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      --MaxUi-#{$root}_background: #{$background_hovered};
+    }
   }
 
   &.#{$root}_disabled {
@@ -56,8 +58,10 @@
   --MaxUi-#{$root}_background: var(--background-accent-neutral-fade);
   --MaxUi-#{$root}_foreground: #{$foreground};
 
-  &:hover {
-    --MaxUi-#{$root}_background: var(--states-background-hovered-neutral-fade);
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      --MaxUi-#{$root}_background: var(--states-background-hovered-neutral-fade);
+    }
   }
 
   &.#{$root}_disabled {
@@ -93,8 +97,10 @@
   --MaxUi-#{$root}_background: transparent;
   --MaxUi-#{$root}_foreground: #{$foreground};
 
-  &:hover {
-    --MaxUi-#{$root}_background: var(--states-background-hovered-transparent);
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      --MaxUi-#{$root}_background: var(--states-background-hovered-transparent);
+    }
   }
 
   &.#{$root}_disabled {
@@ -131,8 +137,10 @@
   --MaxUi-#{$root}_background: transparent;
   --MaxUi-#{$root}_foreground: #{$foreground};
 
-  &:hover {
-    --MaxUi-#{$root}_foreground: #{$foreground_hovered};
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      --MaxUi-#{$root}_foreground: #{$foreground_hovered};
+    }
   }
 
   &.#{$root}_disabled {

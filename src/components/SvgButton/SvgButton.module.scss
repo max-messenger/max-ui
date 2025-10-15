@@ -10,8 +10,10 @@
   &:not(:disabled) {
     cursor: pointer;
 
-    &:hover {
-      color: var(--states-icon-hovered-tertiary);
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        color: var(--states-icon-hovered-tertiary);
+      }
     }
   }
 
