@@ -44,7 +44,7 @@ export const Profile = (): ReactNode => {
               direction="column"
               align="center"
             >
-              <Typography.Headline variant="large-strong">Vadim Tregubenko</Typography.Headline>
+              <Typography.Headline variant="large-strong">Vadim T.</Typography.Headline>
               <Typography.Body variant="small" className={styles.subsLabel}>1 подписчик</Typography.Body>
             </Flex>
 
@@ -95,7 +95,7 @@ export const Profile = (): ReactNode => {
           >
             <CellSimple
               height="compact"
-              title="Frontend engineer 👨‍💻"
+              title="Milord CSS Engineer 👨‍💻"
             />
           </CellList>
 

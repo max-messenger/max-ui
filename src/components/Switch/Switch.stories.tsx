@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { CellSimple } from '../CellSimple';
 import { Switch, type SwitchProps } from './Switch';

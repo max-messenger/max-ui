@@ -1,4 +1,4 @@
-import { type ArgTypes } from '@storybook/react';
+import { type ArgTypes } from '@storybook/react-vite';
 
 export const disableArgs = (args: string[]): Partial<ArgTypes> => {
   return args.reduce<ArgTypes>((acc, val) => {

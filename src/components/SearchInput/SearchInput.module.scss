@@ -9,8 +9,10 @@
   display: flex;
   align-items: center;
 
-  &:hover {
-    background-color: var(--states-background-hovered-neutral-fade);
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: var(--states-background-hovered-neutral-fade);
+    }
   }
 
   &:active {

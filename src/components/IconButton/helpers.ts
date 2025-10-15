@@ -2,38 +2,31 @@ import { type SpinnerAppearance } from '../Spinner';
 import { type IconButtonAppearance, type IconButtonMode, type IconButtonSize } from './IconButton';
 
 export const getIconButtonSpinnerSize = (iconButtonSize: IconButtonSize): number => {
-  if (iconButtonSize === 'small') {
-    return 20;
+  switch (iconButtonSize) {
+    case 'small': return 20;
+    default: return 24;
   }
-  return 24;
 };
 
 export const getIconButtonSpinnerAppearance = (iconButtonAppearance: IconButtonAppearance, iconButtonMode: IconButtonMode): SpinnerAppearance => {
   if (iconButtonMode === 'primary') {
-    if (iconButtonAppearance === 'themed') {
-      return 'contrast-static';
-    } else if (iconButtonAppearance === 'negative') {
-      return 'contrast-static';
-    } else if (iconButtonAppearance === 'neutral') {
-      return 'contrast';
-    } else if (iconButtonAppearance === 'neutral-themed') {
-      return 'contrast-static';
-    } else if (iconButtonAppearance === 'contrast-static') {
-      return 'primary-static';
+    switch (iconButtonAppearance) {
+      case 'themed':
+      case 'negative':
+      case 'neutral-themed':
+        return 'contrast-static';
+      case 'neutral':
+        return 'contrast';
+      case 'contrast-static':
+        return 'primary-static';
     }
   }
 
-  if (iconButtonAppearance === 'themed') {
-    return 'themed';
-  } else if (iconButtonAppearance === 'negative') {
-    return 'negative';
-  } else if (iconButtonAppearance === 'neutral') {
-    return 'primary';
-  } else if (iconButtonAppearance === 'neutral-themed') {
-    return 'neutral-themed';
-  } else if (iconButtonAppearance === 'contrast-static') {
-    return 'contrast-static';
+  switch (iconButtonAppearance) {
+    case 'themed': return 'themed';
+    case 'negative': return 'negative';
+    case 'neutral': return 'primary';
+    case 'neutral-themed': return 'neutral-themed';
+    case 'contrast-static': return 'contrast-static';
   }
-
-  return 'themed';
 };

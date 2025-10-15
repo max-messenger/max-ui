@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { OverlayContainer } from '../../../.storybook/components/OverlayContainer';
 import { useColorScheme } from '../../hooks';
