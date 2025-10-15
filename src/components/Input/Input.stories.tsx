@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import Icon20Placeholder from '../../../.storybook/assets/icons/icon-20-placeholder.svg';
 import { hideArgsControl } from '../../../.storybook/shared/args-manager';

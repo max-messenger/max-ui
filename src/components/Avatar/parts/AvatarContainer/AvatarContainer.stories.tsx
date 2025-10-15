@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import Icon16Placeholder from '../../../../../.storybook/assets/icons/icon-16-placeholder.svg';
 import Icon24Placeholder from '../../../../../.storybook/assets/icons/icon-24-placeholder.svg';
