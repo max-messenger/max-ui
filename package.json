@@ -36,7 +36,7 @@
     "@storybook/addon-onboarding": "^9.1.10",
     "@storybook/react-vite": "^9.1.10",
     "@svgr/rollup": "^8.1.0",
-    "@types/react": "^18.3.11",
+    "@types/react": "^19.2.2",
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "clsx": "^2.1.1",
