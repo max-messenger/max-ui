@@ -29,7 +29,7 @@
   "private": false,
   "devDependencies": {
     "@chromatic-com/storybook": "^4.1.1",
-    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^12.1.0",
     "@storybook/addon-links": "^9.1.10",
