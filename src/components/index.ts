@@ -1,6 +1,7 @@
 export * from './Avatar';
 export * from './Button';
 export * from './CellAction';
+export * from './CellDropdown';
 export * from './CellHeader';
 export * from './CellInput';
 export * from './CellList';

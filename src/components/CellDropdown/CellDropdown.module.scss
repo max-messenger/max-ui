@@ -1,0 +1,112 @@
+@use '../../styles/shared-mixins/typography';
+
+.CellDropdown {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+}
+
+// [State] Disabled
+.CellDropdown_disabled {
+  color: var(--states-text-disabled-primary);
+
+  .CellDropdown__trigger {
+    color: var(--states-text-disabled-primary);
+  }
+}
+
+// [Properties] Heights
+.CellDropdown_height_compact {
+  padding: var(--spacing-size-xs) var(--spacing-size-xl);
+  min-height: 48px;
+
+  .CellDropdown__body {
+    margin: calc(var(--spacing-size-xs) * -1) calc(var(--spacing-size-xl) * -1);
+    padding: var(--spacing-size-xs) var(--spacing-size-xl);
+  }
+}
+
+.CellDropdown_height_normal {
+  padding: var(--spacing-size-m) var(--spacing-size-xl);
+  min-height: 56px;
+
+  .CellDropdown__body {
+    margin: calc(var(--spacing-size-m) * -1) calc(var(--spacing-size-xl) * -1);
+    padding: var(--spacing-size-m) var(--spacing-size-xl);
+  }
+}
+
+// [Parts]
+.CellDropdown__before {
+  @include typography.titleLargeStrong;
+
+  margin-right: var(--spacing-size-xs);
+  width: 96px;
+}
+
+// [Parts] Body
+.CellDropdown__body {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  width: 100%;
+  align-self: stretch;
+  cursor: pointer;
+
+  // Убираем hover эффект
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: transparent !important;
+    }
+  }
+}
+
+// [Parts] Trigger
+.CellDropdown__trigger {
+  @include typography.bodyLarge;
+
+  flex-grow: 1;
+  min-width: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  &_empty {
+    color: var(--text-secondary);
+  }
+}
+
+// [Parts] Chevron
+.CellDropdown__chevron {
+  margin-left: var(--spacing-size-xl);
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+// [Parts] Overlay
+.CellDropdown__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  background-color: transparent;
+}
+
+// [Parts] Dropdown
+.CellDropdown__dropdown {
+  position: fixed;
+  z-index: 1000;
+  margin-top: var(--spacing-size-xs);
+  width: auto;
+  max-width: none;
+
+  // Border и shadow для CellList только в dropdown
+  :global(.CellList_mode_island) :global(.CellList__body) {
+    border: 1px solid var(--stroke-separator-primary);
+    box-shadow: var(--shadow-elevation-2-primary), var(--shadow-elevation-2-secondary);
+  }
+}
