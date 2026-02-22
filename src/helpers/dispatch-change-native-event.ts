@@ -1,4 +1,10 @@
-export const dispatchChangeNativeEvent = (el: HTMLElement, value: string = ''): void => {
+interface DispatchChangeNativeEventProps {
+  el: HTMLElement
+  value?: string
+}
+
+export const dispatchChangeNativeEvent = (props: DispatchChangeNativeEventProps): void => {
+  const { el, value } = props;
   // eslint-disable-next-line @typescript-eslint/unbound-method
   const nativeValueSetter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value')?.set;
   nativeValueSetter?.call(el, value);

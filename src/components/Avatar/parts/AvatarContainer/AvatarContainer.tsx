@@ -55,20 +55,23 @@ export const AvatarContainer = forwardRef<HTMLDivElement, AvatarContainerProps>(
         {...rest}
       >
         <Slottable>
-          {getSubtree({ asChild: props.asChild, children }, (children) => (
-            <span
-              key="subtree-container"
-              className={clsx(styles.AvatarContainer__content, innerClassNames?.content)}
-            >
-              {children}
+          {getSubtree({
+            options: { asChild: props.asChild, children },
+            content: (children) => (
+              <span
+                key="subtree-container"
+                className={clsx(styles.AvatarContainer__content, innerClassNames?.content)}
+              >
+                {children}
 
-              {hasReactNode(overlay) && (
-                <span className={clsx(styles.AvatarContainer__overlay, innerClassNames?.overlay)}>
-                  {overlay}
-                </span>
-              )}
-            </span>
-          ))}
+                {hasReactNode(overlay) && (
+                  <span className={clsx(styles.AvatarContainer__overlay, innerClassNames?.overlay)}>
+                    {overlay}
+                  </span>
+                )}
+              </span>
+            )
+          })}
         </Slottable>
 
         {hasReactNode(rightBottomCorner) && (

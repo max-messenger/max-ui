@@ -69,29 +69,32 @@ export const CellSimple = forwardRef<HTMLDivElement, CellSimpleProps>((props, fo
       )}
 
       <Slottable>
-        {getSubtree({ asChild, children }, (children) => (
-          <div key="subtree-container" className={clsx(styles.CellSimple__content, innerClassNames?.content)}>
-            {hasReactNode(overline) && (
-              <div className={clsx(styles.CellSimple__overline, innerClassNames?.overline)}>
-                {overline}
-              </div>
-            )}
+        {getSubtree({
+          options: { asChild, children },
+          content: (children) => (
+            <div key="subtree-container" className={clsx(styles.CellSimple__content, innerClassNames?.content)}>
+              {hasReactNode(overline) && (
+                <div className={clsx(styles.CellSimple__overline, innerClassNames?.overline)}>
+                  {overline}
+                </div>
+              )}
 
-            {hasReactNode(title) && (
-              <div className={clsx(styles.CellSimple__title, innerClassNames?.title)}>
-                {title}
-              </div>
-            )}
+              {hasReactNode(title) && (
+                <div className={clsx(styles.CellSimple__title, innerClassNames?.title)}>
+                  {title}
+                </div>
+              )}
 
-            {hasReactNode(subtitle) && (
-              <div className={clsx(styles.CellSimple__subtitle, innerClassNames?.subtitle)}>
-                {subtitle}
-              </div>
-            )}
+              {hasReactNode(subtitle) && (
+                <div className={clsx(styles.CellSimple__subtitle, innerClassNames?.subtitle)}>
+                  {subtitle}
+                </div>
+              )}
 
-            {children}
-          </div>
-        ))}
+              {children}
+            </div>
+          )
+        })}
       </Slottable>
 
       {(hasReactNode(after) || showChevron) && (
