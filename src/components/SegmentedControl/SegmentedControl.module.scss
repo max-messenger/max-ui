@@ -1,0 +1,40 @@
+.SegmentedControl {
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	padding: 2px;
+	box-sizing: border-box;
+	border-radius: 44px;
+	background: var(--background-local-chips-default);
+}
+
+.SegmentedControl__body {
+	position: relative;
+	display: flex;
+	align-items: center;
+	align-content: stretch;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	border-radius: inherit;
+}
+
+.SegmentedControl__slider {
+	position: absolute;
+	inset: 0;
+	transition: transform 150ms;
+	border-radius: 40px;
+	box-sizing: border-box;
+	background: var(--background-accent-contrast-static);
+}
+
+.SegmentedControl_platform_ios {
+	border-radius: 9px;
+	background: var(--background-local-chips-default);
+}
+
+.SegmentedControl_platform_ios .SegmentedControl__slider {
+	border: 1px solid rgba(0, 0, 0, .04);
+	border-radius: inherit;
+	box-shadow: 0 3px 1px 0 rgba(0, 0, 0, .04), 0 3px 8px 0 rgba(0, 0, 0, .12);
+}

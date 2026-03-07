@@ -17,6 +17,7 @@ export * from './MaxUI';
 export * from './Panel';
 export * from './Ripple';
 export * from './SearchInput';
+export * from './SegmentedControl';
 export * from './Spinner';
 export * from './SvgButton';
 export * from './Switch';
