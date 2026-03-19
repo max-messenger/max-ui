@@ -8,8 +8,8 @@ interface Params {
   listenChanges?: boolean
 }
 
-export const useSystemColorScheme = (props: Params = {}): SystemColorScheme => {
-  const { listenChanges } = props;
+export const useSystemColorScheme = (params: Params = {}): SystemColorScheme => {
+  const { listenChanges } = params;
   const [colorScheme, setColorScheme] = useState<SystemColorScheme>(
     window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
   );

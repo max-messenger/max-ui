@@ -1,9 +1,4 @@
-interface GetCssSizeValueProps {
-  value: number | string
-};
-
-export const getCssSizeValue = (props: GetCssSizeValueProps): string => {
-  const { value } = props;
+export const getCssSizeValue = (value: number | string): string => {
   if (typeof value === 'string') return value;
   return `${value}px`;
 };
