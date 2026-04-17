@@ -2,7 +2,13 @@ import { type HTMLAttributeReferrerPolicy, useLayoutEffect, useState } from 'rea
 
 export type ImageLoadingStatus = 'idle' | 'loading' | 'loaded' | 'error';
 
-export const useImageLoadingStatus = (src?: string, referrerPolicy?: HTMLAttributeReferrerPolicy): ImageLoadingStatus => {
+export interface UseImageLoadingStatusParams {
+  src?: string
+  referrerPolicy?: HTMLAttributeReferrerPolicy
+}
+
+export const useImageLoadingStatus = (params: UseImageLoadingStatusParams): ImageLoadingStatus => {
+  const { src, referrerPolicy } = params;
   const [loadingStatus, setLoadingStatus] = useState<ImageLoadingStatus>('idle');
 
   useLayoutEffect(() => {

@@ -37,7 +37,7 @@ export const ClearableInput = forwardRef<HTMLInputElement, ClearableInputProps>(
 
   const clearValue = (): void => {
     if (!inputRef.current) return;
-    dispatchChangeNativeEvent(inputRef.current);
+    dispatchChangeNativeEvent({ el: inputRef.current, value: '' });
   };
 
   return (

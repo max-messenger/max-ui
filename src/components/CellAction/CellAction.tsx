@@ -61,11 +61,14 @@ export const CellAction = forwardRef<HTMLButtonElement, CellActionProps>((props,
       )}
 
       <Slottable>
-        {getSubtree({ asChild, children }, (children) => (
-          <span key="subtree-container" className={clsx(styles.CellAction__content, innerClassNames?.content)}>
-            {children}
-          </span>
-        ))}
+        {getSubtree({
+          options: { asChild, children },
+          content: (children) => (
+            <span key="subtree-container" className={clsx(styles.CellAction__content, innerClassNames?.content)}>
+              {children}
+            </span>
+          )
+        })}
       </Slottable>
 
       {showChevron && (

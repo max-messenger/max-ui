@@ -99,14 +99,17 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, forward
       )}
 
       <Slottable>
-        {getSubtree({ asChild, children }, (children) => (
-          <EllipsisText
-            key="subtree-container"
-            className={clsx(styles.Button__content, innerClassNames?.content)}
-          >
-            {children}
-          </EllipsisText>
-        ))}
+        {getSubtree({
+          options: { asChild, children },
+          content: (children) => (
+            <EllipsisText
+              key="subtree-container"
+              className={clsx(styles.Button__content, innerClassNames?.content)}
+            >
+              {children}
+            </EllipsisText>
+          )
+        })}
       </Slottable>
 
       {hasReactNode(indicator) && (

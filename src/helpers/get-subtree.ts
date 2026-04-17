@@ -9,10 +9,16 @@ import { Children, cloneElement, type ReactElement, type ReactNode } from 'react
  *
  * Reference: https://github.com/radix-ui/themes/blob/main/packages/radix-ui-themes/src/helpers/get-subtree.ts#L10
  */
-export const getSubtree = (
-  options: { asChild: boolean | undefined, children: ReactNode },
+export interface GetSubtreeProps {
+  options: {
+    asChild: boolean | undefined
+    children: ReactNode
+  }
   content: ReactNode | ((children: ReactNode) => ReactNode)
-): ReactNode => {
+}
+
+export const getSubtree = (props: GetSubtreeProps): ReactNode => {
+  const { options, content } = props;
   const { asChild, children } = options;
   if (!asChild) return typeof content === 'function' ? content(children) : content;
 
