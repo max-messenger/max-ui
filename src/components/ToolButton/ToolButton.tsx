@@ -57,15 +57,18 @@ export const ToolButton = forwardRef<HTMLButtonElement, ToolButtonProps>((props,
 
       {hasReactNode(children) && (
         <Slottable>
-          {getSubtree({ asChild, children }, (children) => (
-            <EllipsisText
-              key="subtree-container"
-              maxLines={1}
-              className={clsx(styles.ToolButton__label, innerClassNames?.label)}
-            >
-              {children}
-            </EllipsisText>
-          ))}
+          {getSubtree({
+            options: { asChild, children },
+            content: (children) => (
+              <EllipsisText
+                key="subtree-container"
+                maxLines={1}
+                className={clsx(styles.ToolButton__label, innerClassNames?.label)}
+              >
+                {children}
+              </EllipsisText>
+            )
+          })}
         </Slottable>
       )}
     </Tappable>

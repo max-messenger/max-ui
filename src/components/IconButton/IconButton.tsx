@@ -78,14 +78,17 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>((props,
       )}
 
       <Slottable>
-        {getSubtree({ asChild, children }, (children) => (
-          <span
-            key="subtree-container"
-            className={clsx(styles.IconButton__content, innerClassNames?.content)}
-          >
-            {children}
-          </span>
-        ))}
+        {getSubtree({
+          options: { asChild, children },
+          content: (children) => (
+            <span
+              key="subtree-container"
+              className={clsx(styles.IconButton__content, innerClassNames?.content)}
+            >
+              {children}
+            </span>
+          )
+        })}
       </Slottable>
 
       {withRipple && !inactive && <Ripple className={styles.IconButton__ripple} />}
