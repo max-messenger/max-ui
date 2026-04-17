@@ -20,7 +20,7 @@ export const AvatarImage = forwardRef<HTMLImageElement, AvatarImageProps>((props
 
   const [status, setStatus] = useState<ImageLoadingStatus>('idle');
 
-  const imageLoadingStatus = useImageLoadingStatus(rest.src ?? rest.srcSet, rest.referrerPolicy);
+  const imageLoadingStatus = useImageLoadingStatus({ src: rest.src ?? rest.srcSet, referrerPolicy: rest.referrerPolicy });
   const handleLoadingStatusChange = useCallbackRef((status: ImageLoadingStatus) => {
     setStatus(status);
   });
