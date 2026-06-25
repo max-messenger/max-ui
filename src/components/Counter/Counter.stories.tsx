@@ -7,12 +7,9 @@ const meta = {
   title: 'Common/Counter',
   component: Counter,
   args: {
-    appearance: 'themed',
-    value: 1200,
+    value: 12,
     rounded: false,
-    disabled: false,
-    muted: false,
-    mode: 'filled'
+    variant: 'primary'
   }
 } satisfies Meta<CounterProps>;
 
@@ -28,7 +25,6 @@ export const Playground: Story = {
 export const CounterInButton: Story = {
   name: 'Counter in Button',
   args: {
-    appearance: 'themed',
     value: 32
   },
   render: ({ ...args }) => {

@@ -3,18 +3,12 @@ import { type ComponentProps, forwardRef, useMemo } from 'react';
 
 import styles from './Counter.module.scss';
 
-export type CounterAppearance = 'themed' | 'neutral' | 'neutral-themed' | 'neutral-static' | 'negative';
-
-export type CounterMode = 'filled' | 'inverse';
+export type CounterVariant = 'primary' | 'primary-contrast' | 'attention' | 'attention-contrast' | 'promo' | 'static' | 'static-contrast' | 'default' | 'mute' | 'menu';
 
 export interface CounterProps extends ComponentProps<'span'> {
   value: number
-
+  variant?: CounterVariant
   rounded?: boolean
-  appearance?: CounterAppearance
-  disabled?: boolean
-  muted?: boolean
-  mode?: CounterMode
 }
 
 export const Counter = forwardRef<HTMLSpanElement, CounterProps>((props, ref) => {
@@ -22,21 +16,13 @@ export const Counter = forwardRef<HTMLSpanElement, CounterProps>((props, ref) =>
     className,
     value,
     rounded,
-    appearance = 'themed',
-    mode = 'filled',
-    disabled = false,
-    muted = false,
+    variant = 'primary',
     ...rest
   } = props;
 
   const rootClassName = clsx(
     styles.Counter,
-    styles[`Counter_appearance_${appearance}`],
-    styles[`Counter_mode_${mode}`],
-    {
-      [styles.Counter_disabled]: disabled,
-      [styles.Counter_muted]: muted
-    },
+    styles[`Counter_variant_${variant}`],
     className
   );
 
