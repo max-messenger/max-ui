@@ -1,17 +1,53 @@
+@mixin buttonXSmallSize {
+  height: 32px;
+  min-width: 40px;
+  border-radius: 8px;
+  padding: 6px 12px;
+}
+
 @mixin buttonSmallSize {
-  height: 28px;
-  min-width: 28px;
-  border-radius: var(--size-border-radius-action-small);
+  height: 40px;
+  min-width: 48px;
+  border-radius: 12px;
+  padding: 10px 12px;
 }
 
 @mixin buttonMediumSize {
-  height: 40px;
-  min-width: 40px;
-  border-radius: var(--size-border-radius-action-medium);
+  height: 52px;
+  min-width: 56px;
+  border-radius: 16px;
+  padding: 16px 20px;
 }
 
 @mixin buttonLargeSize {
+  height: 60px;
+  min-width: 64px;
+  border-radius: 20px;
+  padding: 18px 22px;
+}
+
+
+// IconButton sizes
+@mixin iconButtonXSmallSize {
+  width: 32px;
+  height: 32px;
+  border-radius: 45%;
+}
+
+@mixin iconButtonSmallSize {
+  width: 40px;
+  height: 40px;
+  border-radius: 45%;
+}
+
+@mixin iconButtonMediumSize {
+  width: 52px;
   height: 52px;
-  min-width: 52px;
-  border-radius: var(--size-border-radius-action-large);
+  border-radius: 45%;
+}
+
+@mixin iconButtonLargeSize {
+  width: 60px;
+  height: 60px;
+  border-radius: 45%;
 }

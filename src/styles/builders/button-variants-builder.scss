@@ -1,4 +1,4 @@
-@mixin buildButtonPrimaryModeAppearance(
+@mixin buildButtonFilledVariant(
   $root,
   $withInnerElementsDefs: false,
 
@@ -41,7 +41,7 @@
   }
 }
 
-@mixin buildButtonSecondaryModeAppearance(
+@mixin buildButtonFadeVariant(
   $root,
   $withInnerElementsDefs: false,
 
@@ -80,7 +80,7 @@
   }
 }
 
-@mixin buildButtonTertiaryModeAppearance(
+@mixin buildButtonTransparentVariant(
   $root,
   $withInnerElementsDefs: false,
 
@@ -118,32 +118,35 @@
   }
 }
 
-@mixin buildButtonLinkModeAppearance(
+@mixin buildButtonOverlayVariant(
   $root,
   $withInnerElementsDefs: false,
 
+  $background,
+  $background_disabled,
+  $background_hovered,
+  $background_pressed,
   $foreground,
   $foreground_disabled,
-  $foreground_pressed,
-  $foreground_hovered,
 
   $innerElementsBackground,
   $innerElementsBackground_disabled,
   $innerElementsForeground,
   $innerElementsForeground_disabled,
 ) {
-  --MaxUi-#{$root}_foreground-active: #{$foreground_pressed};
+  --MaxUi-#{$root}_background-active: #{$background_pressed};
 
-  --MaxUi-#{$root}_background: transparent;
+  --MaxUi-#{$root}_background: #{$background};
   --MaxUi-#{$root}_foreground: #{$foreground};
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      --MaxUi-#{$root}_foreground: #{$foreground_hovered};
+      --MaxUi-#{$root}_background: #{$background_hovered};
     }
   }
 
   &.#{$root}_disabled {
+    --MaxUi-#{$root}_background: #{$background_disabled};
     --MaxUi-#{$root}_foreground: #{$foreground_disabled};
   }
 

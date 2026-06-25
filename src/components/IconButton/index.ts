@@ -1,1 +1,1 @@
-export { IconButton, type IconButtonAppearance, type IconButtonInnerElementKey, type IconButtonMode, type IconButtonProps, type IconButtonSize } from './IconButton';
+export { IconButton, type IconButtonInnerElementKey, type IconButtonProps, type IconButtonSize, type IconButtonVariant } from './IconButton';

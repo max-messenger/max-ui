@@ -33,7 +33,7 @@ const meta = {
     },
     after: {
       options: [0, 1, 2],
-      mapping: [undefined, <Button mode="secondary" size="small" key="icon">Открыть</Button>, <Counter key="counter" value={1200} />],
+      mapping: [undefined, <Button variant="secondary" size="small" key="icon">Открыть</Button>, <Counter key="counter" value={1200} />],
       control: {
         type: 'select',
         labels: ['None', 'Button', 'Counter']

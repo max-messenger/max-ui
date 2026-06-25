@@ -1,5 +1,5 @@
 @use '../../styles/shared-mixins/button-sizes';
-@use '../../styles/shared-mixins/button-appearances';
+@use '../../styles/shared-mixins/button-variants';
 @use '../../styles/shared-mixins/typography';
 @use '../../styles/shared-mixins/reset-clickable';
 
@@ -46,101 +46,47 @@
   }
 }
 
-// [Properties] Modes
-.IconButton_mode_primary, .IconButton_mode_secondary, .IconButton_mode_tertiary {
-
-  &.IconButton_size_small {
-    padding: 0 var(--spacing-size-s);
-  }
-
-  &.IconButton_size_medium {
-    padding: 0 var(--spacing-size-m);
-  }
-
-  &.IconButton_size_large {
-    padding: 0 var(--spacing-size-s);
-  }
-}
-
 // [Properties] Sizes
+.IconButton_size_xsmall {
+  @include button-sizes.iconButtonXSmallSize;
+}
 .IconButton_size_small {
-  @include button-sizes.buttonSmallSize;
+  @include button-sizes.iconButtonSmallSize;
 }
 .IconButton_size_medium {
-  @include button-sizes.buttonMediumSize;
+  @include button-sizes.iconButtonMediumSize;
 }
 .IconButton_size_large {
-  @include button-sizes.buttonLargeSize;
+  @include button-sizes.iconButtonLargeSize;
 }
 
-// [Properties] Themed appearances
-.IconButton_mode_primary.IconButton_appearance_themed {
-  @include button-appearances.buttonPrimaryThemed('IconButton', true)
-}
-.IconButton_mode_secondary.IconButton_appearance_themed {
-  @include button-appearances.buttonSecondaryThemed('IconButton', true)
-}
-.IconButton_mode_tertiary.IconButton_appearance_themed {
-  @include button-appearances.buttonTertiaryThemed('IconButton', true);
-}
-.IconButton_mode_link.IconButton_appearance_themed {
-  @include button-appearances.buttonLinkThemed('IconButton', true);
+// [Properties] Variants
+.IconButton_variant_primary {
+  @include button-variants.buttonVariantPrimary('IconButton', true);
 }
 
-// [Properties] Negative appearances
-.IconButton_mode_primary.IconButton_appearance_negative {
-  @include button-appearances.buttonPrimaryNegative('IconButton', true)
-}
-.IconButton_mode_secondary.IconButton_appearance_negative {
-  @include button-appearances.buttonSecondaryNegative('IconButton', true)
-}
-.IconButton_mode_tertiary.IconButton_appearance_negative {
-  @include button-appearances.buttonTertiaryNegative('IconButton', true);
-}
-.IconButton_mode_link.IconButton_appearance_negative {
-  @include button-appearances.buttonLinkNegative('IconButton', true);
+.IconButton_variant_secondary {
+  @include button-variants.buttonVariantSecondary('IconButton', true);
 }
 
-// [Properties] Neutral appearances
-.IconButton_mode_primary.IconButton_appearance_neutral {
-  @include button-appearances.buttonPrimaryNeutral('IconButton', true)
-}
-.IconButton_mode_secondary.IconButton_appearance_neutral {
-  @include button-appearances.buttonSecondaryNeutral('IconButton', true)
-}
-.IconButton_mode_tertiary.IconButton_appearance_neutral {
-  @include button-appearances.buttonTertiaryNeutral('IconButton', true);
-}
-.IconButton_mode_link.IconButton_appearance_neutral {
-  @include button-appearances.buttonLinkNeutral('IconButton', true);
+.IconButton_variant_ghost {
+  @include button-variants.buttonVariantGhost('IconButton', true);
 }
 
-// [Properties] Neutral themed appearances
-.IconButton_mode_primary.IconButton_appearance_neutral-themed {
-  @include button-appearances.buttonPrimaryNeutralThemed('IconButton', true)
-}
-.IconButton_mode_secondary.IconButton_appearance_neutral-themed {
-  @include button-appearances.buttonSecondaryNeutralThemed('IconButton', true)
-}
-.IconButton_mode_tertiary.IconButton_appearance_neutral-themed {
-  @include button-appearances.buttonTertiaryNeutralThemed('IconButton', true);
-}
-.IconButton_mode_link.IconButton_appearance_neutral-themed {
-  @include button-appearances.buttonLinkNeutralThemed('IconButton', true);
+.IconButton_variant_primary-contrast {
+  @include button-variants.buttonVariantPrimaryContrast('IconButton', true);
 }
 
-// [Properties] Contrast static appearances
-.IconButton_mode_primary.IconButton_appearance_contrast-static {
-  @include button-appearances.buttonPrimaryContrastStatic('IconButton', true)
+.IconButton_variant_secondary-contrast {
+  @include button-variants.buttonVariantSecondaryContrast('IconButton', true);
 }
-.IconButton_mode_secondary.IconButton_appearance_contrast-static {
-  @include button-appearances.buttonSecondaryContrastStatic('IconButton', true)
+
+.IconButton_variant_overlay {
+  @include button-variants.buttonVariantOverlay('IconButton', true);
 }
-.IconButton_mode_tertiary.IconButton_appearance_contrast-static {
-  @include button-appearances.buttonTertiaryContrastStatic('IconButton', true);
-}
-.IconButton_mode_link.IconButton_appearance_contrast-static {
-  @include button-appearances.buttonLinkContrastStatic('IconButton', true);
+
+.IconButton_variant_destructive {
+  @include button-variants.buttonVariantDestructive('IconButton', true);
 }
 
 // [Parts] Spinner container

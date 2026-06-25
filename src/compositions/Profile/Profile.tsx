@@ -160,8 +160,7 @@ export const Profile = (): ReactNode => {
           <Flex gap={8}>
             <Button
               size="large"
-              mode="secondary"
-              appearance="neutral"
+              variant="secondary"
               stretched
             >
               Выйти
@@ -169,8 +168,7 @@ export const Profile = (): ReactNode => {
 
             <IconButton
               size="large"
-              mode="secondary"
-              appearance="neutral"
+              variant="secondary"
             >
               <Icon24Placeholder />
             </IconButton>
