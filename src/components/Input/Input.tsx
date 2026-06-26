@@ -1,35 +1,31 @@
 import { clsx } from 'clsx';
 import {
   type ComponentProps,
-  forwardRef,
-  type ReactNode
+  forwardRef
 } from 'react';
 
-import { hasReactNode } from '../../helpers';
 import { type InnerClassNamesProp } from '../../types';
 import { ClearableInput } from '../ClearableInput';
 import styles from './Input.module.scss';
 
-export type InputMode = 'primary' | 'secondary';
+export type InputMode = 'default' | 'contrast';
+export type InputSize = 'large' | 'medium';
 export type InputElementKey = 'input' | 'clearButton' | 'body' | 'iconBefore' | 'iconAfter';
 
-export interface InputProps extends ComponentProps<'input'> {
+export interface InputProps extends Omit<ComponentProps<'input'>, 'size'> {
   mode?: InputMode
-  compact?: boolean // todo здесь проп называется compact, а у Cell проп height: 'compact' | 'normal', по хорошему бы прийти к одному неймингу
-  iconBefore?: ReactNode
-  iconAfter?: ReactNode
+  size?: InputSize
   innerClassNames?: InnerClassNamesProp<InputElementKey>
   withClearButton?: boolean
+  count?: number
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>((props, forwardedRef) => {
   const {
     className,
-    iconBefore,
-    iconAfter,
     innerClassNames,
     withClearButton,
-    compact = false,
+    size = 'large',
     mode = 'primary',
     ...rest
   } = props;
@@ -37,8 +33,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, forwardedR
   const rootClassName = clsx(
     styles.Input,
     styles[`Input_mode_${mode}`],
+    styles[`Input_size_${size}`],
     {
-      [styles.Input_compact]: compact,
       [styles.Input_disabled]: rest.disabled
     },
     className
@@ -46,12 +42,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, forwardedR
 
   return (
     <label className={rootClassName}>
-      {hasReactNode(iconBefore) && (
-        <div className={clsx(styles.Input__iconBefore, innerClassNames?.iconBefore)}>
-          {iconBefore}
-        </div>
-      )}
-
       <ClearableInput
         ref={forwardedRef}
         className={clsx(styles.Input__body, innerClassNames?.body)}
@@ -62,12 +52,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, forwardedR
         }}
         {...rest}
       />
-
-      {hasReactNode(iconAfter) && (
-        <div className={clsx(styles.Input__iconAfter, innerClassNames?.iconAfter)}>
-          {iconAfter}
-        </div>
-      )}
     </label>
   );
 });

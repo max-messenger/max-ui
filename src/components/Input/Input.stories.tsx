@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import Icon20Placeholder from '../../../.storybook/assets/icons/icon-20-placeholder.svg';
 import { hideArgsControl } from '../../../.storybook/shared/args-manager';
 import { Input, type InputProps } from './Input';
 
@@ -9,17 +8,13 @@ const meta = {
   component: Input,
   argTypes: {
     ...hideArgsControl(['innerClassNames']),
-
-    iconBefore: { control: 'boolean' },
-    iconAfter: { control: 'boolean' }
+    count: { control: 'number' }
   },
   args: {
-    mode: 'secondary',
-    iconAfter: false,
-    iconBefore: true,
     disabled: false,
-    compact: false,
-    withClearButton: true
+    size: 'large',
+    withClearButton: true,
+    count: 12
   },
   decorators: [
     (Story) => (
@@ -34,15 +29,23 @@ export default meta;
 type Story = StoryObj<InputProps>;
 
 export const Playground: Story = {
-  render: ({ iconBefore, iconAfter, ...args }) => {
+  render: ({ ...args }) => {
     return (
       <Input
         {...args}
-        iconBefore={Boolean(iconBefore) && <Icon20Placeholder />}
-        iconAfter={Boolean(iconAfter) && <Icon20Placeholder />}
         defaultValue=""
         placeholder="Placeholder"
       />
+    );
+  }
+};
+
+export const InputContrast: Story = {
+  render: ({ ...args }) => {
+    return (
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '300px', background: 'rgba(12 13 14 / 0.32)' }}>
+        <Input {...args} defaultValue="" placeholder="Placeholder" />
+      </div>
     );
   }
 };
