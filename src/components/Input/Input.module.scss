@@ -37,6 +37,19 @@
   flex-grow: 1;
 }
 
+.Input__iconBefore {
+  color: var(--icon-primary);
+  margin-right: var(--spacing-size-xl);
+  display: flex;
+}
+
+// [Parts] Icon After
+.Input__iconAfter {
+  color: var(--icon-primary);
+  margin-left: var(--spacing-size-xl);
+  display: flex;
+}
+
 // [Parts] Clear button
 .Input__clearButton {
   margin-left: var(--spacing-size-xl);
@@ -60,4 +73,10 @@
   .Input_disabled & {
     color: var(--states-text-disabled-primary);
   }
+}
+
+.Input__hint {
+  padding: 4px 12px 0;
+  @include typography.bodySmall;
+  color: var(--text-tertiary);
 }
