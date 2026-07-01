@@ -11,15 +11,13 @@ import { Spinner } from '../Spinner';
 import styles from './Button.module.scss';
 import { getButtonSpinnerAppearance, getButtonSpinnerSize, injectButtonIndicator } from './helpers';
 
-export type ButtonSize = 'small' | 'medium' | 'large';
-export type ButtonMode = 'primary' | 'secondary' | 'tertiary' | 'link';
-export type ButtonAppearance = 'themed' | 'negative' | 'neutral' | 'neutral-themed' | 'contrast-static';
+export type ButtonSize = 'xsmall' | 'small' | 'medium' | 'large';
+export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'primary-contrast' | 'secondary-contrast' | 'overlay' | 'destructive';
 export type ButtonInnerElementKey = 'iconBefore' | 'iconAfter' | 'indicator' | 'content' | 'spinnerContainer' | 'spinner';
 
 export interface ButtonProps extends ComponentProps<'button'>, AsChildProp {
   size?: ButtonSize
-  mode?: ButtonMode
-  appearance?: ButtonAppearance
+  variant?: ButtonVariant
   stretched?: boolean
   iconBefore?: ReactNode
   iconAfter?: ReactNode
@@ -42,8 +40,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, forward
     innerClassNames,
     stretched = false,
     size = 'medium',
-    mode = 'primary',
-    appearance = 'themed',
+    variant = 'primary',
     ...rest
   } = props;
 
@@ -53,7 +50,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, forward
   const platform = usePlatform();
   const buttonLikeProps = useButtonLikeProps({ asChild, children, disabled, rootElement, loading });
   const inactive = disabled || loading;
-  const withRipple = platform === 'android' && mode !== 'link';
+  const withRipple = platform === 'android';
 
   const clickHandler: MouseEventHandler<HTMLButtonElement> = (e) => {
     if (loading) return;
@@ -62,8 +59,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, forward
 
   const rootClassName = clsx(
     styles.Button,
-    styles[`Button_appearance_${appearance}`],
-    styles[`Button_mode_${mode}`],
+    styles[`Button_variant_${variant}`],
     styles[`Button_size_${size}`], {
       [styles.Button_loading]: loading,
       [styles.Button_disabled]: disabled,
@@ -93,7 +89,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, forward
           <Spinner
             className={clsx(innerClassNames?.spinner)}
             size={getButtonSpinnerSize(size)}
-            appearance={getButtonSpinnerAppearance(appearance, mode)}
+            appearance={getButtonSpinnerAppearance(variant)}
           />
         </span>
       )}
@@ -116,8 +112,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, forward
         <span className={clsx(styles.Button__indicator, innerClassNames?.indicator)}>
           {injectButtonIndicator(
             indicator,
-            appearance,
-            mode,
+            variant,
             disabled
           )}
         </span>

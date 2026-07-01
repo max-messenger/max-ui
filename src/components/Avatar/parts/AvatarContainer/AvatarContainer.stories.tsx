@@ -35,7 +35,7 @@ const meta = {
           key="icon-button"
           aria-label="Добавить"
           size="small"
-          appearance="neutral"
+          variant="secondary"
         >
           <Icon16Placeholder />
         </IconButton>

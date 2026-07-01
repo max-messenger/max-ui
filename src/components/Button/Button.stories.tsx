@@ -11,10 +11,13 @@ import { Dot } from '../Dot';
 import { Button, type ButtonProps, type ButtonSize } from './Button';
 
 const iconsMapping: Record<ButtonSize, ReactNode> = {
+  xsmall: <Icon16Placeholder />,
   small: <Icon16Placeholder />,
   medium: <Icon24Placeholder />,
   large: <Icon24Placeholder />
 };
+
+const contrastVariants = ['primary-contrast', 'secondary-contrast', 'overlay'];
 
 const meta = {
   title: 'Common/Button',
@@ -34,8 +37,7 @@ const meta = {
     }
   },
   args: {
-    mode: 'primary',
-    appearance: 'themed',
+    variant: 'primary',
     size: 'medium',
     iconAfter: false,
     iconBefore: false,
@@ -52,7 +54,7 @@ const meta = {
       return (
         <OverlayContainer
           style={{ width: 375 }}
-          appearance={context.args.appearance === 'contrast-static' || colorScheme === 'dark' ? 'dark' : 'light'}
+          appearance={contrastVariants.includes(context.args.variant ?? '') || colorScheme === 'dark' ? 'dark' : 'light'}
         >
           <Story />
         </OverlayContainer>

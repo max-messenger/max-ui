@@ -9,21 +9,28 @@ import { useColorScheme } from '../../hooks';
 import { IconButton, type IconButtonProps, type IconButtonSize } from './IconButton';
 
 const iconsMapping: Record<IconButtonSize, ReactNode> = {
+  xsmall: <Icon16Placeholder />,
   small: <Icon16Placeholder />,
   medium: <Icon24Placeholder />,
   large: <Icon24Placeholder />
 };
+
+const contrastVariants: string[] = ['primary-contrast', 'secondary-contrast', 'overlay'];
 
 const meta = {
   title: 'Common/IconButton',
   component: IconButton,
   argTypes: {
     ...hideArgsControl(['asChild', 'innerClassNames']),
-    ...disableArgs(['aria-label'])
+    ...disableArgs(['aria-label']),
+
+    variant: {
+      options: ['primary', 'secondary', 'ghost', 'primary-contrast', 'secondary-contrast', 'overlay', 'destructive'],
+      control: { type: 'select' }
+    }
   },
   args: {
-    mode: 'primary',
-    appearance: 'themed',
+    variant: 'primary',
     size: 'medium',
     disabled: false,
     loading: false,
@@ -36,7 +43,7 @@ const meta = {
       return (
         <OverlayContainer
           style={{ width: 375 }}
-          appearance={context.args.appearance === 'contrast-static' || colorScheme === 'dark' ? 'dark' : 'light'}
+          appearance={contrastVariants.includes(context.args.variant ?? '') || colorScheme === 'dark' ? 'dark' : 'light'}
         >
           <Story />
         </OverlayContainer>

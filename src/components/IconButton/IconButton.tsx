@@ -5,20 +5,19 @@ import { type ComponentProps, type ElementType, forwardRef } from 'react';
 import { getSubtree } from '../../helpers';
 import { useButtonLikeProps, usePlatform } from '../../hooks';
 import { type AsChildProp, type InnerClassNamesProp } from '../../types';
+import { type ButtonVariant } from '../Button';
 import { Ripple } from '../Ripple';
 import { Spinner } from '../Spinner';
 import { getIconButtonSpinnerAppearance, getIconButtonSpinnerSize } from './helpers';
 import styles from './IconButton.module.scss';
 
-export type IconButtonSize = 'small' | 'medium' | 'large';
-export type IconButtonMode = 'primary' | 'secondary' | 'tertiary' | 'link';
-export type IconButtonAppearance = 'themed' | 'negative' | 'neutral' | 'neutral-themed' | 'contrast-static';
+export type IconButtonSize = 'xsmall' | 'small' | 'medium' | 'large';
+export type IconButtonVariant = ButtonVariant;
 export type IconButtonInnerElementKey = 'content' | 'spinnerContainer' | 'spinner';
 
 export interface IconButtonProps extends ComponentProps<'button'>, AsChildProp {
   size?: IconButtonSize
-  mode?: IconButtonMode
-  appearance?: IconButtonAppearance
+  variant?: IconButtonVariant
   disabled?: boolean
   loading?: boolean
   innerClassNames?: InnerClassNamesProp<IconButtonInnerElementKey>
@@ -33,8 +32,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>((props,
     loading,
     asChild = false,
     size = 'medium',
-    mode = 'primary',
-    appearance = 'themed',
+    variant = 'primary',
     ...rest
   } = props;
 
@@ -45,12 +43,11 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>((props,
   const buttonLikeProps = useButtonLikeProps({ asChild, children, disabled, rootElement, loading });
 
   const inactive = disabled || loading;
-  const withRipple = platform === 'android' && mode !== 'link';
+  const withRipple = platform === 'android';
 
   const rootClassName = clsx(
     styles.IconButton,
-    styles[`IconButton_appearance_${appearance}`],
-    styles[`IconButton_mode_${mode}`],
+    styles[`IconButton_variant_${variant}`],
     styles[`IconButton_size_${size}`], {
       [styles.IconButton_loading]: loading,
       [styles.IconButton_disabled]: disabled,
@@ -72,7 +69,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>((props,
           <Spinner
             className={clsx(innerClassNames?.spinner)}
             size={getIconButtonSpinnerSize(size)}
-            appearance={getIconButtonSpinnerAppearance(appearance, mode)}
+            appearance={getIconButtonSpinnerAppearance(variant)}
           />
         </span>
       )}

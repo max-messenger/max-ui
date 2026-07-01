@@ -34,8 +34,7 @@ export const Playground: Story = {
           <Button
             size="large"
             stretched
-            mode="secondary"
-            appearance="neutral"
+            variant="secondary"
           >
             Кнопка
           </Button>
@@ -43,8 +42,7 @@ export const Playground: Story = {
           <Button
             size="large"
             stretched
-            mode="secondary"
-            appearance="neutral"
+            variant="secondary"
           >
             Кнопка 2
           </Button>

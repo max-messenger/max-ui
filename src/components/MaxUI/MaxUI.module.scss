@@ -10,7 +10,10 @@
   background-color: var(--background-surface-primary);
   color: var(--text-primary);
   width: 100%;
-
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
   &_platform {
 
     &_ios {

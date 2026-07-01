@@ -1,0 +1,162 @@
+@use '../builders/button-variants-builder';
+
+// primary
+@mixin buttonVariantPrimary(
+  $root,
+  $withInnerElementsDefs: false,
+) {
+  @include button-variants-builder.buildButtonFilledVariant(
+    $root,
+    $withInnerElementsDefs,
+
+    $background: var(--background-accent-themed),
+    $background_disabled: var(--states-background-disabled-themed),
+    $background_hovered: var(--states-background-hovered-themed),
+    $background_pressed: var(--states-background-pressed-themed),
+    $foreground: var(--text-contrast-static),
+    $foreground_disabled: var(--states-text-disabled-contrast-static),
+
+    $innerElementsBackground: var(--background-accent-contrast-static),
+    $innerElementsBackground_disabled: var(--states-background-disabled-contrast-static),
+    $innerElementsForeground: var(--text-themed),
+    $innerElementsForeground_disabled: var(--states-text-disabled-themed),
+  )
+}
+
+// secondary
+@mixin buttonVariantSecondary(
+  $root,
+  $withInnerElementsDefs: false,
+) {
+  @include button-variants-builder.buildButtonFilledVariant(
+    $root,
+    $withInnerElementsDefs,
+
+    $background: var(--background-button-secondary),
+    $background_disabled: var(--background-button-secondary-disabled),
+    $background_hovered: var(--background-button-secondary-hovered),
+    $background_pressed: var(--background-button-secondary-pressed),
+    $foreground: var(--text-primary),
+    $foreground_disabled: var(--states-text-disabled-primary),
+
+    $innerElementsBackground: var(--background-accent-neutral),
+    $innerElementsBackground_disabled: var(--states-background-disabled-neutral),
+    $innerElementsForeground: var(--text-contrast),
+    $innerElementsForeground_disabled: var(--states-text-disabled-contrast),
+  )
+}
+
+// ghost
+@mixin buttonVariantGhost(
+  $root,
+  $withInnerElementsDefs: false,
+) {
+  @include button-variants-builder.buildButtonFilledVariant(
+    $root,
+    $withInnerElementsDefs,
+
+    $background: transparent,
+    $background_disabled: transparent,
+    $background_hovered: var(--states-background-hovered-transparent),
+    $background_pressed: var(--states-background-pressed-transparent),
+    $foreground: var(--text-primary),
+    $foreground_disabled: var(--states-text-disabled-primary),
+
+    $innerElementsBackground: var(--background-accent-neutral),
+    $innerElementsBackground_disabled: var(--states-background-disabled-neutral),
+    $innerElementsForeground: var(--text-contrast),
+    $innerElementsForeground_disabled: var(--states-text-disabled-contrast),
+  )
+}
+
+// primary-contrast
+@mixin buttonVariantPrimaryContrast(
+  $root,
+  $withInnerElementsDefs: false,
+) {
+  @include button-variants-builder.buildButtonFilledVariant(
+    $root,
+    $withInnerElementsDefs,
+
+    $background: var(--background-accent-contrast-static),
+    $background_disabled: var(--states-background-disabled-contrast-static),
+    $background_hovered: var(--states-background-hovered-contrast-static),
+    $background_pressed: var(--states-background-pressed-contrast-static),
+    $foreground: var(--text-primary-static),
+    $foreground_disabled: var(--states-text-disabled-primary-static),
+
+    $innerElementsBackground: var(--background-accent-neutral-static),
+    $innerElementsBackground_disabled: var(--states-background-disabled-neutral-static),
+    $innerElementsForeground: var(--text-contrast-static),
+    $innerElementsForeground_disabled: var(--states-text-disabled-contrast-static),
+  )
+}
+
+// secondary-contrast
+@mixin buttonVariantSecondaryContrast(
+  $root,
+  $withInnerElementsDefs: false,
+) {
+  @include button-variants-builder.buildButtonFilledVariant(
+    $root,
+    $withInnerElementsDefs,
+
+    $background: var(--background-button-secondary-contrast),
+    $background_disabled: var(--background-button-secondary-contrast-disabled),
+    $background_hovered: var(--background-button-secondary-contrast-hovered),
+    $background_pressed: var(--background-button-secondary-contrast-pressed),
+    $foreground: var(--text-primary),
+    $foreground_disabled: var(--states-text-disabled-primary),
+
+    $innerElementsBackground: var(--background-accent-neutral),
+    $innerElementsBackground_disabled: var(--states-background-disabled-neutral),
+    $innerElementsForeground: var(--text-contrast),
+    $innerElementsForeground_disabled: var(--states-text-disabled-contrast),
+  )
+}
+
+// overlay
+@mixin buttonVariantOverlay(
+  $root,
+  $withInnerElementsDefs: false,
+) {
+  @include button-variants-builder.buildButtonOverlayVariant(
+    $root,
+    $withInnerElementsDefs,
+
+    $background: var(--background-button-overlay),
+    $background_disabled: var(--background-button-overlay-disabled),
+    $background_hovered: var(--background-button-overlay-hovered),
+    $background_pressed: var(--background-button-overlay-pressed),
+    $foreground: var(--text-contrast-static),
+    $foreground_disabled: var(--states-text-disabled-contrast-static),
+
+    $innerElementsBackground: var(--background-accent-neutral-static),
+    $innerElementsBackground_disabled: var(--states-background-disabled-neutral-static),
+    $innerElementsForeground: var(--text-contrast-static),
+    $innerElementsForeground_disabled: var(--states-text-disabled-contrast-static),
+  )
+}
+
+// destructive
+@mixin buttonVariantDestructive(
+  $root,
+  $withInnerElementsDefs: false,
+) {
+  @include button-variants-builder.buildButtonFilledVariant(
+    $root,
+    $withInnerElementsDefs,
+
+    $background: var(--background-accent-negative),
+    $background_disabled: var(--states-background-disabled-negative),
+    $background_hovered: var(--states-background-hovered-destructive),
+    $background_pressed: var(--states-background-pressed-negative),
+    $foreground: var(--text-contrast-static),
+    $foreground_disabled: var(--states-text-disabled-contrast-static),
+
+    $innerElementsBackground: var(--background-accent-contrast-static),
+    $innerElementsBackground_disabled: var(--states-background-disabled-contrast-static),
+    $innerElementsForeground: var(--text-negative),
+    $innerElementsForeground_disabled: var(--states-text-disabled-negative),
+  )
+}
