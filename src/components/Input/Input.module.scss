@@ -17,19 +17,19 @@
 }
 
 // [Properties] Sizes
-.Input_compact {
+.Input_size_medium {
   height: 40px;
 }
-.Input:not(.Input_compact) {
+.Input_size_large {
   height: 52px;
 }
 
 // [Properties] Modes
-.Input_mode_primary {
-  @include form-field-modes-builder.buildFormFieldPrimaryMode('Input');
-}
-.Input_mode_secondary {
+.Input_mode_default {
   @include form-field-modes-builder.buildFormFieldSecondaryMode('Input');
+}
+.Input_mode_contrast {
+  @include form-field-modes-builder.buildFormFieldPrimaryMode('Input');
 }
 
 // [Parts] Body
@@ -37,7 +37,6 @@
   flex-grow: 1;
 }
 
-// [Parts] Icon Before
 .Input__iconBefore {
   color: var(--icon-primary);
   margin-right: var(--spacing-size-xl);
@@ -74,4 +73,10 @@
   .Input_disabled & {
     color: var(--states-text-disabled-primary);
   }
+}
+
+.Input__hint {
+  padding: 4px 12px 0;
+  @include typography.bodySmall;
+  color: var(--text-tertiary);
 }
