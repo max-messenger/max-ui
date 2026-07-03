@@ -18,7 +18,7 @@ const iconsMapping: Record<IconButtonSize, ReactNode> = {
 const contrastVariants: string[] = ['primary-contrast', 'secondary-contrast', 'overlay'];
 
 const meta = {
-  title: 'Common/IconButton',
+  title: 'Common/Button/IconButton',
   component: IconButton,
   argTypes: {
     ...hideArgsControl(['asChild', 'innerClassNames']),

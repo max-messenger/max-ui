@@ -7,7 +7,7 @@ import { type InnerClassNamesProp } from '../../types';
 import { SvgButton } from '../SvgButton';
 import styles from './ClearableInput.module.scss';
 
-export type ClearableInputElementKey = 'input' | 'clearButton';
+export type ClearableInputElementKey = 'input' | 'clearButton' | 'count';
 
 export interface ClearableInputProps extends ComponentProps<'input'> {
   innerClassNames?: InnerClassNamesProp<ClearableInputElementKey>
@@ -48,11 +48,11 @@ export const ClearableInput = forwardRef<HTMLInputElement, ClearableInputProps>(
       />
       {!isEmpty && !disabled && !!count && (
 
-        <SvgButton
-          className={clsx(styles.ClearableInput__button, innerClassNames?.clearButton)}
+        <div
+          className={clsx(styles.ClearableInput__count, innerClassNames?.count)}
         >
           {count}
-        </SvgButton>
+        </div>
       )}
       {!isEmpty && !disabled && withClearButton && (
         <SvgButton

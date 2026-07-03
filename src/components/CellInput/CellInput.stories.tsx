@@ -4,7 +4,7 @@ import { hideArgsControl } from '../../../.storybook/shared/args-manager';
 import { CellInput, type CellInputProps } from './CellInput';
 
 const meta = {
-  title: 'Common/CellInput',
+  title: 'Common/Cell/CellInput',
   component: CellInput,
   argTypes: {
     ...hideArgsControl(['innerClassNames']),

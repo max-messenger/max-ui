@@ -6,6 +6,9 @@ import styles from './Switch.module.scss';
 
 export interface SwitchProps extends ComponentProps<'input'> {}
 
+/**
+ * @deprecated Компонент будет удален в грядущей минорной версии.
+ */
 export const Switch = forwardRef<HTMLInputElement, SwitchProps>((props, forwardedRef) => {
   const {
     className,

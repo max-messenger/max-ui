@@ -4,9 +4,9 @@ import { type ComponentProps, type ElementType, forwardRef } from 'react';
 
 import { getSubtree } from '../../helpers';
 import { useButtonLikeProps, usePlatform } from '../../hooks';
+import { Ripple } from '../../internal';
 import { type AsChildProp, type InnerClassNamesProp } from '../../types';
 import { type ButtonVariant } from '../Button';
-import { Ripple } from '../Ripple';
 import { Spinner } from '../Spinner';
 import { getIconButtonSpinnerAppearance, getIconButtonSpinnerSize } from './helpers';
 import styles from './IconButton.module.scss';

@@ -2,7 +2,7 @@ import { clsx } from 'clsx';
 import { type ComponentProps, forwardRef, type MouseEventHandler } from 'react';
 
 import { Icon20CloseFilled } from '../../../../icons';
-import { SvgButton } from '../../../SvgButton';
+import { SvgButton } from '../../../../internal';
 import { useAvatarContainerContext } from '../AvatarContainer/AvatarContainerContext';
 import styles from './AvatarCloseButton.module.scss';
 import { getButtonSize } from './helpers';
