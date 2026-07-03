@@ -1,1 +1,1 @@
-export { Counter, type CounterAppearance, type CounterMode, type CounterProps } from './Counter';
+export { Counter, type CounterProps, type CounterVariant } from './Counter';
