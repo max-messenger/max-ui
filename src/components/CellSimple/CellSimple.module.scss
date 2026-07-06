@@ -83,3 +83,12 @@
     margin-bottom: var(--spacing-size2xs);
   }
 }
+
+.CellSimple_separator {
+  border-top: 0.5px solid var(--text-tertiary)
+}
+.CellSimple__link {
+  color: var(--text-themed);
+  text-decoration: none;
+  @include typography.titleSmall;
+}

@@ -17,6 +17,7 @@ const meta = {
 
     title: { type: 'string' },
     subtitle: { type: 'string' },
+    link: { type: 'string' },
     before: {
       options: [0, 1, 2],
       mapping: [
@@ -48,7 +49,9 @@ const meta = {
     showChevron: false,
     disabled: false,
     before: 1,
-    after: 1
+    after: 1,
+    separator: false,
+    link: undefined
   },
   decorators: [
     (Story) => (
