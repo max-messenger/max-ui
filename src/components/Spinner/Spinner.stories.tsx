@@ -2,7 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { OverlayContainer } from '../../../.storybook/components/OverlayContainer';
 import { useColorScheme } from '../../hooks';
-import { Spinner, type SpinnerProps } from './Spinner';
+import { Spinner } from './Spinner';
+import { type SpinnerProps } from './types';
 
 const meta = {
   title: 'Common/Spinner',
