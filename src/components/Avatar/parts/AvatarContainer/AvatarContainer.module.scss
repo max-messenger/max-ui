@@ -9,6 +9,10 @@ $squircleMaskUrl: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5
   height: var(--MaxUi-AvatarContainer_size);
   position: relative;
   display: block;
+  max-width: 200px;
+  max-height: 200px;
+  min-width: 16px;
+  min-height: 16px;
 }
 
 // [Properties] Forms

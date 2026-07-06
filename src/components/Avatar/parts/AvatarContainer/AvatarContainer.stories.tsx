@@ -186,3 +186,21 @@ export const AsLink: Story = {
     );
   }
 };
+
+export const OnlineStatus: Story = {
+  args: {
+    rightBottomCorner: 1
+  },
+  render: (props) => (
+    <AvatarContainer
+      {...props}
+    >
+      <Avatar.Image
+        src='https://sun9-21.userapi.com/1N-rJz6-7hoTDW7MhpWe19e_R_TdGV6Wu5ZC0A/67o6-apnAks.jpg'
+        fallback='VT'
+        alt="Vadim Tregubenko"
+      />
+
+    </AvatarContainer>
+  )
+};
