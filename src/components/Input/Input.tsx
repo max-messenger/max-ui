@@ -73,7 +73,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, forwardedR
           </div>
         )}
       </label>
-      <div className={clsx(styles.Input__hint, innerClassNames?.hint)}>{hint}</div>
+      {hasReactNode(hint) && <div className={clsx(styles.Input__hint, innerClassNames?.hint)}>{hint}</div>}
     </>
   );
 });
