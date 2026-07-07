@@ -23,6 +23,10 @@ export const AvatarOnlineDot = forwardRef<HTMLSpanElement, AvatarOnlineDotProps>
     className
   );
 
+  if (avatarContainerSize < 16 || avatarContainerSize > 80) {
+    return null;
+  }
+
   return (
     <span
       ref={forwardedRef}
