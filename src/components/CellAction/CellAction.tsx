@@ -4,8 +4,8 @@ import { type ComponentProps, forwardRef, type ReactNode } from 'react';
 
 import { getSubtree, hasReactNode } from '../../helpers';
 import { Icon16Chevron } from '../../icons';
+import { Tappable } from '../../internal';
 import { type AsChildProp, type InnerClassNamesProp, type MergeProps } from '../../types';
-import { Tappable } from '../Tappable';
 import styles from './CellAction.module.scss';
 
 export type CellActionMode = 'primary' | 'destructive' | 'custom';

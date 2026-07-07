@@ -2,15 +2,15 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import Icon16Placeholder from '../../../.storybook/assets/icons/icon-16-placeholder.svg';
 import { hideArgsControl } from '../../../.storybook/shared/args-manager';
+import { Panel } from '../../internal';
 import { Avatar } from '../Avatar';
 import { CellList } from '../CellList';
 import { CellSimple } from '../CellSimple';
-import { Panel } from '../Panel';
 import { Typography } from '../Typography';
 import { CellHeader, type CellHeaderProps } from './CellHeader';
 
 const meta = {
-  title: 'Common/CellHeader',
+  title: 'Common/Cell/CellHeader',
   component: CellHeader,
   argTypes: {
     ...hideArgsControl(['innerClassNames']),

@@ -7,7 +7,7 @@ import { OverlayContainer } from '../../../.storybook/components/OverlayContaine
 import { hideArgsControl } from '../../../.storybook/shared/args-manager';
 import { useColorScheme } from '../../hooks';
 import { Counter } from '../Counter';
-import { Dot } from '../Dot';
+import { Dot } from '../Dot/';
 import { Button, type ButtonProps, type ButtonSize } from './Button';
 
 const iconsMapping: Record<ButtonSize, ReactNode> = {
@@ -29,7 +29,7 @@ const meta = {
     iconAfter: { control: 'boolean' },
     indicator: {
       options: [0, 1, 2],
-      mapping: [undefined, <Counter key="counter" value={123456} />, <Dot key="dot" aria-label="Есть новые уведомления" />],
+      mapping: [undefined, <Counter key="counter" value={1} />, <Dot key="dot" aria-label="Есть новые уведомления" />],
       control: {
         type: 'select',
         labels: ['None', 'Counter', 'Dot']

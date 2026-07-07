@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import Icon16Placeholder from '../../../../../.storybook/assets/icons/icon-16-placeholder.svg';
 import Icon24Placeholder from '../../../../../.storybook/assets/icons/icon-24-placeholder.svg';
 import { hideArgsControl } from '../../../../../.storybook/shared/args-manager';
-import { Flex } from '../../../Flex';
+import { Flex } from '../../../../internal';
 import { IconButton } from '../../../IconButton';
 import { Avatar } from '../../index';
 import { AvatarContainer, type AvatarContainerProps } from './AvatarContainer';

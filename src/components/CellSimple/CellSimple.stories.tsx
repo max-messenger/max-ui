@@ -3,14 +3,14 @@ import { fn } from 'storybook/test';
 
 import Icon24Placeholder from '../../../.storybook/assets/icons/icon-24-placeholder.svg';
 import { hideArgsControl } from '../../../.storybook/shared/args-manager';
+import { EllipsisText } from '../../internal';
 import { Avatar } from '../Avatar';
 import { Button } from '../Button';
 import { Counter } from '../Counter';
-import { EllipsisText } from '../EllipsisText';
 import { CellSimple, type CellSimpleProps } from './CellSimple';
 
 const meta = {
-  title: 'Common/CellSimple',
+  title: 'Common/Cell/CellSimple',
   component: CellSimple,
   argTypes: {
     ...hideArgsControl(['asChild', 'innerClassNames', 'onClick', 'as']),

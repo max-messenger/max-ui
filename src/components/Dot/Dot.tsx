@@ -9,6 +9,9 @@ export interface DotProps extends ComponentProps<'span'> {
   appearance?: DotAppearance
 }
 
+/**
+ * @deprecated Компонент будет удален в грядущей минорной версии.
+ */
 export const Dot = forwardRef<HTMLSpanElement, DotProps>((props, ref) => {
   const {
     className,

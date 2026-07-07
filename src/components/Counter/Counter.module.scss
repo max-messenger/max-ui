@@ -1,7 +1,7 @@
 @use '../../styles/shared-mixins/typography';
 
 @mixin withoutBackgroundColor {
-  background-color: transparent;
+  background-color: var(--background-accent-contrast-secondary);
 }
 @mixin textColorPrimary {
   color: var(--text-primary-inverse)

@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
+import { Panel } from '../../internal';
 import { Avatar } from '../Avatar';
 import { CellHeader } from '../CellHeader';
 import { CellSimple } from '../CellSimple';
-import { Panel } from '../Panel';
 import { CellList, type CellListProps } from './CellList';
 
 const meta = {
-  title: 'Common/CellList',
+  title: 'Common/Cell/CellList',
   component: CellList,
   argTypes: {
     header: {

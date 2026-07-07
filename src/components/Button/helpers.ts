@@ -28,26 +28,26 @@ export const getButtonSpinnerAppearance = (buttonVariant: ButtonVariant): Spinne
   }
 };
 
-export const getButtonCounterAppearance = (buttonVariant: ButtonVariant): Pick<CounterProps, 'appearance' | 'mode'> => {
+export const getButtonCounterAppearance = (buttonVariant: ButtonVariant): Pick<CounterProps, 'variant'> => {
   switch (buttonVariant) {
     case 'primary':
-      return { mode: 'inverse', appearance: 'themed' };
+      return { variant: 'primary-contrast' };
     case 'secondary':
-      return { mode: 'filled', appearance: 'themed' };
+      return { variant: 'static' };
     case 'ghost':
-      return { mode: 'filled', appearance: 'themed' };
+      return { variant: 'static' };
     case 'primary-contrast':
-      return { mode: 'filled', appearance: 'neutral-static' };
+      return { variant: 'static' };
     case 'secondary-contrast':
-      return { mode: 'filled', appearance: 'neutral-static' };
+      return { variant: 'static' };
     case 'overlay':
-      return { mode: 'filled', appearance: 'neutral-static' };
+      return { variant: 'static-contrast' };
     case 'destructive':
-      return { mode: 'inverse', appearance: 'negative' };
+      return { variant: 'attention-contrast' };
   }
 };
 
-export const injectButtonIndicator = (indicatorNode: ReactNode, buttonVariant: ButtonVariant, disabled?: boolean): ReactNode => {
+export const injectButtonIndicator = (indicatorNode: ReactNode, buttonVariant: ButtonVariant): ReactNode => {
   if (!isValidElement(indicatorNode)) {
     return indicatorNode;
   }
@@ -56,8 +56,7 @@ export const injectButtonIndicator = (indicatorNode: ReactNode, buttonVariant: B
     return cloneElement(
       indicatorNode as ReactElement<CounterProps>,
       {
-        ...getButtonCounterAppearance(buttonVariant),
-        disabled
+        ...getButtonCounterAppearance(buttonVariant)
       }
     );
   }

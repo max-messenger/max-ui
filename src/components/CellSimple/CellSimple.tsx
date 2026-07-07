@@ -4,8 +4,8 @@ import { type ComponentProps, type ElementType, forwardRef, type ReactNode } fro
 
 import { getSubtree, hasReactNode } from '../../helpers';
 import { Icon16Chevron } from '../../icons';
+import { Tappable } from '../../internal';
 import { type AsChildProp, type InnerClassNamesProp, type MergeProps } from '../../types';
-import { Tappable } from '../Tappable';
 import styles from './CellSimple.module.scss';
 
 export type CellSimpleHeight = 'compact' | 'normal';

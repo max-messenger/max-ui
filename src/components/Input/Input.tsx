@@ -5,8 +5,8 @@ import {
 } from 'react';
 
 import { hasReactNode } from '../../helpers';
+import { ClearableInput } from '../../internal';
 import { type InnerClassNamesProp } from '../../types';
-import { ClearableInput } from '../ClearableInput';
 import styles from './Input.module.scss';
 
 export type InputMode = 'default' | 'contrast';
