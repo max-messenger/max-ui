@@ -19,8 +19,7 @@ export const Spinner = forwardRef<HTMLSpanElement, SpinnerProps>((props, forward
   const rootClassName = clsx(
     styles.Spinner,
     styles[`Spinner_appearance_${appearance}`],
-    className,
-    { [styles.Spinner__android]: platform === 'android' }
+    className
   );
   const PlatformSpinner = platform === 'ios' ? SpinnerIos : SpinnerAndroid;
 
