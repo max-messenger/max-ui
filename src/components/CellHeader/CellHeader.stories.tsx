@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import Icon16Placeholder from '../../../.storybook/assets/icons/icon-16-placeholder.svg';
 import { hideArgsControl } from '../../../.storybook/shared/args-manager';
-import { Panel } from '../../internal';
 import { Avatar } from '../Avatar';
 import { CellList } from '../CellList';
 import { CellSimple } from '../CellSimple';
@@ -10,7 +9,7 @@ import { Typography } from '../Typography';
 import { CellHeader, type CellHeaderProps } from './CellHeader';
 
 const meta = {
-  title: 'Common/Cell/CellHeader',
+  title: 'Components/Cell/CellHeader',
   component: CellHeader,
   argTypes: {
     ...hideArgsControl(['innerClassNames']),
@@ -35,10 +34,8 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <div style={{ width: 375, height: 375 }}>
-        <Panel mode="secondary" centeredY>
-          <Story />
-        </Panel>
+      <div style={{ width: 375, height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <Story />
       </div>
     )
   ]

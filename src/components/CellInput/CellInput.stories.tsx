@@ -4,7 +4,7 @@ import { hideArgsControl } from '../../../.storybook/shared/args-manager';
 import { CellInput, type CellInputProps } from './CellInput';
 
 const meta = {
-  title: 'Common/Cell/CellInput',
+  title: 'Components/Cell/CellInput',
   component: CellInput,
   argTypes: {
     ...hideArgsControl(['innerClassNames']),
@@ -19,7 +19,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <div style={{ width: 375 }}>
+      <div style={{ width: 375, height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <Story />
       </div>
     )

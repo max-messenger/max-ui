@@ -1,13 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Panel } from '../../internal';
 import { Avatar } from '../Avatar';
 import { CellHeader } from '../CellHeader';
 import { CellSimple } from '../CellSimple';
 import { CellList, type CellListProps } from './CellList';
 
 const meta = {
-  title: 'Common/Cell/CellList',
+  title: 'Components/Cell/CellList',
   component: CellList,
   argTypes: {
     header: {
@@ -28,10 +27,8 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <div style={{ width: 375, height: 375 }}>
-        <Panel mode="secondary" centeredY>
-          <Story />
-        </Panel>
+      <div style={{ width: 375, height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <Story />
       </div>
     )
   ]

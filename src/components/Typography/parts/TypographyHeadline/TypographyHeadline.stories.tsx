@@ -5,7 +5,7 @@ import { Typography } from '../../index';
 import { TypographyHeadline, type TypographyHeadlineProps } from './TypographyHeadline';
 
 const meta = {
-  title: 'Common/Typography/Typography.Headline',
+  title: 'Components/Typography/Typography.Headline',
   component: TypographyHeadline,
   argTypes: {
     ...hideArgsControl(['asChild'])

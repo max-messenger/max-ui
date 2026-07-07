@@ -4,7 +4,7 @@ import { Button } from '../Button';
 import { Counter, type CounterProps } from './Counter';
 
 const meta = {
-  title: 'Common/Counter',
+  title: 'Components/Counter',
   component: Counter,
   args: {
     value: 12,

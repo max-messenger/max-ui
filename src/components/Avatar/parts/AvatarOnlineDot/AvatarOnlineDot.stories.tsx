@@ -5,7 +5,7 @@ import { Avatar, type AvatarOnlineDotProps } from '../../index';
 import { AvatarOnlineDot } from './AvatarOnlineDot';
 
 const meta = {
-  title: 'Common/Avatar/Avatar.OnlineDot',
+  title: 'Components/Avatar/Avatar.OnlineDot',
   component: AvatarOnlineDot
 } satisfies Meta<AvatarOnlineDotProps>;
 
