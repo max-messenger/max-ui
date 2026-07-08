@@ -111,8 +111,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, forward
         <span className={clsx(styles.Button__indicator, innerClassNames?.indicator)}>
           {injectButtonIndicator(
             indicator,
-            variant,
-            disabled
+            variant
           )}
         </span>
       )}
