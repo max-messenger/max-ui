@@ -1,10 +1,11 @@
 .OverlayContainer {
   background-size: 40px 40px;
   background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
-  padding: 20px;
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
 
   &_appearance {
 

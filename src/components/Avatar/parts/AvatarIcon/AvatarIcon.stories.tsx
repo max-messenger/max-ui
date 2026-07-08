@@ -5,7 +5,7 @@ import { Avatar, type AvatarIconProps } from '../../index';
 import { AvatarIcon } from './AvatarIcon';
 
 const meta = {
-  title: 'Common/Avatar/Avatar.Icon',
+  title: 'Components/Avatar/Avatar.Icon',
   component: AvatarIcon
 } satisfies Meta<AvatarIconProps>;
 

@@ -5,7 +5,7 @@ import { Typography, type TypographyTitleProps } from '../../index';
 import { TypographyTitle } from './TypographyTitle';
 
 const meta = {
-  title: 'Common/Typography/Typography.Title',
+  title: 'Components/Typography/Typography.Title',
   component: TypographyTitle,
   argTypes: {
     ...hideArgsControl(['asChild'])

@@ -3,11 +3,11 @@ import { fn } from 'storybook/test';
 
 import Icon28Placeholder from '../../../.storybook/assets/icons/icon-28-placeholder.svg';
 import { hideArgsControl } from '../../../.storybook/shared/args-manager';
-import { EllipsisText } from '../EllipsisText';
+import { EllipsisText } from '../../internal';
 import { CellAction, type CellActionProps } from './CellAction';
 
 const meta = {
-  title: 'Common/CellAction',
+  title: 'Components/Cell/CellAction',
   component: CellAction,
   argTypes: {
     ...hideArgsControl(['asChild', 'innerClassNames']),

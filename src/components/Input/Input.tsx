@@ -5,13 +5,13 @@ import {
 } from 'react';
 
 import { hasReactNode } from '../../helpers';
+import { ClearableInput } from '../../internal';
 import { type InnerClassNamesProp } from '../../types';
-import { ClearableInput } from '../ClearableInput';
 import styles from './Input.module.scss';
 
 export type InputMode = 'default' | 'contrast';
 export type InputSize = 'large' | 'medium';
-export type InputElementKey = 'input' | 'clearButton' | 'body' | 'iconBefore' | 'iconAfter' | 'hint';
+export type InputElementKey = 'container' | 'input' | 'clearButton' | 'body' | 'iconBefore' | 'iconAfter' | 'hint';
 
 export interface InputProps extends Omit<ComponentProps<'input'>, 'size'> {
   mode?: InputMode
@@ -48,7 +48,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, forwardedR
   );
 
   return (
-    <>
+    <div className={clsx(innerClassNames?.container)}>
       <label className={rootClassName}>
         {hasReactNode(iconBefore) && (
           <div className={clsx(styles.Input__iconBefore, innerClassNames?.iconBefore)}>
@@ -73,8 +73,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, forwardedR
           </div>
         )}
       </label>
-      <div className={clsx(styles.Input__hint, innerClassNames?.hint)}>{hint}</div>
-    </>
+      {hasReactNode(hint) && <div className={clsx(styles.Input__hint, innerClassNames?.hint)}>{hint}</div>}
+    </div>
   );
 });
 

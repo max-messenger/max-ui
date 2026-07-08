@@ -3,11 +3,9 @@ import { type ReactNode } from 'react';
 
 import Icon16Placeholder from '../../../.storybook/assets/icons/icon-16-placeholder.svg';
 import Icon24Placeholder from '../../../.storybook/assets/icons/icon-24-placeholder.svg';
-import { OverlayContainer } from '../../../.storybook/components/OverlayContainer';
 import { hideArgsControl } from '../../../.storybook/shared/args-manager';
-import { useColorScheme } from '../../hooks';
 import { Counter } from '../Counter';
-import { Dot } from '../Dot';
+import { Dot } from '../Dot/';
 import { Button, type ButtonProps, type ButtonSize } from './Button';
 
 const iconsMapping: Record<ButtonSize, ReactNode> = {
@@ -17,10 +15,8 @@ const iconsMapping: Record<ButtonSize, ReactNode> = {
   large: <Icon24Placeholder />
 };
 
-const contrastVariants = ['primary-contrast', 'secondary-contrast', 'overlay'];
-
 const meta = {
-  title: 'Common/Button',
+  title: 'Components/Button',
   component: Button,
   argTypes: {
     ...hideArgsControl(['asChild', 'innerClassNames']),
@@ -29,7 +25,7 @@ const meta = {
     iconAfter: { control: 'boolean' },
     indicator: {
       options: [0, 1, 2],
-      mapping: [undefined, <Counter key="counter" value={123456} />, <Dot key="dot" aria-label="Есть новые уведомления" />],
+      mapping: [undefined, <Counter key="counter" value={1} />, <Dot key="dot" aria-label="Есть новые уведомления" />],
       control: {
         type: 'select',
         labels: ['None', 'Counter', 'Dot']
@@ -46,21 +42,7 @@ const meta = {
     disabled: false,
     stretched: false,
     loading: false
-  },
-  decorators: [
-    (Story, context) => {
-      const colorScheme = useColorScheme();
-
-      return (
-        <OverlayContainer
-          style={{ width: 375 }}
-          appearance={contrastVariants.includes(context.args.variant ?? '') || colorScheme === 'dark' ? 'dark' : 'light'}
-        >
-          <Story />
-        </OverlayContainer>
-      );
-    }
-  ]
+  }
 } satisfies Meta<ButtonProps>;
 
 export default meta;

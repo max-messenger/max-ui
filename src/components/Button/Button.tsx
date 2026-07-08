@@ -4,9 +4,8 @@ import { type ComponentProps, type ElementType, forwardRef, type MouseEventHandl
 
 import { getSubtree, hasReactNode } from '../../helpers';
 import { useButtonLikeProps, usePlatform } from '../../hooks';
+import { EllipsisText, Ripple } from '../../internal';
 import { type AsChildProp, type InnerClassNamesProp } from '../../types';
-import { EllipsisText } from '../EllipsisText';
-import { Ripple } from '../Ripple';
 import { Spinner } from '../Spinner';
 import styles from './Button.module.scss';
 import { getButtonSpinnerAppearance, getButtonSpinnerSize, injectButtonIndicator } from './helpers';

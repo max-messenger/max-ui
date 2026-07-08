@@ -4,6 +4,14 @@ import Icon20Placeholder from '../../../.storybook/assets/icons/icon-20-placehol
 import { hideArgsControl } from '../../../.storybook/shared/args-manager';
 import { Input, type InputProps } from './Input';
 
+const styles = {
+  width: '100vw',
+  height: '100vh',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center'
+};
+
 const meta = {
   title: 'Forms/Input',
   component: Input,
@@ -24,8 +32,8 @@ const meta = {
     hint: 'Подсказка к полю'
   },
   decorators: [
-    (Story) => (
-      <div style={{ width: 375 }}>
+    (Story, context) => (
+      <div style={{ ...styles, background: context.args.mode === 'contrast' ? 'rgba(12 13 14 / 0.32)' : 'none' }}>
         <Story />
       </div>
     )
@@ -38,31 +46,13 @@ type Story = StoryObj<InputProps>;
 export const Playground: Story = {
   render: ({ iconBefore, iconAfter, ...args }) => {
     return (
-      <Input
-        {...args}
-        iconBefore={Boolean(iconBefore) && <Icon20Placeholder />}
-        iconAfter={Boolean(iconAfter) && <Icon20Placeholder />}
-        defaultValue=""
-        placeholder="Placeholder"
-      />
-    );
-  }
-};
-
-export const InputContrast: Story = {
-  argTypes: {
-    mode: { control: false }
-  },
-  render: ({ iconBefore, iconAfter, ...args }) => {
-    return (
-      <div style={{ height: '300px', background: 'rgba(12 13 14 / 0.32)', padding: 25 }}>
+      <div style={{ minWidth: 350 }}>
         <Input
           {...args}
           iconBefore={Boolean(iconBefore) && <Icon20Placeholder />}
           iconAfter={Boolean(iconAfter) && <Icon20Placeholder />}
           defaultValue=""
           placeholder="Placeholder"
-          mode='contrast'
         />
       </div>
     );

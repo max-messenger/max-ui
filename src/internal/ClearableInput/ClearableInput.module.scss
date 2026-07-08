@@ -1,0 +1,16 @@
+@use '../../styles/shared-mixins/typography';
+
+.ClearableInput {
+  display: flex;
+  align-items: center;
+}
+
+// [Parts] Clear button
+.ClearableInput__button {
+  padding: 2px;
+  }
+.ClearableInput__count {
+  color: var(--icon-tertiary);
+  padding: 2px;
+  @include typography.bodySmall;
+}

@@ -3,13 +3,13 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import Icon16Placeholder from '../../../../../.storybook/assets/icons/icon-16-placeholder.svg';
 import Icon24Placeholder from '../../../../../.storybook/assets/icons/icon-24-placeholder.svg';
 import { hideArgsControl } from '../../../../../.storybook/shared/args-manager';
-import { Flex } from '../../../Flex';
+import { Flex } from '../../../../internal';
 import { IconButton } from '../../../IconButton';
 import { Avatar } from '../../index';
 import { AvatarContainer, type AvatarContainerProps } from './AvatarContainer';
 
 const meta = {
-  title: 'Common/Avatar/Avatar.Container',
+  title: 'Components/Avatar/Avatar.Container',
   component: AvatarContainer,
   argTypes: {
     ...hideArgsControl(['innerClassNames', 'asChild']),
@@ -185,4 +185,22 @@ export const AsLink: Story = {
       </>
     );
   }
+};
+
+export const OnlineStatus: Story = {
+  args: {
+    rightBottomCorner: 1
+  },
+  render: (props) => (
+    <AvatarContainer
+      {...props}
+    >
+      <Avatar.Image
+        src='https://sun9-21.userapi.com/1N-rJz6-7hoTDW7MhpWe19e_R_TdGV6Wu5ZC0A/67o6-apnAks.jpg'
+        fallback='VT'
+        alt="Vadim Tregubenko"
+      />
+
+    </AvatarContainer>
+  )
 };

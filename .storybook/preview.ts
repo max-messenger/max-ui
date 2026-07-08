@@ -11,9 +11,9 @@ const preview: Preview = {
         date: /Date$/i
       }
     },
-    layout: 'centered'
+    layout: 'fullscreen'
   },
-  tags: ['autodocs'],
+  // tags: ['autodocs'],
   decorators: [withConfigProvider],
   initialGlobals: {
     theme: 'light',

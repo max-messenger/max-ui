@@ -3,9 +3,8 @@ import { clsx } from 'clsx';
 import { type ComponentProps, forwardRef, type ReactNode } from 'react';
 
 import { getSubtree, hasReactNode } from '../../helpers';
+import { EllipsisText, Tappable } from '../../internal';
 import { type AsChildProp, type InnerClassNamesProp } from '../../types';
-import { EllipsisText } from '../EllipsisText';
-import { Tappable } from '../Tappable';
 import styles from './ToolButton.module.scss';
 
 export type ToolButtonAppearance = 'default' | 'secondary';
@@ -17,6 +16,9 @@ export interface ToolButtonProps extends ComponentProps<'button'>, AsChildProp {
   appearance?: ToolButtonAppearance
 }
 
+/**
+ * @deprecated Компонент будет удален в грядущей минорной версии.
+ */
 export const ToolButton = forwardRef<HTMLButtonElement, ToolButtonProps>((props, forwardedRef) => {
   const {
     className,

@@ -5,7 +5,7 @@ import { Avatar, type AvatarOverlayProps } from '../../index';
 import { AvatarOverlay } from './AvatarOverlay';
 
 const meta = {
-  title: 'Common/Avatar/Avatar.Overlay',
+  title: 'Components/Avatar/Avatar.Overlay',
   component: AvatarOverlay
 } satisfies Meta<AvatarOverlayProps>;
 

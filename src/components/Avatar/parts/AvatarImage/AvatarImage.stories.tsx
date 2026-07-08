@@ -4,7 +4,7 @@ import { Avatar, type AvatarImageProps } from '../../index';
 import { AvatarImage } from './AvatarImage';
 
 const meta = {
-  title: 'Common/Avatar/Avatar.Image',
+  title: 'Components/Avatar/Avatar.Image',
   component: AvatarImage,
   args: {
     src: 'https://sun9-21.userapi.com/1N-rJz6-7hoTDW7MhpWe19e_R_TdGV6Wu5ZC0A/67o6-apnAks.jpg',

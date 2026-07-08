@@ -5,12 +5,11 @@ import { hideArgsControl } from '../../../.storybook/shared/args-manager';
 import { Avatar } from '../Avatar';
 import { CellList } from '../CellList';
 import { CellSimple } from '../CellSimple';
-import { Panel } from '../Panel';
 import { Typography } from '../Typography';
 import { CellHeader, type CellHeaderProps } from './CellHeader';
 
 const meta = {
-  title: 'Common/CellHeader',
+  title: 'Components/Cell/CellHeader',
   component: CellHeader,
   argTypes: {
     ...hideArgsControl(['innerClassNames']),
@@ -35,10 +34,8 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <div style={{ width: 375, height: 375 }}>
-        <Panel mode="secondary" centeredY>
-          <Story />
-        </Panel>
+      <div style={{ width: 375, height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <Story />
       </div>
     )
   ]
