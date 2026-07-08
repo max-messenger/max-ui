@@ -10,7 +10,7 @@ import { Counter } from '../Counter';
 import { CellSimple, type CellSimpleProps } from './CellSimple';
 
 const meta = {
-  title: 'Common/Cell/CellSimple',
+  title: 'Components/Cell/CellSimple',
   component: CellSimple,
   argTypes: {
     ...hideArgsControl(['asChild', 'innerClassNames', 'onClick', 'as']),

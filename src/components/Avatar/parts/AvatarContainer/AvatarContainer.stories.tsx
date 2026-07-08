@@ -9,7 +9,7 @@ import { Avatar } from '../../index';
 import { AvatarContainer, type AvatarContainerProps } from './AvatarContainer';
 
 const meta = {
-  title: 'Common/Avatar/Avatar.Container',
+  title: 'Components/Avatar/Avatar.Container',
   component: AvatarContainer,
   argTypes: {
     ...hideArgsControl(['innerClassNames', 'asChild']),

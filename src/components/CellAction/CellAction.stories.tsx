@@ -7,7 +7,7 @@ import { EllipsisText } from '../../internal';
 import { CellAction, type CellActionProps } from './CellAction';
 
 const meta = {
-  title: 'Common/Cell/CellAction',
+  title: 'Components/Cell/CellAction',
   component: CellAction,
   argTypes: {
     ...hideArgsControl(['asChild', 'innerClassNames']),

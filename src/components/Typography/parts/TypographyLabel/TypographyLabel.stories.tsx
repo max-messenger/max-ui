@@ -5,7 +5,7 @@ import { Typography } from '../..';
 import { TypographyLabel, type TypographyLabelProps } from './TypographyLabel';
 
 const meta = {
-  title: 'Common/Typography/Typography.Label',
+  title: 'Components/Typography/Typography.Label',
   component: TypographyLabel,
   argTypes: {
     ...hideArgsControl(['asChild'])

@@ -4,7 +4,7 @@ import { Avatar, type AvatarTextProps } from '../../index';
 import { AvatarText } from './AvatarText';
 
 const meta = {
-  title: 'Common/Avatar/Avatar.Text',
+  title: 'Components/Avatar/Avatar.Text',
   component: AvatarText,
   args: {
     children: 'VT'

@@ -5,7 +5,7 @@ import { Avatar, type AvatarCloseButtonProps } from '../../index';
 import { AvatarCloseButton } from './AvatarCloseButton';
 
 const meta = {
-  title: 'Common/Avatar/Avatar.CloseButton',
+  title: 'Components/Avatar/Avatar.CloseButton',
   component: AvatarCloseButton
 } satisfies Meta<AvatarCloseButtonProps>;
 

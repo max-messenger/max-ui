@@ -3,9 +3,7 @@ import { type ReactNode } from 'react';
 
 import Icon16Placeholder from '../../../.storybook/assets/icons/icon-16-placeholder.svg';
 import Icon24Placeholder from '../../../.storybook/assets/icons/icon-24-placeholder.svg';
-import { OverlayContainer } from '../../../.storybook/components/OverlayContainer';
 import { disableArgs, hideArgsControl } from '../../../.storybook/shared/args-manager';
-import { useColorScheme } from '../../hooks';
 import { IconButton, type IconButtonProps, type IconButtonSize } from './IconButton';
 
 const iconsMapping: Record<IconButtonSize, ReactNode> = {
@@ -15,10 +13,8 @@ const iconsMapping: Record<IconButtonSize, ReactNode> = {
   large: <Icon24Placeholder />
 };
 
-const contrastVariants: string[] = ['primary-contrast', 'secondary-contrast', 'overlay'];
-
 const meta = {
-  title: 'Common/Button/IconButton',
+  title: 'Components/Button/IconButton',
   component: IconButton,
   argTypes: {
     ...hideArgsControl(['asChild', 'innerClassNames']),
@@ -35,21 +31,7 @@ const meta = {
     disabled: false,
     loading: false,
     'aria-label': 'Название кнопки'
-  },
-  decorators: [
-    (Story, context) => {
-      const colorScheme = useColorScheme();
-
-      return (
-        <OverlayContainer
-          style={{ width: 375 }}
-          appearance={contrastVariants.includes(context.args.variant ?? '') || colorScheme === 'dark' ? 'dark' : 'light'}
-        >
-          <Story />
-        </OverlayContainer>
-      );
-    }
-  ]
+  }
 } satisfies Meta<IconButtonProps>;
 
 export default meta;
