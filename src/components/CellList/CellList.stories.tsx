@@ -8,6 +8,9 @@ import { CellList, type CellListProps } from './CellList';
 const meta = {
   title: 'Components/Cell/CellList',
   component: CellList,
+  parameters: {
+    cartesian: ['mode']
+  },
   argTypes: {
     header: {
       options: [0, 1],

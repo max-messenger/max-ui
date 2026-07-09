@@ -16,6 +16,9 @@ const iconsMapping: Record<IconButtonSize, ReactNode> = {
 const meta = {
   title: 'Components/Button/IconButton',
   component: IconButton,
+  parameters: {
+    cartesian: ['variant', 'size']
+  },
   argTypes: {
     ...hideArgsControl(['asChild', 'innerClassNames']),
     ...disableArgs(['aria-label']),

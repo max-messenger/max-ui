@@ -11,6 +11,9 @@ import { CellHeader, type CellHeaderProps } from './CellHeader';
 const meta = {
   title: 'Components/Cell/CellHeader',
   component: CellHeader,
+  parameters: {
+    cartesian: ['titleStyle']
+  },
   argTypes: {
     ...hideArgsControl(['innerClassNames']),
 

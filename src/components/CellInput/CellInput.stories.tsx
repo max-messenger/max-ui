@@ -6,6 +6,9 @@ import { CellInput, type CellInputProps } from './CellInput';
 const meta = {
   title: 'Components/Cell/CellInput',
   component: CellInput,
+  parameters: {
+    cartesian: ['height']
+  },
   argTypes: {
     ...hideArgsControl(['innerClassNames']),
 

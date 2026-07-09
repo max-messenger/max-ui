@@ -9,11 +9,14 @@
 
   &_appearance {
     &_light {
-      background-color: #f9f9f9;
+      background-image: radial-gradient(circle at 2px 2px, #64646421 2px, transparent 1px);
+      background-size: 25px 25px;
     }
 
     &_dark {
-      background-color: rgb(47 48 54);
+      background-color: #17181c;
+      background-image: radial-gradient(circle at 2px 2px, #64646421 2px, transparent 1px);
+      background-size: 25px 25px;
     }
   }
 }

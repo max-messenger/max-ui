@@ -7,6 +7,9 @@ import { TypographyTitle } from './TypographyTitle';
 const meta = {
   title: 'Components/Typography/Typography.Title',
   component: TypographyTitle,
+  parameters: {
+    cartesian: ['variant']
+  },
   argTypes: {
     ...hideArgsControl(['asChild'])
   },

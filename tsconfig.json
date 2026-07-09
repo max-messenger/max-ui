@@ -19,6 +19,8 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     ".storybook/**/*.ts",
+    ".storybook/**/*.tsx",
+    ".storybook/**/*.js",
     "rollup.config.js"
   ],
   "files": ["types/env.d.ts"],

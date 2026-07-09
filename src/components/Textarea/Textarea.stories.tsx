@@ -5,6 +5,9 @@ import { Textarea, type TextareaProps } from './Textarea';
 const meta = {
   title: 'Forms/Input/Textarea',
   component: Textarea,
+  parameters: {
+    cartesian: ['mode']
+  },
   args: {
     mode: 'secondary',
     disabled: false

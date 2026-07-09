@@ -7,6 +7,9 @@ import { TypographyBody } from './TypographyBody';
 const meta = {
   title: 'Components/Typography/Typography.Body',
   component: TypographyBody,
+  parameters: {
+    cartesian: ['variant']
+  },
   argTypes: {
     ...hideArgsControl(['asChild'])
   },

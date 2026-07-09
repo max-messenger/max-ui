@@ -11,6 +11,9 @@ import { AvatarContainer, type AvatarContainerProps } from './AvatarContainer';
 const meta = {
   title: 'Components/Avatar/Avatar.Container',
   component: AvatarContainer,
+  parameters: {
+    cartesian: ['form']
+  },
   argTypes: {
     ...hideArgsControl(['innerClassNames', 'asChild']),
 

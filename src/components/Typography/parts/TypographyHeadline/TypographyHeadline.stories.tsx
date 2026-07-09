@@ -7,6 +7,9 @@ import { TypographyHeadline, type TypographyHeadlineProps } from './TypographyHe
 const meta = {
   title: 'Components/Typography/Typography.Headline',
   component: TypographyHeadline,
+  parameters: {
+    cartesian: ['variant']
+  },
   argTypes: {
     ...hideArgsControl(['asChild'])
   },

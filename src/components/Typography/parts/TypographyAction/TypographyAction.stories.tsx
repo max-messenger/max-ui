@@ -7,6 +7,9 @@ import { TypographyAction, type TypographyActionProps } from './TypographyAction
 const meta = {
   title: 'Components/Typography/Typography.Action',
   component: TypographyAction,
+  parameters: {
+    cartesian: ['variant']
+  },
   argTypes: {
     ...hideArgsControl(['asChild'])
   },

@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/react-vite';
 
-import { withConfigProvider } from './decorators';
+import { withCartesian, withConfigProvider } from './decorators';
 
 const preview: Preview = {
   parameters: {
@@ -14,27 +14,12 @@ const preview: Preview = {
     layout: 'fullscreen'
   },
   // tags: ['autodocs'],
-  decorators: [withConfigProvider],
+  decorators: [withCartesian, withConfigProvider],
   initialGlobals: {
+    cartesian: null,
     theme: 'light',
     platform: 'ios',
     withMaxUiWrapper: true
-  },
-  globalTypes: {
-    theme: {
-      toolbar: {
-        dynamicTitle: true,
-        icon: 'sun',
-        items: ['light', 'dark']
-      }
-    },
-    platform: {
-      toolbar: {
-        dynamicTitle: true,
-        icon: 'mobile',
-        items: ['ios', 'android']
-      }
-    }
   }
 };
 
