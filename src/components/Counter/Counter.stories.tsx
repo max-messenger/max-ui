@@ -6,6 +6,9 @@ import { Counter, type CounterProps } from './Counter';
 const meta = {
   title: 'Components/Counter',
   component: Counter,
+  parameters: {
+    cartesian: ['variant']
+  },
   args: {
     value: 12,
     rounded: false,

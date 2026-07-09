@@ -7,6 +7,9 @@ import { TypographyLabel, type TypographyLabelProps } from './TypographyLabel';
 const meta = {
   title: 'Components/Typography/Typography.Label',
   component: TypographyLabel,
+  parameters: {
+    cartesian: ['variant']
+  },
   argTypes: {
     ...hideArgsControl(['asChild'])
   },

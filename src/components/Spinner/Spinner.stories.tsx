@@ -6,6 +6,9 @@ import { type SpinnerProps } from './types';
 const meta = {
   title: 'Components/Spinner',
   component: Spinner,
+  parameters: {
+    cartesian: ['appearance']
+  },
   args: {
     appearance: 'primary',
     size: 20

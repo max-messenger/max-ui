@@ -9,6 +9,9 @@ import { CellAction, type CellActionProps } from './CellAction';
 const meta = {
   title: 'Components/Cell/CellAction',
   component: CellAction,
+  parameters: {
+    cartesian: ['mode', 'height']
+  },
   argTypes: {
     ...hideArgsControl(['asChild', 'innerClassNames']),
 

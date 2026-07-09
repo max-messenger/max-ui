@@ -1,3 +1,5 @@
+import path from 'node:path';
+
 import type { StorybookConfig } from '@storybook/react-vite';
 import svgr from 'vite-plugin-svgr';
 
@@ -6,7 +8,10 @@ const config: StorybookConfig = {
   addons: [
     '@storybook/addon-links',
     '@chromatic-com/storybook',
-    '@storybook/addon-docs'
+    '@storybook/addon-docs',
+    path.resolve(__dirname, './addons/theme'),
+    path.resolve(__dirname, './addons/platform'),
+    path.resolve(__dirname, './addons/variants')
   ],
   framework: {
     name: '@storybook/react-vite',

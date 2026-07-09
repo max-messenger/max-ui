@@ -6,6 +6,9 @@ import { AvatarText } from './AvatarText';
 const meta = {
   title: 'Components/Avatar/Avatar.Text',
   component: AvatarText,
+  parameters: {
+    cartesian: ['gradient']
+  },
   args: {
     children: 'VT'
   }

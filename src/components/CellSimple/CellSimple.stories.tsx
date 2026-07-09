@@ -12,6 +12,9 @@ import { CellSimple, type CellSimpleProps } from './CellSimple';
 const meta = {
   title: 'Components/Cell/CellSimple',
   component: CellSimple,
+  parameters: {
+    cartesian: ['height', 'appearance']
+  },
   argTypes: {
     ...hideArgsControl(['asChild', 'innerClassNames', 'onClick', 'as']),
 
