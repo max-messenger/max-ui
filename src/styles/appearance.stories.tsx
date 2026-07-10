@@ -264,7 +264,7 @@ const palette: Record<PaletteGroupName, string[]> = {
 };
 
 const meta = {
-  title: 'Styles/Palette',
+  title: 'Foundations/Palette',
   parameters: {
     layout: 'fullscreen'
   },
