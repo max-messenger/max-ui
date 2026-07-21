@@ -2,7 +2,7 @@
   "$schema": "https://unpkg.com/release-it@latest/schema/release-it.json",
   "plugins": {
     "@release-it/conventional-changelog": {
-      "changelogFile": "CHANGELOG.md",
+      "infile": "CHANGELOG.md",
       "preset": {
         "name": "conventionalcommits",
         "types": [

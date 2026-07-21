@@ -1,4 +1,8 @@
-Changelog:
+# Changelog
+
+Все заметные изменения этого проекта задокументированы в этом файле.
+Формат основан на [Conventional Commits](https://conventionalcommits.org).
+
 ## 0.2.0 (2026-07-21)
 ### ✨ Новые возможности
 * **AvatarText:** add dynamic font-size based on container size ([37bf410](https://github.com/max-messenger/max-ui/commit/37bf410e4de1aa093bc5bfad042c1a4fc0a716fe))
