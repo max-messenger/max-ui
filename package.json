@@ -21,7 +21,9 @@
     "build-storybook": "storybook build",
     "build": "rollup -c",
     "prepare": "husky",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "release": "release-it",
+    "release:dry": "release-it --dry-run"
   },
   "files": [
     "./dist"
@@ -29,9 +31,11 @@
   "private": false,
   "devDependencies": {
     "@chromatic-com/storybook": "^4.1.1",
+    "@release-it/conventional-changelog": "^11.0.1",
     "@rollup/plugin-node-resolve": "^15.3.0",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^12.1.0",
+    "@storybook/addon-docs": "^9.1.10",
     "@storybook/addon-links": "^9.1.10",
     "@storybook/addon-onboarding": "^9.1.10",
     "@storybook/react-vite": "^9.1.10",
@@ -50,14 +54,14 @@
     "eslint-plugin-storybook": "^9.1.10",
     "husky": "^9.1.6",
     "plop": "^4.0.1",
+    "release-it": "^20.2.1",
     "rollup": "^4.24.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
     "sass": "^1.80.2",
     "storybook": "^9.1.10",
     "typescript": "^5.6.3",
-    "vite-plugin-svgr": "^4.2.0",
-    "@storybook/addon-docs": "^9.1.10"
+    "vite-plugin-svgr": "^4.2.0"
   },
   "peerDependencies": {
     "react": "^18.3.1",
