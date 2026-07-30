@@ -1,5 +1,10 @@
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-function config (entry = []) {
-  return [...entry, require.resolve('./register')];
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+function config(entry = []) {
+  return [...entry, resolve(__dirname, 'register')];
 }
-module.exports = { managerEntries: config };
+
+export default { managerEntries: config };

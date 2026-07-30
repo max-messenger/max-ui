@@ -1,7 +1,10 @@
-import path from 'node:path';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import type { StorybookConfig } from '@storybook/react-vite';
 import svgr from 'vite-plugin-svgr';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.stories.@(ts|tsx)'],
@@ -9,16 +12,16 @@ const config: StorybookConfig = {
     '@storybook/addon-links',
     '@chromatic-com/storybook',
     '@storybook/addon-docs',
-    path.resolve(__dirname, './addons/theme'),
-    path.resolve(__dirname, './addons/platform'),
-    path.resolve(__dirname, './addons/variants')
+    resolve(__dirname, './addons/theme'),
+    resolve(__dirname, './addons/platform'),
+    resolve(__dirname, './addons/variants')
   ],
   framework: {
     name: '@storybook/react-vite',
     options: {}
   },
   typescript: {
-    reactDocgen: 'react-docgen-typescript'
+    reactDocgen: 'react-docgen'
   },
   async viteFinal (config) {
     const { mergeConfig } = await import('vite');

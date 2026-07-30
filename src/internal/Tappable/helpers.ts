@@ -14,7 +14,7 @@ export const checkComponentHasAction = ({ onClick, href, children, asChild, pare
   if (!asChild) return !!onClick || !!href;
 
   // Если компонент полиморфный (asChild=true) смотрим на тип children и проверяем базовые пропы уже у него
-  if (asChild && isValidElement(parentChildren)) return ('href' in parentChildren.props || 'onClick' in parentChildren.props);
+  if (asChild && isValidElement<Record<string, unknown>>(parentChildren)) return ('href' in parentChildren.props || 'onClick' in parentChildren.props);
 
   return false;
 };

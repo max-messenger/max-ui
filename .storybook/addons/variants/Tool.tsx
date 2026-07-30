@@ -2,9 +2,9 @@ import { GridIcon } from '@storybook/icons';
 import * as React from 'react';
 import { IconButton, WithTooltip } from 'storybook/internal/components';
 import type { ArgTypes } from 'storybook/internal/types';
-import { useArgTypes, useGlobals, useParameter, useStorybookState } from 'storybook/manager-api';
+import { useAddonState, useGlobals, useParameter, useStorybookApi } from 'storybook/manager-api';
 
-import { PARAM_KEY } from './constants';
+import { ADDON_ID, ARG_TYPES_EVENT, PARAM_KEY } from './constants';
 import { OptionsContainer } from './OptionsContainer';
 import type { OptionsProp } from './types';
 
@@ -32,19 +32,53 @@ const getCartesianFromOptions = (options: OptionsProp, checkedOptions: string[])
     return actualOptions;
   }, {});
 
+type SyncedArgTypes = Record<string, ArgTypes>;
+
 export const Tool = (): React.JSX.Element | null => {
-  const argTypes = useArgTypes();
+  const api = useStorybookApi();
   const [, updateGlobals] = useGlobals();
   const fileName = useParameter('fileName');
-  const { storyId } = useStorybookState();
   const [isVisible, setIsVisible] = React.useState(false);
   const [checkedOptions, setCheckedOptions] = React.useState<string[]>([]);
   const cartesian = useParameter<boolean | string[]>(PARAM_KEY);
+  const [syncedArgTypes, setSyncedArgTypes] = useAddonState<SyncedArgTypes>(ADDON_ID, {});
+
+  const current = api.getCurrentStoryData();
+  const currentTitle = current?.type === 'story' || current?.type === 'docs' ? current.title : undefined;
 
   React.useEffect(() => {
     setCheckedOptions([]);
     updateGlobals({ [PARAM_KEY]: null });
-  }, [fileName, storyId]);
+  }, [fileName, currentTitle]);
+
+  React.useEffect(() => {
+    const channel = api.getChannel();
+    if (!channel) return;
+
+    const handler = (data: { title: string; argTypes: ArgTypes }) => {
+      setSyncedArgTypes((prev) => ({
+        ...prev,
+        [data.title]: data.argTypes
+      }));
+    };
+
+    channel.on(ARG_TYPES_EVENT, handler);
+    return () => {
+      channel.off(ARG_TYPES_EVENT, handler);
+    };
+  }, [api, setSyncedArgTypes]);
+
+  const argTypes = React.useMemo<ArgTypes>(() => {
+    if (current?.type === 'story' && current.argTypes) {
+      return current.argTypes;
+    }
+
+    if (currentTitle && syncedArgTypes[currentTitle]) {
+      return syncedArgTypes[currentTitle];
+    }
+
+    return {};
+  }, [current, currentTitle, syncedArgTypes]);
 
   const options = React.useMemo(() => {
     if (!cartesian) {

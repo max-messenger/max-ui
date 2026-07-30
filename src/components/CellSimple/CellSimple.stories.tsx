@@ -93,7 +93,7 @@ export const AsLink: Story = {
     subtitle: undefined,
     after: undefined
   },
-  render: ({ children, ...args }) => {
+  render: ({ ...args }) => {
     return (
       <CellSimple {...args} asChild>
         <a
@@ -112,7 +112,7 @@ export const EllipsizedTitle: Story = {
     title: 'Я — ячейка с очень длинным заголовком, поэтому люди не смогут дочитать меня до конца',
     subtitle: 'Подпись тоже очень длинная, но в этом примере она будет выводиться полностью'
   },
-  render: ({ title, children, ...args }) => {
+  render: ({ title, ...args }) => {
     return (
       <CellSimple
         title={<EllipsisText>{title}</EllipsisText>}
@@ -128,7 +128,7 @@ export const EllipsizedSubtitle: Story = {
     title: 'Я — ячейка с очень длинным заголовком, но в этот раз текст не будет обрезан',
     subtitle: 'Чего не скажешь о длинной подписи, в этом примере она будет обрезан'
   },
-  render: ({ subtitle, children, ...args }) => {
+  render: ({ subtitle, ...args }) => {
     return (
       <CellSimple
         subtitle={<EllipsisText>{subtitle}</EllipsisText>}
