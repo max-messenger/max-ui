@@ -16,6 +16,9 @@
 
 2. **GitHub-токен** с правами `repo` для создания GitHub Release.
    Создать токен: https://github.com/settings/tokens
+
+   Выбираем Personal access tokens (classic), прожимаем все галочки в repo (repo:status и тд). Expiration лучше выставить на 1, 2 или 3 месяца.
+
    Затем добавить в окружение:
    ```sh
    export GITHUB_TOKEN=ghp_ваш_токен
