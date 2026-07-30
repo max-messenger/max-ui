@@ -57,7 +57,7 @@ export const Playground: Story = {
 
 export const AsLink: Story = {
   name: 'As link',
-  render: ({ size = 'medium', 'aria-label': ariaLabel, loading, children, ...args }) => {
+  render: ({ size = 'medium', 'aria-label': ariaLabel, loading, ...args }) => {
     return (
       <IconButton
         {...args}

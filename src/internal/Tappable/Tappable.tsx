@@ -25,7 +25,6 @@ export const Tappable = forwardRef<HTMLElement, TappableProps>((props, forwarded
     disabled,
     asChild,
     children,
-    parentChildren,
     as = 'div',
     ...rest
   } = props;

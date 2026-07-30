@@ -11,9 +11,15 @@ const preview: Preview = {
         date: /Date$/i
       }
     },
+    docs: {
+      source: {
+        type: 'dynamic',
+        state: 'open'
+      }
+    },
     layout: 'fullscreen'
   },
-  // tags: ['autodocs'],
+  tags: ['autodocs'],
   decorators: [withCartesian, withConfigProvider],
   initialGlobals: {
     cartesian: null,
