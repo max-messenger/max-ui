@@ -64,14 +64,14 @@
   flex-grow: 1;
 
   .Input_disabled & {
-    color: var(--states-text-disabled-primary);
+    color: var(--states-text-primary-disabled);
   }
 }
 .Input__input::placeholder {
   color: var(--text-secondary);
 
   .Input_disabled & {
-    color: var(--states-text-disabled-primary);
+    color: var(--states-text-primary-disabled);
   }
 }
 

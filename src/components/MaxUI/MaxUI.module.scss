@@ -1,7 +1,6 @@
 @use '../../styles/variables/common';
 @use '../../styles/variables/sizes';
 @use '../../styles/variables/appearance';
-@use '../../styles/variables/unused-legacy-color-tokens';
 @use '../../styles/variables/typography';
 
 .MaxUI {
@@ -32,12 +31,10 @@
 
     &_light {
       @include appearance.lightPalette;
-      @include unused-legacy-color-tokens.lightUnusedLegacyColorTokens;
     }
 
     &_dark {
       @include appearance.darkPalette;
-      @include unused-legacy-color-tokens.darkUnusedLegacyColorTokens;
     }
   }
 }

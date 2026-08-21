@@ -5,7 +5,6 @@ import Icon16Placeholder from '../../../.storybook/assets/icons/icon-16-placehol
 import Icon24Placeholder from '../../../.storybook/assets/icons/icon-24-placeholder.svg';
 import { hideArgsControl } from '../../../.storybook/shared/args-manager';
 import { Counter } from '../Counter';
-import { Dot } from '../Dot/';
 import { Button, type ButtonProps, type ButtonSize } from './Button';
 
 const iconsMapping: Record<ButtonSize, ReactNode> = {
@@ -27,11 +26,11 @@ const meta = {
     iconBefore: { control: 'boolean' },
     iconAfter: { control: 'boolean' },
     indicator: {
-      options: [0, 1, 2],
-      mapping: [undefined, <Counter key="counter" value={1} />, <Dot key="dot" aria-label="Есть новые уведомления" />],
+      options: [0, 1],
+      mapping: [undefined, <Counter key="counter" value={1} />],
       control: {
         type: 'select',
-        labels: ['None', 'Counter', 'Dot']
+        labels: ['None', 'Counter']
       }
     }
   },

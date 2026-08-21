@@ -18,10 +18,7 @@ export type CellSimpleInnerElementKey =
   | 'title'
   | 'subtitle'
   | 'overline'
-  | 'link'
-  | 'fileName'
-  | 'fileExtension'
-  | 'fileDetail';
+  | 'link';
 export type Appearance = 'default' | 'promo' | 'themed' | 'attention'
 
 interface CellSimpleOwnProps extends AsChildProp {
@@ -31,9 +28,6 @@ interface CellSimpleOwnProps extends AsChildProp {
   subtitle?: ReactNode
   subtitleMode?: CellSimpleSubtitleMode
   overline?: ReactNode
-  fileName?: ReactNode
-  fileExtension?: ReactNode
-  fileDetail?: ReactNode
   before?: ReactNode
   after?: ReactNode
   showChevron?: boolean
@@ -55,9 +49,6 @@ export const CellSimple = forwardRef<HTMLDivElement, CellSimpleProps>((props, fo
     after,
     children,
     overline,
-    fileName,
-    fileExtension,
-    fileDetail,
     showChevron = false,
     asChild = false,
     disabled = false,
@@ -109,28 +100,6 @@ export const CellSimple = forwardRef<HTMLDivElement, CellSimpleProps>((props, fo
               {hasReactNode(title) && (
                 <div className={clsx(styles.CellSimple__title, innerClassNames?.title)}>
                   {title}
-                </div>
-              )}
-
-              {hasReactNode(fileName) && (
-                <div className={styles.CellSimple__fileNameRow}>
-                  <span className={clsx(styles.CellSimple__fileName, innerClassNames?.fileName)}>
-                    {fileName}
-                  </span>
-                  {hasReactNode(fileExtension) && (
-                    <>
-                      <span className={styles.CellSimple__fileNameSeparator}>.</span>
-                      <span className={clsx(styles.CellSimple__fileExtension, innerClassNames?.fileExtension)}>
-                        {fileExtension}
-                      </span>
-                    </>
-                  )}
-                </div>
-              )}
-
-              {hasReactNode(fileDetail) && (
-                <div className={clsx(styles.CellSimple__fileDetail, innerClassNames?.fileDetail)}>
-                  {fileDetail}
                 </div>
               )}
 

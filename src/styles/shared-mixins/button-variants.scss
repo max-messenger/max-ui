@@ -3,11 +3,9 @@
 // primary
 @mixin buttonVariantPrimary(
   $root,
-  $withInnerElementsDefs: false,
 ) {
   @include button-variants-builder.buildButtonFilledVariant(
     $root,
-    $withInnerElementsDefs,
 
     $background: var(--button-primary),
     $background_disabled: var(--states-button-primary-disabled),
@@ -15,20 +13,15 @@
     $background_pressed: var(--states-button-primary-pressed),
     $foreground: var(--text-primary-inverse-static),
     $foreground_disabled: var(--states-text-primary-inverse-static-disabled),
-
-    $dotBackground: var(--counter-contrast),
-    $dotBackground_disabled: var(--states-counter-contrast-disabled),
   )
 }
 
 // secondary
 @mixin buttonVariantSecondary(
   $root,
-  $withInnerElementsDefs: false,
 ) {
   @include button-variants-builder.buildButtonFilledVariant(
     $root,
-    $withInnerElementsDefs,
 
     $background: var(--button-secondary-contrast),
     $background_disabled: var(--states-button-secondary-contrast-disabled),
@@ -36,20 +29,15 @@
     $background_pressed: var(--states-button-secondary-contrast-pressed),
     $foreground: var(--text-primary),
     $foreground_disabled: var(--states-text-primary-disabled),
-
-    $dotBackground: var(--counter-mirage),
-    $dotBackground_disabled: var(--states-counter-default-disabled),
   )
 }
 
 // ghost
 @mixin buttonVariantGhost(
   $root,
-  $withInnerElementsDefs: false,
 ) {
   @include button-variants-builder.buildButtonFilledVariant(
     $root,
-    $withInnerElementsDefs,
 
     $background: var(--button-ghost),
     $background_disabled: var(--button-ghost),
@@ -57,20 +45,15 @@
     $background_pressed: var(--states-button-ghost-pressed),
     $foreground: var(--text-primary),
     $foreground_disabled: var(--states-text-primary-disabled),
-
-    $dotBackground: var(--counter-mirage),
-    $dotBackground_disabled: var(--states-counter-default-disabled),
   )
 }
 
 // primary-contrast
 @mixin buttonVariantPrimaryContrast(
   $root,
-  $withInnerElementsDefs: false,
 ) {
   @include button-variants-builder.buildButtonFilledVariant(
     $root,
-    $withInnerElementsDefs,
 
     $background: var(--button-primary-contrast),
     $background_disabled: var(--states-button-primary-contrast-disabled),
@@ -78,20 +61,15 @@
     $background_pressed: var(--states-button-primary-contrast-pressed),
     $foreground: var(--text-primary-static),
     $foreground_disabled: var(--states-text-primary-static-disabled),
-
-    $dotBackground: var(--counter-default),
-    $dotBackground_disabled: var(--states-counter-default-disabled),
   )
 }
 
 // secondary-contrast
 @mixin buttonVariantSecondaryContrast(
   $root,
-  $withInnerElementsDefs: false,
 ) {
   @include button-variants-builder.buildButtonFilledVariant(
     $root,
-    $withInnerElementsDefs,
 
     $background: var(--button-secondary),
     $background_disabled: var(--states-button-secondary-disabled),
@@ -99,20 +77,15 @@
     $background_pressed: var(--states-button-secondary-pressed),
     $foreground: var(--text-primary),
     $foreground_disabled: var(--states-text-primary-disabled),
-
-    $dotBackground: var(--counter-mirage),
-    $dotBackground_disabled: var(--states-counter-default-disabled),
   )
 }
 
 // overlay
 @mixin buttonVariantOverlay(
   $root,
-  $withInnerElementsDefs: false,
 ) {
   @include button-variants-builder.buildButtonFilledVariant(
     $root,
-    $withInnerElementsDefs,
 
     $background: var(--button-overlay),
     $background_disabled: var(--states-button-overlay-disabled),
@@ -120,20 +93,15 @@
     $background_pressed: var(--states-button-overlay-pressed),
     $foreground: var(--text-primary-inverse-static),
     $foreground_disabled: var(--states-text-primary-inverse-static-disabled),
-
-    $dotBackground: var(--counter-contrast),
-    $dotBackground_disabled: var(--states-counter-contrast-disabled),
   )
 }
 
 // destructive
 @mixin buttonVariantDestructive(
   $root,
-  $withInnerElementsDefs: false,
 ) {
   @include button-variants-builder.buildButtonFilledVariant(
     $root,
-    $withInnerElementsDefs,
 
     $background: var(--button-negative),
     $background_disabled: var(--states-button-negative-disabled),
@@ -141,8 +109,5 @@
     $background_pressed: var(--states-button-negative-pressed),
     $foreground: var(--text-primary-inverse-static),
     $foreground_disabled: var(--states-text-primary-inverse-static-disabled),
-
-    $dotBackground: var(--counter-contrast),
-    $dotBackground_disabled: var(--states-counter-contrast-disabled),
   )
 }

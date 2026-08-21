@@ -63,31 +63,31 @@
 
 // [Properties] Variants
 .IconButton_variant_primary {
-  @include button-variants.buttonVariantPrimary('IconButton', true);
+  @include button-variants.buttonVariantPrimary('IconButton');
 }
 
 .IconButton_variant_secondary {
-  @include button-variants.buttonVariantSecondary('IconButton', true);
+  @include button-variants.buttonVariantSecondary('IconButton');
 }
 
 .IconButton_variant_ghost {
-  @include button-variants.buttonVariantGhost('IconButton', true);
+  @include button-variants.buttonVariantGhost('IconButton');
 }
 
 .IconButton_variant_primary-contrast {
-  @include button-variants.buttonVariantPrimaryContrast('IconButton', true);
+  @include button-variants.buttonVariantPrimaryContrast('IconButton');
 }
 
 .IconButton_variant_secondary-contrast {
-  @include button-variants.buttonVariantSecondaryContrast('IconButton', true);
+  @include button-variants.buttonVariantSecondaryContrast('IconButton');
 }
 
 .IconButton_variant_overlay {
-  @include button-variants.buttonVariantOverlay('IconButton', true);
+  @include button-variants.buttonVariantOverlay('IconButton');
 }
 
 .IconButton_variant_destructive {
-  @include button-variants.buttonVariantDestructive('IconButton', true);
+  @include button-variants.buttonVariantDestructive('IconButton');
 }
 
 // [Parts] Spinner container

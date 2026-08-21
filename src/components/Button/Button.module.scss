@@ -69,31 +69,31 @@
 
 // [Properties] Variants
 .Button_variant_primary {
-  @include button-variants.buttonVariantPrimary('Button', true);
+  @include button-variants.buttonVariantPrimary('Button');
 }
 
 .Button_variant_secondary {
-  @include button-variants.buttonVariantSecondary('Button', true);
+  @include button-variants.buttonVariantSecondary('Button');
 }
 
 .Button_variant_ghost {
-  @include button-variants.buttonVariantGhost('Button', true);
+  @include button-variants.buttonVariantGhost('Button');
 }
 
 .Button_variant_primary-contrast {
-  @include button-variants.buttonVariantPrimaryContrast('Button', true);
+  @include button-variants.buttonVariantPrimaryContrast('Button');
 }
 
 .Button_variant_secondary-contrast {
-  @include button-variants.buttonVariantSecondaryContrast('Button', true);
+  @include button-variants.buttonVariantSecondaryContrast('Button');
 }
 
 .Button_variant_overlay {
-  @include button-variants.buttonVariantOverlay('Button', true);
+  @include button-variants.buttonVariantOverlay('Button');
 }
 
 .Button_variant_destructive {
-  @include button-variants.buttonVariantDestructive('Button', true);
+  @include button-variants.buttonVariantDestructive('Button');
 }
 
 // [Parts] Content

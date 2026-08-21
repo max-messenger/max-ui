@@ -1,6 +1,5 @@
 @mixin buildButtonFilledVariant(
   $root,
-  $withInnerElementsDefs: false,
 
   $background,
   $background_disabled,
@@ -8,9 +7,6 @@
   $background_pressed,
   $foreground,
   $foreground_disabled,
-
-  $dotBackground,
-  $dotBackground_disabled,
 ) {
   --MaxUi-#{$root}_background-active: #{$background_pressed};
 
@@ -26,14 +22,5 @@
   &.#{$root}_disabled {
     --MaxUi-#{$root}_background: #{$background_disabled};
     --MaxUi-#{$root}_foreground: #{$foreground_disabled};
-  }
-
-  @if $withInnerElementsDefs {
-    // Используется вложенным Dot с appearance="inherit".
-    --MaxUi-external_background: #{$dotBackground};
-
-    &.#{$root}_disabled {
-      --MaxUi-external_background: #{$dotBackground_disabled};
-    }
   }
 }

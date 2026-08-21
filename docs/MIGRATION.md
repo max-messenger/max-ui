@@ -11,7 +11,7 @@
 - `--background-*` — фон;
 - `--button-*` и `--states-button-*` — варианты и состояния Button/IconButton;
 - `--controls-*` и `--states-controls-*` — состояния Switch;
-- `--counter-*` и `--states-counter-*` — Counter и Dot;
+- `--counter-*` и `--states-counter-*` — Counter;
 - `--divider-*` — разделители;
 - `--states-text-*` и `--states-icon-*` — disabled/hover-состояния текста и иконок.
 
@@ -51,7 +51,7 @@
 
 Loading Button не вызывает пользовательский `onClick`. Прежняя цветовая привязка Spinner и Counter внутри вариантов Button сохранена; размер Spinner для Medium изменён с 24 до 20 px.
 
-### Counter и Dot
+### Counter
 
 | Старое значение | Новое значение |
 | --- | --- |
@@ -62,9 +62,13 @@ Loading Button не вызывает пользовательский `onClick`.
 | `--background-mute` | `--counter-mute` |
 | `--background-menu` | `--counter-menu` |
 
-Counter теперь имеет высоту 20 px и круглый radius. Прежние цвета вариантов `static` и `default` сохранены. Dot с `appearance="themed"` использует `--counter-themed`; для `appearance="inherit"` по-прежнему доступен `--MaxUi-external_background`.
+Counter теперь имеет высоту 20 px и круглый radius. Прежние цвета вариантов `static` и `default` сохранены.
 
 ## Изменения компонентов
+
+### Удалённые компоненты
+
+`Dot` и `ToolButton` удалены из публичного API. Вместо `Dot` используйте собственный индикатор или `Counter`, вместо `ToolButton` — `Button` или `IconButton`.
 
 ### CellAction
 
@@ -78,17 +82,6 @@ Subtitle по умолчанию сохраняет secondary-цвет. Для �
 <CellSimple subtitle="Описание" subtitleMode="tertiary" />
 ```
 
-Добавлена поддержка файлового контента:
-
-```tsx
-<CellSimple
-  fileName="video_clip"
-  fileExtension="mp4"
-  fileDetail="06.10.2025 в 16:12 · 2,4 МБ"
-/>
-```
-
-Для стилизации доступны `innerClassNames.fileName`, `fileExtension` и `fileDetail`. У chevron удалён прежний внутренний отступ.
 CellHeader и placeholder CellInput используют `--text-tertiary`.
 
 ### ClearableInput

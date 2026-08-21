@@ -11,11 +11,11 @@
 .CellSimple_disabled {
   color: var(--states-text-primary-disabled);
 
-  .CellSimple__title, .CellSimple__fileNameRow {
+  .CellSimple__title {
     color: var(--states-text-primary-disabled);
   }
 
-  .CellSimple__overline, .CellSimple__fileDetail {
+  .CellSimple__overline {
     color: var(--states-text-tertiary-disabled);
   }
 
@@ -103,37 +103,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.CellSimple__fileNameRow {
-  @include typography.titleMediumStrong;
-
-  color: var(--text-primary);
-  display: flex;
-  min-width: 0;
-  width: 100%;
-  white-space: nowrap;
-}
-
-.CellSimple__fileName {
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.CellSimple__fileNameSeparator,
-.CellSimple__fileExtension {
-  flex-shrink: 0;
-}
-
-.CellSimple__fileDetail {
-  @include typography.titleSmall;
-
-  color: var(--text-tertiary);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 100%;
 }
 
 .CellSimple_separator {
