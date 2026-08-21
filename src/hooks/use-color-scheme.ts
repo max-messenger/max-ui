@@ -1,4 +1,4 @@
-import { useAppearance } from '../components';
+import { useAppearance } from '../components/MaxUI/MaxUIContext';
 import { type ColorSchemeType } from '../types';
 
 export const useColorScheme = (): ColorSchemeType => {
