@@ -4,23 +4,23 @@
 
 // [Properties] Variants
 .TypographyLabel_variant_large {
-  @include typography.labelLarge;
+  @include typography.label;
 }
 .TypographyLabel_variant_large-strong {
-  @include typography.labelLargeStrong;
-}
-.TypographyLabel_variant_large-caps {
-  @include typography.labelLargeCaps;
+  @include typography.labelStrong;
 }
 .TypographyLabel_variant_medium {
-  @include typography.labelMedium;
+  @include typography.tag;
 }
 .TypographyLabel_variant_medium-strong {
-  @include typography.labelMediumStrong;
+  @include typography.tagStrong;
+}
+.TypographyLabel_variant_small {
+  @include typography.note;
 }
 .TypographyLabel_variant_small-strong {
-  @include typography.labelSmallStrong;
+  @include typography.noteStrong;
 }
 .TypographyLabel_variant_small-caps {
-  @include typography.labelSmallCaps;
+  @include typography.note;
 }

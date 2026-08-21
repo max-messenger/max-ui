@@ -21,7 +21,7 @@ export const useButtonLikeProps = (props: ButtonLikeProps): ComponentProps<any> 
   if (!asChild && rootElement === 'button') {
     const buttonProps: ComponentProps<'button'> = {
       disabled,
-      ...(loading ? { 'aria-disabled': true } : {})
+      ...(loading ? { 'aria-busy': true, 'aria-disabled': true } : {})
     };
     return buttonProps;
   }
@@ -33,11 +33,12 @@ export const useButtonLikeProps = (props: ButtonLikeProps): ComponentProps<any> 
     // Если это ссылка (тег a), то нужно добавить aria-disabled, запревентить открытие ссылки и убрать фокус, если компонент disabled
     if (type === 'a') {
       const anchorProps: ComponentProps<'a'> = {
-        'aria-disabled': disabled ?? loading,
-        ...(disabled
+        'aria-disabled': disabled || loading,
+        ...(loading ? { 'aria-busy': true } : {}),
+        ...(disabled || loading
           ? {
             onClick: (e) => { e.preventDefault(); },
-            tabIndex: -1
+            ...(disabled ? { tabIndex: -1 } : {})
           }
           : {}
         )
@@ -51,8 +52,9 @@ export const useButtonLikeProps = (props: ButtonLikeProps): ComponentProps<any> 
   const divProps: ComponentProps<'div'> = {
     role: 'button',
     tabIndex: disabled ? -1 : 0,
-    'aria-disabled': disabled ?? loading,
-    ...(disabled
+    'aria-disabled': disabled || loading,
+    ...(loading ? { 'aria-busy': true } : {}),
+    ...(disabled || loading
       ? { onClick: undefined }
       : {}
     )

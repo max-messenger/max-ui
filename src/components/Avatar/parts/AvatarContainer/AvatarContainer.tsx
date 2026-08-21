@@ -4,6 +4,7 @@ import { type ComponentProps, type CSSProperties, forwardRef, type ReactNode } f
 
 import { getSubtree, hasReactNode } from '../../../../helpers';
 import { type AsChildProp, type InnerClassNamesProp } from '../../../../types';
+import { getDotContainerSize, isOnlineStatusVisible } from '../AvatarOnlineDot/helpers';
 import styles from './AvatarContainer.module.scss';
 import { AvatarContainerContext } from './AvatarContainerContext';
 
@@ -15,6 +16,7 @@ export interface AvatarContainerProps extends ComponentProps<'div'>, AsChildProp
   size?: AvatarContainerSize
   overlay?: ReactNode
   form?: AvatarContainerFrom
+  onlineStatus?: boolean
   innerClassNames?: InnerClassNamesProp<AvatarContainerElementKey>
   rightTopCorner?: ReactNode
   rightBottomCorner?: ReactNode
@@ -29,27 +31,33 @@ export const AvatarContainer = forwardRef<HTMLDivElement, AvatarContainerProps>(
     rightTopCorner,
     rightBottomCorner,
     innerClassNames,
-    size = 48,
+    size = 40,
     asChild,
     form = 'circle',
+    onlineStatus = false,
     ...rest
   } = props;
 
   const Comp = asChild ? Slot : 'div';
+  const normalizedSize = Number.isFinite(size) ? Math.min(200, Math.max(16, size)) : 40;
+  const hasOnlineStatus = onlineStatus && form === 'circle' && isOnlineStatusVisible(normalizedSize);
+  const onlineStatusSize = getDotContainerSize(normalizedSize);
 
   const rootClassName = clsx(
     styles.AvatarContainer,
     styles[`AvatarContainer_form_${form}`],
+    hasOnlineStatus && styles.AvatarContainer_onlineStatus,
+    hasOnlineStatus && styles[`AvatarContainer_onlineStatus_${onlineStatusSize}`],
     className
   );
 
   return (
-    <AvatarContainerContext.Provider value={{ size }}>
+    <AvatarContainerContext.Provider value={{ size: normalizedSize }}>
       <Comp
         ref={forwardedRef}
         className={rootClassName}
         style={{
-          '--MaxUi-AvatarContainer_size': `${size}px`,
+          '--MaxUi-AvatarContainer_size': `${normalizedSize}px`,
           ...style
         } as CSSProperties}
         {...rest}
@@ -73,6 +81,10 @@ export const AvatarContainer = forwardRef<HTMLDivElement, AvatarContainerProps>(
             )
           })}
         </Slottable>
+
+        {hasOnlineStatus && (
+          <span className={styles.AvatarContainer__onlineStatus} aria-hidden="true" />
+        )}
 
         {hasReactNode(rightBottomCorner) && (
           <span className={clsx(styles.AvatarContainer__rightBottomCorner, innerClassNames?.rightBottomCorner)}>

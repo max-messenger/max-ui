@@ -17,7 +17,7 @@ $squircleMaskUrl: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5
 
 // [Properties] Forms
 .AvatarContainer_form_circle .AvatarContainer__content {
-  --MaxUi-AvatarContainer__content_radius: 100%;
+  --MaxUi-AvatarContainer__content_radius: var(--border-radius-circle);
 
   border-radius: var(--MaxUi-AvatarContainer__content_radius);
 }
@@ -35,6 +35,113 @@ $squircleMaskUrl: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5
   display: flex;
   overflow: hidden;
   position: relative;
+}
+
+.AvatarContainer_form_circle .AvatarContainer__content::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 0.5px solid var(--divider-secondary);
+  border-radius: inherit;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+// [Properties] Online status
+.AvatarContainer_onlineStatus .AvatarContainer__content {
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+}
+
+.AvatarContainer_onlineStatus_xs .AvatarContainer__content {
+  -webkit-mask-image: radial-gradient(
+    circle at calc(100% - 4px) calc(100% - 4px),
+    transparent 5px,
+    #000 5px
+  );
+  mask-image: radial-gradient(
+    circle at calc(100% - 4px) calc(100% - 4px),
+    transparent 5px,
+    #000 5px
+  );
+}
+
+.AvatarContainer_onlineStatus_s .AvatarContainer__content {
+  -webkit-mask-image: radial-gradient(
+    circle at calc(100% - 6px) calc(100% - 6px),
+    transparent 6px,
+    #000 6px
+  );
+  mask-image: radial-gradient(
+    circle at calc(100% - 6px) calc(100% - 6px),
+    transparent 6px,
+    #000 6px
+  );
+}
+
+.AvatarContainer_onlineStatus_m .AvatarContainer__content {
+  -webkit-mask-image: radial-gradient(
+    circle at calc(100% - 8px) calc(100% - 8px),
+    transparent 7px,
+    #000 7px
+  );
+  mask-image: radial-gradient(
+    circle at calc(100% - 8px) calc(100% - 8px),
+    transparent 7px,
+    #000 7px
+  );
+}
+
+.AvatarContainer_onlineStatus_l .AvatarContainer__content {
+  -webkit-mask-image: radial-gradient(
+    circle at calc(100% - 10px) calc(100% - 10px),
+    transparent 9px,
+    #000 9px
+  );
+  mask-image: radial-gradient(
+    circle at calc(100% - 10px) calc(100% - 10px),
+    transparent 9px,
+    #000 9px
+  );
+}
+
+.AvatarContainer__onlineStatus {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  border-radius: var(--border-radius-circle);
+  background-color: var(--icon-positive);
+  pointer-events: none;
+}
+
+.AvatarContainer_onlineStatus_xs .AvatarContainer__onlineStatus {
+  width: 6px;
+  height: 6px;
+  right: 1px;
+  bottom: 1px;
+}
+
+.AvatarContainer_onlineStatus_s .AvatarContainer__onlineStatus {
+  width: 8px;
+  height: 8px;
+  right: 2px;
+  bottom: 2px;
+}
+
+.AvatarContainer_onlineStatus_m .AvatarContainer__onlineStatus {
+  width: 10px;
+  height: 10px;
+  right: 3px;
+  bottom: 3px;
+}
+
+.AvatarContainer_onlineStatus_l .AvatarContainer__onlineStatus {
+  width: 12px;
+  height: 12px;
+  right: 4px;
+  bottom: 4px;
 }
 
 // [Parts] Overlay

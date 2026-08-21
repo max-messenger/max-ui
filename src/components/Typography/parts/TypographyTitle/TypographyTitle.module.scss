@@ -4,14 +4,17 @@
 
 // [Properties] Variants
 .TypographyTitle_variant_large-strong {
-  @include typography.titleLargeStrong;
+  @include typography.bodyStrong;
+}
+.TypographyTitle_variant_medium {
+  @include typography.detail;
 }
 .TypographyTitle_variant_medium-strong {
-  @include typography.titleMediumStrong;
+  @include typography.detailStrong;
 }
 .TypographyTitle_variant_small {
-  @include typography.titleSmall;
+  @include typography.description;
 }
 .TypographyTitle_variant_small-strong {
-  @include typography.titleSmallStrong;
+  @include typography.descriptionStrong;
 }

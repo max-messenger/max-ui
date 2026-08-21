@@ -5,7 +5,7 @@ import { type ComponentProps, type ElementRef, forwardRef } from 'react';
 import { type AsChildProp } from '../../../../types';
 import styles from './TypographyBody.module.scss';
 
-export type TypographyBodyVariant = 'large' | 'medium' | 'small' | 'small-strong' | 'small-caps' | 'custom';
+export type TypographyBodyVariant = 'large' | 'large-strong' | 'medium' | 'medium-strong' | 'small' | 'small-strong' | 'custom';
 
 export interface TypographyBodyProps extends ComponentProps<'span'>, AsChildProp {
   variant?: TypographyBodyVariant

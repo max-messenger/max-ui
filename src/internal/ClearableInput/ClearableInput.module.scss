@@ -12,5 +12,5 @@
 .ClearableInput__count {
   color: var(--icon-tertiary);
   padding: 2px;
-  @include typography.bodySmall;
+  @include typography.tag;
 }

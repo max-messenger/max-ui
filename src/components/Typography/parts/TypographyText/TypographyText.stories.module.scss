@@ -1,0 +1,33 @@
+.matrix {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(320px, 1fr));
+  min-height: 100vh;
+}
+
+.theme {
+  padding: 32px;
+}
+
+.themeTitle {
+  display: block;
+  margin-bottom: 32px;
+}
+
+.scale {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 480px;
+}
+
+@media (max-width: 720px) {
+  .matrix {
+    grid-template-columns: 1fr;
+  }
+}

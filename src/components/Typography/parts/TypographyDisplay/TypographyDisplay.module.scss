@@ -1,5 +1,5 @@
 @use '../../../../styles/shared-mixins/typography';
 
 .TypographyDisplay {
-  @include typography.display;
+  @include typography.hero;
 }
