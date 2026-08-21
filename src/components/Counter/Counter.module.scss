@@ -1,10 +1,10 @@
 @use '../../styles/shared-mixins/typography';
 
 @mixin withoutBackgroundColor {
-  background-color: var(--background-accent-contrast-secondary);
+  background-color: var(--counter-contrast);
 }
 @mixin textColorPrimary {
-  color: var(--text-primary-inverse)
+  color: var(--text-primary-inverse-static);
 }
 
 .Counter {
@@ -13,7 +13,7 @@
   min-width: var(--size-border-radius-semantic-border-radius-promo);
   min-height: var(--size-border-radius-semantic-border-radius-promo);
   padding: 1px var(--spacing-size-s);
-  border-radius: 12px;
+  border-radius: var(--border-radius-circle);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -22,15 +22,15 @@
 
 .Counter_variant_primary {
   @include textColorPrimary;
-  background-color: var(--accent-themed);
+  background-color: var(--counter-themed);
 }
 .Counter_variant_primary-contrast {
   @include withoutBackgroundColor;
-  color: var(--accent-themed);
+  color: var(--text-themed);
 }
 .Counter_variant_attention {
   @include textColorPrimary;
-  background-color: var(--background-accent-negative);
+  background-color: var(--counter-attention);
 }
 .Counter_variant_attention-contrast {
   @include withoutBackgroundColor;
@@ -42,21 +42,21 @@
 }
 .Counter_variant_static {
   @include textColorPrimary;
-  background-color: var(--background-accent-neutral-default);
+  background-color: var(--counter-default);
 }
 .Counter_variant_static-contrast {
   @include withoutBackgroundColor;
   color: var(--text-primary-static);
 }
 .Counter_variant_default {
-  @include textColorPrimary;
-  background-color: var(--background-accent-neutral-default);
+  color: var(--text-primary-inverse);
+  background-color: var(--counter-mirage);
 }
 .Counter_variant_mute {
   color: var(--text-tertiary);
-  background-color: var(--background-mute);
+  background-color: var(--counter-mute);
 }
 .Counter_variant_menu {
   @include textColorPrimary;
-  background-color: var(--background-menu);
+  background-color: var(--counter-menu);
 }

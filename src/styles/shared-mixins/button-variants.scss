@@ -3,160 +3,111 @@
 // primary
 @mixin buttonVariantPrimary(
   $root,
-  $withInnerElementsDefs: false,
 ) {
   @include button-variants-builder.buildButtonFilledVariant(
     $root,
-    $withInnerElementsDefs,
 
-    $background: var(--background-accent-themed),
-    $background_disabled: var(--states-background-disabled-themed),
-    $background_hovered: var(--states-background-hovered-themed),
-    $background_pressed: var(--states-background-pressed-themed),
-    $foreground: var(--text-contrast-static),
-    $foreground_disabled: var(--states-text-disabled-contrast-static),
-
-    $innerElementsBackground: var(--background-accent-contrast-static),
-    $innerElementsBackground_disabled: var(--states-background-disabled-contrast-static),
-    $innerElementsForeground: var(--text-themed),
-    $innerElementsForeground_disabled: var(--states-text-disabled-themed),
+    $background: var(--button-primary),
+    $background_disabled: var(--states-button-primary-disabled),
+    $background_hovered: var(--states-button-primary-hover),
+    $background_pressed: var(--states-button-primary-pressed),
+    $foreground: var(--text-primary-inverse-static),
+    $foreground_disabled: var(--states-text-primary-inverse-static-disabled),
   )
 }
 
 // secondary
 @mixin buttonVariantSecondary(
   $root,
-  $withInnerElementsDefs: false,
 ) {
   @include button-variants-builder.buildButtonFilledVariant(
     $root,
-    $withInnerElementsDefs,
 
-    $background: var(--background-button-secondary),
-    $background_disabled: var(--background-button-secondary-disabled),
-    $background_hovered: var(--background-button-secondary-hovered),
-    $background_pressed: var(--background-button-secondary-pressed),
+    $background: var(--button-secondary-contrast),
+    $background_disabled: var(--states-button-secondary-contrast-disabled),
+    $background_hovered: var(--states-button-secondary-contrast-hover),
+    $background_pressed: var(--states-button-secondary-contrast-pressed),
     $foreground: var(--text-primary),
-    $foreground_disabled: var(--states-text-disabled-primary),
-
-    $innerElementsBackground: var(--background-accent-neutral),
-    $innerElementsBackground_disabled: var(--states-background-disabled-neutral),
-    $innerElementsForeground: var(--text-contrast),
-    $innerElementsForeground_disabled: var(--states-text-disabled-contrast),
+    $foreground_disabled: var(--states-text-primary-disabled),
   )
 }
 
 // ghost
 @mixin buttonVariantGhost(
   $root,
-  $withInnerElementsDefs: false,
 ) {
   @include button-variants-builder.buildButtonFilledVariant(
     $root,
-    $withInnerElementsDefs,
 
-    $background: transparent,
-    $background_disabled: transparent,
-    $background_hovered: var(--states-background-hovered-transparent),
-    $background_pressed: var(--states-background-pressed-transparent),
+    $background: var(--button-ghost),
+    $background_disabled: var(--button-ghost),
+    $background_hovered: var(--states-button-ghost-hover),
+    $background_pressed: var(--states-button-ghost-pressed),
     $foreground: var(--text-primary),
-    $foreground_disabled: var(--states-text-disabled-primary),
-
-    $innerElementsBackground: var(--background-accent-neutral),
-    $innerElementsBackground_disabled: var(--states-background-disabled-neutral),
-    $innerElementsForeground: var(--text-contrast),
-    $innerElementsForeground_disabled: var(--states-text-disabled-contrast),
+    $foreground_disabled: var(--states-text-primary-disabled),
   )
 }
 
 // primary-contrast
 @mixin buttonVariantPrimaryContrast(
   $root,
-  $withInnerElementsDefs: false,
 ) {
   @include button-variants-builder.buildButtonFilledVariant(
     $root,
-    $withInnerElementsDefs,
 
-    $background: var(--background-accent-contrast-static),
-    $background_disabled: var(--states-background-disabled-contrast-static),
-    $background_hovered: var(--states-background-hovered-contrast-static),
-    $background_pressed: var(--states-background-pressed-contrast-static),
+    $background: var(--button-primary-contrast),
+    $background_disabled: var(--states-button-primary-contrast-disabled),
+    $background_hovered: var(--states-button-primary-contrast-hover),
+    $background_pressed: var(--states-button-primary-contrast-pressed),
     $foreground: var(--text-primary-static),
-    $foreground_disabled: var(--states-text-disabled-primary-static),
-
-    $innerElementsBackground: var(--background-accent-neutral-static),
-    $innerElementsBackground_disabled: var(--states-background-disabled-neutral-static),
-    $innerElementsForeground: var(--text-contrast-static),
-    $innerElementsForeground_disabled: var(--states-text-disabled-contrast-static),
+    $foreground_disabled: var(--states-text-primary-static-disabled),
   )
 }
 
 // secondary-contrast
 @mixin buttonVariantSecondaryContrast(
   $root,
-  $withInnerElementsDefs: false,
 ) {
   @include button-variants-builder.buildButtonFilledVariant(
     $root,
-    $withInnerElementsDefs,
 
-    $background: var(--background-button-secondary-contrast),
-    $background_disabled: var(--background-button-secondary-contrast-disabled),
-    $background_hovered: var(--background-button-secondary-contrast-hovered),
-    $background_pressed: var(--background-button-secondary-contrast-pressed),
+    $background: var(--button-secondary),
+    $background_disabled: var(--states-button-secondary-disabled),
+    $background_hovered: var(--states-button-secondary-hover),
+    $background_pressed: var(--states-button-secondary-pressed),
     $foreground: var(--text-primary),
-    $foreground_disabled: var(--states-text-disabled-primary),
-
-    $innerElementsBackground: var(--background-accent-neutral),
-    $innerElementsBackground_disabled: var(--states-background-disabled-neutral),
-    $innerElementsForeground: var(--text-contrast),
-    $innerElementsForeground_disabled: var(--states-text-disabled-contrast),
+    $foreground_disabled: var(--states-text-primary-disabled),
   )
 }
 
 // overlay
 @mixin buttonVariantOverlay(
   $root,
-  $withInnerElementsDefs: false,
 ) {
-  @include button-variants-builder.buildButtonOverlayVariant(
+  @include button-variants-builder.buildButtonFilledVariant(
     $root,
-    $withInnerElementsDefs,
 
-    $background: var(--background-button-overlay),
-    $background_disabled: var(--background-button-overlay-disabled),
-    $background_hovered: var(--background-button-overlay-hovered),
-    $background_pressed: var(--background-button-overlay-pressed),
-    $foreground: var(--text-contrast-static),
-    $foreground_disabled: var(--states-text-disabled-contrast-static),
-
-    $innerElementsBackground: var(--background-accent-neutral-static),
-    $innerElementsBackground_disabled: var(--states-background-disabled-neutral-static),
-    $innerElementsForeground: var(--text-contrast-static),
-    $innerElementsForeground_disabled: var(--states-text-disabled-contrast-static),
+    $background: var(--button-overlay),
+    $background_disabled: var(--states-button-overlay-disabled),
+    $background_hovered: var(--states-button-overlay-hover),
+    $background_pressed: var(--states-button-overlay-pressed),
+    $foreground: var(--text-primary-inverse-static),
+    $foreground_disabled: var(--states-text-primary-inverse-static-disabled),
   )
 }
 
 // destructive
 @mixin buttonVariantDestructive(
   $root,
-  $withInnerElementsDefs: false,
 ) {
   @include button-variants-builder.buildButtonFilledVariant(
     $root,
-    $withInnerElementsDefs,
 
-    $background: var(--background-accent-negative),
-    $background_disabled: var(--states-background-disabled-negative),
-    $background_hovered: var(--states-background-hovered-destructive),
-    $background_pressed: var(--states-background-pressed-negative),
-    $foreground: var(--text-contrast-static),
-    $foreground_disabled: var(--states-text-disabled-contrast-static),
-
-    $innerElementsBackground: var(--background-accent-contrast-static),
-    $innerElementsBackground_disabled: var(--states-background-disabled-contrast-static),
-    $innerElementsForeground: var(--text-negative),
-    $innerElementsForeground_disabled: var(--states-text-disabled-negative),
+    $background: var(--button-negative),
+    $background_disabled: var(--states-button-negative-disabled),
+    $background_hovered: var(--states-button-negative-hover),
+    $background_pressed: var(--states-button-negative-pressed),
+    $foreground: var(--text-primary-inverse-static),
+    $foreground_disabled: var(--states-text-primary-inverse-static-disabled),
   )
 }

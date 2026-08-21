@@ -9,7 +9,16 @@ import { type AsChildProp, type InnerClassNamesProp, type MergeProps } from '../
 import styles from './CellSimple.module.scss';
 
 export type CellSimpleHeight = 'compact' | 'normal';
-export type CellSimpleInnerElementKey = 'before' | 'after' | 'chevron' | 'content' | 'title' | 'subtitle' | 'overline' | 'link';
+export type CellSimpleSubtitleMode = 'secondary' | 'tertiary';
+export type CellSimpleInnerElementKey =
+  | 'before'
+  | 'after'
+  | 'chevron'
+  | 'content'
+  | 'title'
+  | 'subtitle'
+  | 'overline'
+  | 'link';
 export type Appearance = 'default' | 'promo' | 'themed' | 'attention'
 
 interface CellSimpleOwnProps extends AsChildProp {
@@ -17,6 +26,7 @@ interface CellSimpleOwnProps extends AsChildProp {
   innerClassNames?: InnerClassNamesProp<CellSimpleInnerElementKey>
   title?: ReactNode
   subtitle?: ReactNode
+  subtitleMode?: CellSimpleSubtitleMode
   overline?: ReactNode
   before?: ReactNode
   after?: ReactNode
@@ -34,6 +44,7 @@ export const CellSimple = forwardRef<HTMLDivElement, CellSimpleProps>((props, fo
     className,
     title,
     subtitle,
+    subtitleMode = 'secondary',
     before,
     after,
     children,
@@ -52,6 +63,7 @@ export const CellSimple = forwardRef<HTMLDivElement, CellSimpleProps>((props, fo
   const rootClassName = clsx(
     styles.CellSimple,
     styles[`CellSimple_height_${height}`],
+    styles[`CellSimple_subtitle_${subtitleMode}`],
     {
       [styles.CellSimple_disabled]: disabled,
       [styles.CellSimple_separator]: separator

@@ -52,7 +52,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, forward
   const withRipple = platform === 'android';
 
   const clickHandler: MouseEventHandler<HTMLButtonElement> = (e) => {
-    if (loading) return;
+    if (loading) {
+      e.preventDefault();
+      return;
+    }
     onClick?.(e);
   };
 

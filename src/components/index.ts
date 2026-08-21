@@ -12,5 +12,4 @@ export * from './MaxUI';
 export * from './Spinner';
 export * from './Switch';
 export * from './Textarea';
-export * from './ToolButton';
 export * from './Typography';

@@ -9,12 +9,12 @@
 
 // [State] Disabled
 .CellInput_disabled {
-  color: var(--states-text-disabled-primary);
+  color: var(--states-text-primary-disabled);
 
   .CellInput__input {
 
     &::placeholder {
-      color: var(--states-text-disabled-primary);
+      color: var(--states-text-tertiary-disabled);
     }
   }
 }
@@ -50,7 +50,7 @@
   flex-grow: 1;
 
   &::placeholder {
-    color: var(--text-secondary);
+    color: var(--text-tertiary);
   }
 }
 

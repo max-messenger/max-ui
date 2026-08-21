@@ -45,49 +45,50 @@
 
 // [Properties] IOS styles
 .Switch_platform_ios {
-  --MaxUi-Switch__toggle_background: var(--background-accent-neutral-fade);
+  --MaxUi-Switch__toggle_background: var(--controls-inactive);
   --MaxUi-Switch__toggle_paddingX: 2px;
   --MaxUi-Switch__toggle_width: 51px;
   --MaxUi-Switch__toggle_height: 31px;
   --MaxUi-Switch__thumb_size: 27px;
   --MaxUi-Switch__thumb_offset: 0;
   --MaxUi-Switch__thumb_shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.15);
-  --MaxUi-Switch__thumb_background: var(--icon-contrast-static);
+  --MaxUi-Switch__thumb_background: var(--icon-primary-inverse-static);
 }
 .Switch_platform_ios:has(.Switch__input:checked) {
-  --MaxUi-Switch__toggle_background: var(--background-accent-themed);
+  --MaxUi-Switch__toggle_background: var(--controls-active);
   --MaxUi-Switch__thumb_offset: 20px;
 }
 .Switch_platform_ios:has(.Switch__input:disabled:checked) {
-  --MaxUi-Switch__toggle_background: var(--states-background-disabled-themed);
+  --MaxUi-Switch__toggle_background: var(--states-controls-active-disabled);
 }
 .Switch_platform_ios:has(.Switch__input:disabled) {
-  --MaxUi-Switch__toggle_background: var(--states-background-disabled-neutral-fade);
+  --MaxUi-Switch__toggle_background: var(--states-controls-inactive-disabled);
 }
 
 // [Properties] Android styles
 .Switch_platform_android {
+  --MaxUi-Switch__toggle_background: transparent;
   --MaxUi-Switch__toggle_paddingX: 4px;
   --MaxUi-Switch__toggle_width: 52px;
   --MaxUi-Switch__toggle_height: 32px;
   --MaxUi-Switch__toggle_border: 2px solid;
-  --MaxUi-Switch__toggle_borderColor: var(--stroke-separator-primary);
+  --MaxUi-Switch__toggle_borderColor: var(--divider-primary);
   --MaxUi-Switch__thumb_size: 20px;
   --MaxUi-Switch__thumb_offset: 0;
   --MaxUi-Switch__thumb_background: var(--icon-tertiary);
 }
 .Switch_platform_android:has(.Switch__input:checked) {
-  --MaxUi-Switch__toggle_background: var(--background-accent-themed);
-  --MaxUi-Switch__thumb_background: var(--icon-contrast-static);
-  --MaxUi-Switch__toggle_borderColor: var(--background-accent-themed);
+  --MaxUi-Switch__toggle_background: var(--controls-active);
+  --MaxUi-Switch__thumb_background: var(--icon-primary-inverse-static);
+  --MaxUi-Switch__toggle_borderColor: var(--controls-active);
   --MaxUi-Switch__thumb_scale: 1.2;
   --MaxUi-Switch__thumb_offset: 20px;
 }
 .Switch_platform_android:has(.Switch__input:disabled:checked) {
-  --MaxUi-Switch__toggle_background: var(--states-background-disabled-themed);
+  --MaxUi-Switch__toggle_background: var(--states-controls-active-disabled);
   --MaxUi-Switch__toggle_borderColor: transparent;
 }
 .Switch_platform_android:has(.Switch__input:disabled:not(:checked)) {
-  --MaxUi-Switch__toggle_background: var(--states-background-disabled-neutral-fade);
-  --MaxUi-Switch__thumb_background: var(--icon-quaternary);
+  --MaxUi-Switch__toggle_background: var(--states-controls-inactive-disabled);
+  --MaxUi-Switch__thumb_background: var(--icon-mute);
 }

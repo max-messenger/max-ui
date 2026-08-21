@@ -8,7 +8,7 @@ import { Tappable } from '../../internal';
 import { type AsChildProp, type InnerClassNamesProp, type MergeProps } from '../../types';
 import styles from './CellAction.module.scss';
 
-export type CellActionMode = 'primary' | 'destructive' | 'custom';
+export type CellActionMode = 'primary' | 'secondary' | 'themed' | 'destructive' | 'custom';
 export type CellActionHeight = 'compact' | 'normal';
 export type CellActionInnerElementKey = 'before' | 'chevron' | 'content';
 
