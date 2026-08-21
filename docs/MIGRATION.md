@@ -49,8 +49,6 @@
 
 Для состояний используются `--states-button-{variant}-{hover|pressed|disabled}`.
 
-Размеры иконок внутри Button теперь фиксированы: 16/20/20/24 px для `xsmall`/`small`/`medium`/`large`. IconButton использует круглый radius и размеры контента 20/24/24/28 px. У stretched Button контент центрируется с учётом боковых элементов.
-
 Loading Button не вызывает пользовательский `onClick`. Прежняя цветовая привязка Spinner и Counter внутри вариантов Button сохранена; размер Spinner для Medium изменён с 24 до 20 px.
 
 ### Counter и Dot

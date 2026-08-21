@@ -142,35 +142,21 @@
   position: relative;
   z-index: 1;
   display: flex;
-  flex: none;
-
-  > :where(svg, img) {
-    width: 100%;
-    height: 100%;
-  }
 
   :where(.Button_size_xsmall) & {
-    width: 16px;
-    height: 16px;
     margin-right: var(--spacing-size-xs);
   }
 
   :where(.Button_size_small) & {
-    width: 20px;
-    height: 20px;
     margin-right: var(--spacing-size-xs);
   }
 
   :where(.Button_size_medium) & {
-    width: 20px;
-    height: 20px;
-    margin-right: var(--spacing-size-m);
+    margin-right: var(--spacing-size-s);
   }
 
   :where(.Button_size_large) & {
-    width: 24px;
-    height: 24px;
-    margin-right: var(--spacing-size-m);
+    margin-right: var(--spacing-size-s);
   }
 }
 
@@ -179,35 +165,21 @@
   position: relative;
   z-index: 1;
   display: flex;
-  flex: none;
-
-  > :where(svg, img) {
-    width: 100%;
-    height: 100%;
-  }
 
   :where(.Button_size_xsmall) & {
-    width: 16px;
-    height: 16px;
     margin-left: var(--spacing-size-xs);
   }
 
   :where(.Button_size_small) & {
-    width: 20px;
-    height: 20px;
     margin-left: var(--spacing-size-xs);
   }
 
   :where(.Button_size_medium) & {
-    width: 20px;
-    height: 20px;
-    margin-left: var(--spacing-size-m);
+    margin-left: var(--spacing-size-s);
   }
 
   :where(.Button_size_large) & {
-    width: 24px;
-    height: 24px;
-    margin-left: var(--spacing-size-m);
+    margin-left: var(--spacing-size-s);
   }
 }
 
@@ -225,11 +197,11 @@
   }
 
   :where(.Button_size_medium) & {
-    margin-left: var(--spacing-size-m);
+    margin-left: var(--spacing-size-s);
   }
 
   :where(.Button_size_large) & {
-    margin-left: var(--spacing-size-m);
+    margin-left: var(--spacing-size-s);
   }
 }
 
