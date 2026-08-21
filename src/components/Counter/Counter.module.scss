@@ -10,22 +10,14 @@
 .Counter {
   @include typography.labelMediumStrong;
 
-  width: fit-content;
-  height: 20px;
-  min-width: 20px;
-  min-height: 20px;
-  max-height: 20px;
-  padding: 0 var(--spacing-size-s);
+  min-width: var(--size-border-radius-semantic-border-radius-promo);
+  min-height: var(--size-border-radius-semantic-border-radius-promo);
+  padding: 1px var(--spacing-size-s);
   border-radius: var(--border-radius-circle);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  overflow: hidden;
-  text-align: center;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  word-break: break-word;
 }
 
 .Counter_variant_primary {

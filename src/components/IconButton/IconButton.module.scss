@@ -103,31 +103,7 @@
 .IconButton__content {
   position: relative;
   z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   line-height: 0;
-
-  > :where(svg, img) {
-    width: 100%;
-    height: 100%;
-  }
-
-  :where(.IconButton_size_xsmall) & {
-    width: 20px;
-    height: 20px;
-  }
-
-  :where(.IconButton_size_small) &,
-  :where(.IconButton_size_medium) & {
-    width: 24px;
-    height: 24px;
-  }
-
-  :where(.IconButton_size_large) & {
-    width: 28px;
-    height: 28px;
-  }
 }
 
 // [Parts] Ripple

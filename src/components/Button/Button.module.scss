@@ -35,12 +35,6 @@
 // [State] Stretched
 .Button_stretched {
   width: 100%;
-
-  .Button__content {
-    flex: 1;
-    min-width: 0;
-    text-align: center;
-  }
 }
 
 // [Property] Effect on :active
