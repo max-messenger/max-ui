@@ -3,6 +3,12 @@
 Все заметные изменения этого проекта задокументированы в этом файле.
 Формат основан на [Conventional Commits](https://conventionalcommits.org).
 
+## [0.3.2](https://github.com/max-messenger/max-ui/compare/v0.3.1...v0.3.2) (2026-08-21)
+
+### 🛠 Прочее
+
+* обновлена сборка ([18dc4fc](https://github.com/max-messenger/max-ui/commit/18dc4fc519f68bd9f331d1eccc37e83a15f13b13))
+
 ## [0.3.1](https://github.com/max-messenger/max-ui/compare/v0.3.0...v0.3.1) (2026-08-21)
 
 ### 🛠 Прочее
