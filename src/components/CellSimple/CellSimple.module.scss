@@ -57,6 +57,7 @@
   margin-left: var(--spacing-size-xl);
   display: flex;
   align-items: center;
+  gap: var(--spacing-size-s);
 }
 
 // [Parts] Content
@@ -70,7 +71,7 @@
 
 // [Parts] Title
 .CellSimple__title {
-  @include typography.titleLargeStrong;
+  @include typography.bodyStrong;
 
   color: var(--text-primary);
   overflow-wrap: anywhere;
@@ -84,7 +85,7 @@
 
 // [Parts] Subtitle
 .CellSimple__subtitle {
-  @include typography.titleSmall;
+  @include typography.description;
 }
 
 .CellSimple_subtitle_secondary .CellSimple__subtitle {
@@ -97,7 +98,7 @@
 
 // [Parts] Overline
 .CellSimple__overline {
-  @include typography.titleSmall;
+  @include typography.description;
 
   color: var(--text-tertiary);
   overflow: hidden;
@@ -111,7 +112,7 @@
 .CellSimple__link {
   color: var(--text-themed);
   text-decoration: none;
-  @include typography.titleSmall;
+  @include typography.description;
   display: block;
   overflow: hidden;
   text-overflow: ellipsis;

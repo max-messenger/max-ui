@@ -1,1 +1,1 @@
-export { Input, type InputElementKey, type InputMode, type InputProps } from './Input';
+export { Input, type InputElementKey, type InputMode, type InputProps, type InputSize } from './Input';

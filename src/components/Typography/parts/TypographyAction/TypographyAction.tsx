@@ -5,7 +5,7 @@ import { type ComponentProps, forwardRef } from 'react';
 import type { AsChildProp } from '../../../../types';
 import styles from './TypographyAction.module.scss';
 
-export type TypographyActionVariant = 'large' | 'medium' | 'small' | 'label' | 'custom';
+export type TypographyActionVariant = 'large' | 'medium' | 'small' | 'xsmall' | 'custom';
 
 export interface TypographyActionProps extends ComponentProps<'span'>, AsChildProp {
   variant?: TypographyActionVariant

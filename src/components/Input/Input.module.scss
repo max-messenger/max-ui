@@ -2,31 +2,54 @@
 @use '../../styles/shared-mixins/typography';
 @use '../../styles/builders/form-field-modes-builder';
 
+.Input__container {
+  min-width: 200px;
+  width: 100%;
+}
+
 .Input {
-  border-radius: var(--size-border-radius-semantic-border-radius-card);
   padding-left: var(--spacing-size-xl);
   padding-right: var(--spacing-size-xl);
   color: var(--text-primary);
   display: flex;
   align-items: center;
+  gap: var(--spacing-size-xl);
+  min-width: 200px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 // [State] Disabled
 .Input_disabled {
   cursor: not-allowed;
+
+  .Input__iconBefore,
+  .Input__iconAfter {
+    color: var(--states-icon-primary-disabled);
+  }
 }
 
 // [Properties] Sizes
 .Input_size_medium {
   height: 40px;
+  border-radius: var(--size-border-radius-action-medium);
+
+  .Input__input {
+    @include typography.detail;
+  }
 }
 .Input_size_large {
   height: 52px;
+  border-radius: var(--size-border-radius-action-large);
 }
 
 // [Properties] Modes
 .Input_mode_default {
   @include form-field-modes-builder.buildFormFieldSecondaryMode('Input');
+
+  &.Input_disabled {
+    background-color: var(--background-tertiary);
+  }
 }
 .Input_mode_contrast {
   @include form-field-modes-builder.buildFormFieldPrimaryMode('Input');
@@ -35,40 +58,52 @@
 // [Parts] Body
 .Input__body {
   flex-grow: 1;
+  gap: var(--spacing-size-xl);
+  min-width: 0;
+  overflow: hidden;
 }
 
 .Input__iconBefore {
   color: var(--icon-primary);
-  margin-right: var(--spacing-size-xl);
   display: flex;
+  flex-shrink: 0;
 }
 
 // [Parts] Icon After
 .Input__iconAfter {
   color: var(--icon-primary);
-  margin-left: var(--spacing-size-xl);
   display: flex;
+  flex-shrink: 0;
 }
 
 // [Parts] Clear button
 .Input__clearButton {
-  margin-left: var(--spacing-size-xl);
+  display: none;
+  flex-shrink: 0;
+}
+
+.Input:focus-within .Input__clearButton {
   display: flex;
+}
+
+.Input__count {
+  flex-shrink: 0;
 }
 
 // [Parts] Input
 .Input__input {
   @include reset-text-field.resetTextField;
-  @include typography.bodyLarge;
+  @include typography.body;
   height: inherit;
   flex-grow: 1;
+  min-width: 0;
 
   .Input_disabled & {
     color: var(--states-text-primary-disabled);
   }
 }
 .Input__input::placeholder {
-  color: var(--text-secondary);
+  color: var(--text-tertiary);
 
   .Input_disabled & {
     color: var(--states-text-primary-disabled);
@@ -77,6 +112,11 @@
 
 .Input__hint {
   padding: 4px 12px 0;
-  @include typography.bodySmall;
+  @include typography.description;
   color: var(--text-tertiary);
+  box-sizing: border-box;
+}
+
+.Input__hint_disabled {
+  color: var(--states-text-primary-disabled);
 }

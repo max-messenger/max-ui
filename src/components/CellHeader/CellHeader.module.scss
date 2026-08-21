@@ -13,13 +13,13 @@
 .CellHeader_titleStyle_caps {
 
   .CellHeader__content {
-    @include typography.labelLargeCaps;
+    @include typography.cellLabelStrongSmallCaps;
   }
 }
 .CellHeader_titleStyle_normal {
 
   .CellHeader__content {
-    @include typography.labelLargeStrong;
+    @include typography.labelStrong;
   }
 }
 

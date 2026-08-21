@@ -87,3 +87,79 @@ CellHeader и placeholder CellInput используют `--text-tertiary`.
 ### ClearableInput
 
 Внутренняя иконка очистки изменена с Android Close 20 на iOS Close 16.
+
+## Типографика
+
+### CSS-переменные
+
+Шкала типографики приведена к названиям из актуальной Figma Platform collection. Совместимые алиасы не добавляются.
+
+| Было | Стало |
+| --- | --- |
+| `--size-*` | `--font-size-*` |
+| `--height-*` | `--line-height-*` |
+| `display` | `hero` |
+| `headline-large` | `header` |
+| `headline-medium` | `subheader` |
+| `headline-small` | `title` |
+| `body-large` | `body` |
+| `body-medium` | `detail` |
+| `body-small` | `description` |
+| `label-large` | `label` |
+| `label-medium` | `tag` |
+| `label-small` | `note` |
+| `action-label` | `action-xsmall` |
+| `--family-accent` | `--family-headers` |
+
+`--family-base` сохраняется. Android использует `Roboto, sans-serif`; приложение подключает webfont самостоятельно.
+
+### React API
+
+Для нового кода используйте `Typography.Text`:
+
+```diff
+- <Typography.Display>Title</Typography.Display>
++ <Typography.Text variant="hero">Title</Typography.Text>
+
+- <Typography.Headline variant="medium">Title</Typography.Headline>
++ <Typography.Text variant="subheader">Title</Typography.Text>
+
+- <Typography.Title variant="large-strong">Text</Typography.Title>
++ <Typography.Text variant="body-strong">Text</Typography.Text>
+
+- <Typography.Label variant="medium">Label</Typography.Label>
++ <Typography.Text variant="tag">Label</Typography.Text>
+```
+
+Прежние компоненты Typography пока остаются в публичном API. Сопоставление старой группы Title: `large-strong` → `body-strong`, `medium` → `detail`, `medium-strong` → `detail-strong`, `small` → `description`, `small-strong` → `description-strong`.
+
+## Avatar
+
+### Online status
+
+Для стандартного индикатора онлайна используйте `onlineStatus` вместо удалённого `Dot`:
+
+```diff
+- <Avatar.Container size={40} rightBottomCorner={<Avatar.OnlineDot />}>
++ <Avatar.Container size={40} onlineStatus>
+    <Avatar.Image src={user.photo} alt={user.name} />
+  </Avatar.Container>
+```
+
+Индикатор отображается только для круглого Avatar размером 24–80 px.
+
+Default-размер Avatar изменён с 48 на 40 px. При зависимости от старого значения укажите `size={48}` явно. Переданное значение ограничивается диапазоном 16–200 px.
+
+## Input
+
+Без `mode` теперь используется `default`. Если в приложении остались значения из старого API, замените их:
+
+```diff
+- <Input mode="secondary" />
++ <Input mode="default" />
+
+- <Input mode="primary" />
++ <Input mode="contrast" />
+```
+
+Для счётчика доступен `innerClassNames.count`. Hint получает отдельное disabled-состояние.

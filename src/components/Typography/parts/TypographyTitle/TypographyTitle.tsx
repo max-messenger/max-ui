@@ -5,7 +5,7 @@ import { type ComponentProps, forwardRef } from 'react';
 import { type AsChildProp } from '../../../../types';
 import styles from './TypographyTitle.module.scss';
 
-export type TypographyTitleVariant = 'large-strong' | 'medium-strong' | 'small' | 'small-strong' | 'custom';
+export type TypographyTitleVariant = 'large-strong' | 'medium' | 'medium-strong' | 'small' | 'small-strong' | 'custom';
 
 export interface TypographyTitleProps extends ComponentProps<'span'>, AsChildProp {
   variant?: TypographyTitleVariant

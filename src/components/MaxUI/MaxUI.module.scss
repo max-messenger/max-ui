@@ -1,13 +1,12 @@
 @use '../../styles/variables/common';
 @use '../../styles/variables/sizes';
 @use '../../styles/variables/appearance';
-@use '../../styles/variables/unused-legacy-color-tokens';
 @use '../../styles/variables/typography';
 
 .MaxUI {
   @include common.commonVariables;
 
-  font-family: var(--font);
+  font-family: var(--family-base);
   background-color: var(--background-primary);
   color: var(--text-primary);
   width: 100%;
@@ -32,12 +31,10 @@
 
     &_light {
       @include appearance.lightPalette;
-      @include unused-legacy-color-tokens.lightUnusedLegacyColorTokens;
     }
 
     &_dark {
       @include appearance.darkPalette;
-      @include unused-legacy-color-tokens.darkUnusedLegacyColorTokens;
     }
   }
 }
