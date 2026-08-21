@@ -3,7 +3,7 @@ import { type ComponentProps, forwardRef } from 'react';
 
 import { useAvatarContainerContext } from '../AvatarContainer/AvatarContainerContext';
 import styles from './AvatarOnlineDot.module.scss';
-import { getDotContainerSize } from './helpers';
+import { getDotContainerSize, isOnlineStatusVisible } from './helpers';
 
 export interface AvatarOnlineDotProps extends ComponentProps<'span'> {}
 
@@ -23,7 +23,7 @@ export const AvatarOnlineDot = forwardRef<HTMLSpanElement, AvatarOnlineDotProps>
     className
   );
 
-  if (avatarContainerSize < 16 || avatarContainerSize > 80) {
+  if (!isOnlineStatusVisible(avatarContainerSize)) {
     return null;
   }
 
