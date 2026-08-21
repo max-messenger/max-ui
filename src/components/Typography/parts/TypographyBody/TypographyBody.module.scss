@@ -4,17 +4,20 @@
 
 // [Properties] Variants
 .TypographyBody_variant_large {
-  @include typography.bodyLarge;
+  @include typography.body;
+}
+.TypographyBody_variant_large-strong {
+  @include typography.bodyStrong;
 }
 .TypographyBody_variant_medium {
-  @include typography.bodyMedium;
+  @include typography.detail;
+}
+.TypographyBody_variant_medium-strong {
+  @include typography.detailStrong;
 }
 .TypographyBody_variant_small {
-  @include typography.bodySmall;
+  @include typography.description;
 }
 .TypographyBody_variant_small-strong {
-  @include typography.bodySmallStrong;
-}
-.TypographyBody_variant_small-caps {
-  @include typography.bodySmallCaps;
+  @include typography.descriptionStrong;
 }

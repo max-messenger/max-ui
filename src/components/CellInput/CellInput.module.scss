@@ -31,7 +31,7 @@
 
 // [Parts]
 .CellInput__before {
-  @include typography.titleLargeStrong;
+  @include typography.bodyStrong;
 
   margin-right: var(--spacing-size-xs);
   width: 96px;
@@ -45,7 +45,7 @@
 // [Parts] Input
 .CellInput__input {
   @include reset-text-field.resetTextField;
-  @include typography.bodyLarge;
+  @include typography.body;
 
   flex-grow: 1;
 

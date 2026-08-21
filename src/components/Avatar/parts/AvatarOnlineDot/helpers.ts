@@ -9,3 +9,7 @@ export const getDotContainerSize = (avatarContainerSize: number): 'xs' | 's' | '
     return 'l';
   }
 };
+
+export const isOnlineStatusVisible = (avatarContainerSize: number): boolean => (
+  avatarContainerSize >= 24 && avatarContainerSize <= 80
+);

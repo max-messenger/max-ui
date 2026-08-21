@@ -3,4 +3,5 @@ export { TypographyBody, type TypographyBodyProps, type TypographyBodyVariant } 
 export { TypographyDisplay, type TypographyDisplayProps } from './TypographyDisplay';
 export { TypographyHeadline, type TypographyHeadlineProps, type TypographyHeadlineVariant } from './TypographyHeadline';
 export { TypographyLabel, type TypographyLabelProps, type TypographyLabelVariant } from './TypographyLabel';
+export { TypographyText, type TypographyTextColor, type TypographyTextProps, type TypographyTextVariant } from './TypographyText';
 export { TypographyTitle, type TypographyTitleProps, type TypographyTitleVariant } from './TypographyTitle';

@@ -1,0 +1,75 @@
+@use '../../../../styles/shared-mixins/typography';
+
+.TypographyText_variant_hero {
+  @include typography.hero;
+}
+.TypographyText_variant_header {
+  @include typography.header;
+}
+.TypographyText_variant_subheader {
+  @include typography.subheader;
+}
+.TypographyText_variant_title {
+  @include typography.title;
+}
+.TypographyText_variant_body {
+  @include typography.body;
+}
+.TypographyText_variant_body-strong {
+  @include typography.bodyStrong;
+}
+.TypographyText_variant_detail {
+  @include typography.detail;
+}
+.TypographyText_variant_detail-strong {
+  @include typography.detailStrong;
+}
+.TypographyText_variant_description {
+  @include typography.description;
+}
+.TypographyText_variant_description-strong {
+  @include typography.descriptionStrong;
+}
+.TypographyText_variant_label {
+  @include typography.label;
+}
+.TypographyText_variant_label-strong {
+  @include typography.labelStrong;
+}
+.TypographyText_variant_tag {
+  @include typography.tag;
+}
+.TypographyText_variant_tag-strong {
+  @include typography.tagStrong;
+}
+.TypographyText_variant_note {
+  @include typography.note;
+}
+.TypographyText_variant_note-strong {
+  @include typography.noteStrong;
+}
+.TypographyText_variant_action-large {
+  @include typography.actionLarge;
+}
+.TypographyText_variant_action-medium {
+  @include typography.actionMedium;
+}
+.TypographyText_variant_action-small {
+  @include typography.actionSmall;
+}
+.TypographyText_variant_action-xsmall {
+  @include typography.actionXSmall;
+}
+
+.TypographyText_color_primary {
+  color: var(--text-primary);
+}
+.TypographyText_color_secondary {
+  color: var(--text-secondary);
+}
+.TypographyText_color_tertiary {
+  color: var(--text-tertiary);
+}
+.TypographyText_color_inherit {
+  color: inherit;
+}
