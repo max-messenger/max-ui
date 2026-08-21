@@ -7,8 +7,9 @@ import { type ButtonSize, type ButtonVariant } from './Button';
 export const getButtonSpinnerSize = (buttonSize: ButtonSize): number => {
   switch (buttonSize) {
     case 'xsmall': return 16;
-    case 'small': return 20;
-    default: return 24;
+    case 'small':
+    case 'medium': return 20;
+    case 'large': return 24;
   }
 };
 
@@ -16,15 +17,14 @@ export const getButtonSpinnerAppearance = (buttonVariant: ButtonVariant): Spinne
   switch (buttonVariant) {
     case 'primary':
     case 'destructive':
+    case 'overlay':
       return 'contrast-static';
     case 'secondary':
     case 'ghost':
-      return 'themed';
+      return 'primary';
     case 'primary-contrast':
-      return 'primary-static';
     case 'secondary-contrast':
-    case 'overlay':
-      return 'contrast-static';
+      return 'primary-static';
   }
 };
 
@@ -33,13 +33,13 @@ export const getButtonCounterAppearance = (buttonVariant: ButtonVariant): Pick<C
     case 'primary':
       return { variant: 'primary-contrast' };
     case 'secondary':
-      return { variant: 'static' };
+      return { variant: 'default' };
     case 'ghost':
-      return { variant: 'static' };
+      return { variant: 'default' };
     case 'primary-contrast':
       return { variant: 'static' };
     case 'secondary-contrast':
-      return { variant: 'static' };
+      return { variant: 'default' };
     case 'overlay':
       return { variant: 'static-contrast' };
     case 'destructive':

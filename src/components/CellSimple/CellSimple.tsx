@@ -9,7 +9,19 @@ import { type AsChildProp, type InnerClassNamesProp, type MergeProps } from '../
 import styles from './CellSimple.module.scss';
 
 export type CellSimpleHeight = 'compact' | 'normal';
-export type CellSimpleInnerElementKey = 'before' | 'after' | 'chevron' | 'content' | 'title' | 'subtitle' | 'overline' | 'link';
+export type CellSimpleSubtitleMode = 'secondary' | 'tertiary';
+export type CellSimpleInnerElementKey =
+  | 'before'
+  | 'after'
+  | 'chevron'
+  | 'content'
+  | 'title'
+  | 'subtitle'
+  | 'overline'
+  | 'link'
+  | 'fileName'
+  | 'fileExtension'
+  | 'fileDetail';
 export type Appearance = 'default' | 'promo' | 'themed' | 'attention'
 
 interface CellSimpleOwnProps extends AsChildProp {
@@ -17,7 +29,11 @@ interface CellSimpleOwnProps extends AsChildProp {
   innerClassNames?: InnerClassNamesProp<CellSimpleInnerElementKey>
   title?: ReactNode
   subtitle?: ReactNode
+  subtitleMode?: CellSimpleSubtitleMode
   overline?: ReactNode
+  fileName?: ReactNode
+  fileExtension?: ReactNode
+  fileDetail?: ReactNode
   before?: ReactNode
   after?: ReactNode
   showChevron?: boolean
@@ -34,10 +50,14 @@ export const CellSimple = forwardRef<HTMLDivElement, CellSimpleProps>((props, fo
     className,
     title,
     subtitle,
+    subtitleMode = 'secondary',
     before,
     after,
     children,
     overline,
+    fileName,
+    fileExtension,
+    fileDetail,
     showChevron = false,
     asChild = false,
     disabled = false,
@@ -52,6 +72,7 @@ export const CellSimple = forwardRef<HTMLDivElement, CellSimpleProps>((props, fo
   const rootClassName = clsx(
     styles.CellSimple,
     styles[`CellSimple_height_${height}`],
+    styles[`CellSimple_subtitle_${subtitleMode}`],
     {
       [styles.CellSimple_disabled]: disabled,
       [styles.CellSimple_separator]: separator
@@ -88,6 +109,28 @@ export const CellSimple = forwardRef<HTMLDivElement, CellSimpleProps>((props, fo
               {hasReactNode(title) && (
                 <div className={clsx(styles.CellSimple__title, innerClassNames?.title)}>
                   {title}
+                </div>
+              )}
+
+              {hasReactNode(fileName) && (
+                <div className={styles.CellSimple__fileNameRow}>
+                  <span className={clsx(styles.CellSimple__fileName, innerClassNames?.fileName)}>
+                    {fileName}
+                  </span>
+                  {hasReactNode(fileExtension) && (
+                    <>
+                      <span className={styles.CellSimple__fileNameSeparator}>.</span>
+                      <span className={clsx(styles.CellSimple__fileExtension, innerClassNames?.fileExtension)}>
+                        {fileExtension}
+                      </span>
+                    </>
+                  )}
+                </div>
+              )}
+
+              {hasReactNode(fileDetail) && (
+                <div className={clsx(styles.CellSimple__fileDetail, innerClassNames?.fileDetail)}>
+                  {fileDetail}
                 </div>
               )}
 

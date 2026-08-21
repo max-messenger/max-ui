@@ -12,21 +12,35 @@
   color: var(--text-themed);
 
   &.CellAction_disabled {
-    color: var(--states-text-disabled-themed);
+    color: var(--states-text-themed-disabled);
+  }
+}
+.CellAction_mode_secondary {
+  color: var(--text-tertiary);
+
+  &.CellAction_disabled {
+    color: var(--states-text-tertiary-disabled);
+  }
+}
+.CellAction_mode_themed {
+  color: var(--text-themed);
+
+  &.CellAction_disabled {
+    color: var(--states-text-themed-disabled);
   }
 }
 .CellAction_mode_destructive {
   color: var(--text-negative);
 
   &.CellAction_disabled {
-    color: var(--states-text-disabled-negative);
+    color: var(--states-text-negative-disabled);
   }
 }
 .CellAction_mode_custom {
   color: var(--MaxUi-CellAction_color, var(--text-themed));
 
   &.CellAction_disabled {
-    color: var(--MaxUi-CellAction_color-disabled, var(--states-text-disabled-themed));
+    color: var(--MaxUi-CellAction_color-disabled, var(--states-text-themed-disabled));
   }
 }
 
@@ -48,20 +62,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  > :where(svg, img) {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 // [Parts] Content
 .CellAction__content {
-  @include typography.titleLargeStrong;
+  @include typography.actionMedium;
 
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  min-width: 0
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 // [Parts] Chevron
 .CellAction__chevron {
-  color: var(--icon-quaternary);
+  color: var(--icon-mute);
   flex-shrink: 0;
 }

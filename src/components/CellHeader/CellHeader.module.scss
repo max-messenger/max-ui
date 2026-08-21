@@ -1,7 +1,7 @@
 @use '../../styles/shared-mixins/typography';
 
 .CellHeader {
-  color: var(--text-secondary);
+  color: var(--text-tertiary);
   padding: var(--spacing-size-xs) calc(var(--spacing-size4xl) - var(--spacing-size-xl));
   min-height: 28px;
   box-sizing: border-box;

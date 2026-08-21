@@ -9,10 +9,26 @@
 
 // [State] Disabled
 .CellSimple_disabled {
-  color: var(--states-text-disabled-primary);
+  color: var(--states-text-primary-disabled);
 
-  .CellSimple__subtitle, .CellSimple__overline {
-    color: var(--states-text-disabled-primary);
+  .CellSimple__title, .CellSimple__fileNameRow {
+    color: var(--states-text-primary-disabled);
+  }
+
+  .CellSimple__overline, .CellSimple__fileDetail {
+    color: var(--states-text-tertiary-disabled);
+  }
+
+  .CellSimple__link {
+    color: var(--states-text-themed-disabled);
+  }
+
+  &.CellSimple_subtitle_secondary .CellSimple__subtitle {
+    color: var(--states-text-secondary-disabled);
+  }
+
+  &.CellSimple_subtitle_tertiary .CellSimple__subtitle {
+    color: var(--states-text-tertiary-disabled);
   }
 }
 
@@ -48,47 +64,87 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  min-width: 0
+  min-width: 0;
 }
 
 // [Parts] Title
 .CellSimple__title {
   @include typography.titleLargeStrong;
+
+  color: var(--text-primary);
+  overflow-wrap: anywhere;
 }
 
 // [Parts] Chevron
 .CellSimple__chevron {
-  color: var(--icon-quaternary);
-  margin-left: var(--spacing-size-s);
+  color: var(--icon-mute);
+  flex-shrink: 0;
 }
 
 // [Parts] Subtitle
 .CellSimple__subtitle {
   @include typography.titleSmall;
+}
 
+.CellSimple_subtitle_secondary .CellSimple__subtitle {
   color: var(--text-secondary);
+}
 
-  &:not(:first-child) {
-    margin-top: var(--spacing-size2xs);
-  }
+.CellSimple_subtitle_tertiary .CellSimple__subtitle {
+  color: var(--text-tertiary);
 }
 
 // [Parts] Overline
 .CellSimple__overline {
   @include typography.titleSmall;
 
-  color: var(--text-secondary);
+  color: var(--text-tertiary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
-  &:not(:last-child) {
-    margin-bottom: var(--spacing-size2xs);
-  }
+.CellSimple__fileNameRow {
+  @include typography.titleMediumStrong;
+
+  color: var(--text-primary);
+  display: flex;
+  min-width: 0;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.CellSimple__fileName {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.CellSimple__fileNameSeparator,
+.CellSimple__fileExtension {
+  flex-shrink: 0;
+}
+
+.CellSimple__fileDetail {
+  @include typography.titleSmall;
+
+  color: var(--text-tertiary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
 }
 
 .CellSimple_separator {
-  border-top: 0.5px solid var(--text-tertiary)
+  border-top: 0.5px solid var(--divider-primary);
 }
 .CellSimple__link {
   color: var(--text-themed);
   text-decoration: none;
   @include typography.titleSmall;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
 }

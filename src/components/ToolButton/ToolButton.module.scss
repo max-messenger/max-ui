@@ -14,12 +14,12 @@
 
 // [Properties] Modes
 .ToolButton_appearance_default {
-  background-color: var(--background-surface-card);
+  background-color: var(--background-card);
   color: var(--text-primary);
 
   &.ToolButton_disabled {
-    background-color: var(--states-background-disabled-card);
-    color: var(--states-text-disabled-primary);
+    background-color: var(--states-background-card-disabled);
+    color: var(--states-text-primary-disabled);
   }
 }
 .ToolButton_appearance_secondary {
@@ -28,7 +28,7 @@
 
   &.ToolButton_disabled {
     background-color: var(--states-background-disabled-neutral-fade);
-    color: var(--states-text-disabled-primary);
+    color: var(--states-text-primary-disabled);
   }
 }
 

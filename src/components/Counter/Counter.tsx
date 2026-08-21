@@ -33,7 +33,7 @@ export const Counter = forwardRef<HTMLSpanElement, CounterProps>((props, ref) =>
   }, [rounded, value]);
 
   return (
-    <span ref={ref} className={rootClassName} {...rest} role="">
+    <span ref={ref} className={rootClassName} {...rest}>
       {formattedValue}
     </span>
   );
