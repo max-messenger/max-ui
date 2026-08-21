@@ -1,4 +1,4 @@
-import { useAppearance } from '../components';
+import { useAppearance } from '../components/MaxUI/MaxUIContext';
 import { type PlatformType } from '../types';
 
 export const usePlatform = (): PlatformType => {

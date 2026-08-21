@@ -9,7 +9,8 @@ export default {
   input: 'src/index.ts',
   output: {
     dir: 'dist',
-    format: 'esm'
+    format: 'esm',
+    sourcemap: true
   },
   plugins: [
     svgr(),
@@ -20,6 +21,11 @@ export default {
       inject: false,
       extract: 'styles.css',
       minimize: true,
+      use: {
+        sass: {
+          silenceDeprecations: ['legacy-js-api']
+        }
+      },
       modules: {
         generateScopedName: '[local]__[hash:base64:3]'
       }
