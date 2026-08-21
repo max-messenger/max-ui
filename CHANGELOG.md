@@ -3,6 +3,30 @@
 Все заметные изменения этого проекта задокументированы в этом файле.
 Формат основан на [Conventional Commits](https://conventionalcommits.org).
 
+## [0.3.0](https://github.com/max-messenger/max-ui/compare/v0.2.1...v0.3.0) (2026-08-21)
+
+### ✨ Новые возможности
+
+* Актуализированы цветовые токены и привязки компонентов ([c37c7b6](https://github.com/max-messenger/max-ui/commit/c37c7b696fc8bdefd7a0b1dbf1c1ce6236f2274f))
+
+### 🐛 Исправления
+
+* Обновлены стили и состояния компонентов ([c3418a6](https://github.com/max-messenger/max-ui/commit/c3418a6bc5366c342c6f0b24e4f4eab8b6df0d48))
+
+### ♻️ Рефакторинг
+
+* Удалены устаревшие компоненты и пропсы ([1183a9c](https://github.com/max-messenger/max-ui/commit/1183a9c490e80e044cd4597b6aea914172471506))
+
+### 📚 Документация
+
+* Добавлен файл Figma ([d23cd83](https://github.com/max-messenger/max-ui/commit/d23cd83f6d79d21c2576622beb5d1f0f5c09273c))
+* Добавлена информация про создание токена ([9d1a96f](https://github.com/max-messenger/max-ui/commit/9d1a96f9786b6b2a733078a155a8797753aa29f3))
+* Обновлен readme.md ([b8d4a93](https://github.com/max-messenger/max-ui/commit/b8d4a93bd39b22286bf670a90454c6d78aebbd13))
+
+### 🛠 Прочее
+
+* синхронизирована версия package-lock ([6129eec](https://github.com/max-messenger/max-ui/commit/6129eecc1f0b0ddcd2b5c5a1a075918b4e458eec))
+
 ## [0.2.1](https://github.com/max-messenger/max-ui/compare/v0.2.0...v0.2.1) (2026-07-30)
 
 ### 📚 Документация
