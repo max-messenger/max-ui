@@ -4,7 +4,7 @@ import { type ComponentProps, type CSSProperties, forwardRef, type ReactNode } f
 
 import { getSubtree, hasReactNode } from '../../../../helpers';
 import { type AsChildProp, type InnerClassNamesProp } from '../../../../types';
-import { getDotContainerSize, isOnlineStatusVisible } from '../AvatarOnlineDot/helpers';
+import { getAvatarContainerState } from '../../helpers';
 import styles from './AvatarContainer.module.scss';
 import { AvatarContainerContext } from './AvatarContainerContext';
 
@@ -39,9 +39,11 @@ export const AvatarContainer = forwardRef<HTMLDivElement, AvatarContainerProps>(
   } = props;
 
   const Comp = asChild ? Slot : 'div';
-  const normalizedSize = Number.isFinite(size) ? Math.min(200, Math.max(16, size)) : 40;
-  const hasOnlineStatus = onlineStatus && form === 'circle' && isOnlineStatusVisible(normalizedSize);
-  const onlineStatusSize = getDotContainerSize(normalizedSize);
+  const { normalizedSize, hasOnlineStatus, onlineStatusSize } = getAvatarContainerState({
+    size,
+    onlineStatus,
+    isCircle: form === 'circle'
+  });
 
   const rootClassName = clsx(
     styles.AvatarContainer,

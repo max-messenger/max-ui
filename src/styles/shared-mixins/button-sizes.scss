@@ -31,19 +31,23 @@
 @mixin iconButtonXSmallSize {
   width: 32px;
   height: 32px;
+  border-radius: 45%;
 }
 
 @mixin iconButtonSmallSize {
   width: 40px;
   height: 40px;
+  border-radius: 45%;
 }
 
 @mixin iconButtonMediumSize {
   width: 52px;
   height: 52px;
+  border-radius: 45%;
 }
 
 @mixin iconButtonLargeSize {
   width: 60px;
   height: 60px;
+  border-radius: 45%;
 }

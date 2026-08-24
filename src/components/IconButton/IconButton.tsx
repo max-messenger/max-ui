@@ -30,6 +30,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>((props,
     disabled,
     innerClassNames,
     loading,
+    onClick,
     asChild = false,
     size = 'medium',
     variant = 'primary',
@@ -40,7 +41,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>((props,
   const Comp = asChild ? Slot : rootElement;
 
   const platform = usePlatform();
-  const buttonLikeProps = useButtonLikeProps({ asChild, children, disabled, rootElement, loading });
+  const buttonLikeProps = useButtonLikeProps({ asChild, children, disabled, loading, onClick, rootElement });
 
   const inactive = disabled || loading;
   const withRipple = platform === 'android';

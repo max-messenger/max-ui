@@ -169,11 +169,11 @@
   }
 
   :where(.Button_size_medium) & {
-    margin-left: var(--spacing-size-m);
+    margin-left: var(--spacing-size-s);
   }
 
   :where(.Button_size_large) & {
-    margin-left: var(--spacing-size-m);
+    margin-left: var(--spacing-size-s);
   }
 }
 

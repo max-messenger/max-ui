@@ -20,6 +20,7 @@
 
   .CellHeader__content {
     @include typography.labelStrong;
+    line-height: 0.875rem;
   }
 }
 

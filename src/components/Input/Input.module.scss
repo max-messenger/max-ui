@@ -2,11 +2,6 @@
 @use '../../styles/shared-mixins/typography';
 @use '../../styles/builders/form-field-modes-builder';
 
-.Input__container {
-  min-width: 200px;
-  width: 100%;
-}
-
 .Input {
   padding-left: var(--spacing-size-xl);
   padding-right: var(--spacing-size-xl);
@@ -14,7 +9,6 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-size-xl);
-  min-width: 200px;
   width: 100%;
   box-sizing: border-box;
 }

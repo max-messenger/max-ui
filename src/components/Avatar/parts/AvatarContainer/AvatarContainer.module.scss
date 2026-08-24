@@ -48,71 +48,13 @@ $squircleMaskUrl: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5
 }
 
 // [Properties] Online status
-.AvatarContainer_onlineStatus .AvatarContainer__content {
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-size: 100% 100%;
-  mask-repeat: no-repeat;
-  mask-size: 100% 100%;
-}
-
-.AvatarContainer_onlineStatus_xs .AvatarContainer__content {
-  -webkit-mask-image: radial-gradient(
-    circle at calc(100% - 4px) calc(100% - 4px),
-    transparent 5px,
-    #000 5px
-  );
-  mask-image: radial-gradient(
-    circle at calc(100% - 4px) calc(100% - 4px),
-    transparent 5px,
-    #000 5px
-  );
-}
-
-.AvatarContainer_onlineStatus_s .AvatarContainer__content {
-  -webkit-mask-image: radial-gradient(
-    circle at calc(100% - 6px) calc(100% - 6px),
-    transparent 6px,
-    #000 6px
-  );
-  mask-image: radial-gradient(
-    circle at calc(100% - 6px) calc(100% - 6px),
-    transparent 6px,
-    #000 6px
-  );
-}
-
-.AvatarContainer_onlineStatus_m .AvatarContainer__content {
-  -webkit-mask-image: radial-gradient(
-    circle at calc(100% - 8px) calc(100% - 8px),
-    transparent 7px,
-    #000 7px
-  );
-  mask-image: radial-gradient(
-    circle at calc(100% - 8px) calc(100% - 8px),
-    transparent 7px,
-    #000 7px
-  );
-}
-
-.AvatarContainer_onlineStatus_l .AvatarContainer__content {
-  -webkit-mask-image: radial-gradient(
-    circle at calc(100% - 10px) calc(100% - 10px),
-    transparent 9px,
-    #000 9px
-  );
-  mask-image: radial-gradient(
-    circle at calc(100% - 10px) calc(100% - 10px),
-    transparent 9px,
-    #000 9px
-  );
-}
-
 .AvatarContainer__onlineStatus {
   position: absolute;
   z-index: 1;
   display: block;
   border-radius: var(--border-radius-circle);
   background-color: var(--icon-positive);
+  box-shadow: 0 0 0 var(--MaxUi-AvatarContainer__onlineStatus_stroke-width, 2px) var(--background-primary);
   pointer-events: none;
 }
 
@@ -138,6 +80,8 @@ $squircleMaskUrl: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5
 }
 
 .AvatarContainer_onlineStatus_l .AvatarContainer__onlineStatus {
+  --MaxUi-AvatarContainer__onlineStatus_stroke-width: 3px;
+
   width: 12px;
   height: 12px;
   right: 4px;

@@ -49,7 +49,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, forwardedR
   );
 
   return (
-    <div className={clsx(styles.Input__container, innerClassNames?.container)}>
+    <div className={clsx(innerClassNames?.container)}>
       <label className={rootClassName}>
         {hasReactNode(iconBefore) && (
           <div className={clsx(styles.Input__iconBefore, innerClassNames?.iconBefore)}>
