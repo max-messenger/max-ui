@@ -20,7 +20,7 @@ export interface InputProps extends Omit<ComponentProps<'input'>, 'size'> {
   iconAfter?: ReactNode
   innerClassNames?: InnerClassNamesProp<InputElementKey>
   withClearButton?: boolean
-  count?: number;
+  count?: number
   hint?: ReactNode
 }
 
@@ -32,7 +32,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, forwardedR
     iconBefore,
     iconAfter,
     size = 'large',
-    mode = 'primary',
+    mode = 'default',
     count,
     hint,
     ...rest

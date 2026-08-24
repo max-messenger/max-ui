@@ -25,6 +25,7 @@ export const Tappable = forwardRef<HTMLElement, TappableProps>((props, forwarded
     disabled,
     asChild,
     children,
+    parentChildren,
     as = 'div',
     ...rest
   } = props;
@@ -33,7 +34,13 @@ export const Tappable = forwardRef<HTMLElement, TappableProps>((props, forwarded
 
   const platform = usePlatform();
   const buttonLikeProps = useButtonLikeProps({ asChild, children, disabled, rootElement: as });
-  const hasAction = checkComponentHasAction(props);
+  const hasAction = checkComponentHasAction({
+    onClick: rest.onClick,
+    href: rest.href,
+    children,
+    asChild,
+    parentChildren
+  });
   const withRipple = platform === 'android' && hasAction && !disabled;
 
   const rootClassName = clsx(

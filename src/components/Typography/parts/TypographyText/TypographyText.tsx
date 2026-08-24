@@ -25,8 +25,7 @@ export type TypographyTextVariant =
   | 'action-large'
   | 'action-medium'
   | 'action-small'
-  | 'action-xsmall'
-  | 'custom';
+  | 'action-xsmall';
 
 export type TypographyTextColor = 'primary' | 'secondary' | 'tertiary' | 'inherit';
 
@@ -39,7 +38,7 @@ export const TypographyText = forwardRef<HTMLSpanElement, TypographyTextProps>((
   const {
     className,
     variant = 'body',
-    color = 'primary',
+    color = 'inherit',
     asChild,
     ...rest
   } = props;

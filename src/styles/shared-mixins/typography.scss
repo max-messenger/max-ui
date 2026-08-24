@@ -20,7 +20,7 @@
 }
 
 @mixin title {
-  @include style(--family-base, --font-size-title, --line-height-title, --letter-spacing-title, --font-weight-title);
+  @include style(--family-headers, --font-size-title, --line-height-title, --letter-spacing-title, --font-weight-title);
 }
 
 @mixin body {

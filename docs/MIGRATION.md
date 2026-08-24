@@ -111,7 +111,7 @@ CellHeader и placeholder CellInput используют `--text-tertiary`.
 | `action-label` | `action-xsmall` |
 | `--family-accent` | `--family-headers` |
 
-`--family-base` сохраняется. Android использует `Roboto, sans-serif`; приложение подключает webfont самостоятельно.
+`--family-base` сохраняется. Android использует `Roboto, sans-serif`; приложение подключает webfont самостоятельно. На iOS `--family-base` и `--family-headers` используют системный Apple stack через `-apple-system`.
 
 ### React API
 
@@ -133,6 +133,8 @@ CellHeader и placeholder CellInput используют `--text-tertiary`.
 
 Прежние компоненты Typography пока остаются в публичном API. Сопоставление старой группы Title: `large-strong` → `body-strong`, `medium` → `detail`, `medium-strong` → `detail-strong`, `small` → `description`, `small-strong` → `description-strong`.
 
+Варианты `large-caps` и `small-caps` удалены из `Typography.Label`. Для заголовка группы `CellHeader` используется отдельный стиль `Cell/Label Strong Small Caps`.
+
 ## Avatar
 
 ### Online status
@@ -146,7 +148,7 @@ CellHeader и placeholder CellInput используют `--text-tertiary`.
   </Avatar.Container>
 ```
 
-Индикатор отображается только для круглого Avatar размером 24–80 px.
+Индикатор отображается только для круглого Avatar размером от 24 px.
 
 Default-размер Avatar изменён с 48 на 40 px. При зависимости от старого значения укажите `size={48}` явно. Переданное значение ограничивается диапазоном 16–200 px.
 
@@ -156,7 +158,7 @@ Default-размер Avatar изменён с 48 на 40 px. При зависи
 
 ```diff
 - <Input mode="secondary" />
-+ <Input mode="default" />
++ <Input /> (для default)
 
 - <Input mode="primary" />
 + <Input mode="contrast" />

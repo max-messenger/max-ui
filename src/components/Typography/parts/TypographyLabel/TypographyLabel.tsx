@@ -5,7 +5,7 @@ import { type ComponentProps, forwardRef } from 'react';
 import type { AsChildProp } from '../../../../types';
 import styles from './TypographyLabel.module.scss';
 
-export type TypographyLabelVariant = 'large' | 'large-strong' | 'medium' | 'medium-strong' | 'small' | 'small-strong' | 'small-caps' | 'custom';
+export type TypographyLabelVariant = 'large' | 'large-strong' | 'medium' | 'medium-strong' | 'small' | 'small-strong' | 'custom';
 
 export interface TypographyLabelProps extends ComponentProps<'span'>, AsChildProp {
   variant?: TypographyLabelVariant
