@@ -109,8 +109,8 @@
   @include typography.description;
   color: var(--text-tertiary);
   box-sizing: border-box;
-}
 
-.Input__hint_disabled {
-  color: var(--states-text-primary-disabled);
+  &_disabled {
+    color: var(--states-text-primary-disabled);
+  }
 }
