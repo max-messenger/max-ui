@@ -68,7 +68,7 @@
     "globals": "14.0.0",
     "husky": "9.1.7",
     "plop": "4.0.5",
-    "release-it": "21.0.0",
+    "release-it": "21.0.2",
     "rollup": "4.62.3",
     "rollup-plugin-peer-deps-external": "2.2.4",
     "rollup-plugin-postcss": "4.0.2",
