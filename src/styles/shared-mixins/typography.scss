@@ -1,187 +1,100 @@
-@mixin display {
-  font-family: var(--family-accent);
-  font-size: var(--size-display);
-  line-height: var(--height-display);
-  letter-spacing: var(--letter-spacing-display);
-  font-weight: 600;
+@mixin style($family, $size, $line-height, $letter-spacing, $weight) {
+  font-family: var(#{$family});
+  font-size: var(#{$size});
+  font-style: normal;
+  font-weight: var(#{$weight});
+  line-height: var(#{$line-height});
+  letter-spacing: var(#{$letter-spacing});
 }
 
-@mixin headlineLargeStrong {
-  font-family: var(--family-base);
-  font-size: var(--size-headline-large);
-  line-height: var(--height-headline-large);
-  letter-spacing: var(--letter-spacing-headline-large);
-  font-weight: 600;
+@mixin hero {
+  @include style(--family-headers, --font-size-hero, --line-height-hero, --letter-spacing-hero, --font-weight-hero);
 }
 
-@mixin headlineMedium {
-  font-family: var(--family-base);
-  font-size: var(--size-headline-medium);
-  line-height: var(--height-headline-medium);
-  letter-spacing: var(--letter-spacing-headline-medium);
+@mixin header {
+  @include style(--family-headers, --font-size-header, --line-height-header, --letter-spacing-header, --font-weight-header);
 }
 
-@mixin headlineMediumStrong {
-  @include headlineMedium;
-
-  font-weight: 500;
+@mixin subheader {
+  @include style(--family-headers, --font-size-subheader, --line-height-subheader, --letter-spacing-subheader, --font-weight-subheader);
 }
 
-@mixin headlineSmall {
-  font-family: var(--family-base);
-  font-size: var(--size-headline-small);
-  line-height: var(--height-headline-small);
-  letter-spacing: var(--letter-spacing-headline-medium);
-}
-@mixin headlineSmallStrong {
-  @include headlineSmall;
-
-  font-weight: 600;
+@mixin title {
+  @include style(--family-headers, --font-size-title, --line-height-title, --letter-spacing-title, --font-weight-title);
 }
 
-@mixin titleLargeStrong {
-  font-family: var(--family-base);
-  font-size: var(--size-title-large);
-  line-height: var(--height-title-large);
-  letter-spacing: var(--letter-spacing-title-large);
-  font-weight: 500;
+@mixin body {
+  @include style(--family-base, --font-size-body, --line-height-body, --letter-spacing-body, --font-weight-body);
 }
 
-@mixin titleMediumStrong {
-  font-family: var(--family-base);
-  font-size: var(--size-title-medium);
-  line-height: var(--height-title-medium);
-  letter-spacing: var(--letter-spacing-title-medium);
-  font-weight: 500;
+@mixin bodyStrong {
+  @include style(--family-base, --font-size-body, --line-height-body, --letter-spacing-body, --font-weight-body-strong);
 }
 
-@mixin titleSmall {
-  font-family: var(--family-base);
-  font-size: var(--size-title-small);
-  line-height: var(--height-title-small);
-  letter-spacing: var(--letter-spacing-title-small);
+@mixin detail {
+  @include style(--family-base, --font-size-detail, --line-height-detail, --letter-spacing-detail, --font-weight-detail);
 }
 
-@mixin titleSmallStrong {
-  @include titleSmall;
-
-  font-weight: 500;
+@mixin detailStrong {
+  @include style(--family-base, --font-size-detail, --line-height-detail, --letter-spacing-detail, --font-weight-detail-strong);
 }
 
-@mixin bodyLarge {
-  font-family: var(--family-base);
-  font-size: var(--size-body-large);
-  line-height: var(--height-body-large);
-  letter-spacing: var(--letter-spacing-body-large);
+@mixin description {
+  @include style(--family-base, --font-size-description, --line-height-description, --letter-spacing-description, --font-weight-description);
 }
 
-@mixin bodyMedium {
-  font-family: var(--family-base);
-  font-size: var(--size-body-medium);
-  line-height: var(--height-body-medium);
-  letter-spacing: var(--letter-spacing-body-medium);
+@mixin descriptionStrong {
+  @include style(--family-base, --font-size-description, --line-height-description, --letter-spacing-description, --font-weight-description-strong);
 }
 
-@mixin bodySmall {
-  font-family: var(--family-base);
-  font-size: var(--size-body-small);
-  line-height: var(--height-body-small);
-  letter-spacing: var(--letter-spacing-body-small);
+@mixin label {
+  @include style(--family-base, --font-size-label, --line-height-label, --letter-spacing-label, --font-weight-label);
 }
 
-@mixin bodySmallStrong {
-  @include bodySmall;
-
-  font-weight: 500;
+@mixin labelStrong {
+  @include style(--family-base, --font-size-label, --line-height-label, --letter-spacing-label, --font-weight-label-strong);
 }
 
-@mixin bodySmallCaps {
-  @include bodySmall;
+@mixin cellLabelStrongSmallCaps {
+  @include style(
+    --family-base,
+    --font-size-cell-label-strong-small-caps,
+    --line-height-cell-label-strong-small-caps,
+    --letter-spacing-cell-label-strong-small-caps,
+    --font-weight-cell-label-strong-small-caps
+  );
 
-  font-weight: 600;
   text-transform: uppercase;
 }
 
-@mixin labelLarge {
-  font-family: var(--family-base);
-  font-size: var(--size-label-large);
-  line-height: var(--height-label-large);
-  letter-spacing: var(--letter-spacing-label-large);
+@mixin tag {
+  @include style(--family-base, --font-size-tag, --line-height-tag, --letter-spacing-tag, --font-weight-tag);
 }
 
-@mixin labelLargeStrong {
-  @include labelLarge;
-
-  font-weight: 500;
+@mixin tagStrong {
+  @include style(--family-base, --font-size-tag, --line-height-tag, --letter-spacing-tag, --font-weight-tag-strong);
 }
 
-@mixin labelLargeCaps {
-  @include labelLarge;
-
-  font-weight: 600;
-  text-transform: uppercase;
+@mixin note {
+  @include style(--family-base, --font-size-note, --line-height-note, --letter-spacing-note, --font-weight-note);
 }
 
-@mixin labelMedium {
-  font-family: var(--family-base);
-  font-size: var(--size-label-medium);
-  line-height: var(--height-label-medium);
-  letter-spacing: var(--letter-spacing-label-medium);
-}
-
-@mixin labelMediumStrong {
-  @include labelMedium;
-
-  font-weight: 600;
-}
-
-@mixin labelSmall {
-  font-family: var(--family-base);
-  font-size: var(--size-label-small);
-  line-height: var(--height-label-small);
-  letter-spacing: var(--letter-spacing-label-small);
-}
-
-@mixin labelSmallStrong {
-  @include labelSmall;
-
-  font-weight: 500;
-}
-
-@mixin labelSmallCaps {
-  @include labelSmall;
-
-  font-weight: 600;
-  text-transform: uppercase;
+@mixin noteStrong {
+  @include style(--family-base, --font-size-note, --line-height-note, --letter-spacing-note, --font-weight-note-strong);
 }
 
 @mixin actionLarge {
-  font-family: var(--family-base);
-  font-size: var(--size-action-large);
-  line-height: var(--height-action-large);
-  letter-spacing: var(--letter-spacing-action-large);
-  font-weight: 600;
+  @include style(--family-base, --font-size-action-large, --line-height-action-large, --letter-spacing-action-large, --font-weight-action-large);
 }
 
 @mixin actionMedium {
-  font-family: var(--family-base);
-  font-size: var(--size-action-medium);
-  line-height: var(--height-action-medium);
-  letter-spacing: var(--letter-spacing-action-medium);
-  font-weight: 500;
+  @include style(--family-base, --font-size-action-medium, --line-height-action-medium, --letter-spacing-action-medium, --font-weight-action-medium);
 }
 
 @mixin actionSmall {
-  font-family: var(--family-base);
-  font-size: var(--size-action-small);
-  line-height: var(--height-action-small);
-  letter-spacing: var(--letter-spacing-action-small);
-  font-weight: 500;
+  @include style(--family-base, --font-size-action-small, --line-height-action-small, --letter-spacing-action-small, --font-weight-action-small);
 }
 
-@mixin actionLabel {
-  font-family: var(--family-base);
-  font-size: var(--size-action-label);
-  line-height: var(--height-action-label);
-  letter-spacing: var(--letter-spacing-action-label);
+@mixin actionXSmall {
+  @include style(--family-base, --font-size-action-xsmall, --line-height-action-xsmall, --letter-spacing-action-xsmall, --font-weight-action-xsmall);
 }

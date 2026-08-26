@@ -11,7 +11,7 @@ import styles from './Input.module.scss';
 
 export type InputMode = 'default' | 'contrast';
 export type InputSize = 'large' | 'medium';
-export type InputElementKey = 'container' | 'input' | 'clearButton' | 'body' | 'iconBefore' | 'iconAfter' | 'hint';
+export type InputElementKey = 'container' | 'input' | 'clearButton' | 'count' | 'body' | 'iconBefore' | 'iconAfter' | 'hint';
 
 export interface InputProps extends Omit<ComponentProps<'input'>, 'size'> {
   mode?: InputMode
@@ -32,7 +32,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, forwardedR
     iconBefore,
     iconAfter,
     size = 'large',
-    mode = 'primary',
+    mode = 'default',
+    count,
     hint,
     ...rest
   } = props;
@@ -60,9 +61,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, forwardedR
           ref={forwardedRef}
           className={clsx(styles.Input__body, innerClassNames?.body)}
           withClearButton={withClearButton}
+          count={count}
           innerClassNames={{
             input: clsx(styles.Input__input, innerClassNames?.input),
-            clearButton: clsx(styles.Input__clearButton, innerClassNames?.clearButton)
+            clearButton: clsx(styles.Input__clearButton, innerClassNames?.clearButton),
+            count: clsx(styles.Input__count, innerClassNames?.count)
           }}
           {...rest}
         />
@@ -73,7 +76,17 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, forwardedR
           </div>
         )}
       </label>
-      {hasReactNode(hint) && <div className={clsx(styles.Input__hint, innerClassNames?.hint)}>{hint}</div>}
+      {hasReactNode(hint) && (
+        <div
+          className={clsx(
+            styles.Input__hint,
+            { [styles.Input__hint_disabled]: rest.disabled },
+            innerClassNames?.hint
+          )}
+        >
+          {hint}
+        </div>
+      )}
     </div>
   );
 });

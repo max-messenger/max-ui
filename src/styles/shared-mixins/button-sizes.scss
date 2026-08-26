@@ -1,28 +1,28 @@
 @mixin buttonXSmallSize {
   height: 32px;
   min-width: 40px;
-  border-radius: 8px;
+  border-radius: var(--size-border-radius-button-xsmall);
   padding: 6px 12px;
 }
 
 @mixin buttonSmallSize {
   height: 40px;
   min-width: 48px;
-  border-radius: 12px;
+  border-radius: var(--size-border-radius-button-small);
   padding: 10px 12px;
 }
 
 @mixin buttonMediumSize {
   height: 52px;
   min-width: 56px;
-  border-radius: 16px;
+  border-radius: var(--size-border-radius-button-medium);
   padding: 16px 20px;
 }
 
 @mixin buttonLargeSize {
   height: 60px;
   min-width: 64px;
-  border-radius: 20px;
+  border-radius: var(--size-border-radius-button-large);
   padding: 18px 22px;
 }
 

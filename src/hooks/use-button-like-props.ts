@@ -1,6 +1,7 @@
 import {
   type ComponentProps, type ElementType,
   isValidElement,
+  type MouseEventHandler,
   type PropsWithChildren,
   type ReactNode
 } from 'react';
@@ -10,18 +11,24 @@ export interface ButtonLikeProps {
   children?: ReactNode
   disabled?: boolean
   loading?: boolean
+  onClick?: MouseEventHandler<any>
   rootElement?: ElementType
 }
 
 // Хук useButtonLikeProps используется в полиморфных компонентах-кнопках (FatherComponent с asChild пропом): Button, Cell, CellAction, etc
 // Главная задача хука - собрать объект с валидными аттрибутами компонента, в зависимости от рутового элемента
 export const useButtonLikeProps = (props: ButtonLikeProps): ComponentProps<any> => {
-  const { asChild, children, rootElement, disabled, loading } = props;
+  const { asChild, children, rootElement, disabled, loading, onClick } = props;
+  const inactive = Boolean(disabled || loading);
+  const clickHandler: MouseEventHandler<any> | undefined = inactive
+    ? (event) => { event.preventDefault(); }
+    : onClick;
 
   if (!asChild && rootElement === 'button') {
     const buttonProps: ComponentProps<'button'> = {
-      disabled,
-      ...(loading ? { 'aria-disabled': true } : {})
+      disabled: inactive,
+      onClick: clickHandler,
+      ...(loading ? { 'aria-busy': true, 'aria-disabled': true } : {})
     };
     return buttonProps;
   }
@@ -33,14 +40,10 @@ export const useButtonLikeProps = (props: ButtonLikeProps): ComponentProps<any> 
     // Если это ссылка (тег a), то нужно добавить aria-disabled, запревентить открытие ссылки и убрать фокус, если компонент disabled
     if (type === 'a') {
       const anchorProps: ComponentProps<'a'> = {
-        'aria-disabled': disabled ?? loading,
-        ...(disabled
-          ? {
-            onClick: (e) => { e.preventDefault(); },
-            tabIndex: -1
-          }
-          : {}
-        )
+        'aria-disabled': inactive,
+        onClick: clickHandler,
+        ...(loading ? { 'aria-busy': true } : {}),
+        ...(disabled ? { tabIndex: -1 } : {})
       };
 
       return anchorProps;
@@ -51,11 +54,9 @@ export const useButtonLikeProps = (props: ButtonLikeProps): ComponentProps<any> 
   const divProps: ComponentProps<'div'> = {
     role: 'button',
     tabIndex: disabled ? -1 : 0,
-    'aria-disabled': disabled ?? loading,
-    ...(disabled
-      ? { onClick: undefined }
-      : {}
-    )
+    'aria-disabled': inactive,
+    onClick: clickHandler,
+    ...(loading ? { 'aria-busy': true } : {})
   };
   return divProps;
 };

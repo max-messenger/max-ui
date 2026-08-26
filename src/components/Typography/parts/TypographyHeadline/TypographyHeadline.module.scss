@@ -4,17 +4,17 @@
 
 // [Properties] Variants
 .TypographyHeadline_variant_large-strong {
-  @include typography.headlineLargeStrong;
+  @include typography.header;
 }
 .TypographyHeadline_variant_medium {
-  @include typography.headlineMedium;
+  @include typography.subheader;
 }
 .TypographyHeadline_variant_medium-strong {
-  @include typography.headlineMediumStrong;
+  @include typography.subheader;
 }
 .TypographyHeadline_variant_small {
-  @include typography.headlineSmall;
+  @include typography.title;
 }
 .TypographyHeadline_variant_small-strong {
-  @include typography.headlineSmallStrong;
+  @include typography.title;
 }

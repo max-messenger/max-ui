@@ -1,6 +1,6 @@
 import { Slot, Slottable } from '@radix-ui/react-slot';
 import { clsx } from 'clsx';
-import { type ComponentProps, type ElementType, forwardRef, type MouseEventHandler, type ReactNode } from 'react';
+import { type ComponentProps, type ElementType, forwardRef, type ReactNode } from 'react';
 
 import { getSubtree, hasReactNode } from '../../helpers';
 import { useButtonLikeProps, usePlatform } from '../../hooks';
@@ -47,17 +47,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, forward
   const Comp = asChild ? Slot : rootElement;
 
   const platform = usePlatform();
-  const buttonLikeProps = useButtonLikeProps({ asChild, children, disabled, rootElement, loading });
+  const buttonLikeProps = useButtonLikeProps({ asChild, children, disabled, loading, onClick, rootElement });
   const inactive = disabled || loading;
   const withRipple = platform === 'android';
-
-  const clickHandler: MouseEventHandler<HTMLButtonElement> = (e) => {
-    if (loading) {
-      e.preventDefault();
-      return;
-    }
-    onClick?.(e);
-  };
 
   const rootClassName = clsx(
     styles.Button,
@@ -76,7 +68,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, forward
     <Comp
       ref={forwardedRef}
       className={rootClassName}
-      onClick={clickHandler}
       {...buttonLikeProps}
       {...rest}
     >

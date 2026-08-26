@@ -30,10 +30,9 @@ const meta = {
       }
     },
     rightBottomCorner: {
-      options: [0, 1, 2],
+      options: [0, 1],
       mapping: [
         undefined,
-        <Avatar.OnlineDot key="online-dot" />,
         <IconButton
           key="icon-button"
           aria-label="Добавить"
@@ -45,13 +44,14 @@ const meta = {
       ],
       control: {
         type: 'select',
-        labels: ['None', 'Avatar.OnlineDot', 'IconButton']
+        labels: ['None', 'IconButton']
       }
     }
   },
   args: {
     form: 'circle',
-    size: 64,
+    size: 40,
+    onlineStatus: false,
     overlay: false
   },
   decorators: [
@@ -65,6 +65,8 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<AvatarContainerProps>;
+
+const onlineStatusSizes = [24, 40, 52, 72, 80];
 
 export const Playground: Story = {
   render: ({ overlay, ...props }) => {
@@ -192,18 +194,23 @@ export const AsLink: Story = {
 
 export const OnlineStatus: Story = {
   args: {
-    rightBottomCorner: 1
+    onlineStatus: true
   },
   render: (props) => (
-    <AvatarContainer
-      {...props}
-    >
-      <Avatar.Image
-        src='https://sun9-21.userapi.com/1N-rJz6-7hoTDW7MhpWe19e_R_TdGV6Wu5ZC0A/67o6-apnAks.jpg'
-        fallback='VT'
-        alt="Vadim Tregubenko"
-      />
-
-    </AvatarContainer>
+    <>
+      {onlineStatusSizes.map((size) => (
+        <AvatarContainer
+          {...props}
+          size={size}
+          key={size}
+        >
+          <Avatar.Image
+            src="https://sun9-21.userapi.com/1N-rJz6-7hoTDW7MhpWe19e_R_TdGV6Wu5ZC0A/67o6-apnAks.jpg"
+            fallback="VT"
+            alt="Vadim Tregubenko"
+          />
+        </AvatarContainer>
+      ))}
+    </>
   )
 };

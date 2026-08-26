@@ -17,7 +17,7 @@ $squircleMaskUrl: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5
 
 // [Properties] Forms
 .AvatarContainer_form_circle .AvatarContainer__content {
-  --MaxUi-AvatarContainer__content_radius: 100%;
+  --MaxUi-AvatarContainer__content_radius: var(--border-radius-circle);
 
   border-radius: var(--MaxUi-AvatarContainer__content_radius);
 }
@@ -35,6 +35,57 @@ $squircleMaskUrl: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5
   display: flex;
   overflow: hidden;
   position: relative;
+}
+
+.AvatarContainer_form_circle .AvatarContainer__content::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 0.5px solid var(--divider-secondary);
+  border-radius: inherit;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+// [Properties] Online status
+.AvatarContainer__onlineStatus {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  border-radius: var(--border-radius-circle);
+  background-color: var(--icon-positive);
+  box-shadow: 0 0 0 var(--MaxUi-AvatarContainer__onlineStatus_stroke-width, 2px) var(--background-primary);
+  pointer-events: none;
+}
+
+.AvatarContainer_onlineStatus_xs .AvatarContainer__onlineStatus {
+  width: 6px;
+  height: 6px;
+  right: 1px;
+  bottom: 1px;
+}
+
+.AvatarContainer_onlineStatus_s .AvatarContainer__onlineStatus {
+  width: 8px;
+  height: 8px;
+  right: 2px;
+  bottom: 2px;
+}
+
+.AvatarContainer_onlineStatus_m .AvatarContainer__onlineStatus {
+  width: 10px;
+  height: 10px;
+  right: 3px;
+  bottom: 3px;
+}
+
+.AvatarContainer_onlineStatus_l .AvatarContainer__onlineStatus {
+  --MaxUi-AvatarContainer__onlineStatus_stroke-width: 3px;
+
+  width: 12px;
+  height: 12px;
+  right: 4px;
+  bottom: 4px;
 }
 
 // [Parts] Overlay

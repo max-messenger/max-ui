@@ -77,6 +77,7 @@ export const CellSimple = forwardRef<HTMLDivElement, CellSimpleProps>((props, fo
       className={rootClassName}
       asChild={asChild}
       as={as}
+      disabled={disabled}
       parentChildren={children}
       {...rest}
     >

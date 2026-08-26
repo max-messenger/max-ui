@@ -1,5 +1,5 @@
 import { clsx } from 'clsx';
-import { type ComponentProps, forwardRef, useMemo } from 'react';
+import { type ComponentProps, forwardRef, useEffect, useMemo } from 'react';
 
 import { isIos } from '../../helpers';
 import { useSystemColorScheme } from '../../hooks';
@@ -8,8 +8,8 @@ import { MaxUIContext, type MaxUIContextInterface } from './MaxUIContext';
 
 export interface MaxUIProps extends Partial<MaxUIContextInterface> {
   children: ComponentProps<'div'>['children']
-
   className?: ComponentProps<'div'>['className']
+  resetBody?: boolean
 }
 
 export const MaxUI = forwardRef<HTMLDivElement, MaxUIProps>((props, ref) => {
@@ -17,7 +17,8 @@ export const MaxUI = forwardRef<HTMLDivElement, MaxUIProps>((props, ref) => {
     children,
     className,
     colorScheme: colorSchemeProp,
-    platform = isIos() ? 'ios' : 'android'
+    platform = isIos() ? 'ios' : 'android',
+    resetBody = false
   } = props;
 
   const systemColorScheme = useSystemColorScheme({
@@ -29,6 +30,16 @@ export const MaxUI = forwardRef<HTMLDivElement, MaxUIProps>((props, ref) => {
     colorScheme,
     platform
   }), [colorScheme, platform]);
+
+  useEffect(() => {
+    if (!resetBody) return;
+
+    document.body.classList.add(styles.MaxUI_resetBody);
+
+    return () => {
+      document.body.classList.remove(styles.MaxUI_resetBody);
+    };
+  }, [resetBody]);
 
   const rootClassName = clsx(
     styles.MaxUI,

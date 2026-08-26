@@ -8,7 +8,7 @@
 }
 
 .Counter {
-  @include typography.labelMediumStrong;
+  @include typography.labelStrong;
 
   min-width: var(--size-border-radius-semantic-border-radius-promo);
   min-height: var(--size-border-radius-semantic-border-radius-promo);

@@ -24,7 +24,7 @@
 // [Parts] Textarea
 .Textarea__textarea {
   @include reset-text-field.resetTextField;
-  @include typography.bodyLarge;
+  @include typography.body;
 
   padding: var(--spacing-size-xl);
   box-sizing: border-box;

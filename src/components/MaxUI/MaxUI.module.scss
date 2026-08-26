@@ -6,7 +6,7 @@
 .MaxUI {
   @include common.commonVariables;
 
-  font-family: var(--font);
+  font-family: var(--family-base);
   background-color: var(--background-primary);
   color: var(--text-primary);
   width: 100%;
@@ -37,4 +37,8 @@
       @include appearance.darkPalette;
     }
   }
+}
+
+:global(body).MaxUI_resetBody {
+  margin: 0;
 }

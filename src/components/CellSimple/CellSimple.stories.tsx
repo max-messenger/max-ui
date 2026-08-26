@@ -26,7 +26,7 @@ const meta = {
       mapping: [
         undefined,
         <Icon24Placeholder key="icon" />,
-        <Avatar.Container key="avatar" rightBottomCorner={<Avatar.OnlineDot />} size={40}>
+        <Avatar.Container key="avatar" onlineStatus size={40}>
           <Avatar.Image src="https://sun9-21.userapi.com/1N-rJz6-7hoTDW7MhpWe19e_R_TdGV6Wu5ZC0A/67o6-apnAks.jpg" />
         </Avatar.Container>
       ],
