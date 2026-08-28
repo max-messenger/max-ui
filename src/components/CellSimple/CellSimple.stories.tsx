@@ -1,65 +1,67 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import Icon24Placeholder from '@storybook-config/assets/icons/icon-24-placeholder.svg';
+import { hideArgsControl, optionalControl, reactNodeTextControl, resolveOptionalControl, selectControl } from '@storybook-config/shared';
 import { fn } from 'storybook/test';
 
-import Icon24Placeholder from '../../../.storybook/assets/icons/icon-24-placeholder.svg';
-import { hideArgsControl } from '../../../.storybook/shared/args-manager';
 import { EllipsisText } from '../../internal';
 import { Avatar } from '../Avatar';
 import { Button } from '../Button';
 import { Counter } from '../Counter';
 import { CellSimple, type CellSimpleProps } from './CellSimple';
 
+const beforeOptions = {
+  icon: <Icon24Placeholder key="icon" />,
+  avatar: (
+    <Avatar.Container key="avatar" onlineStatus size={40}>
+      <Avatar.Image src="https://sun9-21.userapi.com/1N-rJz6-7hoTDW7MhpWe19e_R_TdGV6Wu5ZC0A/67o6-apnAks.jpg" />
+    </Avatar.Container>
+  )
+};
+
+const afterOptions = {
+  button: <Button variant="secondary" size="small" key="button">Открыть</Button>,
+  counter: <Counter key="counter" value={1200} />
+};
+
 const meta = {
   title: 'Components/Cell/CellSimple',
   component: CellSimple,
   parameters: {
-    cartesian: ['height', 'appearance']
+    cartesian: ['height', 'subtitleMode']
   },
   argTypes: {
     ...hideArgsControl(['asChild', 'innerClassNames', 'onClick', 'as']),
 
-    title: { type: 'string' },
-    subtitle: { type: 'string' },
-    link: { type: 'string' },
-    before: {
-      options: [0, 1, 2],
-      mapping: [
-        undefined,
-        <Icon24Placeholder key="icon" />,
-        <Avatar.Container key="avatar" onlineStatus size={40}>
-          <Avatar.Image src="https://sun9-21.userapi.com/1N-rJz6-7hoTDW7MhpWe19e_R_TdGV6Wu5ZC0A/67o6-apnAks.jpg" />
-        </Avatar.Container>
-      ],
-      control: {
-        type: 'select',
-        labels: ['None', 'Icon', 'Avatar']
-      }
-    },
-    after: {
-      options: [0, 1, 2],
-      mapping: [undefined, <Button variant="secondary" size="small" key="icon">Открыть</Button>, <Counter key="counter" value={1200} />],
-      control: {
-        type: 'select',
-        labels: ['None', 'Button', 'Counter']
-      }
-    }
+    height: selectControl(['compact', 'normal']),
+    subtitleMode: selectControl(['secondary', 'tertiary']),
+    title: reactNodeTextControl,
+    subtitle: reactNodeTextControl,
+    link: { control: 'text' },
+    before: optionalControl(beforeOptions),
+    after: optionalControl(afterOptions)
   },
   args: {
-    title: 'Title',
-    subtitle: 'Subtitle',
+    title: 'Заголовок',
+    subtitle: 'Подпись',
     overline: '',
     height: 'normal',
     showChevron: false,
     disabled: false,
-    before: 1,
-    after: 1,
+    before: 'icon',
+    after: 'button',
     separator: false,
     link: undefined
   },
   decorators: [
-    (Story) => (
+    (Story, context) => (
       <div style={{ width: 375 }}>
-        <Story />
+        <Story
+          args={{
+            ...context.args,
+            before: resolveOptionalControl(beforeOptions, context.args.before),
+            after: resolveOptionalControl(afterOptions, context.args.after)
+          }}
+        />
       </div>
     )
   ]

@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { selectControl } from '@storybook-config/shared';
 
 import { Button, type ButtonVariant } from '../Button';
 import { Counter, type CounterProps } from './Counter';
@@ -9,8 +10,19 @@ const meta = {
   parameters: {
     cartesian: ['variant']
   },
+  argTypes: {
+    variant: selectControl(['primary', 'primary-contrast', 'attention', 'attention-contrast', 'promo', 'static', 'static-contrast', 'default', 'mute', 'menu']),
+    value: {
+      control: 'number',
+      description: 'When rounded is true, large values use compact notation, for example 1200 → 1.2K.'
+    },
+    rounded: {
+      control: 'boolean',
+      description: 'Enables compact number formatting. Small values are unchanged.'
+    }
+  },
   args: {
-    value: 12,
+    value: 1200,
     rounded: false,
     variant: 'primary'
   }
@@ -32,10 +44,7 @@ export const CounterInButton: Story = {
     variant: 'primary-contrast'
   },
   argTypes: {
-    variant: {
-      options: ['static', 'static-contrast', 'attention-contrast', 'primary-contrast'],
-      control: { type: 'select' }
-    }
+    variant: selectControl(['static', 'static-contrast', 'attention-contrast', 'primary-contrast'])
   },
   render: ({ ...args }) => {
     return (
@@ -43,7 +52,7 @@ export const CounterInButton: Story = {
         variant={getButtonCounterAppearance(args.variant)}
         indicator={<Counter {...args} />}
       >
-        Messages
+        Сообщения
       </Button>
     );
   }

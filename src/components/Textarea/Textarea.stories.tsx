@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { selectControl } from '@storybook-config/shared';
 
 import { Textarea, type TextareaProps } from './Textarea';
 
@@ -7,6 +8,9 @@ const meta = {
   component: Textarea,
   parameters: {
     cartesian: ['mode']
+  },
+  argTypes: {
+    mode: selectControl(['primary', 'secondary'])
   },
   args: {
     mode: 'secondary',
@@ -30,7 +34,7 @@ export const Playground: Story = {
       <Textarea
         {...args}
         defaultValue=""
-        placeholder="Placeholder"
+        placeholder="Введите текст"
       />
     );
   }

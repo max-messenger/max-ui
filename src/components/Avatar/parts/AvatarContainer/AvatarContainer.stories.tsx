@@ -1,12 +1,29 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import Icon16Placeholder from '@storybook-config/assets/icons/icon-16-placeholder.svg';
+import Icon24Placeholder from '@storybook-config/assets/icons/icon-24-placeholder.svg';
+import { hideArgsControl, optionalControl, resolveOptionalControl, selectControl } from '@storybook-config/shared';
 
-import Icon16Placeholder from '../../../../../.storybook/assets/icons/icon-16-placeholder.svg';
-import Icon24Placeholder from '../../../../../.storybook/assets/icons/icon-24-placeholder.svg';
-import { hideArgsControl } from '../../../../../.storybook/shared/args-manager';
 import { Flex } from '../../../../internal';
 import { IconButton } from '../../../IconButton';
 import { Avatar } from '../../index';
 import { AvatarContainer, type AvatarContainerProps } from './AvatarContainer';
+
+const rightTopCornerOptions = {
+  'close button': <Avatar.CloseButton key="close-button" aria-label="Закрыть" />
+};
+
+const rightBottomCornerOptions = {
+  'icon button': (
+    <IconButton
+      key="icon-button"
+      aria-label="Добавить"
+      size="small"
+      variant="secondary"
+    >
+      <Icon16Placeholder />
+    </IconButton>
+  )
+};
 
 const meta = {
   title: 'Components/Avatar/Avatar.Container',
@@ -17,47 +34,38 @@ const meta = {
   argTypes: {
     ...hideArgsControl(['innerClassNames', 'asChild']),
 
-    overlay: { type: 'boolean' },
-    rightTopCorner: {
-      options: [0, 1],
-      mapping: [
-        undefined,
-        <Avatar.CloseButton key="close-button" aria-label="Закрыть" />
-      ],
-      control: {
-        type: 'select',
-        labels: ['None', 'Avatar.CloseButton']
-      }
+    form: selectControl(['circle', 'squircle']),
+    size: selectControl([24, 40, 52, 72, 80, 88]),
+    onlineStatus: {
+      control: 'boolean',
+      description: 'Shows the online indicator for circular avatars from 24 to 80 px.'
     },
+    overlay: { control: 'boolean' },
+    rightTopCorner: optionalControl(rightTopCornerOptions),
     rightBottomCorner: {
-      options: [0, 1],
-      mapping: [
-        undefined,
-        <IconButton
-          key="icon-button"
-          aria-label="Добавить"
-          size="small"
-          variant="secondary"
-        >
-          <Icon16Placeholder />
-        </IconButton>
-      ],
-      control: {
-        type: 'select',
-        labels: ['None', 'IconButton']
-      }
+      ...optionalControl(rightBottomCornerOptions),
+      if: { arg: 'size', neq: 24 },
+      description: 'Available for avatars larger than 24 px.'
     }
   },
   args: {
     form: 'circle',
     size: 40,
     onlineStatus: false,
-    overlay: false
+    overlay: false,
+    rightTopCorner: 'none',
+    rightBottomCorner: 'none'
   },
   decorators: [
-    (Story) => (
+    (Story, context) => (
       <Flex gap={16}>
-        <Story />
+        <Story
+          args={{
+            ...context.args,
+            rightTopCorner: resolveOptionalControl(rightTopCornerOptions, context.args.rightTopCorner),
+            rightBottomCorner: resolveOptionalControl(rightBottomCornerOptions, context.args.rightBottomCorner)
+          }}
+        />
       </Flex>
     )
   ]
@@ -111,7 +119,7 @@ export const Playground: Story = {
           <Avatar.Text
             gradient="red"
           >
-            ME
+            МЕ
           </Avatar.Text>
         </Avatar.Container>
       </>
@@ -183,7 +191,7 @@ export const AsLink: Story = {
             <Avatar.Text
               gradient="red"
             >
-              ME
+              МЕ
             </Avatar.Text>
           </a>
         </Avatar.Container>

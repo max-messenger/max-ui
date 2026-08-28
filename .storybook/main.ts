@@ -21,12 +21,17 @@ const config: StorybookConfig = {
     options: {}
   },
   typescript: {
-    reactDocgen: 'react-docgen'
+    reactDocgen: 'react-docgen-typescript'
   },
   async viteFinal (config) {
     const { mergeConfig } = await import('vite');
 
     return mergeConfig(config, {
+      resolve: {
+        alias: {
+          '@storybook-config': __dirname
+        }
+      },
       css: {
         preprocessorOptions: {
           scss: {

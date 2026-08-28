@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { hideArgsControl, reactNodeTextControl } from '@storybook-config/shared';
 
-import { hideArgsControl } from '../../../../../.storybook/shared/args-manager';
 import { Typography } from '../../index';
 import { TypographyDisplay, type TypographyDisplayProps } from './TypographyDisplay';
 
@@ -8,7 +8,8 @@ const meta = {
   title: 'Components/Typography/Typography.Display',
   component: TypographyDisplay,
   argTypes: {
-    ...hideArgsControl(['asChild'])
+    ...hideArgsControl(['asChild']),
+    children: reactNodeTextControl
   },
   args: {
     children: 'Hello world'

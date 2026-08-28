@@ -5,7 +5,7 @@ import { type ComponentProps, forwardRef } from 'react';
 import type { AsChildProp } from '../../../../types';
 import styles from './TypographyHeadline.module.scss';
 
-export type TypographyHeadlineVariant = 'large-strong' | 'medium' | 'medium-strong' | 'small' | 'small-strong' | 'custom';
+export type TypographyHeadlineVariant = 'large-strong' | 'medium' | 'small' | 'custom';
 
 export interface TypographyHeadlineProps extends ComponentProps<'span'>, AsChildProp {
   variant?: TypographyHeadlineVariant

@@ -1,10 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import Icon28Placeholder from '@storybook-config/assets/icons/icon-28-placeholder.svg';
+import { hideArgsControl, optionalControl, reactNodeTextControl, resolveOptionalControl, selectControl } from '@storybook-config/shared';
 import { fn } from 'storybook/test';
 
-import Icon28Placeholder from '../../../.storybook/assets/icons/icon-28-placeholder.svg';
-import { hideArgsControl } from '../../../.storybook/shared/args-manager';
 import { EllipsisText } from '../../internal';
 import { CellAction, type CellActionProps } from './CellAction';
+
+const beforeOptions = { icon: <Icon28Placeholder key="icon" /> };
 
 const meta = {
   title: 'Components/Cell/CellAction',
@@ -15,31 +17,29 @@ const meta = {
   argTypes: {
     ...hideArgsControl(['asChild', 'innerClassNames']),
 
-    before: {
-      options: [0, 1],
-      mapping: [
-        undefined,
-        <Icon28Placeholder key="icon" />
-      ],
-      control: {
-        type: 'select',
-        labels: ['None', 'Icon']
-      }
-    }
+    mode: selectControl(['primary', 'secondary', 'themed', 'destructive', 'custom']),
+    height: selectControl(['compact', 'normal']),
+    children: reactNodeTextControl,
+    before: optionalControl(beforeOptions)
   },
   args: {
-    children: 'Action',
+    children: 'Действие',
     showChevron: true,
-    before: 1,
+    before: 'icon',
     mode: 'primary',
     height: 'normal',
     disabled: false,
     onClick: fn()
   },
   decorators: [
-    (Story) => (
+    (Story, context) => (
       <div style={{ width: 375 }}>
-        <Story />
+        <Story
+          args={{
+            ...context.args,
+            before: resolveOptionalControl(beforeOptions, context.args.before)
+          }}
+        />
       </div>
     )
   ]

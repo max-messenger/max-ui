@@ -44,6 +44,7 @@ export const AvatarContainer = forwardRef<HTMLDivElement, AvatarContainerProps>(
     onlineStatus,
     isCircle: form === 'circle'
   });
+  const shouldShowRightBottomCorner = normalizedSize > 24 && hasReactNode(rightBottomCorner);
 
   const rootClassName = clsx(
     styles.AvatarContainer,
@@ -88,7 +89,7 @@ export const AvatarContainer = forwardRef<HTMLDivElement, AvatarContainerProps>(
           <span className={styles.AvatarContainer__onlineStatus} aria-hidden="true" />
         )}
 
-        {hasReactNode(rightBottomCorner) && (
+        {shouldShowRightBottomCorner && (
           <span className={clsx(styles.AvatarContainer__rightBottomCorner, innerClassNames?.rightBottomCorner)}>
             {rightBottomCorner}
           </span>

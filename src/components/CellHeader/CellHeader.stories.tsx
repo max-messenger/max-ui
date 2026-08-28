@@ -1,12 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import Icon16Placeholder from '@storybook-config/assets/icons/icon-16-placeholder.svg';
+import { hideArgsControl, optionalControl, reactNodeTextControl, resolveOptionalControl, selectControl } from '@storybook-config/shared';
 
-import Icon16Placeholder from '../../../.storybook/assets/icons/icon-16-placeholder.svg';
-import { hideArgsControl } from '../../../.storybook/shared/args-manager';
 import { Avatar } from '../Avatar';
 import { CellList } from '../CellList';
 import { CellSimple } from '../CellSimple';
 import { Typography } from '../Typography';
 import { CellHeader, type CellHeaderProps } from './CellHeader';
+
+const afterOptions = {
+  text: <Typography.Action key="text" variant="small">Some action</Typography.Action>,
+  icon: <Icon16Placeholder key="icon" />
+};
 
 const meta = {
   title: 'Components/Cell/CellHeader',
@@ -17,28 +22,25 @@ const meta = {
   argTypes: {
     ...hideArgsControl(['innerClassNames']),
 
-    after: {
-      options: [0, 1, 2],
-      mapping: [
-        undefined,
-        <Typography.Action key="text" variant="small">Some action</Typography.Action>,
-        <Icon16Placeholder key="icon" />
-      ],
-      control: {
-        type: 'select',
-        labels: ['None', 'Text', 'Icon']
-      }
-    }
+    titleStyle: selectControl(['caps', 'normal']),
+    children: reactNodeTextControl,
+    after: optionalControl(afterOptions)
   },
   args: {
     children: 'Пользователь',
     titleStyle: 'caps',
-    fullWidth: false
+    fullWidth: false,
+    after: 'none'
   },
   decorators: [
-    (Story) => (
-      <div style={{ width: 375, height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <Story />
+    (Story, context) => (
+      <div style={{ width: 375 }}>
+        <Story
+          args={{
+            ...context.args,
+            after: resolveOptionalControl(afterOptions, context.args.after)
+          }}
+        />
       </div>
     )
   ]

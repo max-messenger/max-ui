@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import Icon24Placeholder from '@storybook-config/assets/icons/icon-24-placeholder.svg';
 
-import Icon24Placeholder from '../../../../../.storybook/assets/icons/icon-24-placeholder.svg';
 import { Avatar, type AvatarOverlayProps } from '../../index';
 import { AvatarOverlay } from './AvatarOverlay';
 
