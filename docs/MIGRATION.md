@@ -156,6 +156,7 @@ Default-размер Avatar изменён с 48 на 40 px. При зависи
 
 Без `mode` теперь используется `default`. Если в приложении остались значения из старого API, замените их:
 
+```diff
 - <Input mode="primary" />
 + <Input mode="contrast" />
 ```
