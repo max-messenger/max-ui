@@ -74,7 +74,7 @@
     "rollup-plugin-postcss": "4.0.2",
     "sass": "1.103.1",
     "storybook": "10.5.5",
-    "typescript": "6.0.3",
+    "typescript": "7.0.2",
     "vite-plugin-svgr": "5.2.0"
   },
   "peerDependencies": {
