@@ -72,7 +72,7 @@
     "rollup": "4.62.3",
     "rollup-plugin-peer-deps-external": "2.2.4",
     "rollup-plugin-postcss": "4.0.2",
-    "sass": "1.102.0",
+    "sass": "1.103.1",
     "storybook": "10.5.5",
     "typescript": "6.0.3",
     "vite-plugin-svgr": "5.2.0"
