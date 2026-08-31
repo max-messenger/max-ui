@@ -64,7 +64,7 @@
     "eslint-plugin-promise": "7.3.0",
     "eslint-plugin-react": "7.37.5",
     "eslint-plugin-simple-import-sort": "14.0.0",
-    "eslint-plugin-storybook": "10.5.5",
+    "eslint-plugin-storybook": "10.5.10",
     "globals": "14.0.0",
     "husky": "9.1.7",
     "plop": "4.0.5",
