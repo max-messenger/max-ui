@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import Icon16Placeholder from '@storybook-config/assets/icons/icon-16-placeholder.svg';
 import Icon24Placeholder from '@storybook-config/assets/icons/icon-24-placeholder.svg';
-import { hideArgsControl, optionalControl, reactNodeTextControl, resolveOptionalControl, selectControl } from '@storybook-config/shared';
+import { hideArgsControl, optionalReactNodeControl, reactNodeTextControl, resolveOptionalReactNode, selectControl } from '@storybook-config/shared';
 import { type ReactNode } from 'react';
 
 import { Counter } from '../Counter';
@@ -13,8 +13,6 @@ const iconsMapping: Record<ButtonSize, ReactNode> = {
   medium: <Icon24Placeholder />,
   large: <Icon24Placeholder />
 };
-
-const indicatorOptions = { counter: <Counter key="counter" value={1} /> };
 
 const meta = {
   title: 'Components/Button',
@@ -30,14 +28,14 @@ const meta = {
     children: reactNodeTextControl,
     iconBefore: { control: 'boolean' },
     iconAfter: { control: 'boolean' },
-    indicator: optionalControl(indicatorOptions)
+    indicator: optionalReactNodeControl
   },
   args: {
     variant: 'primary',
     size: 'medium',
     iconAfter: false,
     iconBefore: false,
-    indicator: 'none',
+    indicator: false,
     children: 'Кнопка',
     disabled: false,
     stretched: false,
@@ -48,7 +46,7 @@ const meta = {
       <Story
         args={{
           ...context.args,
-          indicator: resolveOptionalControl(indicatorOptions, context.args.indicator)
+          indicator: resolveOptionalReactNode(context.args.indicator, <Counter value={1} />)
         }}
       />
     )

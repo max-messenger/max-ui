@@ -6,7 +6,13 @@ import { AvatarCloseButton } from './AvatarCloseButton';
 
 const meta = {
   title: 'Components/Avatar/Avatar.CloseButton',
-  component: AvatarCloseButton
+  component: AvatarCloseButton,
+  argTypes: {
+    'aria-label': { control: 'text' }
+  },
+  args: {
+    'aria-label': 'Закрыть'
+  }
 } satisfies Meta<AvatarCloseButtonProps>;
 
 export default meta;
@@ -16,7 +22,7 @@ export const Playground: Story = {
   render: ({ ...props }) => {
     return (
       <Avatar.Container
-        rightTopCorner={<Avatar.CloseButton aria-label="Закрыть" {...props} />}
+        rightTopCorner={<Avatar.CloseButton {...props} />}
       >
         <Avatar.Icon>
           <Icon24Placeholder />

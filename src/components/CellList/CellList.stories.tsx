@@ -1,12 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { optionalControl, resolveOptionalControl, selectControl } from '@storybook-config/shared';
+import { optionalReactNodeControl, resolveOptionalReactNode, selectControl } from '@storybook-config/shared';
 
 import { Avatar } from '../Avatar';
 import { CellHeader } from '../CellHeader';
 import { CellSimple } from '../CellSimple';
 import { CellList, type CellListProps } from './CellList';
-
-const headerOptions = { header: <CellHeader key="header">Пользователи</CellHeader> };
 
 const meta = {
   title: 'Components/Cell/CellList',
@@ -16,12 +14,12 @@ const meta = {
   },
   argTypes: {
     mode: selectControl(['full-width', 'island']),
-    header: optionalControl(headerOptions)
+    header: optionalReactNodeControl
   },
   args: {
     mode: 'island',
     filled: true,
-    header: 'none'
+    header: false
   },
   decorators: [
     (Story, context) => (
@@ -29,7 +27,7 @@ const meta = {
         <Story
           args={{
             ...context.args,
-            header: resolveOptionalControl(headerOptions, context.args.header)
+            header: resolveOptionalReactNode(context.args.header, <CellHeader>Пользователи</CellHeader>)
           }}
         />
       </div>

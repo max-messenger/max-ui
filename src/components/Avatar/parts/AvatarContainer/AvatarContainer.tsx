@@ -44,7 +44,7 @@ export const AvatarContainer = forwardRef<HTMLDivElement, AvatarContainerProps>(
     onlineStatus,
     isCircle: form === 'circle'
   });
-  const shouldShowRightBottomCorner = normalizedSize > 24 && hasReactNode(rightBottomCorner);
+  const shouldShowRightBottomCorner = !onlineStatus && normalizedSize > 24 && hasReactNode(rightBottomCorner);
 
   const rootClassName = clsx(
     styles.AvatarContainer,

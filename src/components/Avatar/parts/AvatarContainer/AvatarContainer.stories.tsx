@@ -1,29 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import Icon16Placeholder from '@storybook-config/assets/icons/icon-16-placeholder.svg';
 import Icon24Placeholder from '@storybook-config/assets/icons/icon-24-placeholder.svg';
-import { hideArgsControl, optionalControl, resolveOptionalControl, selectControl } from '@storybook-config/shared';
+import { hideArgsControl, resolveOptionalControl, selectControl } from '@storybook-config/shared';
 
 import { Flex } from '../../../../internal';
 import { IconButton } from '../../../IconButton';
 import { Avatar } from '../../index';
 import { AvatarContainer, type AvatarContainerProps } from './AvatarContainer';
-
-const rightTopCornerOptions = {
-  'close button': <Avatar.CloseButton key="close-button" aria-label="Закрыть" />
-};
-
-const rightBottomCornerOptions = {
-  'icon button': (
-    <IconButton
-      key="icon-button"
-      aria-label="Добавить"
-      size="small"
-      variant="secondary"
-    >
-      <Icon16Placeholder />
-    </IconButton>
-  )
-};
 
 const meta = {
   title: 'Components/Avatar/Avatar.Container',
@@ -41,11 +24,17 @@ const meta = {
       description: 'Shows the online indicator for circular avatars from 24 to 80 px.'
     },
     overlay: { control: 'boolean' },
-    rightTopCorner: optionalControl(rightTopCornerOptions),
+    rightTopCorner: {
+      options: ['None', 'Avatar.CloseButton'],
+      control: { type: 'select' },
+      table: { type: { summary: 'ReactNode' } }
+    },
     rightBottomCorner: {
-      ...optionalControl(rightBottomCornerOptions),
-      if: { arg: 'size', neq: 24 },
-      description: 'Available for avatars larger than 24 px.'
+      options: ['None', 'IconButton'],
+      control: { type: 'select' },
+      table: { type: { summary: 'ReactNode' } },
+      if: { arg: 'onlineStatus', eq: false },
+      description: 'Available for avatars larger than 24 px when onlineStatus is disabled.'
     }
   },
   args: {
@@ -53,8 +42,8 @@ const meta = {
     size: 40,
     onlineStatus: false,
     overlay: false,
-    rightTopCorner: 'none',
-    rightBottomCorner: 'none'
+    rightTopCorner: 'None',
+    rightBottomCorner: 'None'
   },
   decorators: [
     (Story, context) => (
@@ -62,8 +51,20 @@ const meta = {
         <Story
           args={{
             ...context.args,
-            rightTopCorner: resolveOptionalControl(rightTopCornerOptions, context.args.rightTopCorner),
-            rightBottomCorner: resolveOptionalControl(rightBottomCornerOptions, context.args.rightBottomCorner)
+            rightTopCorner: resolveOptionalControl(
+              { 'Avatar.CloseButton': <Avatar.CloseButton aria-label="Закрыть" /> },
+              context.args.rightTopCorner
+            ),
+            rightBottomCorner: resolveOptionalControl(
+              {
+                IconButton: (
+                  <IconButton aria-label="Добавить" size="small" variant="secondary">
+                    <Icon16Placeholder />
+                  </IconButton>
+                )
+              },
+              context.args.rightBottomCorner
+            )
           }}
         />
       </Flex>

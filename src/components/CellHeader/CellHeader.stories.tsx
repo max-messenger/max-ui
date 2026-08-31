@@ -9,8 +9,8 @@ import { Typography } from '../Typography';
 import { CellHeader, type CellHeaderProps } from './CellHeader';
 
 const afterOptions = {
-  text: <Typography.Action key="text" variant="small">Some action</Typography.Action>,
-  icon: <Icon16Placeholder key="icon" />
+  Text: <Typography.Action key="text" variant="small">Some action</Typography.Action>,
+  Icon: <Icon16Placeholder key="icon" />
 };
 
 const meta = {
@@ -30,7 +30,7 @@ const meta = {
     children: 'Пользователь',
     titleStyle: 'caps',
     fullWidth: false,
-    after: 'none'
+    after: 'None'
   },
   decorators: [
     (Story, context) => (

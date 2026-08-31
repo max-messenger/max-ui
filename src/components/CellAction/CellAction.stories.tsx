@@ -1,12 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import Icon28Placeholder from '@storybook-config/assets/icons/icon-28-placeholder.svg';
-import { hideArgsControl, optionalControl, reactNodeTextControl, resolveOptionalControl, selectControl } from '@storybook-config/shared';
+import { hideArgsControl, optionalReactNodeControl, reactNodeTextControl, resolveOptionalReactNode, selectControl } from '@storybook-config/shared';
 import { fn } from 'storybook/test';
 
 import { EllipsisText } from '../../internal';
 import { CellAction, type CellActionProps } from './CellAction';
-
-const beforeOptions = { icon: <Icon28Placeholder key="icon" /> };
 
 const meta = {
   title: 'Components/Cell/CellAction',
@@ -20,12 +18,12 @@ const meta = {
     mode: selectControl(['primary', 'secondary', 'themed', 'destructive', 'custom']),
     height: selectControl(['compact', 'normal']),
     children: reactNodeTextControl,
-    before: optionalControl(beforeOptions)
+    before: optionalReactNodeControl
   },
   args: {
     children: 'Действие',
     showChevron: true,
-    before: 'icon',
+    before: true,
     mode: 'primary',
     height: 'normal',
     disabled: false,
@@ -37,7 +35,7 @@ const meta = {
         <Story
           args={{
             ...context.args,
-            before: resolveOptionalControl(beforeOptions, context.args.before)
+            before: resolveOptionalReactNode(context.args.before, <Icon28Placeholder />)
           }}
         />
       </div>

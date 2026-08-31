@@ -10,8 +10,8 @@ import { Counter } from '../Counter';
 import { CellSimple, type CellSimpleProps } from './CellSimple';
 
 const beforeOptions = {
-  icon: <Icon24Placeholder key="icon" />,
-  avatar: (
+  Icon: <Icon24Placeholder key="icon" />,
+  Avatar: (
     <Avatar.Container key="avatar" onlineStatus size={40}>
       <Avatar.Image src="https://sun9-21.userapi.com/1N-rJz6-7hoTDW7MhpWe19e_R_TdGV6Wu5ZC0A/67o6-apnAks.jpg" />
     </Avatar.Container>
@@ -19,8 +19,8 @@ const beforeOptions = {
 };
 
 const afterOptions = {
-  button: <Button variant="secondary" size="small" key="button">Открыть</Button>,
-  counter: <Counter key="counter" value={1200} />
+  Button: <Button variant="secondary" size="small" key="button">Открыть</Button>,
+  Counter: <Counter key="counter" value={1200} />
 };
 
 const meta = {
@@ -36,6 +36,7 @@ const meta = {
     subtitleMode: selectControl(['secondary', 'tertiary']),
     title: reactNodeTextControl,
     subtitle: reactNodeTextControl,
+    overline: reactNodeTextControl,
     link: { control: 'text' },
     before: optionalControl(beforeOptions),
     after: optionalControl(afterOptions)
@@ -45,10 +46,11 @@ const meta = {
     subtitle: 'Подпись',
     overline: '',
     height: 'normal',
+    subtitleMode: 'secondary',
     showChevron: false,
     disabled: false,
-    before: 'icon',
-    after: 'button',
+    before: 'Icon',
+    after: 'Button',
     separator: false,
     link: undefined
   },
