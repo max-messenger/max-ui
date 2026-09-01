@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import Icon20Placeholder from '@storybook-config/assets/icons/icon-20-placeholder.svg';
-import { hideArgsControl, selectControl } from '@storybook-config/shared';
+import { CONTRAST_PREVIEW_BACKGROUND, hideArgsControl, selectControl } from '@storybook-config/shared';
 
 import { Input, type InputProps } from './Input';
 
@@ -35,7 +35,7 @@ const meta = {
   },
   decorators: [
     (Story, context) => (
-      <div style={{ padding: 12, borderRadius: 12, background: context.args.mode === 'contrast' ? 'rgb(12 13 14 / 68%)' : undefined }}>
+      <div style={{ padding: 12, borderRadius: 12, background: context.args.mode === 'contrast' ? CONTRAST_PREVIEW_BACKGROUND : undefined }}>
         <Story />
       </div>
     )

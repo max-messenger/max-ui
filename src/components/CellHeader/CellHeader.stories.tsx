@@ -9,7 +9,7 @@ import { Typography } from '../Typography';
 import { CellHeader, type CellHeaderProps } from './CellHeader';
 
 const afterOptions = {
-  Text: <Typography.Action key="text" variant="small">Some action</Typography.Action>,
+  Text: <Typography.Action key="text" variant="small">Действие</Typography.Action>,
   Icon: <Icon16Placeholder key="icon" />
 };
 

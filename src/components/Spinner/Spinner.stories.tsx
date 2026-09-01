@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { selectControl } from '@storybook-config/shared';
+import { CONTRAST_PREVIEW_BACKGROUND, selectControl } from '@storybook-config/shared';
 
 import { Spinner } from './Spinner';
 import { type SpinnerProps } from './types';
@@ -24,7 +24,7 @@ const meta = {
         style={{
           padding: 12,
           borderRadius: 12,
-          background: String(context.args.appearance).includes('contrast') ? 'rgb(12 13 14 / 68%)' : undefined
+          background: String(context.args.appearance).includes('contrast') ? CONTRAST_PREVIEW_BACKGROUND : undefined
         }}
       >
         <Story />

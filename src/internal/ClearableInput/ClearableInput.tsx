@@ -15,6 +15,10 @@ export interface ClearableInputProps extends ComponentProps<'input'> {
   count?: number
 }
 
+const isInputValueEmpty = (value: ClearableInputProps['value']): boolean => (
+  value === undefined || value === '' || (Array.isArray(value) && value.length === 0)
+);
+
 export const ClearableInput = forwardRef<HTMLInputElement, ClearableInputProps>((props, forwardedRef) => {
   const {
     className,
@@ -27,7 +31,11 @@ export const ClearableInput = forwardRef<HTMLInputElement, ClearableInputProps>(
   } = props;
 
   const inputRef = useRef<HTMLInputElement>(null);
-  const [isEmpty, setIsEmpty] = useState(!rest.value && !rest.defaultValue);
+  const isControlled = rest.value !== undefined;
+  const [isUncontrolledEmpty, setIsUncontrolledEmpty] = useState(
+    () => isInputValueEmpty(rest.defaultValue)
+  );
+  const isEmpty = isControlled ? isInputValueEmpty(rest.value) : isUncontrolledEmpty;
 
   const clearValue = (): void => {
     if (!inputRef.current) return;
@@ -40,8 +48,10 @@ export const ClearableInput = forwardRef<HTMLInputElement, ClearableInputProps>(
         ref={mergeRefs(inputRef, forwardedRef)}
         className={clsx(innerClassNames?.input)}
         onChange={(e) => {
+          if (!isControlled) {
+            setIsUncontrolledEmpty(e.currentTarget.value === '');
+          }
           onChange?.(e);
-          setIsEmpty(!e.target.value);
         }}
         disabled={disabled}
         {...rest}
@@ -56,6 +66,7 @@ export const ClearableInput = forwardRef<HTMLInputElement, ClearableInputProps>(
       )}
       {!isEmpty && !disabled && withClearButton && (
         <SvgButton
+          type="button"
           className={clsx(styles.ClearableInput__button, innerClassNames?.clearButton)}
           onClick={clearValue}
           aria-label="Очистить"
