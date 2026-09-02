@@ -3,6 +3,41 @@
 Все заметные изменения этого проекта задокументированы в этом файле.
 Формат основан на [Conventional Commits](https://conventionalcommits.org).
 
+## [0.4.0](https://github.com/max-messenger/max-ui/compare/v0.3.2...v0.4.0) (2026-09-02)
+
+### ✨ Новые возможности
+
+* Актуализированы цветовые токены и привязки компонентов ([e5523cf](https://github.com/max-messenger/max-ui/commit/e5523cfba01dedcfe1faaf3e4238422b022dc8e9))
+* **storybook:** добавлены матрицы компонентов и унифицированы controls ([4ca8926](https://github.com/max-messenger/max-ui/commit/4ca8926f0e8c387dc80fd9aa00f32f3c1143e86a))
+* синхронизированы основы и компоненты с дизайн-системой ([28de836](https://github.com/max-messenger/max-ui/commit/28de836fffc4d4818be27ed429b8ef8e7388ecc1))
+
+### 🐛 Исправления
+
+* **storybook:** синхронизировано состояние очистки Input ([6d3edf9](https://github.com/max-messenger/max-ui/commit/6d3edf9fcf9961e45613e64c690637e4b2fc52b1))
+* структура написания стиля приведена к общей ([09885fe](https://github.com/max-messenger/max-ui/commit/09885fe93a57a8c2200a067150bee7c3d067bf3a))
+* добавлены настройка отступа body и настройка экспорты пакета ([ccc9f99](https://github.com/max-messenger/max-ui/commit/ccc9f99574510695fbf957c4f0bdf1ef748f953f))
+* **storybook:** добавлены настройки Avatar и исправлены значения по умолчанию CellSimple ([52eb6d6](https://github.com/max-messenger/max-ui/commit/52eb6d6c723d445a64f31d819e5ac5dd7ca4cb0e))
+* обновлено поведение компонентов и стили ([6fe8a94](https://github.com/max-messenger/max-ui/commit/6fe8a9419370dac16964b497af4eee27e9eaa8db))
+* устранены расхождения компонентов после дизайн-аудита ([a6a3769](https://github.com/max-messenger/max-ui/commit/a6a3769dab0eadcd0cb9f03bd7147aa2655ec437))
+
+### 🛠 Прочее
+
+* **deps-dev:** bump @chromatic-com/storybook from 5.2.1 to 5.3.0 ([85eafd8](https://github.com/max-messenger/max-ui/commit/85eafd8ead204ad8c2a5d0c9b4870830b8c203de))
+* **deps-dev:** bump @eslint/js from 9.39.5 to 10.0.1 ([e0026e4](https://github.com/max-messenger/max-ui/commit/e0026e4e3db0104bdc0ef0d6c15edb3525921205))
+* **deps-dev:** bump @storybook/addon-docs from 10.5.5 to 10.5.10 ([16e0db8](https://github.com/max-messenger/max-ui/commit/16e0db8ee7059d894c8e6653c2a01b59bf5b6bc0))
+* **deps-dev:** bump @storybook/addon-onboarding from 10.5.5 to 10.5.10 ([101df47](https://github.com/max-messenger/max-ui/commit/101df473c260890b429a456e13871f4d5d7eb331))
+* **deps-dev:** bump @storybook/react-vite from 10.5.5 to 10.5.10 ([f97d198](https://github.com/max-messenger/max-ui/commit/f97d198a0bec8bbdcb35b8395b9dca656b2ce1eb))
+* **deps-dev:** bump @types/node from 26.1.2 to 26.2.0 ([8c7a061](https://github.com/max-messenger/max-ui/commit/8c7a061fe3e3188a31db7054b94cfdbace442c9f))
+* **deps-dev:** bump @typescript-eslint/parser from 8.65.0 to 8.67.0 ([9b014b3](https://github.com/max-messenger/max-ui/commit/9b014b3d06252255be8c816f096eadf10a36c50e))
+* **deps:** bump actions/setup-node from 6 to 7 ([49f55bb](https://github.com/max-messenger/max-ui/commit/49f55bb19c14a6ed9183ff3bc3edba398eba03f9))
+* **deps:** bump bitovi/github-actions-storybook-to-github-pages ([5139844](https://github.com/max-messenger/max-ui/commit/5139844eaf852797e268a5b02ece160e3d113a6e))
+* **deps-dev:** bump release-it from 21.0.0 to 21.0.2 ([056257d](https://github.com/max-messenger/max-ui/commit/056257ddbbcd8db3bb4c88702bb3470af0d371fe))
+* **deps-dev:** bump sass from 1.102.0 to 1.103.1 ([bbe4257](https://github.com/max-messenger/max-ui/commit/bbe4257bc6e3ab0a27fa4b33f4b24102de4beeee))
+* **deps-dev:** bump typescript from 6.0.3 to 7.0.2 ([49591de](https://github.com/max-messenger/max-ui/commit/49591de4c8918abd59c36e1c0d12e80ad91291bb))
+* обновить зависимости для устранения уязвимостей ([d7a21db](https://github.com/max-messenger/max-ui/commit/d7a21db4298926f3e9b8b7469e0c3fc903f6a749))
+* обновление библиотек ([2c03a2b](https://github.com/max-messenger/max-ui/commit/2c03a2b8b50d4572859bb6202a8090097b19bcf0))
+* обновление библиотек ([bf38b45](https://github.com/max-messenger/max-ui/commit/bf38b458c31a85244d8d4a07ff6b59bc57fa287a))
+
 ## [0.3.2](https://github.com/max-messenger/max-ui/compare/v0.3.1...v0.3.2) (2026-08-21)
 
 ### 🛠 Прочее
