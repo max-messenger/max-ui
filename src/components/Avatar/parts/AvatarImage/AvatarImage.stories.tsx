@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { selectControl } from '@storybook-config/shared';
 
 import { Avatar, type AvatarImageProps } from '../../index';
 import { AvatarImage } from './AvatarImage';
@@ -6,9 +7,13 @@ import { AvatarImage } from './AvatarImage';
 const meta = {
   title: 'Components/Avatar/Avatar.Image',
   component: AvatarImage,
+  argTypes: {
+    fallbackGradient: selectControl(['red', 'orange', 'green', 'blue', 'purple', 'custom'])
+  },
   args: {
     src: 'https://sun9-21.userapi.com/1N-rJz6-7hoTDW7MhpWe19e_R_TdGV6Wu5ZC0A/67o6-apnAks.jpg',
-    fallback: 'VT'
+    fallback: 'VT',
+    fallbackGradient: 'red'
   }
 } satisfies Meta<AvatarImageProps>;
 

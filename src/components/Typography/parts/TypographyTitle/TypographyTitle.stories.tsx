@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { hideArgsControl, reactNodeTextControl, selectControl } from '@storybook-config/shared';
 
-import { hideArgsControl } from '../../../../../.storybook/shared/args-manager';
 import { Typography, type TypographyTitleProps } from '../../index';
 import { TypographyTitle } from './TypographyTitle';
 
@@ -11,10 +11,13 @@ const meta = {
     cartesian: ['variant']
   },
   argTypes: {
-    ...hideArgsControl(['asChild'])
+    ...hideArgsControl(['asChild']),
+    variant: selectControl(['large-strong', 'medium', 'medium-strong', 'small', 'small-strong', 'custom']),
+    children: reactNodeTextControl
   },
   args: {
-    children: 'Hello world'
+    children: 'Hello world',
+    variant: 'large-strong'
   }
 } satisfies Meta<TypographyTitleProps>;
 

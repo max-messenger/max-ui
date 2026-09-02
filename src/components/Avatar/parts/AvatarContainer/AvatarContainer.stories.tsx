@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import Icon16Placeholder from '@storybook-config/assets/icons/icon-16-placeholder.svg';
+import Icon24Placeholder from '@storybook-config/assets/icons/icon-24-placeholder.svg';
+import { hideArgsControl, resolveOptionalControl, selectControl } from '@storybook-config/shared';
 
-import Icon16Placeholder from '../../../../../.storybook/assets/icons/icon-16-placeholder.svg';
-import Icon24Placeholder from '../../../../../.storybook/assets/icons/icon-24-placeholder.svg';
-import { hideArgsControl } from '../../../../../.storybook/shared/args-manager';
 import { Flex } from '../../../../internal';
 import { IconButton } from '../../../IconButton';
 import { Avatar } from '../../index';
@@ -17,47 +17,56 @@ const meta = {
   argTypes: {
     ...hideArgsControl(['innerClassNames', 'asChild']),
 
-    overlay: { type: 'boolean' },
+    form: selectControl(['circle', 'squircle']),
+    size: selectControl([24, 40, 52, 72, 80, 88]),
+    onlineStatus: {
+      control: 'boolean',
+      description: 'Shows the online indicator for circular avatars from 24 to 80 px.'
+    },
+    overlay: { control: 'boolean' },
     rightTopCorner: {
-      options: [0, 1],
-      mapping: [
-        undefined,
-        <Avatar.CloseButton key="close-button" aria-label="Закрыть" />
-      ],
-      control: {
-        type: 'select',
-        labels: ['None', 'Avatar.CloseButton']
-      }
+      options: ['None', 'Avatar.CloseButton'],
+      control: { type: 'select' },
+      table: { type: { summary: 'ReactNode' } }
     },
     rightBottomCorner: {
-      options: [0, 1],
-      mapping: [
-        undefined,
-        <IconButton
-          key="icon-button"
-          aria-label="Добавить"
-          size="small"
-          variant="secondary"
-        >
-          <Icon16Placeholder />
-        </IconButton>
-      ],
-      control: {
-        type: 'select',
-        labels: ['None', 'IconButton']
-      }
+      options: ['None', 'IconButton'],
+      control: { type: 'select' },
+      table: { type: { summary: 'ReactNode' } },
+      if: { arg: 'onlineStatus', eq: false },
+      description: 'Available for avatars larger than 24 px when onlineStatus is disabled.'
     }
   },
   args: {
     form: 'circle',
     size: 40,
     onlineStatus: false,
-    overlay: false
+    overlay: false,
+    rightTopCorner: 'None',
+    rightBottomCorner: 'None'
   },
   decorators: [
-    (Story) => (
+    (Story, context) => (
       <Flex gap={16}>
-        <Story />
+        <Story
+          args={{
+            ...context.args,
+            rightTopCorner: resolveOptionalControl(
+              { 'Avatar.CloseButton': <Avatar.CloseButton aria-label="Закрыть" /> },
+              context.args.rightTopCorner
+            ),
+            rightBottomCorner: resolveOptionalControl(
+              {
+                IconButton: (
+                  <IconButton aria-label="Добавить" size="small" variant="secondary">
+                    <Icon16Placeholder />
+                  </IconButton>
+                )
+              },
+              context.args.rightBottomCorner
+            )
+          }}
+        />
       </Flex>
     )
   ]
@@ -111,7 +120,7 @@ export const Playground: Story = {
           <Avatar.Text
             gradient="red"
           >
-            ME
+            МЕ
           </Avatar.Text>
         </Avatar.Container>
       </>
@@ -183,7 +192,7 @@ export const AsLink: Story = {
             <Avatar.Text
               gradient="red"
             >
-              ME
+              МЕ
             </Avatar.Text>
           </a>
         </Avatar.Container>

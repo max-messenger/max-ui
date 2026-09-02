@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import Icon16Placeholder from '@storybook-config/assets/icons/icon-16-placeholder.svg';
+import Icon24Placeholder from '@storybook-config/assets/icons/icon-24-placeholder.svg';
+import { hideArgsControl, optionalReactNodeControl, reactNodeTextControl, resolveOptionalReactNode, selectControl } from '@storybook-config/shared';
 import { type ReactNode } from 'react';
 
-import Icon16Placeholder from '../../../.storybook/assets/icons/icon-16-placeholder.svg';
-import Icon24Placeholder from '../../../.storybook/assets/icons/icon-24-placeholder.svg';
-import { hideArgsControl } from '../../../.storybook/shared/args-manager';
 import { Counter } from '../Counter';
 import { Button, type ButtonProps, type ButtonSize } from './Button';
 
@@ -23,28 +23,34 @@ const meta = {
   argTypes: {
     ...hideArgsControl(['asChild', 'innerClassNames']),
 
+    variant: selectControl(['primary', 'secondary', 'ghost', 'primary-contrast', 'secondary-contrast', 'overlay', 'destructive']),
+    size: selectControl(['xsmall', 'small', 'medium', 'large']),
+    children: reactNodeTextControl,
     iconBefore: { control: 'boolean' },
     iconAfter: { control: 'boolean' },
-    indicator: {
-      options: [0, 1],
-      mapping: [undefined, <Counter key="counter" value={1} />],
-      control: {
-        type: 'select',
-        labels: ['None', 'Counter']
-      }
-    }
+    indicator: optionalReactNodeControl
   },
   args: {
     variant: 'primary',
     size: 'medium',
     iconAfter: false,
     iconBefore: false,
-    indicator: 0,
-    children: 'Button',
+    indicator: false,
+    children: 'Кнопка',
     disabled: false,
     stretched: false,
     loading: false
-  }
+  },
+  decorators: [
+    (Story, context) => (
+      <Story
+        args={{
+          ...context.args,
+          indicator: resolveOptionalReactNode(context.args.indicator, <Counter value={1} />)
+        }}
+      />
+    )
+  ]
 } satisfies Meta<ButtonProps>;
 
 export default meta;
@@ -60,7 +66,7 @@ export const Playground: Story = {
         iconAfter={Boolean(iconAfter) && iconsMapping[size]}
         indicator={indicator}
         loading={loading}
-        aria-label={loading ? 'Loading...' : undefined}
+        aria-label={loading ? 'Загрузка...' : undefined}
       />
     );
   }
@@ -81,7 +87,7 @@ export const AsLink: Story = {
         iconAfter={Boolean(iconAfter) && iconsMapping[size]}
         indicator={indicator}
         loading={loading}
-        aria-label={loading ? 'Loading...' : undefined}
+        aria-label={loading ? 'Загрузка...' : undefined}
         asChild
       >
         <a

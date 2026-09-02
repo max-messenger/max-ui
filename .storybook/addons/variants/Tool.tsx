@@ -1,6 +1,6 @@
 import { GridIcon } from '@storybook/icons';
 import * as React from 'react';
-import { IconButton, WithTooltip } from 'storybook/internal/components';
+import { Button, WithTooltip } from 'storybook/internal/components';
 import type { ArgTypes } from 'storybook/internal/types';
 import { useAddonState, useGlobals, useParameter, useStorybookApi } from 'storybook/manager-api';
 
@@ -122,10 +122,16 @@ export const Tool = (): React.JSX.Element | null => {
       trigger="click"
       visible={isVisible}
     >
-      <IconButton aria-label="Open variants list">
+      <Button
+        aria-expanded={isVisible}
+        aria-haspopup="menu"
+        ariaLabel="Open variants list"
+        disableAllTooltips
+        variant="ghost"
+      >
         <GridIcon />
         &nbsp; variants
-      </IconButton>
+      </Button>
     </WithTooltip>
   );
 };

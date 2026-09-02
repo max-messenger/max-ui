@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { hideArgsControl, reactNodeTextControl, selectControl } from '@storybook-config/shared';
 
-import { hideArgsControl } from '../../../.storybook/shared/args-manager';
 import { CellInput, type CellInputProps } from './CellInput';
 
 const meta = {
@@ -12,17 +12,18 @@ const meta = {
   argTypes: {
     ...hideArgsControl(['innerClassNames']),
 
-    before: { type: 'string' }
+    height: selectControl(['compact', 'normal']),
+    before: reactNodeTextControl
   },
   args: {
-    before: 'First name',
+    before: 'Имя',
     height: 'normal',
     placeholder: 'Иван Иванов',
     disabled: false
   },
   decorators: [
     (Story) => (
-      <div style={{ width: 375, height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div style={{ width: 375 }}>
         <Story />
       </div>
     )

@@ -7,7 +7,9 @@ import { useAvatarContainerContext } from '../AvatarContainer/AvatarContainerCon
 import styles from './AvatarCloseButton.module.scss';
 import { getButtonSize } from './helpers';
 
-export interface AvatarCloseButtonProps extends ComponentProps<'button'> {}
+export interface AvatarCloseButtonProps extends ComponentProps<'button'> {
+  'aria-label'?: string
+}
 
 export const AvatarCloseButton = forwardRef<HTMLButtonElement, AvatarCloseButtonProps>((props, forwardedRef) => {
   const {

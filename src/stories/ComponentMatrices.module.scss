@@ -1,0 +1,23 @@
+.PreviewWidth {
+  width: 100%;
+  min-width: 0;
+}
+
+.ControlWidth {
+  width: min(100%, 360px);
+}
+
+.FocusVisible {
+  outline: auto;
+  outline-offset: 2px;
+}
+
+.InputClearButtonVisible {
+  display: flex !important;
+}
+
+.ContrastSurface {
+  padding: 8px;
+  border-radius: 12px;
+  background: rgb(12 13 14 / 32%);
+}

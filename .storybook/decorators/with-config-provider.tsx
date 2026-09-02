@@ -4,7 +4,7 @@ import { MaxUI } from '../../src';
 import { OverlayContainer } from '../components/OverlayContainer';
 
 export const withConfigProvider: Decorator = (Story, context) => {
-  if (!context.globals.withMaxUiWrapper) return <Story />;
+  if (!context.globals.withMaxUiWrapper || context.parameters.withMaxUiWrapper === false) return <Story />;
 
   return (
     <MaxUI platform={context.globals.platform} colorScheme={context.globals.theme}>

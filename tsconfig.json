@@ -3,6 +3,9 @@
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "bundler",
+    "paths": {
+      "@storybook-config/*": ["./.storybook/*"]
+    },
     "lib": ["DOM", "ESNext"],
     "outDir": "dist",
     "allowSyntheticDefaultImports": true,

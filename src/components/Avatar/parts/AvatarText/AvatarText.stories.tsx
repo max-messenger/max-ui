@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { reactNodeTextControl, selectControl } from '@storybook-config/shared';
 
 import { Avatar, type AvatarTextProps } from '../../index';
 import { AvatarText } from './AvatarText';
@@ -9,8 +10,13 @@ const meta = {
   parameters: {
     cartesian: ['gradient']
   },
+  argTypes: {
+    gradient: selectControl(['red', 'orange', 'green', 'blue', 'purple', 'custom']),
+    children: reactNodeTextControl
+  },
   args: {
-    children: 'VT'
+    children: 'VT',
+    gradient: 'red'
   }
 } satisfies Meta<AvatarTextProps>;
 

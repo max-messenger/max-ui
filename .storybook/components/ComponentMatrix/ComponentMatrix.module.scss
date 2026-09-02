@@ -1,0 +1,75 @@
+.ComponentMatrix {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  background: #eef0f3;
+}
+
+.ComponentMatrix__environment {
+  min-width: 0;
+  border: 1px solid var(--divider-primary);
+  border-radius: var(--size-border-radius-semantic-border-radius-card);
+  overflow: hidden;
+}
+
+.ComponentMatrix__section {
+  min-height: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+  background: var(--background-primary);
+  color: var(--text-primary);
+}
+
+.ComponentMatrix__environmentTitle {
+  margin: 0 0 12px;
+  font: 600 16px/20px var(--family-base);
+}
+
+.MatrixGroup + .MatrixGroup {
+  margin-top: 16px;
+}
+
+.MatrixGroup__title {
+  margin: 0 0 8px;
+  color: var(--text-secondary);
+  font: 600 13px/16px var(--family-base);
+}
+
+.MatrixGroup__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--MatrixGrid_minItemWidth, 120px), 1fr));
+  align-items: start;
+  gap: 8px;
+}
+
+.MatrixItem {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.MatrixItem__label {
+  color: var(--text-tertiary);
+  font: 400 11px/14px var(--family-base);
+}
+
+.MatrixItem__content {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+}
+
+.MatrixItem__content_stretched {
+  align-self: stretch;
+}
+
+@media (max-width: 900px) {
+  .ComponentMatrix {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,23 +1,23 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import Icon20Placeholder from '@storybook-config/assets/icons/icon-20-placeholder.svg';
+import { CONTRAST_PREVIEW_BACKGROUND, hideArgsControl, selectControl } from '@storybook-config/shared';
 
-import Icon20Placeholder from '../../../.storybook/assets/icons/icon-20-placeholder.svg';
-import { hideArgsControl } from '../../../.storybook/shared/args-manager';
 import { Input, type InputProps } from './Input';
-
-const styles = {
-  width: '100vw',
-  height: '100vh',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center'
-};
 
 const meta = {
   title: 'Forms/Input',
   component: Input,
   argTypes: {
     ...hideArgsControl(['innerClassNames']),
-    count: { control: 'number' },
+    mode: selectControl(['default', 'contrast']),
+    size: selectControl(['medium', 'large']),
+    count: {
+      control: 'number',
+      description: 'Shown only when the field has a value and is not disabled.'
+    },
+    hint: { control: 'text' },
+    placeholder: { control: 'text' },
+    defaultValue: { control: 'text' },
     iconBefore: { control: 'boolean' },
     iconAfter: { control: 'boolean' }
   },
@@ -29,11 +29,13 @@ const meta = {
     withClearButton: true,
     count: 12,
     mode: 'default',
-    hint: 'Подсказка к полю'
+    hint: 'Подсказка',
+    defaultValue: 'Текст',
+    placeholder: 'Введите текст'
   },
   decorators: [
     (Story, context) => (
-      <div style={{ ...styles, background: context.args.mode === 'contrast' ? 'rgba(12 13 14 / 0.32)' : 'none' }}>
+      <div style={{ padding: 12, borderRadius: 12, background: context.args.mode === 'contrast' ? CONTRAST_PREVIEW_BACKGROUND : undefined }}>
         <Story />
       </div>
     )
@@ -51,8 +53,6 @@ export const Playground: Story = {
           {...args}
           iconBefore={Boolean(iconBefore) && <Icon20Placeholder />}
           iconAfter={Boolean(iconAfter) && <Icon20Placeholder />}
-          defaultValue=""
-          placeholder="Placeholder"
         />
       </div>
     );
