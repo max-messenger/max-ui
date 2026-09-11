@@ -1,3 +1,5 @@
+import './style.css';
+
 import { clsx } from 'clsx';
 import { type ComponentProps, type FC } from 'react';
 
@@ -15,6 +17,7 @@ export const OverlayContainer: FC<OverlayContainerProps> = (props) => {
   } = props;
 
   const rootClassName = clsx(
+    'OverlayContainer',
     className,
     styles.OverlayContainer,
     styles[`OverlayContainer_appearance_${appearance}`]
