@@ -10,7 +10,9 @@
 // [States] Hovered
 @media (hover: hover) and (pointer: fine) {
   .Tappable_interactive:not(.Tappable_disabled):hover {
-    background-color: var(--MaxUi-Tappable_background-hovered, var(--states-background-hovered-transparent));
+    $background: var(--MaxUi-Tappable_background-hovered, var(--states-background-hovered-transparent));
+
+    background-image: linear-gradient($background, $background);
   }
 }
 
@@ -19,7 +21,9 @@
   --Ripple_backgroundColor: var(--MaxUi-Tappable_background-pressed, var(--states-background-pressed-transparent));
 }
 .Tappable_interactive.Tappable_activeMode_highlight:not(.Tappable_disabled):active {
-  background-color: var(--MaxUi-Tappable_background-pressed, var(--states-background-pressed-transparent));
+  $background: var(--MaxUi-Tappable_background-pressed, var(--states-background-pressed-transparent));
+
+  background-image: linear-gradient($background, $background);
 }
 
 // [States] Disabled

@@ -7,17 +7,19 @@ const meta = {
   title: 'Components/Cell/CellInput',
   component: CellInput,
   parameters: {
-    cartesian: ['height']
+    cartesian: ['height', 'surface']
   },
   argTypes: {
     ...hideArgsControl(['innerClassNames']),
 
     height: selectControl(['compact', 'normal']),
+    surface: selectControl(['default', 'island']),
     before: reactNodeTextControl
   },
   args: {
     before: 'Имя',
     height: 'normal',
+    surface: 'default',
     placeholder: 'Иван Иванов',
     disabled: false
   },

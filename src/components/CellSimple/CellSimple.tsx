@@ -10,6 +10,7 @@ import styles from './CellSimple.module.scss';
 
 export type CellSimpleHeight = 'compact' | 'normal';
 export type CellSimpleSubtitleMode = 'secondary' | 'tertiary';
+export type CellSimpleSurface = 'default' | 'island';
 export type CellSimpleInnerElementKey =
   | 'before'
   | 'after'
@@ -25,6 +26,7 @@ interface CellSimpleOwnProps extends AsChildProp {
   height?: CellSimpleHeight
   innerClassNames?: InnerClassNamesProp<CellSimpleInnerElementKey>
   title?: ReactNode
+  surface?: CellSimpleSurface
   subtitle?: ReactNode
   subtitleMode?: CellSimpleSubtitleMode
   overline?: ReactNode
@@ -41,22 +43,23 @@ export type CellSimpleProps = MergeProps<ComponentProps<'div'>, CellSimpleOwnPro
 
 export const CellSimple = forwardRef<HTMLDivElement, CellSimpleProps>((props, forwardedRef) => {
   const {
-    className,
-    title,
-    subtitle,
-    subtitleMode = 'secondary',
-    before,
+    link,
     after,
+    title,
+    before,
+    subtitle,
     children,
     overline,
-    showChevron = false,
+    separator,
+    className,
+    innerClassNames,
+    as = 'div',
+    surface = 'default',
+    height = 'normal',
     asChild = false,
     disabled = false,
-    innerClassNames,
-    height = 'normal',
-    as = 'div',
-    separator,
-    link,
+    showChevron = false,
+    subtitleMode = 'secondary',
     ...rest
   } = props;
 
@@ -65,6 +68,7 @@ export const CellSimple = forwardRef<HTMLDivElement, CellSimpleProps>((props, fo
     styles[`CellSimple_height_${height}`],
     styles[`CellSimple_subtitle_${subtitleMode}`],
     {
+      [styles.CellSimple_surface_island]: surface === 'island',
       [styles.CellSimple_disabled]: disabled,
       [styles.CellSimple_separator]: separator
     },

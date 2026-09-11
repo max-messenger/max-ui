@@ -42,6 +42,12 @@
   min-height: 56px;
 }
 
+// [Properties] Surfaces
+.CellSimple_surface_island {
+  border-radius: var(--r-1652);
+  background-color: var(--background-card);
+}
+
 // [Parts] Before
 .CellSimple__before {
   margin-right: var(--spacing-size-xl);

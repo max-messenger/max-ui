@@ -1,1 +1,7 @@
-export { CellInput, type CellInputElementKey, type CellInputHeight, type CellInputProps } from './CellInput';
+export {
+  CellInput,
+  type CellInputElementKey,
+  type CellInputHeight,
+  type CellInputProps,
+  type CellInputSurface
+} from './CellInput';
