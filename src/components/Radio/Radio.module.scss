@@ -1,0 +1,87 @@
+.Radio {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// [Parts] Input
+.Radio__input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  z-index: 1;
+}
+.Radio__input:not(:disabled) {
+  cursor: pointer;
+}
+.Radio__input:disabled {
+  cursor: not-allowed;
+}
+.Radio__input:focus-visible + .Radio__control {
+  outline: auto;
+  outline-offset: 2px;
+}
+
+// [Parts] Control
+.Radio__control {
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--divider-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.Radio__control::after {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--controls-active);
+  display: block;
+  content: '';
+  opacity: 0;
+  transform: scale(.5);
+}
+
+// [Properties] Animated
+.Radio_animated .Radio__control {
+  transition: border-color 100ms ease-out;
+}
+.Radio_animated .Radio__control::after {
+  transition:
+    background-color 100ms ease-out,
+    opacity 100ms ease-out,
+    transform 100ms ease-out;
+}
+
+// [States] Checked
+.Radio__input:checked + .Radio__control {
+  border-color: var(--controls-active);
+}
+.Radio__input:checked + .Radio__control::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+// [States] Disabled
+.Radio__input:disabled + .Radio__control {
+  border-color: var(--states-controls-inactive-disabled);
+}
+.Radio__input:disabled:checked + .Radio__control {
+  border-color: var(--states-controls-active-disabled);
+}
+.Radio__input:disabled:checked + .Radio__control::after {
+  background-color: var(--states-controls-active-disabled);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .Radio_animated .Radio__control,
+  .Radio_animated .Radio__control::after {
+    transition: none;
+  }
+}
