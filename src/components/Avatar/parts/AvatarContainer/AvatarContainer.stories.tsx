@@ -209,9 +209,9 @@ export const OnlineStatus: Story = {
     <>
       {onlineStatusSizes.map((size) => (
         <AvatarContainer
-          {...props}
-          size={size}
           key={size}
+          size={size}
+          {...props}
         >
           <Avatar.Image
             src="https://sun9-21.userapi.com/1N-rJz6-7hoTDW7MhpWe19e_R_TdGV6Wu5ZC0A/67o6-apnAks.jpg"
