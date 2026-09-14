@@ -1,1 +1,8 @@
-export { CellAction, type CellActionHeight, type CellActionInnerElementKey, type CellActionMode, type CellActionProps } from './CellAction';
+export {
+  CellAction,
+  type CellActionHeight,
+  type CellActionInnerElementKey,
+  type CellActionMode,
+  type CellActionProps,
+  type CellActionSurface
+} from './CellAction';

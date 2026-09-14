@@ -1,8 +1,8 @@
 import js from '@eslint/js';
+import eslintReact from '@eslint-react/eslint-plugin';
+import stylistic from '@stylistic/eslint-plugin';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
-import importPlugin from 'eslint-plugin-import';
-import reactPlugin from 'eslint-plugin-react';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import storybookPlugin from 'eslint-plugin-storybook';
 import globals from 'globals';
@@ -41,15 +41,49 @@ export default [
       },
     },
     plugins: {
+      '@eslint-react': eslintReact,
+      '@stylistic': stylistic,
       '@typescript-eslint': tsPlugin,
-      import: importPlugin,
-      react: reactPlugin,
       'simple-import-sort': simpleImportSort,
     },
     rules: {
+      ...eslintReact.configs['recommended-typescript'].rules,
       ...tsPlugin.configs.recommended.rules,
-      ...reactPlugin.configs.flat.recommended.rules,
-      ...reactPlugin.configs.flat['jsx-runtime'].rules,
+
+      '@eslint-react/no-missing-component-display-name': 'error',
+      '@eslint-react/no-missing-key': 'error',
+      '@eslint-react/jsx-no-comment-textnodes': 'error',
+      '@eslint-react/dom-no-unsafe-target-blank': 'error',
+      '@eslint-react/jsx-no-children-prop': 'error',
+      '@eslint-react/dom-no-dangerously-set-innerhtml-with-children': 'error',
+      '@eslint-react/no-direct-mutation-state': 'error',
+      '@eslint-react/dom-no-find-dom-node': 'error',
+      '@eslint-react/dom-no-render-return-value': 'error',
+      '@eslint-react/dom-no-unknown-property': 'error',
+
+      // TODO(ONEME-74088): In React 19, forwardRef is considered legacy, and ref can be passed as a regular prop.
+      '@eslint-react/no-forward-ref': 'off',
+
+      // TODO(ONEME-74088): Consider migrating to the React 19 Context API.
+      '@eslint-react/no-context-provider': 'off',
+      '@eslint-react/no-use-context': 'off',
+
+      // TODO(ONEME-74088): Review existing hooks before enabling these rules.
+      '@eslint-react/exhaustive-deps': 'off',
+      '@eslint-react/purity': 'off',
+      '@eslint-react/rules-of-hooks': 'off',
+      '@eslint-react/set-state-in-effect': 'off',
+
+      // Required for the asChild composition pattern.
+      '@eslint-react/no-children-only': 'off',
+      '@eslint-react/no-clone-element': 'off',
+
+      // TODO(ONEME-74088): Fix existing JSX key violations before enabling these rules.
+      '@eslint-react/no-array-index-key': 'off',
+
+      // TODO(ONEME-74088): Rename utilities that are not hooks but use the "use" prefix.
+      // Remove this TODO if the naming is considered architecturally valid.
+      '@eslint-react/no-unnecessary-use-prefix': 'off',
 
       // Common
       semi: ['error', 'always'],
@@ -63,9 +97,7 @@ export default [
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error',
 
-      // Prevent missing parentheses around multilines JSX
-      // https://github.com/yannickcr/eslint-plugin-react/blob/843d71a432baf0f01f598d7cf1eea75ad6896e4b/docs/rules/jsx-wrap-multilines.md
-      'react/jsx-wrap-multilines': ['error', {
+      '@stylistic/jsx-wrap-multilines': ['error', {
         declaration: 'parens-new-line',
         assignment: 'parens-new-line',
         return: 'parens-new-line',
@@ -76,39 +108,28 @@ export default [
       }],
 
       // Require that the first prop in a JSX element be on a new line when the element is multiline
-      // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-first-prop-new-line.md
-      'react/jsx-first-prop-new-line': ['error', 'multiline-multiprop'],
+      '@stylistic/jsx-first-prop-new-line': ['error', 'multiline-multiprop'],
 
       // Prevent extra closing tags for components without children
-      // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md
-      'react/self-closing-comp': 'error',
+      '@stylistic/jsx-self-closing-comp': 'error',
 
       // One JSX Element Per Line
-      // https://github.com/yannickcr/eslint-plugin-react/blob/843d71a432baf0f01f598d7cf1eea75ad6896e4b/docs/rules/jsx-one-expression-per-line.md
-      'react/jsx-one-expression-per-line': ['error', { allow: 'single-child' }],
+      '@stylistic/jsx-one-expression-per-line': ['error', { allow: 'single-child' }],
 
       // Validate closing tag location in JSX
-      // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-tag-location.md
-      'react/jsx-closing-tag-location': 'error',
+      '@stylistic/jsx-closing-tag-location': 'error',
 
       // Limit maximum of props on a single line in JSX
-      // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-max-props-per-line.md
-      'react/jsx-max-props-per-line': ['error', { maximum: 1, when: 'multiline' }],
+      '@stylistic/jsx-max-props-per-line': ['error', { maximum: 1, when: 'multiline' }],
 
-      // Enforce JSX indentation
-      // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-indent.md
-      'react/jsx-indent': ['error', 2],
+      // Enforce indentation
+      '@stylistic/indent': ['error', 2],
 
       // Validate closing bracket location in JSX
-      // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md
-      'react/jsx-closing-bracket-location': ['error', 'line-aligned'],
-
-      // в 18 реакте нет необходимости импортить React в .tsx/.jsx файлах
-      'react/react-in-jsx-scope': 0,
+      '@stylistic/jsx-closing-bracket-location': ['error', 'line-aligned'],
 
       // Validate whitespace in and around the JSX opening and closing brackets
-      // https://github.com/yannickcr/eslint-plugin-react/blob/843d71a432baf0f01f598d7cf1eea75ad6896e4b/docs/rules/jsx-tag-spacing.md
-      'react/jsx-tag-spacing': ['error', {
+      '@stylistic/jsx-tag-spacing': ['error', {
         closingSlash: 'never',
         beforeSelfClosing: 'always',
         afterOpening: 'never',
@@ -116,9 +137,7 @@ export default [
       }],
     },
     settings: {
-      react: {
-        version: 'detect',
-      },
+      ...eslintReact.configs['recommended-typescript'].settings,
     },
   },
 

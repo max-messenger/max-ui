@@ -27,12 +27,13 @@ const meta = {
   title: 'Components/Cell/CellSimple',
   component: CellSimple,
   parameters: {
-    cartesian: ['height', 'subtitleMode']
+    cartesian: ['height', 'subtitleMode', 'surface']
   },
   argTypes: {
     ...hideArgsControl(['asChild', 'innerClassNames', 'onClick', 'as']),
 
     height: selectControl(['compact', 'normal']),
+    surface: selectControl(['default', 'island']),
     subtitleMode: selectControl(['secondary', 'tertiary']),
     title: reactNodeTextControl,
     subtitle: reactNodeTextControl,
@@ -46,6 +47,7 @@ const meta = {
     subtitle: 'Подпись',
     overline: '',
     height: 'normal',
+    surface: 'default',
     subtitleMode: 'secondary',
     showChevron: false,
     disabled: false,

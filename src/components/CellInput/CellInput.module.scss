@@ -29,6 +29,12 @@
   min-height: 56px;
 }
 
+// [Properties] Surfaces
+.CellInput_surface_island {
+  border-radius: var(--r-1652);
+  background-color: var(--background-card);
+}
+
 // [Parts]
 .CellInput__before {
   @include typography.bodyStrong;

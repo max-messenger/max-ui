@@ -3,5 +3,6 @@ export {
   type CellSimpleHeight,
   type CellSimpleInnerElementKey,
   type CellSimpleProps,
-  type CellSimpleSubtitleMode
+  type CellSimpleSubtitleMode,
+  type CellSimpleSurface
 } from './CellSimple';

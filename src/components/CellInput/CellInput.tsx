@@ -7,10 +7,12 @@ import { type InnerClassNamesProp } from '../../types';
 import styles from './CellInput.module.scss';
 
 export type CellInputHeight = 'compact' | 'normal';
+export type CellInputSurface = 'default' | 'island';
 export type CellInputElementKey = 'before' | 'input' | 'clearButton' | 'body';
 
 export interface CellInputProps extends ComponentProps<'input'> {
   height?: CellInputHeight
+  surface?: CellInputSurface
   before?: ReactNode
   innerClassNames?: InnerClassNamesProp<CellInputElementKey>
 }
@@ -18,10 +20,11 @@ export interface CellInputProps extends ComponentProps<'input'> {
 export const CellInput = forwardRef<HTMLInputElement, CellInputProps>((props, forwardedRef) => {
   const {
     className,
-    height = 'normal',
     before,
     innerClassNames,
     disabled,
+    height = 'normal',
+    surface = 'default',
     ...rest
   } = props;
 
@@ -29,6 +32,7 @@ export const CellInput = forwardRef<HTMLInputElement, CellInputProps>((props, fo
     styles.CellInput,
     styles[`CellInput_height_${height}`],
     {
+      [styles.CellInput_surface_island]: surface === 'island',
       [styles.CellInput_disabled]: disabled
     },
     className

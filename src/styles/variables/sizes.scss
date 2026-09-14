@@ -1,4 +1,5 @@
 @mixin iosSizes {
+  --r-1652: 16px;
   --size-base-platform-width-compact: 360px;
   --size-base-platform-width-normal: 412px;
   --size-border-radius-action-small: 10px;
@@ -28,6 +29,7 @@
 }
 
 @mixin androidSizes {
+  --r-1652: 16px;
   --size-base-platform-width-compact: 375px;
   --size-base-platform-width-normal: 393px;
   --size-border-radius-action-small: 10px;

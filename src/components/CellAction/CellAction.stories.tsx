@@ -10,12 +10,13 @@ const meta = {
   title: 'Components/Cell/CellAction',
   component: CellAction,
   parameters: {
-    cartesian: ['mode', 'height']
+    cartesian: ['mode', 'height', 'surface']
   },
   argTypes: {
     ...hideArgsControl(['asChild', 'innerClassNames']),
 
     mode: selectControl(['primary', 'secondary', 'themed', 'destructive', 'custom']),
+    surface: selectControl(['default', 'island']),
     height: selectControl(['compact', 'normal']),
     children: reactNodeTextControl,
     before: optionalReactNodeControl
@@ -25,6 +26,7 @@ const meta = {
     showChevron: true,
     before: true,
     mode: 'primary',
+    surface: 'default',
     height: 'normal',
     disabled: false,
     onClick: fn()

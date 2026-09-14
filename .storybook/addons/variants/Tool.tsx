@@ -28,9 +28,9 @@ const getCartesianFromOptions = (options: OptionsProp, checkedOptions: string[])
   Object.keys(options)
     .filter((optionName) => checkedOptions.includes(optionName))
     .reduce<OptionsProp>((actualOptions, optionName) => {
-    actualOptions[optionName] = options[optionName];
-    return actualOptions;
-  }, {});
+      actualOptions[optionName] = options[optionName]; 
+      return actualOptions;
+    }, {});
 
 type SyncedArgTypes = Record<string, ArgTypes>;
 

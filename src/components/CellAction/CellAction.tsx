@@ -9,11 +9,13 @@ import { type AsChildProp, type InnerClassNamesProp, type MergeProps } from '../
 import styles from './CellAction.module.scss';
 
 export type CellActionMode = 'primary' | 'secondary' | 'themed' | 'destructive' | 'custom';
+export type CellActionSurface = 'default' | 'island';
 export type CellActionHeight = 'compact' | 'normal';
 export type CellActionInnerElementKey = 'before' | 'chevron' | 'content';
 
 interface CellActionOwnProps extends AsChildProp {
   mode?: CellActionMode
+  surface?: CellActionSurface
   height?: CellActionHeight
   before?: ReactNode
   showChevron?: boolean
@@ -30,6 +32,7 @@ export const CellAction = forwardRef<HTMLButtonElement, CellActionProps>((props,
     innerClassNames,
     asChild = false,
     mode = 'primary',
+    surface = 'default',
     height = 'normal',
     showChevron = false,
     ...rest
@@ -40,6 +43,7 @@ export const CellAction = forwardRef<HTMLButtonElement, CellActionProps>((props,
     styles[`CellAction_mode_${mode}`],
     styles[`CellAction_height_${height}`],
     {
+      [styles.CellAction_surface_island]: surface === 'island',
       [styles.CellAction_disabled]: rest.disabled
     },
     className
