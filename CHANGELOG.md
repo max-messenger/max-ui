@@ -3,6 +3,24 @@
 Все заметные изменения этого проекта задокументированы в этом файле.
 Формат основан на [Conventional Commits](https://conventionalcommits.org).
 
+## [0.5.0](https://github.com/max-messenger/max-ui/compare/v0.4.0...v0.5.0) (2026-09-15)
+
+### ✨ Новые возможности
+
+* Добавлен island режим для Cell компонетнов ([8719bcf](https://github.com/max-messenger/max-ui/commit/8719bcf3a24d29e12526088d9d16009f003bba6e))
+* Добавлена радио кнопка ([e25ea1f](https://github.com/max-messenger/max-ui/commit/e25ea1f55342ca476c89b94a5b6679fb47cd3306))
+
+### 🐛 Исправления
+
+* **storybook:** исправлен оверлей для Docs ([bb98763](https://github.com/max-messenger/max-ui/commit/bb98763fc7ae089cebf18ef784bb6447898e66e0))
+
+### 🛠 Прочее
+
+* **deps-dev:** bump @eslint/js from 9.39.5 to 10.0.1 ([106c4ba](https://github.com/max-messenger/max-ui/commit/106c4ba33a04aab35cf4960e66a79e75aac34173))
+* **deps-dev:** bump rollup from 4.62.3 to 4.63.1 ([35f8f4d](https://github.com/max-messenger/max-ui/commit/35f8f4d8e15fb717d3395bedcc64484b0cc5dc8a))
+* **deps:** bump svgo ([3c83657](https://github.com/max-messenger/max-ui/commit/3c836573ecb85eb915ef57dc4369adc0d5636e73))
+* Обновление линта и связанных с ним плагинов ([375e87f](https://github.com/max-messenger/max-ui/commit/375e87fbff2a5ec0332fcf9f037b7630ea4cc10b))
+
 ## [0.4.0](https://github.com/max-messenger/max-ui/compare/v0.3.2...v0.4.0) (2026-09-02)
 
 ### ✨ Новые возможности
