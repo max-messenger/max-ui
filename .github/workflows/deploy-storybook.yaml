@@ -25,6 +25,14 @@ jobs:
         with:
           node-version: '20.x'
 
+      # Rewrite internal Nexus registry URLs in the lockfile to the public npm
+      # registry. The lockfile was generated against an internal Nexus proxy
+      # (nexus.vkteam.ru) unreachable from GitHub-hosted runners, which makes
+      # `npm ci` time out (ETIMEDOUT). Nexus mirrors the public registry, so the
+      # tarballs and integrity hashes are identical.
+      - name: Point lockfile at public npm registry
+        run: sed -i 's|https://nexus.vkteam.ru/repository/npm/|https://registry.npmjs.org/|g' package-lock.json
+
       #👇 Add Storybook build and deploy to GitHub Pages as a step in the workflow
       - uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
         with:
