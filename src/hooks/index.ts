@@ -3,4 +3,5 @@ export * from './use-callback-ref';
 export * from './use-color-scheme';
 export * from './use-image-loading-status';
 export * from './use-platform';
+export * from './use-snackbar';
 export * from './use-system-color-scheme';
