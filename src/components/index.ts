@@ -10,6 +10,7 @@ export * from './IconButton';
 export * from './Input';
 export * from './MaxUI';
 export * from './Radio';
+export * from './Snackbar';
 export * from './Spinner';
 export * from './Switch';
 export * from './Textarea';
