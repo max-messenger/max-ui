@@ -1,12 +1,12 @@
 import { clsx } from 'clsx';
-import {ComponentRef, forwardRef, useCallback} from 'react';
+import {ComponentRef, forwardRef, HTMLProps, useCallback} from 'react';
 
 import {hasReactNode} from "../../helpers";
 import { Typography } from '../Typography';
 import styles from './Snackbar.module.scss';
 import type { SnackbarQueueItem } from './types';
 
-export interface SnackbarItemProps extends SnackbarQueueItem {
+export interface SnackbarItemProps extends SnackbarQueueItem, Omit<HTMLProps<HTMLDivElement>, 'id'> {
   onExited?: (id: string) => void;
 }
 

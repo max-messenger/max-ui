@@ -85,7 +85,7 @@
     0 4px 16px 0 rgb(0 0 0 / 0.08),
     0 0 2px 0 rgb(0 0 0 / 0.08);
   backdrop-filter: blur(12px);
-  background: var(--counter-default);
+  background: #696C70;
   pointer-events: auto;
   animation: maxSnackbarEnter 0.3s cubic-bezier(0.15, 0, 0.5, 0.3);
 }
