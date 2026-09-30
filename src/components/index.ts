@@ -13,5 +13,6 @@ export * from './Radio';
 export * from './Snackbar';
 export * from './Spinner';
 export * from './Switch';
+export * from './Tabs';
 export * from './Textarea';
 export * from './Typography';
