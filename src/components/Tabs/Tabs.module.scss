@@ -1,0 +1,54 @@
+@use '../../styles/shared-mixins/typography';
+
+.tabs {
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+}
+.tab {
+  height: 40px;
+  overflow: hidden;
+  border-radius: 12px;
+  padding: 0 12px;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+  cursor: pointer;
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--text-tertiary);
+    text-align: center;
+    text-overflow: ellipsis;
+    @include typography.bodyStrong;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  &_active {
+    .tab__label {
+      color: var(--text-themed);
+    }
+    &:after {
+      content: '';
+      background-color: var(--text-themed);
+      display: block;
+      height: 6px;
+      width: calc(100% - 24px);
+      position: absolute;
+      bottom: -3px;
+      left: 12px;
+      border-radius: 16px;
+    }
+  }
+  &:hover{
+    background-color: var(--states-button-ghost-hover);
+  }
+  &:active {
+    background-color: var(--states-button-ghost-pressed);
+  }
+}
