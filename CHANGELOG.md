@@ -3,6 +3,21 @@
 Все заметные изменения этого проекта задокументированы в этом файле.
 Формат основан на [Conventional Commits](https://conventionalcommits.org).
 
+## [0.6.0](https://github.com/max-messenger/max-ui/compare/v0.5.0...v0.6.0) (2026-10-05)
+
+### ✨ Новые возможности
+
+* Возможность прокидывать html props, изменен цвет снекбара ([83529fb](https://github.com/max-messenger/max-ui/commit/83529fb3678361056d09057dd6eab29051da9d68))
+* Добавлен Snackbar ([bfc305e](https://github.com/max-messenger/max-ui/commit/bfc305eb5447d601cf089b39c3cabe0382212c3a))
+* Компонент Segmented ([88144dc](https://github.com/max-messenger/max-ui/commit/88144dc4b1fba579edd4bc29b68f2683bc0a2739))
+* Компонент Tabs ([87f1ca7](https://github.com/max-messenger/max-ui/commit/87f1ca7326fedd008e4fd9943abd7c49c2be9314))
+
+### 🐛 Исправления
+
+* fix deploy ([1df07bd](https://github.com/max-messenger/max-ui/commit/1df07bd7c740374cd40612c07654c3fade7c2e9f))
+* fix deploy ([d9700b6](https://github.com/max-messenger/max-ui/commit/d9700b695a6da0d00665a2136adbfd7bea0dc867))
+* fix deploy ([b16467c](https://github.com/max-messenger/max-ui/commit/b16467cfb733e69d74e5c4b41faafdf03db5c3d9))
+
 ## [0.5.0](https://github.com/max-messenger/max-ui/compare/v0.4.0...v0.5.0) (2026-09-15)
 
 ### ✨ Новые возможности
