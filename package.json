@@ -84,6 +84,7 @@
     "react-dom": "19.2.8"
   },
   "dependencies": {
+    "@floating-ui/react": "0.27.20",
     "@radix-ui/react-slot": "1.3.3"
   }
 }

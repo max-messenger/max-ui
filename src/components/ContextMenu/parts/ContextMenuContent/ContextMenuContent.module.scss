@@ -1,0 +1,25 @@
+.ContextMenuContent {
+  --MaxUi-ContextMenu_box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.08), 0 0 2px 0 rgba(0, 0, 0, 0.08);
+  --MaxUi-ContextMenu_z-index: 1000;
+  --MaxUi-ContextMenu_min-width: 200px;
+  --MaxUi-ContextMenu_max-width: 320px;
+  --MaxUi-ContextMenu_edge-gap: 8px;
+
+  box-sizing: border-box;
+  z-index: var(--MaxUi-ContextMenu_z-index);
+  min-width: var(--MaxUi-ContextMenu_min-width);
+  max-width: min(var(--MaxUi-ContextMenu_max-width), calc(100vw - 2 * var(--MaxUi-ContextMenu_edge-gap)));
+  max-height: calc(100vh - 2 * var(--MaxUi-ContextMenu_edge-gap));
+  max-height: calc(100dvh - 2 * var(--MaxUi-ContextMenu_edge-gap));
+  padding: var(--spacing-size-s) 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background-color: var(--background-card);
+  border-radius: var(--size-border-radius-semantic-border-radius-paper);
+  box-shadow: var(--MaxUi-ContextMenu_box-shadow);
+  color: var(--text-primary);
+  font-family: var(--family-base);
+  border-radius: var(--Technical-Menu-Context-Radius, 32px);
+  background: Background/Primary;
+
+}
