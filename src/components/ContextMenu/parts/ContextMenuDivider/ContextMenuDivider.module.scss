@@ -1,0 +1,6 @@
+.ContextMenuDivider {
+  flex-shrink: 0;
+  height: 1px;
+  margin: var(--spacing-size-xs) var(--spacing-size-m);
+  background-color: var(--divider-primary);
+}

@@ -1,0 +1,96 @@
+.ContextMenuRow {
+  --ContextMenuRow-chevron-size: calc(var(--spacing-size2xl) + var(--spacing-size2xs));
+
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-xl);
+  min-height: 40px;
+  margin-inline: var(--spacing-size-m);
+  padding: var(--spacing-size-m) var(--spacing-size-xl);
+  border-radius: var(--size-border-radius-action-large);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-body);
+  line-height: var(--line-height-body);
+  letter-spacing: var(--letter-spacing-body);
+  text-align: left;
+  user-select: none;
+}
+
+.ContextMenuRow_destructive {
+  color: var(--text-negative);
+}
+
+.ContextMenuRow_disabled {
+  color: var(--states-text-primary-disabled);
+}
+
+.ContextMenuRow_destructive.ContextMenuRow_disabled {
+  color: var(--states-text-negative-disabled);
+}
+
+// Строки с подменю: резерв места под absolute-шеврон, чтобы текст не заезжал под него
+.ContextMenuRow_hasSubmenu {
+  padding-right: calc(var(--ContextMenuRow-chevron-size) + var(--spacing-size-m) + var(--spacing-size-xl));
+}
+
+.ContextMenuRow__before {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+
+  & > svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.ContextMenuRow__label {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.ContextMenuRow__hint {
+  flex-shrink: 0;
+  color: var(--text-tertiary);
+  font-size: var(--font-size-description);
+  font-weight: var(--font-weight-description);
+  line-height: var(--line-height-description);
+  letter-spacing: var(--letter-spacing-description);
+}
+
+.ContextMenuRow_disabled .ContextMenuRow__hint {
+  color: var(--states-text-secondary-disabled);
+}
+
+.ContextMenuRow__chevron {
+  position: absolute;
+  top: 50%;
+  right: var(--spacing-size-m);
+  display: block;
+  width: var(--ContextMenuRow-chevron-size);
+  height: var(--ContextMenuRow-chevron-size);
+  transform: translateY(-50%);
+  color: var(--icon-primary);
+}
+
+.ContextMenuRow__chevron_mobile {
+  transition: transform 0.2s ease;
+}
+
+.ContextMenuRow__chevron_mobile.ContextMenuRow__chevron_expanded {
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.ContextMenuRow_disabled .ContextMenuRow__chevron {
+  color: var(--states-icon-primary-disabled);
+}

@@ -1,0 +1,29 @@
+.ContextMenuList {
+  display: flex;
+  flex-direction: column;
+}
+
+.ContextMenuList_nested {
+  padding-left: var(--spacing-size2xl);
+}
+
+// Анимация раскрытия мобильного аккордеона через grid-template-rows.
+// visibility убирает свёрнутое содержимое из tab-порядка и дерева доступности,
+// переключаясь с задержкой, чтобы анимация закрытия успела проиграться
+.ContextMenuList__accordion {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition: grid-template-rows 0.2s ease, visibility 0s linear 0.2s;
+}
+
+.ContextMenuList__accordion_expanded {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition: grid-template-rows 0.2s ease, visibility 0s;
+}
+
+.ContextMenuList__accordionContent {
+  min-height: 0;
+  overflow: hidden;
+}
