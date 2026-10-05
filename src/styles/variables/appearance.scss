@@ -45,6 +45,7 @@
   // Controls
   --controls-active: rgb(0 122 255);
   --controls-inactive: rgb(9 9 9 / 0.08);
+  --controls-key: #fff;
 
   // Promo
   --promo-text-step-1: rgb(104 19 255);
@@ -113,6 +114,8 @@
   --states-background-hovered-transparent: rgb(13 13 13 / 0.04);
   --states-background-pressed-transparent: rgb(13 13 13 / 0.08);
   --states-background-disabled-neutral-fade: rgb(9 9 9 / 0.04);
+
+  --Effects-Shadow-Elevation-3-Shadow-Elevation-3-Color-Secondary:rgba(0, 0, 0, 0.08);
 }
 
 @mixin darkPalette {
@@ -162,6 +165,7 @@
   // Controls
   --controls-active: rgb(0 122 255);
   --controls-inactive: rgb(255 255 255 / 0.09);
+  --controls-key: rgba(255, 255, 255, 0.27);
 
   // Promo
   --promo-text-step-1: rgb(164 115 255);
@@ -232,4 +236,6 @@
   --states-background-hovered-transparent: rgb(231 231 231 / 0.04);
   --states-background-pressed-transparent: rgb(231 231 231 / 0.08);
   --states-background-disabled-neutral-fade: rgb(255 255 255 / 0.12);
+
+  --Effects-Shadow-Elevation-3-Shadow-Elevation-3-Color-Secondary:rgba(0, 0, 0, 0.30);
 }

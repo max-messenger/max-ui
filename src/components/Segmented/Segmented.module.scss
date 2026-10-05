@@ -1,0 +1,33 @@
+@use '../../styles/shared-mixins/typography';
+
+.segmented {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  background-color: var(--background-tertiary);
+  border-radius: var(--border-radius-circle);
+  padding: 2px;
+}
+.segment {
+  border-radius: var(--border-radius-circle);
+  padding: 6px 10px;
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 4px;
+  position: relative;
+  cursor: pointer;
+  color: var(--text-primary);
+  text-overflow: ellipsis;
+  @include typography.actionSmall;
+  background: none;
+  border: none;
+  &_active {
+    background-color: var(--controls-key);
+    box-shadow: 0 4px 16px 0 var(--Effects-Shadow-Elevation-3-Shadow-Elevation-3-Color-Secondary), 0 0 2px 0 var(--Effects-Shadow-Elevation-3-Shadow-Elevation-3-Color-Secondary);
+  }
+}
