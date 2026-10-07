@@ -1,6 +1,7 @@
 import {
   autoUpdate,
   flip,
+  FloatingList,
   FloatingNode,
   FloatingTree,
   offset,
@@ -11,15 +12,21 @@ import {
   useFloatingNodeId,
   useHover,
   useInteractions,
+  useListNavigation,
   useRole
 } from '@floating-ui/react';
 import { Slot } from '@radix-ui/react-slot';
 import { clsx } from 'clsx';
-import { type ElementType, forwardRef, useCallback, useMemo, useState } from 'react';
+import { type ElementType, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 import { mergeRefs } from '../../helpers';
-import { ContextMenuContext, type ContextMenuContextInterface } from './context';
+import {
+  ContextMenuContext,
+  type ContextMenuContextInterface,
+  ContextMenuLevelContext,
+  type ContextMenuLevelInterface
+} from './context';
 import styles from './ContextMenu.module.scss';
 import {
   COLLISION_PADDING,
@@ -92,11 +99,44 @@ const ContextMenuInner = forwardRef<HTMLElement, ContextMenuProps>((props, forwa
   const dismiss = useDismiss(context);
   const role = useRole(context, { role: 'menu' });
 
-  const { getReferenceProps, getFloatingProps } = useInteractions([click, hover, dismiss, role]);
+  // Навигация по пунктам стрелками: ↑/↓ и Home/End; неактивные (aria-disabled) пункты
+  // пропускаются. ↓/↑ на триггере открывают меню и фокусируют первый/последний пункт.
+  const listRef = useRef<Array<HTMLElement | null>>([]);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  const listNavigation = useListNavigation(context, {
+    listRef,
+    activeIndex,
+    onNavigate: setActiveIndex
+  });
+
+  const { getReferenceProps, getFloatingProps, getItemProps } = useInteractions([click, hover, dismiss, role, listNavigation]);
+
+  const levelContext = useMemo<ContextMenuLevelInterface>(() => ({
+    activeIndex,
+    getItemProps
+  }), [activeIndex, getItemProps]);
 
   const close = useCallback(() => {
     handleOpenChange(false);
   }, [handleOpenChange]);
+
+  // После закрытия меню возвращаем фокус на триггер, если он потерялся:
+  // фокус был на пункте меню, а портал вместе с ним размонтировался.
+  const wasOpenRef = useRef(false);
+  useEffect(() => {
+    if (open) {
+      wasOpenRef.current = true;
+      return;
+    }
+
+    if (!wasOpenRef.current) return;
+    wasOpenRef.current = false;
+
+    if (typeof document !== 'undefined' && document.activeElement === document.body) {
+      (refs.domReference.current as HTMLElement | null)?.focus();
+    }
+  }, [open, refs]);
 
   const contextValue = useMemo<ContextMenuContextInterface>(() => ({
     mode: resolvedMode,
@@ -111,6 +151,7 @@ const ContextMenuInner = forwardRef<HTMLElement, ContextMenuProps>((props, forwa
       <TriggerComponent
         ref={mergeRefs<HTMLElement>(forwardedRef, refs.setReference)}
         className={clsx(!asChild && styles.ContextMenu__trigger, className, innerClassNames?.trigger)}
+        tabIndex={asChild ? undefined : 0}
         {...getReferenceProps()}
       >
         {children}
@@ -122,11 +163,20 @@ const ContextMenuInner = forwardRef<HTMLElement, ContextMenuProps>((props, forwa
             ref={refs.setFloating}
             style={floatingStyles}
             className={clsx(innerClassNames?.content)}
-            {...getFloatingProps()}
+            {...getFloatingProps({
+              onKeyDown: (event) => {
+                // Tab уводит фокус из меню — закрываем его, как нативные меню
+                if (event.key === 'Tab') close();
+              }
+            })}
           >
             {actionBar && <ContextMenuActionBar buttons={actionBar} />}
 
-            <ContextMenuList items={items} />
+            <ContextMenuLevelContext.Provider value={levelContext}>
+              <FloatingList elementsRef={listRef}>
+                <ContextMenuList items={items} />
+              </FloatingList>
+            </ContextMenuLevelContext.Provider>
           </ContextMenuContent>
         </ContextMenuContext.Provider>,
         document.body

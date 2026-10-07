@@ -52,6 +52,21 @@ export const ContextMenuList = ({ items, nested = false }: ContextMenuListProps)
     window.clearTimeout(closeTimerRef.current);
   }, []);
 
+  const openSubmenu = useCallback((id: string) => {
+    window.clearTimeout(openTimerRef.current);
+    window.clearTimeout(closeTimerRef.current);
+    setOpenChildId(id);
+  }, []);
+
+  const closeSubmenu = useCallback((id: string) => {
+    setOpenChildId((prev) => (prev === id ? null : prev));
+  }, []);
+
+  // Фокус перешёл на другую строку — подменю чужой строки больше неактуально, закрываем
+  const getRowFocusHandler = useCallback((id: string) => () => {
+    setOpenChildId((prev) => (prev && prev !== id ? null : prev));
+  }, []);
+
   const toggleExpanded = useCallback((id: string) => {
     setExpandedIds((prev) => (prev.includes(id) ? prev.filter((itemId) => itemId !== id) : [...prev, id]));
   }, []);
@@ -97,10 +112,20 @@ export const ContextMenuList = ({ items, nested = false }: ContextMenuListProps)
                 item={item}
                 open={openChildId === item.id}
                 onClick={handleNestedClick(item)}
+                onOpenChange={(nextOpen) => {
+                  // Запросы useListNavigation подменю: ArrowRight на строке (открыть),
+                  // ArrowLeft внутри панели (закрыть)
+                  if (nextOpen) {
+                    openSubmenu(item.id);
+                  } else {
+                    closeSubmenu(item.id);
+                  }
+                }}
                 onRowMouseEnter={handleNestedMouseEnter}
                 onRowMouseLeave={handleNestedMouseLeave}
                 onPanelMouseEnter={handlePanelMouseEnter}
                 onPanelMouseLeave={handleNestedMouseLeave}
+                onRowFocus={getRowFocusHandler(item.id)}
               >
                 <ContextMenuList items={item.items} />
               </ContextMenuSubmenu>
@@ -119,6 +144,7 @@ export const ContextMenuList = ({ items, nested = false }: ContextMenuListProps)
               item={item}
               expanded={expanded}
               onClick={hasSubmenu ? handleNestedClick(item) : handleLeafClick(item)}
+              onFocus={mode === 'desktop' ? getRowFocusHandler(item.id) : undefined}
             />
 
             {isAccordionItem && (

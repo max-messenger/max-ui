@@ -55,6 +55,15 @@ const nestedItems: ContextMenuItem[] = [
       { id: 'move-to-general', label: 'General', onClick: onActionClick }
     ]
   },
+  {
+    id: 'share',
+    label: 'Share',
+    disabled: true,
+    items: [
+      { id: 'share-link', label: 'Copy link', onClick: onActionClick },
+      { id: 'share-forward', label: 'Forward', onClick: onActionClick }
+    ]
+  },
   { id: 'copy-message', label: 'Copy message', hint: '⌘C', onClick: onActionClick },
   { id: 'delete-message', label: 'Delete message', mode: 'destructive', divider: true, onClick: onActionClick }
 ];
@@ -88,7 +97,7 @@ const meta = {
     cartesian: ['openOn', 'mode'],
     docs: {
       description: {
-        component: 'Контекстное меню, которое открывается по клику или наведению на триггер. На десктопе вложенные пункты открываются рядом с меню, на мобильных — раскрываются аккордеоном.'
+        component: 'Контекстное меню, которое открывается по клику или наведению на триггер. На десктопе вложенные пункты открываются рядом с меню, на мобильных — раскрываются аккордеоном. Клавиатура: ↓/↑ на триггере открывают меню; ↓/↑ и Home/End перемещают фокус по пунктам (неактивные пропускаются); Enter/Space активируют пункт; → открывает подменю и фокусирует его первый пункт; ← закрывает подменю и возвращает фокус на строку-родитель; Escape и Tab закрывают всё меню.'
       }
     }
   },
@@ -170,7 +179,7 @@ export const NestedSubmenus: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'На десктопе вложенные пункты открываются рядом при наведении (справа, при нехватке места — слева). Переключите mode в `mobile`, чтобы увидеть аккордеон.'
+        story: 'На десктопе вложенные пункты открываются рядом при наведении (справа, при нехватке места — слева). Переключите mode в `mobile`, чтобы увидеть аккордеон. С клавиатуры: → открывает подменю, ← закрывает. Пункт Share неактивен — его подменю не открывается ни наведением, ни с клавиатуры.'
       }
     }
   },
