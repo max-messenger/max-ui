@@ -1,3 +1,4 @@
+import { type UseInteractionsReturn } from '@floating-ui/react';
 import { createContext, useContext } from 'react';
 
 import { noop } from '../../helpers';
@@ -18,3 +19,22 @@ export const ContextMenuContext = createContext<ContextMenuContextInterface>({
 });
 
 export const useContextMenu = (): ContextMenuContextInterface => useContext(ContextMenuContext);
+
+/**
+ * Контекст одного уровня меню — корневого или подменю.
+ * Каждый уровень держит собственный useListNavigation и раздаёт строкам
+ * пропсы для навигации стрелками и roving tabIndex.
+ */
+export interface ContextMenuLevelInterface {
+  activeIndex: number | null
+  getItemProps: UseInteractionsReturn['getItemProps']
+}
+
+const defaultLevelContext: ContextMenuLevelInterface = {
+  activeIndex: null,
+  getItemProps: (userProps) => ({ ...userProps })
+};
+
+export const ContextMenuLevelContext = createContext<ContextMenuLevelInterface>(defaultLevelContext);
+
+export const useContextMenuLevel = (): ContextMenuLevelInterface => useContext(ContextMenuLevelContext);

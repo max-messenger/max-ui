@@ -1,20 +1,22 @@
+import { useListItem } from '@floating-ui/react';
 import { clsx } from 'clsx';
-import { forwardRef, type KeyboardEvent, type MouseEvent } from 'react';
+import { type FocusEvent, forwardRef, type KeyboardEvent, type MouseEvent } from 'react';
 
-import { hasReactNode } from '../../../../helpers';
+import { hasReactNode, mergeRefs } from '../../../../helpers';
 import { Icon16Chevron } from '../../../../icons';
 import { Tappable } from '../../../../internal';
-import { useContextMenu } from '../../context';
+import { useContextMenu, useContextMenuLevel } from '../../context';
 import { type ContextMenuItem } from '../../types';
 import styles from './ContextMenuRow.module.scss';
 
 export interface ContextMenuRowProps {
   item: ContextMenuItem
-  /** Открыто ли подменю (desktop) / раскрын ли аккордеон (mobile) */
   expanded?: boolean
   onClick?: (event: MouseEvent<HTMLElement>) => void
   onMouseEnter?: () => void
   onMouseLeave?: () => void
+  onFocus?: (event: FocusEvent<HTMLElement>) => void
+  onSubmenuKeyDown?: (event: KeyboardEvent<HTMLElement>) => void
   className?: string
 }
 
@@ -25,20 +27,52 @@ export const ContextMenuRow = forwardRef<HTMLElement, ContextMenuRowProps>((prop
     onClick,
     onMouseEnter,
     onMouseLeave,
+    onFocus,
+    onSubmenuKeyDown,
     className
   } = props;
 
   const { mode, innerClassNames } = useContextMenu();
+  const { activeIndex, getItemProps } = useContextMenuLevel();
+
+  const { ref: listItemRef, index } = useListItem();
 
   const hasSubmenu = item.items !== undefined;
 
-  // Минимальная клавиатурная поддержка: активация пункта по Enter/Space
   const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
-    if (event.key !== 'Enter' && event.key !== ' ') return;
+    // Активация пункта по Enter/Space — как клик
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      if (!item.disabled) event.currentTarget.click();
+      return;
+    }
 
-    event.preventDefault();
-    event.currentTarget.click();
+    if (event.key === 'ArrowRight') {
+      event.preventDefault();
+
+      // Desktop: открытие подменю по стрелке обрабатывает onSubmenuKeyDown
+      // (useListNavigation вложенного уровня). Mobile: раскрываем аккордеон.
+      if (!item.disabled && hasSubmenu && mode === 'mobile') {
+        event.currentTarget.click();
+      }
+      return;
+    }
+
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+    }
   };
+
+  const itemProps = getItemProps({
+    onClick,
+    onMouseEnter,
+    onMouseLeave,
+    onFocus,
+    onKeyDown: (event) => {
+      onSubmenuKeyDown?.(event);
+      handleKeyDown(event);
+    }
+  });
 
   const rootClassName = clsx(
     styles.ContextMenuRow,
@@ -54,16 +88,14 @@ export const ContextMenuRow = forwardRef<HTMLElement, ContextMenuRowProps>((prop
 
   return (
     <Tappable
-      ref={forwardedRef}
+      ref={mergeRefs<HTMLElement>(forwardedRef, listItemRef)}
       role="menuitem"
       aria-haspopup={hasSubmenu ? 'menu' : undefined}
       aria-expanded={hasSubmenu ? expanded : undefined}
       disabled={item.disabled}
       className={rootClassName}
-      onClick={onClick}
-      onKeyDown={handleKeyDown}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
+      tabIndex={item.disabled || activeIndex !== index ? -1 : 0}
+      {...itemProps}
     >
       {(hasReactNode(item.before) || item.offset) && (
         <span className={clsx(styles.ContextMenuRow__before, innerClassNames?.before)}>
