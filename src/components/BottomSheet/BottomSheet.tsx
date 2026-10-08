@@ -1,7 +1,7 @@
-import { Typography } from '@maxhub/max-ui';
 import clsx from 'clsx';
 import { AnimationEvent,type ReactNode, useEffect, useState } from 'react';
 
+import { Typography } from '../Typography';
 import styles from './BottomSheet.module.scss';
 
 export type BottomSheetProps = {
