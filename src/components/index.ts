@@ -1,4 +1,5 @@
 export * from './Avatar';
+export * from './BottomSheet';
 export * from './Button';
 export * from './CellAction';
 export * from './CellHeader';
