@@ -1,0 +1,29 @@
+.label {
+  font-weight: 400;
+  display: inline-flex;
+  min-height: 32px;
+  padding: 6px 12px;
+  border-radius: 30px;
+  box-sizing: border-box;
+  color: var(--text-primary-inverse-static);
+}
+
+.positive {
+  background: rgba(26, 190, 67, 0.08);
+  color: var(--text-positive)
+}
+
+.warning {
+  background: rgb(253 219 167 / 0.4);
+  color: var(--text-attention);
+}
+
+.negative {
+  background: rgba(255, 48, 60, 0.08);
+  color: var(--text-negative)
+}
+
+.neutral {
+  color: var(--text-primary);
+  background: var(--button-secondary);
+}
