@@ -13,6 +13,7 @@ export * from './Input';
 export * from './MaxUI';
 export * from './Radio';
 export * from './Segmented';
+export * from './Select';
 export * from './Snackbar';
 export * from './Spinner';
 export * from './Switch';

@@ -1,0 +1,38 @@
+@use '../../../../styles/shared-mixins/reset-text-field';
+@use '../../../../styles/shared-mixins/typography';
+
+.SelectSearch {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-m);
+  box-sizing: border-box;
+  height: 40px;
+  margin: var(--spacing-size-m) var(--spacing-size-m) 0;
+  padding: 0 var(--spacing-size-xl);
+  border-radius: var(--size-border-radius-action-medium);
+  background-color: var(--background-tertiary);
+  color: var(--text-primary);
+}
+
+.SelectSearch__icon {
+  flex-shrink: 0;
+  color: var(--icon-tertiary);
+}
+
+.SelectSearch__input {
+  @include reset-text-field.resetTextField;
+  @include typography.detail;
+
+  flex: 1 1 auto;
+  min-width: 0;
+  height: inherit;
+}
+
+.SelectSearch__input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.SelectSearch__clearButton {
+  flex-shrink: 0;
+  padding: 2px;
+}

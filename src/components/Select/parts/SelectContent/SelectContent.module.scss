@@ -1,0 +1,40 @@
+.SelectContent {
+  --MaxUi-Select_box-shadow: 0 4px 16px 0 var(--Effects-Shadow-Elevation-3-Shadow-Elevation-3-Color-Secondary), 0 0 2px 0 var(--Effects-Shadow-Elevation-3-Shadow-Elevation-3-Color-Secondary);
+  --MaxUi-Select_z-index: 1000;
+  --MaxUi-Select_max-height: 320px;
+  --MaxUi-Select_edge-gap: 8px;
+
+  box-sizing: border-box;
+  z-index: var(--MaxUi-Select_z-index);
+  display: flex;
+  flex-direction: column;
+  // --MaxUi-Select_available-height и --MaxUi-Select_trigger-width выставляются из middleware size
+  max-height: min(var(--MaxUi-Select_max-height), var(--MaxUi-Select_available-height, 100vh));
+  overflow: hidden;
+  background-color: var(--background-card);
+  border-radius: var(--size-border-radius-semantic-border-radius-card);
+  box-shadow: var(--MaxUi-Select_box-shadow);
+  color: var(--text-primary);
+  font-family: var(--family-base);
+}
+
+.SelectContent_width_trigger {
+  width: var(--MaxUi-Select_trigger-width);
+}
+
+.SelectContent_width_auto {
+  min-width: var(--MaxUi-Select_trigger-width);
+  max-width: calc(100vw - 2 * var(--MaxUi-Select_edge-gap));
+}
+
+.SelectContent__header {
+  flex-shrink: 0;
+}
+
+.SelectContent__body {
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: var(--spacing-size-s) 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}

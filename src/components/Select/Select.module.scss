@@ -1,0 +1,18 @@
+@use '../../styles/shared-mixins/typography';
+
+.Select {
+  width: 100%;
+}
+
+// [Parts] Hint
+.Select__hint {
+  @include typography.description;
+
+  padding: 4px 12px 0;
+  color: var(--text-tertiary);
+  box-sizing: border-box;
+}
+
+.Select__hint_disabled {
+  color: var(--states-text-primary-disabled);
+}

@@ -1,0 +1,112 @@
+@use '../../../../styles/builders/form-field-builder';
+@use '../../../../styles/builders/form-field-modes-builder';
+@use '../../../../styles/shared-mixins/typography';
+
+.SelectField {
+  @include form-field-builder.buildFormFieldBase;
+  @include typography.body;
+
+  cursor: pointer;
+  user-select: none;
+}
+
+.SelectField:focus-visible {
+  outline: auto;
+  outline-offset: 2px;
+}
+
+// [State] Disabled
+.SelectField_disabled {
+  cursor: not-allowed;
+
+  .SelectField__iconBefore,
+  .SelectField__chevron {
+    color: var(--states-icon-primary-disabled);
+  }
+
+  .SelectField__value {
+    color: var(--states-text-primary-disabled);
+  }
+}
+
+// [Properties] Sizes
+.SelectField_size_medium {
+  @include form-field-builder.buildFormFieldSize('medium');
+  @include typography.detail;
+}
+.SelectField_size_large {
+  @include form-field-builder.buildFormFieldSize('large');
+}
+
+// [Properties] Modes
+.SelectField_mode_default {
+  @include form-field-modes-builder.buildFormFieldSecondaryMode('SelectField');
+
+  &.SelectField_disabled {
+    background-color: var(--background-tertiary);
+  }
+}
+.SelectField_mode_contrast {
+  @include form-field-modes-builder.buildFormFieldPrimaryMode('SelectField');
+}
+
+// [Parts] Icon Before
+.SelectField__iconBefore {
+  color: var(--icon-primary);
+  display: flex;
+  flex-shrink: 0;
+}
+
+// [Parts] Value
+.SelectField__value {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.SelectField__value_placeholder {
+  color: var(--text-tertiary);
+}
+
+// [Parts] Counter
+.SelectField__counter {
+  @include typography.tag;
+
+  flex-shrink: 0;
+  padding: 1px var(--spacing-size-s);
+  border-radius: var(--border-radius-circle);
+  background-color: var(--counter-mute);
+  color: var(--text-tertiary);
+}
+
+.SelectField_disabled .SelectField__counter {
+  color: var(--states-text-primary-disabled);
+}
+
+.SelectField__clearButton {
+  display: none;
+  flex-shrink: 0;
+  padding: 2px;
+}
+
+.SelectField:focus-within .SelectField__clearButton,
+.SelectField_open .SelectField__clearButton {
+  display: flex;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .SelectField:hover .SelectField__clearButton {
+    display: flex;
+  }
+}
+
+// [Parts] Chevron
+.SelectField__chevron {
+  flex-shrink: 0;
+  color: var(--icon-primary);
+  transform: rotate(90deg);
+  transition: transform 0.2s ease;
+}
+
+.SelectField__chevron_open {
+  transform: rotate(-90deg);
+}
