@@ -1,0 +1,14 @@
+@use '../../../../styles/shared-mixins/typography';
+
+.SelectEmpty {
+  @include typography.body;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: 40px;
+  padding: var(--spacing-size-m) var(--spacing-size-xl);
+  color: var(--text-tertiary);
+  text-align: center;
+}

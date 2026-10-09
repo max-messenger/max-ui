@@ -1,0 +1,89 @@
+@use '../../../../styles/shared-mixins/typography';
+
+.SelectOptionRow {
+  @include typography.body;
+
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-xl);
+  min-height: 40px;
+  margin-inline: var(--spacing-size-m);
+  padding: var(--spacing-size-m) var(--spacing-size-xl);
+  border-radius: var(--size-border-radius-action-large);
+  color: var(--text-primary);
+  cursor: pointer;
+  user-select: none;
+}
+
+// [States] Selected / Active (клавиатура или hover) / Pressed
+.SelectOptionRow_selected {
+  background-color: var(--background-accent-neutral-fade-secondary);
+}
+
+.SelectOptionRow_active {
+  background-color: var(--states-background-hovered-transparent);
+}
+
+.SelectOptionRow:active {
+  background-color: var(--states-background-pressed-transparent);
+}
+
+// [States] Disabled
+.SelectOptionRow_disabled,
+.SelectOptionRow_disabled:active {
+  background-color: transparent;
+  color: var(--states-text-primary-disabled);
+  cursor: not-allowed;
+}
+
+// [Parts] Before
+.SelectOptionRow__before {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+
+  & > svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+// [Parts] Label
+.SelectOptionRow__label {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+// [Parts] Hint
+.SelectOptionRow__hint {
+  @include typography.description;
+
+  flex-shrink: 0;
+  color: var(--text-tertiary);
+}
+
+.SelectOptionRow_disabled .SelectOptionRow__hint {
+  color: var(--states-text-secondary-disabled);
+}
+
+// [Parts] Check (multiple)
+.SelectOptionRow__check {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  color: var(--icon-primary);
+}
+
+.SelectOptionRow_disabled .SelectOptionRow__check {
+  color: var(--states-icon-primary-disabled);
+}

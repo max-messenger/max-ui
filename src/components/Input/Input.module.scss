@@ -1,16 +1,10 @@
 @use '../../styles/shared-mixins/reset-text-field';
 @use '../../styles/shared-mixins/typography';
+@use '../../styles/builders/form-field-builder';
 @use '../../styles/builders/form-field-modes-builder';
 
 .Input {
-  padding-left: var(--spacing-size-xl);
-  padding-right: var(--spacing-size-xl);
-  color: var(--text-primary);
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-size-xl);
-  width: 100%;
-  box-sizing: border-box;
+  @include form-field-builder.buildFormFieldBase;
 }
 
 // [State] Disabled
@@ -25,16 +19,14 @@
 
 // [Properties] Sizes
 .Input_size_medium {
-  height: 40px;
-  border-radius: var(--size-border-radius-action-medium);
+  @include form-field-builder.buildFormFieldSize('medium');
 
   .Input__input {
     @include typography.detail;
   }
 }
 .Input_size_large {
-  height: 52px;
-  border-radius: var(--size-border-radius-action-large);
+  @include form-field-builder.buildFormFieldSize('large');
 }
 
 // [Properties] Modes

@@ -1,0 +1,25 @@
+// Общая база полей форм (Input, Select): отступы, раскладка и размеры.
+// Цвета фона подключаются отдельно через form-field-modes-builder.
+@mixin buildFormFieldBase {
+  padding-left: var(--spacing-size-xl);
+  padding-right: var(--spacing-size-xl);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-xl);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+// $size: 'medium' | 'large'
+@mixin buildFormFieldSize ($size) {
+  @if $size == 'medium' {
+    height: 40px;
+    border-radius: var(--size-border-radius-action-medium);
+  } @else if $size == 'large' {
+    height: 52px;
+    border-radius: var(--size-border-radius-action-large);
+  } @else {
+    @error 'Unknown form field size: #{$size}';
+  }
+}
