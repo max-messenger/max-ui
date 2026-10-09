@@ -15,6 +15,7 @@ export * from './Radio';
 export * from './Segmented';
 export * from './Snackbar';
 export * from './Spinner';
+export * from './Steps';
 export * from './Switch';
 export * from './Tabs';
 export * from './Textarea';
