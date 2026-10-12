@@ -105,3 +105,19 @@ export const WithMinHeight: Story = {
     );
   }
 };
+
+export const WithoutDrag: Story = {
+  args: {
+    minHeight: '50vh',
+    enableDrag: false
+  },
+  render: ({ ...args }) => {
+    return (
+      <BottomSheet {...args}>
+        <Button variant="primary" size="medium" stretched onClick={args.onClose}>
+          Закрыть
+        </Button>
+      </BottomSheet>
+    );
+  }
+};
