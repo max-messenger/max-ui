@@ -11,12 +11,12 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Нижняя шторка (bottom sheet). Открывается поверх оверлея, закрывается по клику на оверлей, кнопке или клавише Escape.'
+        component: 'Нижняя шторка (bottom sheet). Открывается поверх оверлея, закрывается по клику на оверлей, кнопке, клавише Escape или перетаскиванием за ручку вниз.'
       }
     }
   },
   argTypes: {
-    ...hideArgsControl(['children', 'onClose', 'open'])
+    ...hideArgsControl(['children', 'onClose', 'open', 'innerClassNames'])
   },
   args: {
     title: 'Заголовок шторки'
@@ -26,7 +26,7 @@ const meta = {
       const [open, setOpen] = useState(false);
 
       return (
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12, minHeight: 320, padding: 24 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: 24, flexDirection: 'column' }}>
           <Button
             variant="secondary"
             size="small"
@@ -34,7 +34,6 @@ const meta = {
           >
             Открыть шторку
           </Button>
-
           <Story
             args={{
               ...context.args,
@@ -94,7 +93,7 @@ export const WithoutTitle: Story = {
 
 export const WithMinHeight: Story = {
   args: {
-    minHeight: 50
+    minHeight: '50vh'
   },
   render: ({ ...args }) => {
     return (
