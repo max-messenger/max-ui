@@ -16,6 +16,7 @@ export * from './Segmented';
 export * from './Select';
 export * from './Snackbar';
 export * from './Spinner';
+export * from './StatusBadge';
 export * from './Steps';
 export * from './Switch';
 export * from './Tabs';
