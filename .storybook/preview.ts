@@ -15,6 +15,10 @@ const preview: Preview = {
       source: {
         type: 'dynamic',
         state: 'open'
+      },
+      story: {
+        inline: false,
+        height: '400px'
       }
     },
     layout: 'fullscreen'
