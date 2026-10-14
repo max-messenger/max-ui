@@ -3,6 +3,24 @@
 Все заметные изменения этого проекта задокументированы в этом файле.
 Формат основан на [Conventional Commits](https://conventionalcommits.org).
 
+## [0.7.0](https://github.com/max-messenger/max-ui/compare/v0.6.0...v0.7.0) (2026-10-14)
+
+### ✨ Новые возможности
+
+* Компонент BottomSheet ([fd0cd1f](https://github.com/max-messenger/max-ui/commit/fd0cd1fa452f1f62b4db246cc54f32dd85b3a584))
+* Компонент StatusBadge ([0d075c7](https://github.com/max-messenger/max-ui/commit/0d075c70cb6cde646caaf9603472edcce773bd07))
+* Компонент Steps ([d7c368a](https://github.com/max-messenger/max-ui/commit/d7c368a0d3f55808683286fc122a5216c917bfb1))
+* Реализовано закрытие BottomSheet с помощью drag&drop ([0e97fa0](https://github.com/max-messenger/max-ui/commit/0e97fa031ba694357ca095e960f6e25ed9a9cd92))
+* Реализовано закрытие BottomSheet с помощью drag&drop ([bb7d773](https://github.com/max-messenger/max-ui/commit/bb7d773480b5a5660cbc41de869e7d586c90f2c7))
+
+### 🐛 Исправления
+
+* Исправлен импорт в компоненте BottomSheet ([019f115](https://github.com/max-messenger/max-ui/commit/019f115adc8a205d0790b9f1939c649f52558458))
+
+### 🛠 Прочее
+
+* Изменен рендер сторей Docs ([b387028](https://github.com/max-messenger/max-ui/commit/b38702830e1abcda89eccf23abbbbe8d0a2971f7))
+
 ## [0.6.0](https://github.com/max-messenger/max-ui/compare/v0.5.0...v0.6.0) (2026-10-05)
 
 ### ✨ Новые возможности
