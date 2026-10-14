@@ -1,6 +1,8 @@
 import clsx from 'clsx';
-import { AnimationEvent,type ReactNode, useEffect, useState } from 'react';
+import {CSSProperties, type ReactNode, type TransitionEvent, useEffect, useState} from 'react';
 
+import { useDrag } from '../../hooks';
+import {InnerClassNamesProp} from "../../types";
 import { Typography } from '../Typography';
 import styles from './BottomSheet.module.scss';
 
@@ -10,35 +12,51 @@ export type BottomSheetProps = {
   onClose: () => void
   children: ReactNode
   /**
-   * Минимальная высота шторки в vh
+   * Минимальная высота шторки
    */
-  minHeight?: number
+  minHeight?: CSSProperties['minHeight'];
+  innerClassNames?: InnerClassNamesProp<'overlay' | 'sheet' | 'handle' | 'header'>
+  enableDrag?: boolean
 }
 
+type Status = 'closed' | 'open' | 'exiting';
+
 export const BottomSheet = ({
-  open, title, onClose, children, minHeight
+  open, title, onClose, children, minHeight = 'auto', innerClassNames, enableDrag = true
 }: BottomSheetProps) => {
-  const [mounted, setMounted] = useState(open);
-  const [closing, setClosing] = useState(false);
+  const [status, setStatus] = useState<Status>(open ? 'open' : 'closed');
 
   useEffect(() => {
-    if (open) {
-      setMounted(true);
-      setClosing(false);
-    } else if (mounted) {
-      setClosing(true);
-    }
+    setStatus((prev) => {
+      if (open) {
+        return 'open';
+      }
+      return prev === 'closed' ? 'closed' : 'exiting';
+    });
   }, [open]);
 
-  const handleAnimationEnd = (event: AnimationEvent<HTMLDivElement>) => {
-    if (closing && event.target === event.currentTarget) {
-      setMounted(false);
-      setClosing(false);
+  const handleTransitionEnd = (event: TransitionEvent<HTMLDivElement>) => {
+    if (event.target !== event.currentTarget || event.propertyName !== 'transform') {
+      return;
     }
+    // По завершении transition выхода размонтируем шторку.
+    setStatus((prev) => (prev === 'exiting' ? 'closed' : prev));
   };
 
+  // Блокируем прокрутку фона, пока шторка в DOM.
   useEffect(() => {
-    if (!mounted) {
+    if (status === 'closed') {
+      return;
+    }
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = previous;
+    };
+  }, [status]);
+
+  useEffect(() => {
+    if (status === 'closed') {
       return;
     }
 
@@ -52,26 +70,79 @@ export const BottomSheet = ({
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [mounted, onClose]);
+  }, [status, onClose]);
 
-  if (!mounted) {
+  const {
+    dragging,
+    dragOffset,
+    suppressClickRef,
+    handlePointerDown,
+    handlePointerMove,
+    handlePointerUp,
+    handlePointerCancel,
+  } = useDrag({
+    enabled: enableDrag && status === 'open',
+    onClose: () => {
+      setStatus('exiting');
+      onClose();
+    }
+  });
+
+  const handleOverlayClick = () => {
+    if (suppressClickRef.current) {
+      suppressClickRef.current = false;
+      return;
+    }
+    onClose();
+  };
+
+  if (status === 'closed') {
     return null;
   }
 
+  const exiting = status === 'exiting';
+  const transform = dragging
+    ? `translateY(${dragOffset}px)`
+    : `translateY(${exiting ? 100 : 0}%)`;
+
   return (
     <div
-      className={clsx(styles.overlay, {[styles.overlayClosing]: closing})}
-      onClick={onClose}
+      className={clsx(styles.overlay, { [styles.overlayClosing]: exiting }, innerClassNames?.overlay)}
+      onClick={handleOverlayClick}
     >
       <div
-        className={clsx(styles.sheet, {[styles.sheetClosing]: closing})}
-        style={{ minHeight: minHeight ? `${minHeight}vh` : 'auto' }}
+        className={clsx(
+          styles.sheet,
+          innerClassNames?.sheet,
+          { [styles.sheet_dragging]: dragging, [styles.sheet_exiting]: exiting }
+        )}
+        style={{
+          minHeight,
+          transform,
+        }}
         onClick={event => event.stopPropagation()}
-        onAnimationEnd={handleAnimationEnd}
+        onTransitionEnd={handleTransitionEnd}
       >
-        <div className={styles.handle} />
+        {enableDrag && (
+          <div
+            className={clsx(styles.handle, innerClassNames?.handle)}
+            role="button"
+            tabIndex={0}
+            aria-label="Перетащите вниз, чтобы закрыть"
+            onPointerDown={handlePointerDown}
+            onPointerMove={handlePointerMove}
+            onPointerUp={handlePointerUp}
+            onPointerCancel={handlePointerCancel}
+            onKeyDown={event => {
+              if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                onClose();
+              }
+            }}
+          />
+        )}
         {title && (
-          <div className={styles.header}>
+          <div className={clsx(styles.header, innerClassNames?.header)}>
             <Typography.Title variant="medium-strong">
               {title}
             </Typography.Title>
