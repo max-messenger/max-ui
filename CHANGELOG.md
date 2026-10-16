@@ -1,3 +1,5 @@
+> Histórico herdado do `@maxhub/max-ui` até a versão 0.7.0, base deste projeto. As versões do Guidu UI recomeçam em 0.1.0.
+
 # Changelog
 
 Все заметные изменения этого проекта задокументированы в этом файле.

@@ -3,16 +3,16 @@ import { type ComponentProps, forwardRef, useEffect, useMemo } from 'react';
 
 import { isIos } from '../../helpers';
 import { useSystemColorScheme } from '../../hooks';
-import styles from './MaxUI.module.scss';
-import { MaxUIContext, type MaxUIContextInterface } from './MaxUIContext';
+import styles from './GuiduUI.module.scss';
+import { GuiduUIContext, type GuiduUIContextInterface } from './GuiduUIContext';
 
-export interface MaxUIProps extends Partial<MaxUIContextInterface> {
+export interface GuiduUIProps extends Partial<GuiduUIContextInterface> {
   children: ComponentProps<'div'>['children']
   className?: ComponentProps<'div'>['className']
   resetBody?: boolean
 }
 
-export const MaxUI = forwardRef<HTMLDivElement, MaxUIProps>((props, ref) => {
+export const GuiduUI = forwardRef<HTMLDivElement, GuiduUIProps>((props, ref) => {
   const {
     children,
     className,
@@ -26,7 +26,7 @@ export const MaxUI = forwardRef<HTMLDivElement, MaxUIProps>((props, ref) => {
   });
   const colorScheme = colorSchemeProp ?? systemColorScheme;
 
-  const config = useMemo<MaxUIContextInterface>(() => ({
+  const config = useMemo<GuiduUIContextInterface>(() => ({
     colorScheme,
     platform
   }), [colorScheme, platform]);
@@ -34,27 +34,27 @@ export const MaxUI = forwardRef<HTMLDivElement, MaxUIProps>((props, ref) => {
   useEffect(() => {
     if (!resetBody) return;
 
-    document.body.classList.add(styles.MaxUI_resetBody);
+    document.body.classList.add(styles.GuiduUI_resetBody);
 
     return () => {
-      document.body.classList.remove(styles.MaxUI_resetBody);
+      document.body.classList.remove(styles.GuiduUI_resetBody);
     };
   }, [resetBody]);
 
   const rootClassName = clsx(
-    styles.MaxUI,
-    styles[`MaxUI_colorScheme_${colorScheme}`],
-    styles[`MaxUI_platform_${platform}`],
+    styles.GuiduUI,
+    styles[`GuiduUI_colorScheme_${colorScheme}`],
+    styles[`GuiduUI_platform_${platform}`],
     className
   );
 
   return (
-    <MaxUIContext.Provider value={config}>
+    <GuiduUIContext.Provider value={config}>
       <div ref={ref} className={rootClassName}>
         {children}
       </div>
-    </MaxUIContext.Provider>
+    </GuiduUIContext.Provider>
   );
 });
 
-MaxUI.displayName = 'MaxUI';
+GuiduUI.displayName = 'GuiduUI';

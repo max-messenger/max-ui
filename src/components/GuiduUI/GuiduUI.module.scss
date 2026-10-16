@@ -3,7 +3,7 @@
 @use '../../styles/variables/appearance';
 @use '../../styles/variables/typography';
 
-.MaxUI {
+.GuiduUI {
   @include common.commonVariables;
 
   font-family: var(--family-base);
@@ -39,6 +39,6 @@
   }
 }
 
-:global(body).MaxUI_resetBody {
+:global(body).GuiduUI_resetBody {
   margin: 0;
 }

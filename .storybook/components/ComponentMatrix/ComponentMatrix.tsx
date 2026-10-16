@@ -1,7 +1,7 @@
 import { clsx } from 'clsx';
 import { type CSSProperties, type JSX, type ReactNode } from 'react';
 
-import { MaxUI } from '../../../src';
+import { GuiduUI } from '../../../src';
 import styles from './ComponentMatrix.module.scss';
 
 export type MatrixTheme = 'light' | 'dark';
@@ -28,7 +28,7 @@ export const ComponentMatrix = ({
 }: ComponentMatrixProps): JSX.Element => (
   <div className={styles.ComponentMatrix}>
     {themes.flatMap((theme) => platforms.map((platform) => (
-      <MaxUI
+      <GuiduUI
         className={styles.ComponentMatrix__environment}
         colorScheme={theme}
         key={`${theme}-${platform}`}
@@ -42,7 +42,7 @@ export const ComponentMatrix = ({
           </h2>
           {children({ theme, platform })}
         </section>
-      </MaxUI>
+      </GuiduUI>
     )))}
   </div>
 );

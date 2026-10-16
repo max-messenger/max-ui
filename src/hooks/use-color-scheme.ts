@@ -1,4 +1,4 @@
-import { useAppearance } from '../components/MaxUI/MaxUIContext';
+import { useAppearance } from '../components/GuiduUI/GuiduUIContext';
 import { type ColorSchemeType } from '../types';
 
 export const useColorScheme = (): ColorSchemeType => {

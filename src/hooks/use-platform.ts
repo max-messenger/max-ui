@@ -1,4 +1,4 @@
-import { useAppearance } from '../components/MaxUI/MaxUIContext';
+import { useAppearance } from '../components/GuiduUI/GuiduUIContext';
 import { type PlatformType } from '../types';
 
 export const usePlatform = (): PlatformType => {

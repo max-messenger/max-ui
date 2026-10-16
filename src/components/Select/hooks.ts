@@ -1,8 +1,8 @@
 import { clsx } from 'clsx';
 import { type KeyboardEvent, useCallback } from 'react';
 
-import maxUiStyles from '../MaxUI/MaxUI.module.scss';
-import { useAppearance } from '../MaxUI/MaxUIContext';
+import guiduUiStyles from '../GuiduUI/GuiduUI.module.scss';
+import { useAppearance } from '../GuiduUI/GuiduUIContext';
 import { findEnabledIndex } from './helpers';
 import { type SelectOption } from './types';
 
@@ -10,8 +10,8 @@ export const useAppearanceClassNames = (): string => {
   const { platform, colorScheme } = useAppearance();
 
   return clsx(
-    maxUiStyles[`MaxUI_colorScheme_${colorScheme}`],
-    maxUiStyles[`MaxUI_platform_${platform}`]
+    guiduUiStyles[`GuiduUI_colorScheme_${colorScheme}`],
+    guiduUiStyles[`GuiduUI_platform_${platform}`]
   );
 };
 
