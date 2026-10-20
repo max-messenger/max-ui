@@ -25,8 +25,8 @@ const meta = {
     (Story, context) => {
       const [open, setOpen] = useState(false);
 
-      return (
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: 24, flexDirection: 'column' }}>
+      const content = (
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', padding: 24 }}>
           <Button
             variant="secondary"
             size="small"
@@ -43,6 +43,24 @@ const meta = {
           />
         </div>
       );
+      if (context.viewMode === 'docs') {
+        return (
+          <div
+            style={{
+              position: 'relative',
+              width: '100%',
+              boxSizing: 'border-box',
+              height: 400,
+              overflow: 'hidden',
+              transform: 'translateZ(0)',
+            }}
+          >
+            {content}
+          </div>
+        );
+      }
+
+      return content;
     }
   ]
 } satisfies Meta<BottomSheetProps>;
@@ -93,7 +111,7 @@ export const WithoutTitle: Story = {
 
 export const WithMinHeight: Story = {
   args: {
-    minHeight: '50vh'
+    minHeight: '50%'
   },
   render: ({ ...args }) => {
     return (
@@ -108,7 +126,7 @@ export const WithMinHeight: Story = {
 
 export const WithoutDrag: Story = {
   args: {
-    minHeight: '50vh',
+    minHeight: '50%',
     enableDrag: false
   },
   render: ({ ...args }) => {
