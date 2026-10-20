@@ -6,6 +6,7 @@ export * from './CellHeader';
 export * from './CellInput';
 export * from './CellList';
 export * from './CellSimple';
+export * from './Checkbox';
 export * from './ContextMenu';
 export * from './Counter';
 export * from './IconButton';

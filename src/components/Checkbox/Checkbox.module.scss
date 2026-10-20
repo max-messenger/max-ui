@@ -1,0 +1,142 @@
+@use '../../styles/shared-mixins/typography';
+
+.Checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-size-s);
+}
+
+// [Parts] Control
+.Checkbox__control {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// [Parts] Input
+.Checkbox__input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  z-index: 1;
+}
+.Checkbox__input:not(:disabled) {
+  cursor: pointer;
+}
+.Checkbox__input:disabled {
+  cursor: not-allowed;
+}
+.Checkbox__input:focus-visible + .Checkbox__box {
+  outline: auto;
+  outline-offset: 2px;
+}
+
+// [Parts] Box
+.Checkbox__box {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--divider-secondary);
+  border-radius: var(--spacing-size-s);
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.Checkbox__box::after {
+  width: 8px;
+  height: 2px;
+  border-radius: 1px;
+  background-color: var(--icon-primary-inverse-static);
+  display: none;
+  content: '';
+}
+
+// [Parts] Icon
+.Checkbox__icon {
+  display: block;
+  flex-shrink: 0;
+  color: var(--icon-primary-inverse-static);
+  opacity: 0;
+  transform: scale(.5);
+}
+
+// [Parts] Content
+.Checkbox__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-size2xs);
+  min-width: 0;
+}
+.Checkbox__label {
+  @include typography.actionMedium;
+
+  color: var(--text-primary);
+}
+.Checkbox__caption {
+  @include typography.label;
+
+  color: var(--text-tertiary);
+}
+
+// [Properties] Animated
+.Checkbox_animated .Checkbox__box {
+  transition:
+    background-color 100ms ease-out,
+    border-color 100ms ease-out;
+}
+.Checkbox_animated .Checkbox__icon {
+  transition:
+    opacity 100ms ease-out,
+    transform 100ms ease-out;
+}
+
+// [States] Checked
+.Checkbox__input:checked + .Checkbox__box {
+  border-color: var(--controls-active);
+  background-color: var(--controls-active);
+}
+.Checkbox__input:checked + .Checkbox__box .Checkbox__icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+// [States] Indeterminate
+.Checkbox_indeterminate .Checkbox__input + .Checkbox__box {
+  border-color: var(--controls-active);
+  background-color: var(--controls-active);
+}
+.Checkbox_indeterminate .Checkbox__input + .Checkbox__box::after {
+  display: block;
+}
+.Checkbox_indeterminate .Checkbox__input + .Checkbox__box .Checkbox__icon {
+  display: none;
+}
+
+// [States] Disabled
+.Checkbox_disabled .Checkbox__label {
+  color: var(--states-text-primary-disabled);
+}
+.Checkbox_disabled .Checkbox__caption {
+  color: var(--states-text-tertiary-disabled);
+}
+.Checkbox__input:disabled + .Checkbox__box {
+  border-color: var(--states-controls-inactive-disabled);
+}
+.Checkbox__input:disabled:checked + .Checkbox__box,
+.Checkbox_indeterminate .Checkbox__input:disabled + .Checkbox__box {
+  border-color: var(--states-controls-active-disabled);
+  background-color: var(--states-controls-active-disabled);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .Checkbox_animated .Checkbox__box,
+  .Checkbox_animated .Checkbox__icon {
+    transition: none;
+  }
+}
