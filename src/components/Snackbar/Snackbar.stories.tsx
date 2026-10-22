@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import Icon28Placeholder from "@storybook-config/assets/icons/icon-28-placeholder.svg";
 import {resolveOptionalReactNode, selectControl} from '@storybook-config/shared';
 import { type ReactNode,useCallback } from 'react';
+import { expect, userEvent, within } from 'storybook/test';
 
 import { useSnackbar } from '../../hooks';
 import { Button } from '../Button';
@@ -164,4 +165,50 @@ export const WithAction: Story = {
       <WithActionTrigger />
     </SnackbarProvider>
   )
+};
+
+
+function FlushQueueTrigger() {
+  const { showSnackbar, flushSnackbars } = useSnackbar();
+
+  const showQueue = () => {
+    showSnackbar({ id: 'reusable', text: 'Первое уведомление', duration: 60000 });
+    showSnackbar({ id: 'second', text: 'Второе уведомление', duration: 60000 });
+    showSnackbar({ id: 'queued', text: 'Ожидающее уведомление', duration: 60000 });
+  };
+
+  const showAgain = () => {
+    showSnackbar({ id: 'reusable', text: 'Новое уведомление', duration: 60000 });
+  };
+
+  return (
+    <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+      <Button onClick={showQueue}>Показать очередь</Button>
+      <Button onClick={flushSnackbars}>Очистить очередь</Button>
+      <Button onClick={showAgain}>Показать снова</Button>
+    </div>
+  );
+}
+
+export const FlushQueue: Story = {
+  name: 'Очистка очереди',
+  render: () => (
+    <SnackbarProvider queueSize={2}>
+      <FlushQueueTrigger />
+    </SnackbarProvider>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(canvas.getByRole('button', { name: 'Показать очередь' }));
+    await expect(canvas.getAllByRole('status')).toHaveLength(2);
+    await expect(canvas.queryByText('Ожидающее уведомление')).toBeNull();
+
+    await userEvent.click(canvas.getByRole('button', { name: 'Очистить очередь' }));
+    await expect(canvas.queryAllByRole('status')).toHaveLength(0);
+    await expect(canvas.queryByText('Ожидающее уведомление')).toBeNull();
+
+    await userEvent.click(canvas.getByRole('button', { name: 'Показать снова' }));
+    await expect(canvas.getByText('Новое уведомление')).toBeTruthy();
+    await expect(canvas.getAllByRole('status')).toHaveLength(1);
+  }
 };

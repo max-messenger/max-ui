@@ -57,6 +57,13 @@ export function SnackbarProvider({
     );
   }, []);
 
+  const clearSnackbars = useCallback(() => {
+    for (const timer of timersRef.current.values()) clearTimeout(timer);
+    timersRef.current.clear();
+    // Ожидающие уведомления удаляем сразу: перевод в leaving вывел бы их на экран.
+    setQueue([]);
+  }, []);
+
   const removeSnackbar = useCallback((id: string) => {
     const timer = timersRef.current.get(id);
     if (timer) clearTimeout(timer);
@@ -108,8 +115,8 @@ export function SnackbarProvider({
   );
 
   const value = useMemo<SnackbarContextValue>(
-    () => ({ showSnackbar, closeSnackbar }),
-    [closeSnackbar, showSnackbar]
+    () => ({ showSnackbar, closeSnackbar, clearSnackbars }),
+    [closeSnackbar, showSnackbar, clearSnackbars]
   );
 
   return (
