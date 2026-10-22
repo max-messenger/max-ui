@@ -3,6 +3,16 @@
 Все заметные изменения этого проекта задокументированы в этом файле.
 Формат основан на [Conventional Commits](https://conventionalcommits.org).
 
+## [0.8.0](https://github.com/max-messenger/max-ui/compare/v0.7.0...v0.8.0) (2026-10-22)
+
+### ✨ Новые возможности
+
+* добавлена возможность очистки всех снекбаров ([21bf7f5](https://github.com/max-messenger/max-ui/commit/21bf7f53b84dff5bd8028091bef27153de4378e2))
+
+### 🛠 Прочее
+
+* Исправлен рендер Docs и точечно добавлен контейнер для BottomSheet ([bdbf1f3](https://github.com/max-messenger/max-ui/commit/bdbf1f3932fafbd42ce6bfd74d8ca06e5c2837c6))
+
 ## [0.7.0](https://github.com/max-messenger/max-ui/compare/v0.6.0...v0.7.0) (2026-10-14)
 
 ### ✨ Новые возможности
