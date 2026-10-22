@@ -46,4 +46,6 @@ export type CloseSnackbarCallback = (id: string) => void;
 export interface SnackbarContextValue {
   showSnackbar: ShowSnackbarCallback;
   closeSnackbar: CloseSnackbarCallback;
+  /** Сразу удаляет все уведомления, включая ожидающие, и отменяет их таймеры. */
+  clearSnackbars: () => void;
 }
