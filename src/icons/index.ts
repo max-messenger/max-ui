@@ -1,6 +1,7 @@
 import Icon16Check from './16-check.svg';
 import Icon16Chevron from './16-chevron.svg';
 import Icon16CloseIos from './16-close-ios.svg';
+import Icon16Info from './16-info.svg';
 import Icon16SearchOutline from './16-search-outline.svg';
 import Icon20CloseAndroid from './20-close-android.svg';
 import Icon20CloseFilled from './20-close-filled.svg';
@@ -10,8 +11,8 @@ export {
   Icon16Check,
   Icon16Chevron,
   Icon16CloseIos,
+  Icon16Info,
   Icon16SearchOutline,
   Icon20CloseAndroid,
   Icon20CloseFilled,
-  Icon24CloseAndroid
-};
+  Icon24CloseAndroid};
