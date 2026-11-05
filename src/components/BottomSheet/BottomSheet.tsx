@@ -20,6 +20,7 @@ export type BottomSheetProps = {
 }
 
 type Status = 'closed' | 'open' | 'exiting';
+const EXIT_DURATION = 250;
 
 export const BottomSheet = ({
   open, title, onClose, children, minHeight = 'auto', innerClassNames, enableDrag = true
@@ -71,6 +72,16 @@ export const BottomSheet = ({
       document.removeEventListener('keydown', handleKeyDown);
     };
   }, [status, onClose]);
+
+
+
+  useEffect(() => {
+    if (status !== 'exiting') {
+      return;
+    }
+    const timer = setTimeout(() => setStatus('closed'), EXIT_DURATION + 50);
+    return () => clearTimeout(timer);
+  }, [status]);
 
   const {
     dragging,
