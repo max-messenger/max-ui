@@ -3,6 +3,12 @@
 Все заметные изменения этого проекта задокументированы в этом файле.
 Формат основан на [Conventional Commits](https://conventionalcommits.org).
 
+## [0.9.1](https://github.com/max-messenger/max-ui/compare/v0.9.0...v0.9.1) (2026-11-05)
+
+### 🐛 Исправления
+
+* Исправлен баг анимаций BottomSheet ([eddc400](https://github.com/max-messenger/max-ui/commit/eddc4006f2178465dc750c5943a5668cbf9cf41f))
+
 ## [0.9.0](https://github.com/max-messenger/max-ui/compare/v0.8.0...v0.9.0) (2026-10-23)
 
 ### ✨ Новые возможности
