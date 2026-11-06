@@ -3,6 +3,12 @@
 Все заметные изменения этого проекта задокументированы в этом файле.
 Формат основан на [Conventional Commits](https://conventionalcommits.org).
 
+## [0.9.2](https://github.com/max-messenger/max-ui/compare/v0.9.1...v0.9.2) (2026-11-06)
+
+### 🐛 Исправления
+
+* Ослаблена строгость в peerDeps ([61b5f34](https://github.com/max-messenger/max-ui/commit/61b5f34bd0bc7da94e2e1cf15b7b0d37e3f568b8))
+
 ## [0.9.1](https://github.com/max-messenger/max-ui/compare/v0.9.0...v0.9.1) (2026-11-05)
 
 ### 🐛 Исправления
