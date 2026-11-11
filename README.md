@@ -140,7 +140,7 @@ createRoot(document.getElementById('root')).render(<Root />);
 | < Button style={{ color: \'red\' }} asChild ><br/>< button style={{ background: \'green\' }} ><br/>Кнопка<br/>< /button> | < /Button ><br/>< button class="btn-classes" style={{ color: \'red\', background: \'green\' }} ><br/>Я — кнопка<br/>< /button > |
 | | *упрощённое представление компонента |
 
-### Кастомизация компонентоваа
+### Кастомизация компонентов
 Библиотека предоставляет API для кастомизации, но не гарантирует отсутствие изменений в следующих мажорных версиях. Любая кастомизация компонентов — ответственность разработчика мини-приложения
 
 В MAX UI есть два способа кастомизации компонентов: переопределение CSS-переменных и свойство `innerClassNames`
